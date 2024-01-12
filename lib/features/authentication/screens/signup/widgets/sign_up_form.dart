@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medihealth/common/widgets/login_signup/login_footer.dart';
 import 'package:medihealth/common/widgets/login_signup/t_divider.dart';
+import 'package:medihealth/features/authentication/screens/signup/verify_email.dart';
 import 'package:medihealth/utils/constants/sizes.dart';
 import 'package:medihealth/utils/constants/text_strings.dart';
 
@@ -91,7 +93,7 @@ class SignUpForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () => Get.to(() => const VerifyEmail()),
               child: const Text(TTexts.createAccount),
             ),
           ),
