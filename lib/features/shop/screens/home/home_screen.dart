@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:medihealth/common/widgets/custom_shapes/containers/t_primary_header_container.dart';
 import 'package:medihealth/utils/constants/colors.dart';
+import 'package:medihealth/utils/constants/image_strings.dart';
+import 'package:medihealth/utils/constants/sizes.dart';
+import 'package:medihealth/utils/helpers/helper_functions.dart';
 
-import '../../../../common/widgets/custom_shapes/containers/t_circular_container.dart';
-import '../../../../common/widgets/custom_shapes/curved_edges/t_curved_edge_widget.dart';
+import '../../../../common/widgets/custom_shapes/containers/t_search_container.dart';
+import '../../../../common/widgets/image_text_widgets/t_vertical_image_text.dart';
+import '../../../../common/widgets/text/t_section_heading.dart';
+import 'widgets/t_home_app_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,34 +19,46 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TCurvedEdgeWidget(
-              child: Container(
-                color: TColors.primary,
-                padding: EdgeInsets.all(0),
-                child: SizedBox(
-                  height: 400,
-                  child: Stack(children: [
-                    Positioned(
-                      top: -200,
-                      right: -250,
-                      child: TCircularContainer(
-                        backgroundColor: TColors.white.withOpacity(0.1),
-                      ),
+            TPrimaryHeaderContainer(
+              child: Column(
+                children: [
+                  const THomeAppBar(),
+                  SizedBox(height: TSizes.spaceBtwSections),
+                  //Search Bar
+                  TSearchContainer(text: 'Search for products'),
+                  SizedBox(height: TSizes.spaceBtwSections),
+                  //Categories
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+                    child: Column(
+                      children: [
+                        TSectionHeading(
+                          title: 'Popular Categories',
+                          color: TColors.light,
+                          buttonTitle: 'View All',
+                          showButton: true,
+                        ),
+                        SizedBox(height: TSizes.spaceBtwItems),
+                        SizedBox(
+                          height: 80,
+                          child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: 10,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (_, index) {
+                                return TVerticalImageText(
+                                    title: 'Shoe category',
+                                    image: TImages.sportIcon,
+                                    textColor: TColors.white,
+                                    onTap: () {});
+                              }),
+                        )
+                      ],
                     ),
-                    Positioned(
-                      top: 100,
-                      right: -320,
-                      child: TCircularContainer(
-                        backgroundColor: TColors.white.withOpacity(0.1),
-                        radius: 200,
-                      ),
-                    ),
-                  ]),
-                ),
+                  ),
+                ],
               ),
-            ),
-            const Center(
-              child: Text('Home Screen'),
             ),
           ],
         ),
