@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medihealth/features/authentication/screens/home/home_screen.dart';
+import 'package:medihealth/features/shop/screens/home/home_screen.dart';
 import 'package:medihealth/utils/constants/colors.dart';
 import 'package:medihealth/utils/helpers/helper_functions.dart';
 
