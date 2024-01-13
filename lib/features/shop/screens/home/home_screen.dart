@@ -1,14 +1,17 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:medihealth/common/widgets/custom_shapes/containers/t_circular_container.dart';
 import 'package:medihealth/common/widgets/custom_shapes/containers/t_primary_header_container.dart';
 import 'package:medihealth/utils/constants/colors.dart';
 import 'package:medihealth/utils/constants/image_strings.dart';
 import 'package:medihealth/utils/constants/sizes.dart';
-import 'package:medihealth/utils/helpers/helper_functions.dart';
 
 import '../../../../common/widgets/custom_shapes/containers/t_search_container.dart';
-import '../../../../common/widgets/image_text_widgets/t_vertical_image_text.dart';
+import '../../../../common/widgets/images/t_rounded_image.dart';
 import '../../../../common/widgets/text/t_section_heading.dart';
 import 'widgets/t_home_app_bar.dart';
+import 'widgets/t_home_categories.dart';
+import 'widgets/t_promo_slider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,7 +28,10 @@ class HomeScreen extends StatelessWidget {
                   const THomeAppBar(),
                   SizedBox(height: TSizes.spaceBtwSections),
                   //Search Bar
-                  TSearchContainer(text: 'Search for products'),
+                  TSearchContainer(
+                    text: 'Search for products',
+                    onTap: () {},
+                  ),
                   SizedBox(height: TSizes.spaceBtwSections),
                   //Categories
                   Padding(
@@ -40,26 +46,26 @@ class HomeScreen extends StatelessWidget {
                           showButton: true,
                         ),
                         SizedBox(height: TSizes.spaceBtwItems),
-                        SizedBox(
-                          height: 80,
-                          child: ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: 10,
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (_, index) {
-                                return TVerticalImageText(
-                                    title: 'Shoe category',
-                                    image: TImages.sportIcon,
-                                    textColor: TColors.white,
-                                    onTap: () {});
-                              }),
-                        )
+                        THomeCategories(),
                       ],
                     ),
                   ),
                 ],
               ),
             ),
+
+            ///body
+
+            Padding(
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              child: TPromoSlider(
+                banners: [
+                  TImages.promoBanner1,
+                  TImages.promoBanner2,
+                  TImages.promoBanner3,
+                ],
+              ),
+            )
           ],
         ),
       ),
