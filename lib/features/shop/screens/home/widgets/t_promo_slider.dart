@@ -38,20 +38,22 @@ class TPromoSlider extends StatelessWidget {
           ),
         ),
         SizedBox(height: TSizes.spaceBtwItems),
-        Obx(
-          () => Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              for (int i = 0; i < banners.length; i++)
-                TCircularContainer(
-                  height: 4,
-                  width: 20,
-                  backgroundColor: controller.carouselCurrentIndex.value == i
-                      ? TColors.primary
-                      : TColors.grey,
-                  margin: EdgeInsets.only(right: 10),
-                )
-            ],
+        Center(
+          child: Obx(
+            () => Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                for (int i = 0; i < banners.length; i++)
+                  TCircularContainer(
+                    height: 4,
+                    width: 20,
+                    backgroundColor: controller.carouselCurrentIndex.value == i
+                        ? TColors.primary
+                        : TColors.grey,
+                    margin: EdgeInsets.only(right: 10),
+                  )
+              ],
+            ),
           ),
         )
       ],
