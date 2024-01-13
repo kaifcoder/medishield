@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medihealth/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:medihealth/features/authentication/screens/signup/signup_screen.dart';
 import 'package:medihealth/utils/constants/sizes.dart';
 import 'package:medihealth/utils/constants/text_strings.dart';
@@ -47,7 +48,8 @@ class LoginForm extends StatelessWidget {
                   ],
                 ),
                 TextButton(
-                    onPressed: () {}, child: const Text(TTexts.forgetPassword))
+                    onPressed: () => Get.to(() => ForgetPasswordScreen()),
+                    child: const Text(TTexts.forgetPassword))
               ],
             ),
             const SizedBox(
