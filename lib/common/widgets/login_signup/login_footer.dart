@@ -17,7 +17,7 @@ class LoginFooter extends StatelessWidget {
           onPressed: () {},
           child: Row(
             children: [
-              Image(
+              const Image(
                 image: AssetImage(TImages.google),
                 height: TSizes.iconMd,
                 width: TSizes.iconMd,

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medihealth/features/personalization/screens/settings/settings.dart';
 import 'package:medihealth/features/shop/screens/home/home_screen.dart';
+import 'package:medihealth/features/shop/screens/store/store.dart';
+import 'package:medihealth/features/shop/screens/wishlist/wishlist.dart';
 import 'package:medihealth/utils/constants/colors.dart';
 import 'package:medihealth/utils/helpers/helper_functions.dart';
 
@@ -52,15 +55,9 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    HomeScreen(),
-    Container(
-      color: Colors.blue,
-    ),
-    Container(
-      color: Colors.green,
-    ),
-    Container(
-      color: Colors.yellow,
-    ),
+    const HomeScreen(),
+    const StoreScreen(),
+    const WishListScreen(),
+    const SettingScreen(),
   ];
 }

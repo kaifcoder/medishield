@@ -5,7 +5,6 @@ import 'package:medihealth/common/widgets/custom_shapes/containers/t_circular_co
 import 'package:medihealth/common/widgets/images/t_rounded_image.dart';
 import 'package:medihealth/features/shop/controllers/home_controller.dart';
 import 'package:medihealth/utils/constants/colors.dart';
-import 'package:medihealth/utils/constants/image_strings.dart';
 import 'package:medihealth/utils/constants/sizes.dart';
 
 class TPromoSlider extends StatelessWidget {
@@ -37,7 +36,7 @@ class TPromoSlider extends StatelessWidget {
             onPageChanged: (index, _) => controller.updateCarouselIndex(index),
           ),
         ),
-        SizedBox(height: TSizes.spaceBtwItems),
+        const SizedBox(height: TSizes.spaceBtwItems),
         Center(
           child: Obx(
             () => Row(
@@ -50,7 +49,7 @@ class TPromoSlider extends StatelessWidget {
                     backgroundColor: controller.carouselCurrentIndex.value == i
                         ? TColors.primary
                         : TColors.grey,
-                    margin: EdgeInsets.only(right: 10),
+                    margin: const EdgeInsets.only(right: 10),
                   )
               ],
             ),

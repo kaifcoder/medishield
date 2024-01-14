@@ -1,0 +1,145 @@
+[
+    {
+        "id": 47027,
+        "image_url": "/a/s/asddafve.jpg",
+        "name": "Dr. Morepen Piripen - 20 DT",
+        "sku": "DRMXX00234",
+        "special_price": 920,
+        "url_key": "dr-morepen-piripen-20-dt",
+        "thumbnail_url": "/a/s/asddafve.jpg",
+        "short_description": "Piripen 20mg Tablet DT effectively relieves severe pain and reduces inflammation with personalized dosage and optimal absorption when taken with food.",
+        "type_id": "simple",
+        "manufacturer": "6799",
+        "average_rating": null,
+        "rating_count": null,
+        "is_in_stock": true,
+        "is_cod": "1",
+        "msrp": null,
+        "demo_available": "0",
+        "weight": null,
+        "max_sale_qty": 100,
+        "pd_expiry_date": "2024-12-31 00:00:00",
+        "dentalkart_custom_fee": 0,
+        "dispatch_days": 1284,
+        "reward_point_product": null,
+        "meta_title": "Dr. Morepen Piripen - 20 DT",
+        "meta_keyword": "Dr. Morepen Piripen - 20 DT",
+        "meta_description": "Dr. Morepen Piripen - 20 DT Dr. Morepen Piripen 20mg Tablet DT is a pain-relieving medication designed to alleviate moderate to severe pain associated with conditions like osteoarthritis and rheumatoid arthritis. This pharmaceutical formulation effectivel",
+        "price": {
+            "__typename": "ProductPrices",
+            "minimalPrice": {
+                "__typename": "Price",
+                "amount": {
+                    "__typename": "Money",
+                    "currency_symbol": "₹",
+                    "value": 920,
+                    "currency": "INR"
+                },
+                "adjustments": []
+            },
+            "maximalPrice": {
+                "__typename": "Price",
+                "amount": {
+                    "__typename": "Money",
+                    "currency_symbol": "₹",
+                    "value": 920,
+                    "currency": "INR"
+                },
+                "adjustments": []
+            },
+            "regularPrice": {
+                "__typename": "Price",
+                "amount": {
+                    "__typename": "Money",
+                    "currency_symbol": "₹",
+                    "value": 2260,
+                    "currency": "INR"
+                },
+                "adjustments": []
+            }
+        },
+        "tier_prices": [],
+        "media_gallery_entries": [
+            {
+                "__typename": "MediaGalleryEntry",
+                "id": 396209,
+                "media_type": "image",
+                "label": "Dr. Morepen Piripen - 20 DT",
+                "position": 1,
+                "disabled": false,
+                "types": [
+                    "image",
+                    "small_image",
+                    "thumbnail",
+                    "swatch_image"
+                ],
+                "file": "/a/s/asddafve.jpg",
+                "video_content": null
+            },
+            {
+                "__typename": "MediaGalleryEntry",
+                "id": 396210,
+                "media_type": "image",
+                "label": "Dr. Morepen Piripen - 20 DT",
+                "position": 2,
+                "disabled": false,
+                "types": [],
+                "file": "/f/d/fdsvfv.jpg",
+                "video_content": null
+            },
+            {
+                "__typename": "MediaGalleryEntry",
+                "id": 396211,
+                "media_type": "image",
+                "label": "Dr. Morepen Piripen - 20 DT",
+                "position": 3,
+                "disabled": false,
+                "types": [],
+                "file": "/f/d/fdgwrtg.jpg",
+                "video_content": null
+            },
+            {
+                "__typename": "MediaGalleryEntry",
+                "id": 396212,
+                "media_type": "image",
+                "label": "Dr. Morepen Piripen - 20 DT",
+                "position": 4,
+                "disabled": false,
+                "types": [],
+                "file": "/s/d/sdsd.jpg",
+                "video_content": null
+            }
+        ],
+        "categories": [
+            {
+                "__typename": "ProductCategoryData",
+                "name": "New Arrivals",
+                "level": 3,
+                "position": 7,
+                "url_path": "offer-zone/new-arrivals"
+            },
+            {
+                "__typename": "ProductCategoryData",
+                "name": "Dr. Morepen",
+                "level": 3,
+                "position": 383,
+                "url_path": "brands/dr-morepen"
+            },
+            {
+                "__typename": "ProductCategoryData",
+                "name": "Pharmacy",
+                "level": 2,
+                "position": 2,
+                "url_path": "pharmacy"
+            },
+            {
+                "__typename": "ProductCategoryData",
+                "name": "Analgesics, Antipyretics & Anti-Inflammatory",
+                "level": 3,
+                "position": 2,
+                "url_path": "pharmacy/analgesics"
+            }
+        ],
+       "Description" : "Dr. Morepen Piripen 20mg Tablet DT is a pain-relieving medication designed to alleviate moderate to severe pain associated with conditions like osteoarthritis and rheumatoid arthritis. This pharmaceutical formulation effectively targets pain and swelling in joints and muscles, contributing to improved comfort and mobility. To optimize the benefits of Piripen 20mg Tablet DT, it is recommended to take it with food. Doing so helps prevent potential stomach upset and ensures better absorption of the medication"
+    }
+]

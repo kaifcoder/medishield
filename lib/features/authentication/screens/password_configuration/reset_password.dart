@@ -22,10 +22,10 @@ class ResetPasswordScreen extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(TSizes.defaultSpace),
+        padding: const EdgeInsets.all(TSizes.defaultSpace),
         child: Column(children: [
           Image(
-            image: AssetImage(TImages.deliveredEmailIllustration),
+            image: const AssetImage(TImages.deliveredEmailIllustration),
             width: THelperFunctions.screenWidth() * 0.6,
           ),
           const SizedBox(
@@ -50,7 +50,7 @@ class ResetPasswordScreen extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () => Get.off(() => LoginScreen()),
+              onPressed: () => Get.off(() => const LoginScreen()),
               child: const Text(TTexts.done),
             ),
           ),

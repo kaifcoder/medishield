@@ -11,6 +11,9 @@ class TCurvedEdgeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipPath(clipper: TCustomCurvedEdges(), child: child);
+    return ClipPath(
+        clipBehavior: Clip.antiAlias,
+        clipper: TCustomCurvedEdges(),
+        child: child);
   }
 }

@@ -44,10 +44,10 @@ class Onboarding extends StatelessWidget {
 
           const OnboardingSkip(),
 
-          OnboardingDotNavigation(),
+          const OnboardingDotNavigation(),
 
           //Button to navigate to next page
-          OnboardingNextButton()
+          const OnboardingNextButton()
         ],
       ),
     );

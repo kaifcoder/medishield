@@ -68,4 +68,8 @@ class TTexts {
   // -- Home
   static const String homeAppbarTitle = "Good day for shopping";
   static const String homeAppbarSubTitle = "Mohd Kaif";
+
+  // -- URLs
+  static const String imagebaseURL =
+      "https://images.dentalkart.com/media/catalog/product";
 }

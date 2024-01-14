@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medihealth/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:medihealth/utils/constants/sizes.dart';
 
 class GridLayout extends StatelessWidget {
@@ -27,6 +26,7 @@ class GridLayout extends StatelessWidget {
       itemCount: itemCount,
       shrinkWrap: true,
       padding: EdgeInsets.zero,
+      // scrollDirection: scrollDirection,
       physics: const NeverScrollableScrollPhysics(),
     );
   }

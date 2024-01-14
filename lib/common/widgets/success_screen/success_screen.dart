@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:medihealth/common/styles/spacing_styles.dart';
 import 'package:medihealth/utils/constants/sizes.dart';
 import 'package:medihealth/utils/constants/text_strings.dart';

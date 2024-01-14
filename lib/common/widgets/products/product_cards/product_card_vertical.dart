@@ -4,12 +4,15 @@ import 'package:medihealth/common/styles/shadow.dart';
 import 'package:medihealth/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:medihealth/common/widgets/images/t_rounded_image.dart';
 import 'package:medihealth/utils/constants/colors.dart';
+import 'package:medihealth/utils/constants/enums.dart';
 import 'package:medihealth/utils/constants/image_strings.dart';
 import 'package:medihealth/utils/constants/sizes.dart';
 import 'package:medihealth/utils/helpers/helper_functions.dart';
 
 import '../../icons/t_circular_icon.dart';
+import '../../text/price_text.dart';
 import '../../text/product_title_text.dart';
+import '../../text/t_brand_title_text.dart';
 
 class ProductCardVertical extends StatelessWidget {
   const ProductCardVertical({super.key});
@@ -31,10 +34,10 @@ class ProductCardVertical extends StatelessWidget {
           children: [
             TRoundedContainer(
               height: 180,
-              padding: EdgeInsets.all(TSizes.sm),
+              padding: const EdgeInsets.all(TSizes.sm),
               backgroundColor: dark ? TColors.dark : TColors.light,
               child: Stack(children: [
-                TRoundedImage(imageUrl: TImages.productImage1),
+                const TRoundedImage(imageUrl: TImages.productImage1),
                 Positioned(
                   top: 12,
                   child: TRoundedContainer(
@@ -70,52 +73,51 @@ class ProductCardVertical extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ProductTitleText(
-                    title: 'Green Nike air shoes',
+                  const ProductTitleText(
+                    title: 'Green Nike air shoes adfasdfasdfadfadfsdfafasdfadf',
                     smallSize: true,
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems / 2),
-                  Row(
-                    children: [
-                      Text(
-                        'data',
-                        style: Theme.of(context).textTheme.labelMedium,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                      )
-                    ],
+                  TBrandTitleText(
+                    title: 'Nike',
+                    maxLines: 1,
+                    textColor: dark ? TColors.white : TColors.black,
+                    textAlign: TextAlign.start,
+                    brandTextSize: TextSizes.small,
                   ),
-                  // Spacer(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '₹ 2000',
-                        style: Theme.of(context).textTheme.headlineMedium,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                      ),
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: TColors.dark,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(TSizes.cardRadiusMd),
-                            bottomRight:
-                                Radius.circular(TSizes.productImageRadius),
-                          ), // BorderRadius.only
-                        ), // BoxDecoration
-                        child: const SizedBox(
-                          width: TSizes.iconLg * 1.2,
-                          height: TSizes.iconLg * 1.2,
-                          child: Center(
-                              child: Icon(Iconsax.add, color: TColors.white)),
-                        ),
-                      ),
-                    ],
-                  )
                 ],
               ),
             ),
+            const Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: const PriceText(
+                    price: '2000',
+                    maxLines: 1,
+                    isLarge: false,
+                    isLineThrough: false,
+                  ),
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                    color: TColors.dark,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(TSizes.cardRadiusMd),
+                      bottomRight: Radius.circular(TSizes.productImageRadius),
+                    ), // BorderRadius.only
+                  ), // BoxDecoration
+                  child: const SizedBox(
+                    width: TSizes.iconLg * 1.2,
+                    height: TSizes.iconLg * 1.2,
+                    child:
+                        Center(child: Icon(Iconsax.add, color: TColors.white)),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),

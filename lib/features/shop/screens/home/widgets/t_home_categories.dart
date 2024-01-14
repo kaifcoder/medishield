@@ -20,7 +20,8 @@ class THomeCategories extends StatelessWidget {
             return TVerticalImageText(
                 title: 'Shoe category',
                 image: TImages.sportIcon,
-                textColor: TColors.white,
+                textColor: TColors.dark,
+                backgroundColor: TColors.grey,
                 onTap: () {});
           }),
     );
