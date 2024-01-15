@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:medihealth/common/widgets/custom_shapes/containers/t_primary_header_container.dart';
 import 'package:medihealth/common/widgets/products/product_cards/product_card_vertical.dart';
 
-import 'package:medihealth/utils/constants/colors.dart';
 import 'package:medihealth/utils/constants/image_strings.dart';
 import 'package:medihealth/utils/constants/sizes.dart';
 import 'package:medihealth/utils/device/device_utility.dart';
@@ -50,10 +49,9 @@ class HomeScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
                 child: Column(
                   children: [
-                    SizedBox(height: TSizes.spaceBtwItems / 2),
+                    SizedBox(height: TSizes.spaceBtwSections),
                     TSectionHeading(
                       title: 'Popular Categories',
-                      color: TColors.dark,
                       buttonTitle: 'View All',
                       showButton: true,
                     ),

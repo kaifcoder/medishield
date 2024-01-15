@@ -92,9 +92,9 @@ class ProductCardVertical extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: const PriceText(
+                const Padding(
+                  padding: EdgeInsets.only(left: 8.0),
+                  child: PriceText(
                     price: '2000',
                     maxLines: 1,
                     isLarge: false,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medihealth/common/widgets/image_text_widgets/t_vertical_image_text.dart';
 import 'package:medihealth/utils/constants/colors.dart';
 import 'package:medihealth/utils/constants/image_strings.dart';
+import 'package:medihealth/utils/helpers/helper_functions.dart';
 
 class THomeCategories extends StatelessWidget {
   const THomeCategories({
@@ -20,8 +21,12 @@ class THomeCategories extends StatelessWidget {
             return TVerticalImageText(
                 title: 'Shoe category',
                 image: TImages.sportIcon,
-                textColor: TColors.dark,
-                backgroundColor: TColors.grey,
+                textColor: THelperFunctions.isDarkMode(context)
+                    ? TColors.white
+                    : TColors.black,
+                backgroundColor: THelperFunctions.isDarkMode(context)
+                    ? TColors.darkerGrey
+                    : TColors.white,
                 onTap: () {});
           }),
     );

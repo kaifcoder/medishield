@@ -4,7 +4,6 @@ import 'package:medihealth/common/widgets/appbar/appbar.dart';
 import 'package:medihealth/common/widgets/icons/t_circular_icon.dart';
 import 'package:medihealth/common/widgets/layouts/grid_layout.dart';
 import 'package:medihealth/common/widgets/products/product_cards/product_card_vertical.dart';
-import 'package:medihealth/utils/constants/colors.dart';
 import 'package:medihealth/utils/constants/sizes.dart';
 import 'package:medihealth/utils/helpers/helper_functions.dart';
 
@@ -35,7 +34,7 @@ class WishListScreen extends StatelessWidget {
             children: [
               GridLayout(
                 itemCount: 5,
-                itemBuilder: (context, index) => ProductCardVertical(),
+                itemBuilder: (context, index) => const ProductCardVertical(),
               ),
             ],
           ),

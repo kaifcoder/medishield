@@ -56,7 +56,11 @@ class BrandCard extends StatelessWidget {
                   ),
                   Text(
                     subtitle ?? 'Subtitle',
-                    style: Theme.of(context).textTheme.labelMedium,
+                    style: Theme.of(context).textTheme.labelMedium!.apply(
+                          color: THelperFunctions.isDarkMode(context)
+                              ? TColors.white
+                              : TColors.black,
+                        ),
                     overflow: TextOverflow.ellipsis,
                   )
                 ],

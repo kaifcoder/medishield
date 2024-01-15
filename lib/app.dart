@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: MediShieldTheme.lightTheme,
       darkTheme: MediShieldTheme.darkTheme,
       home: const Onboarding(),
