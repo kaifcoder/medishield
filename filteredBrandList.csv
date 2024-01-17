@@ -1,0 +1,242 @@
+_id,id,name,brand_id,category_id,logo,featured,url_path
+65a57191eefeb27762b8732e,122,iDENTical,1203,1301,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/iDENTical.jpg,0,brands/identical
+65a57191eefeb27762b8732f,402,Dr. Morepen,6799,1538,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dr.-morepen.jpg,0,brands/dr-morepen
+65a57191eefeb27762b87330,421,Waldent Instruments,6818,1227,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/waldent_fine_instrument.png,0,brands/waldent-instruments
+65a57191eefeb27762b87331,279,Waldent,292,607,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/waldent.png,0,brands/waldent
+65a57191eefeb27762b87332,107,GC,16,522,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/gc.png,1,brands/gc
+65a57191eefeb27762b87333,328,SuperEndo,1266,1412,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/super_endo_logo_1_.jpg,1,brands/superendo
+65a57191eefeb27762b87334,1596,Russia TOR VM,6903,1696,https://images.dentalkart.com/dt-media/prd/brandpage/images/80x50.jpg,0,brands/russia-tor-vm
+65a57191eefeb27762b87335,70,Dentsply,15,515,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dentsply.jpg,1,brands/dentsply
+65a57191eefeb27762b87336,151,Mani,18,534,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/mani-2.jpg,0,brands/mani
+65a57191eefeb27762b87337,281,Woodpecker,51,565,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/woodpecker.png,1,brands/woodpecker
+65a57191eefeb27762b87338,108,GDC,17,523,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/gdc.png,1,brands/gdc
+65a57191eefeb27762b87339,1539,Oracraft,319,1349,https://images.dentalkart.com/dt-media/prd/brandpage/images/oradental-logo.jpg,0,brands/ora-craft
+65a57191eefeb27762b8733a,1555,JULL-DENT,6867,1644,https://images.dentalkart.com/dt-media/brandpage/images/Julldent.jpg,0,brands/jull-dent
+65a57191eefeb27762b8733b,1557,SHINING 3D,6869,1646,https://images.dentalkart.com/dt-media/brandpage/images/Shining.jpg,0,brands/shining-3d
+65a57191eefeb27762b8733c,1566,KometaBio,6878,1661,https://images.dentalkart.com/dt-media/brandpage/images/rtffedd554.jpg,0,brands/kometabio
+65a57191eefeb27762b8733d,1574,Wagotrix,6884,1677,https://images.dentalkart.com/dt-media/brandpage/images/wssedd.jpg,0,brands/tor-vm/wagotrix
+65a57191eefeb27762b8733e,1575,Kenda,6885,1678,https://images.dentalkart.com/dt-media/brandpage/images/rstdu.jpg,0,brands/kenda
+65a57191eefeb27762b8733f,1579,Physics Forceps,6889,1682,https://images.dentalkart.com/dt-media/brandpage/images/weddrff.jpg,0,brands/physics-forceps
+65a57191eefeb27762b87340,1584,Ardent,6894,1687,https://images.dentalkart.com/dt-media/brandpage/images/ardent.jpg,0,brands/ardent
+65a57191eefeb27762b87341,1587,UPCERA,6897,1690,https://images.dentalkart.com/dt-media/brandpage/images/Untitled-3 (2).jpg,0,brands/upcera
+65a57191eefeb27762b87342,1595,Garrison Dental,6902,1695,https://images.dentalkart.com/dt-media/brandpage/images/Garrison Logo.jpg,0,brands/garrison-dental
+65a57191eefeb27762b87343,1598,Wismy,6905,1698,https://images.dentalkart.com/dt-media/prd/brandpage/images/wismy logo.jpg,0,brands/wismy
+65a57191eefeb27762b87344,1603,Rubydent,6910,1703,https://images.dentalkart.com/dt-media/prd/brandpage/images/eccfrt.jpg,0,brands/rubydent
+65a57191eefeb27762b87345,1605,Perfect,6913,1706,https://images.dentalkart.com/dt-media/prd/brandpage/images/download.png,0,brands/perfect
+65a57191eefeb27762b87346,1610,Prime Ortho,1147,1468,https://images.dentalkart.com/dt-media/prd/brandpage/images/prime ortho2.jpg,0,brands/prime-ortho
+65a57191eefeb27762b87347,1611,Oracura,6918,1711,https://images.dentalkart.com/dt-media/prd/brandpage/images/oracura.jpg,0,brands/oracura
+65a57191eefeb27762b87348,1612,SafeEndo,6919,1712,https://images.dentalkart.com/dt-media/prd/brandpage/images/ser.jpg,0,brands/safeendo
+65a57191eefeb27762b87349,1613,OrthoDent,6920,1713,https://images.dentalkart.com/dt-media/prd/brandpage/images/Untitled-4 (1).jpg,0,brands/orthodent
+65a57191eefeb27762b8734a,1620,MARUCHI,6927,1722,https://images.dentalkart.com/dt-media/prd/brandpage/images/Maruchi logo.jpg,0,brands/maruchi
+65a57191eefeb27762b8734b,1623,Geistlich,6930,1726,https://images.dentalkart.com/dt-media/prd/brandpage/images/546.jpg,0,brands/geistlich
+65a57191eefeb27762b8734c,1628,Hygedent,6935,1735,https://images.dentalkart.com/dt-media/prd/brandpage/images/Hygedent.jpg,0,brands/hygedent
+65a57191eefeb27762b8734d,1633,IndoSurgicals,6940,1742,https://images.dentalkart.com/dt-media/prd/brandpage/images/awesfc.jpg,0,brands/indosurgicals
+65a57191eefeb27762b8734e,1638,Sanctuary,6943,1755,https://images.dentalkart.com/dt-media/prd/brandpage/images/Sanctuary logo.jpg,0,brands/sanctuary
+65a57191eefeb27762b8734f,1641,Dontics,544,1874,https://images.dentalkart.com/dt-media/prd/brandpage/images/adfvaerf.jpg,0,brands/dontics
+65a57191eefeb27762b87350,1644,Nineten,550,1905,https://images.dentalkart.com/dt-media/prd/brandpage/images/2ssed.jpg,0,brands/nineten
+65a57191eefeb27762b87351,1645,Aquapick,551,1906,https://images.dentalkart.com/dt-media/prd/brandpage/images/Brand.jpg,0,brands/aquapick
+65a57191eefeb27762b87352,1648,Arum,554,1909,https://images.dentalkart.com/dt-media/prd/brandpage/images/logo (2).jpg,0,brands/arum
+65a57191eefeb27762b87353,1649,Riton,555,1911,https://images.dentalkart.com/dt-media/prd/brandpage/images/Riton.jpg,0,brands/riton
+65a57191eefeb27762b87354,1653,ALUWAX DENTAL PRODUCTS,558,1914,https://images.dentalkart.com/dt-media/prd/brandpage/images/Aluwax (1).jpg,0,brands/aluwax-dental-products
+65a57191eefeb27762b87355,1655,Xpedent,560,1916,https://images.dentalkart.com/dt-media/prd/brandpage/images/logo New Brand.jpg,0,brands/xpedent
+65a57191eefeb27762b87356,1660,Labodent,565,1929,https://images.dentalkart.com/dt-media/prd/brandpage/images/Labodent 80x50-01.jpg,0,brands/labodent
+65a57191eefeb27762b87357,1661,S.K. Surgicals,566,1930,https://images.dentalkart.com/dt-media/prd/brandpage/images/SK surgicals logo.jpg,0,brands/s-k-surgicals
+65a57191eefeb27762b87358,1662,Jaypee Medical Publishers,567,1932,https://images.dentalkart.com/dt-media/prd/brandpage/images/Artboard-1.jpg,0,brands/jaypee-medical-publishers
+65a57191eefeb27762b87359,1669,Trooth,6955,1941,,0,brands/trooth
+65a57191eefeb27762b8735a,1,3A Medes,1201,1329,https://images.dentalkart.com/dt-media/brandpage/images/3A Medes.jpg,0,brands/3a
+65a57191eefeb27762b8735b,2,3M ESPE,24,495,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/3M ESPE.jpg,0,brands/3m-espe
+65a57191eefeb27762b8735c,3,3M Unitek,124,1201,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/3M Unitek.jpg,0,brands/3m-unitek
+65a57191eefeb27762b8735d,5,A.J. Wilcock,522,631,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/A.J. Wilcock.png,0,brands/a-j-wilcock
+65a57191eefeb27762b8735e,7,Acteon,81,568,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Acteon.jpg,0,brands/acteon-dental-equipments
+65a57191eefeb27762b8735f,9,Advanced Biotech,502,715,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Advanced Biotech.jpg,0,brands/advanced-biotech-dental-products
+65a57191eefeb27762b87360,11,Aidite,1145,1193,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/aidite.png,0,brands/aidite
+65a57191eefeb27762b87361,19,API,70,500,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/api.jpg,0,brands/api-dental-instruments
+65a57191eefeb27762b87362,20,APL,904,1053,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/APL.jpeg,0,brands/apl
+65a57191eefeb27762b87363,21,Apple Dental,142,918,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Apple Dental.png,0,brands/apple-dental
+65a57191eefeb27762b87364,29,Baolai Medical,540,640,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Baolai Medical.png,0,brands/baolai-medical
+65a57191eefeb27762b87365,30,Baot,1172,1272,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Baot.jpg,0,brands/baot
+65a57191eefeb27762b87366,31,Bausch,525,634,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Bausch.jpg,0,brands/bausch
+65a57191eefeb27762b87367,32,Bego,1194,1282,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/bego.png,0,brands/bego
+65a57191eefeb27762b87368,33,Being Foshan,49,502,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Being Foshan.jpg,0,brands/being-foshan-dental-handpieces
+65a57191eefeb27762b87369,36,Bien Air,509,697,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Bien Air.png,0,brands/bien-air
+65a57191eefeb27762b8736a,37,Bio-Art,1139,1192,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Bio-art.jpg,0,brands/bio-art
+65a57191eefeb27762b8736b,38,Biolase,121,729,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/biolase.jpg,0,brands/biolase-dental-products
+65a57191eefeb27762b8736c,43,Bonart,1132,1136,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/bonart.png,0,brands/bonart
+65a57191eefeb27762b8736d,44,Capri,22,504,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/capri.jpg,0,brands/capri-dental-disposables
+65a57191eefeb27762b8736e,45,Captain Ortho,73,505,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Captain Ortho.jpg,0,brands/captainortho-dental-products
+65a57191eefeb27762b8736f,47,Carestream,37,506,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/carestream.jpg,0,brands/carestream-dental-products
+65a57191eefeb27762b87370,48,CAT,62,507,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/cat.png,0,brands/cat-dental-instruments
+65a57191eefeb27762b87371,49,Centrino,144,635,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/centirologo54.jpg,0,brands/centrino
+65a57191eefeb27762b87372,50,Chinese,44,508,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/chinese.jpg,0,brands/chinese-dental-products
+65a57191eefeb27762b87373,51,Cologenesis Healthcare,145,1042,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Cologenesis Healthcare.jpg,0,brands/cologenesis-healthcare
+65a57191eefeb27762b87374,52,Coltene Whaledent,20,509,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Coltene Whaledent.jpg,0,brands/coltene-whaledent-dental-products
+65a57191eefeb27762b87375,56,Cotisen,1138,1185,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/cotisen.jpg,0,brands/cotisen
+65a57191eefeb27762b87376,57,Coxo,95,510,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/coxo.jpg,0,brands/coxo-dental-products
+65a57191eefeb27762b87377,59,D-Tech,47,511,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/D-Tech.png,0,brands/dtech-demtal-material
+65a57191eefeb27762b87378,65,Dentaids,94,512,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dent-aids.jpg,0,brands/dentaids-dental-products
+65a57191eefeb27762b87379,67,Avue,45,513,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/avue_1.jpg,0,brands/dental-avenue-dental-products
+65a57191eefeb27762b8737a,68,Dentalfilm,149,1333,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dentalfilm.jpg,0,brands/dentalfilm
+65a57191eefeb27762b8737b,69,Dentaurum,80,514,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dentaurum.jpg,0,brands/dentarum-orthodontic-material
+65a57191eefeb27762b8737c,72,Detax,79,516,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/detax.png,0,brands/detax-dental-products
+65a57191eefeb27762b8737d,73,Diadent,29,517,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/diadent.png,0,brands/diadent-dental-products
+65a57191eefeb27762b8737e,76,DMG,28,518,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dmg.png,0,brands/dmg-dental-products
+65a57191eefeb27762b8737f,78,UU Orthodontics,918,1112,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/uu-ortho.jpg,0,brands/double-uu-orthodontics
+65a57191eefeb27762b87380,79,DPI,23,519,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dpi.png,0,brands/dpi
+65a57191eefeb27762b87381,82,Durr Dental,110,574,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Durr dental.png,0,brands/durr-dental
+65a57191eefeb27762b87382,83,Kids E-Dental,1190,1299,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/E-Dental.jpg,0,brands/e-dental
+65a57191eefeb27762b87383,85,Ecodent,1193,1298,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ecodent.jpg,0,brands/ecodent
+65a57191eefeb27762b87384,86,EdgeEndo,1188,1296,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/EdgeEndo.png,0,brands/edgeendo
+65a57191eefeb27762b87385,87,Eighteeth,1154,1229,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/eighteeth.png,0,brands/eighteeth
+65a57191eefeb27762b87386,88,Eltee,78,520,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/eltee.jpg,0,brands/eltee
+65a57191eefeb27762b87387,89,EMS,1140,1189,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/EMS.jpg,0,brands/ems
+65a57191eefeb27762b87388,91,Endostar,1162,1293,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Endostar.png,0,brands/endostar
+65a57191eefeb27762b87389,92,Ethicon,109,575,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ethicon.png,0,brands/ethicon
+65a57191eefeb27762b8738a,95,EVE,1155,1231,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/eve.png,0,brands/eve
+65a57191eefeb27762b8738b,97,FGM,293,682,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/fgm.jpg,0,brands/fgm
+65a57191eefeb27762b8738c,99,FKG,746,923,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/fkg.jpg,0,brands/fkg
+65a57191eefeb27762b8738d,106,Galaxy,154,1320,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/galaxy.jpg,0,brands/galaxy
+65a57191eefeb27762b8738e,110,Genoray,516,718,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/genoray.png,0,brands/genoray
+65a57191eefeb27762b8738f,111,Gnatus,325,683,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/gnatus.png,0,brands/gnatus
+65a57191eefeb27762b87390,114,Hahnenkratt,800,967,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Hahnenkratt.gif,0,brands/hahnenkratt
+65a57191eefeb27762b87391,117,Heraeus-Kulzer,69,524,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Heraeus-Kulzer.png,0,brands/heraeus
+65a57191eefeb27762b87392,118,Hu-friedy,83,525,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Hu-Friedy.png,0,brands/hufriedy
+65a57191eefeb27762b87393,121,icpa,58,526,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/icpa.png,0,brands/icpa
+65a57191eefeb27762b87394,123,Ids Denmed,107,578,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ids-denmed.jpg,0,brands/ids-denmed
+65a57191eefeb27762b87395,124,Indian,140,675,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/indian.jpg,0,brands/indian
+65a57191eefeb27762b87396,128,Itena,127,1202,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/itena.jpg,0,brands/itena
+65a57191eefeb27762b87397,129,Ivoclar Vivadent,32,527,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Ivoclar Vivadent.png,0,brands/ivoclar
+65a57191eefeb27762b87398,130,J-morita,88,528,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/J-Morita.jpg,0,brands/jmorita
+65a57191eefeb27762b87399,133,Kalabhai,106,1339,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Kalabhai.jpg,0,brands/kalabhai
+65a57191eefeb27762b8739a,134,Kavo,71,530,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/kavo.png,0,brands/kavo
+65a57191eefeb27762b8739b,136,kerr,50,531,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/kerr.png,0,brands/kerr
+65a57191eefeb27762b8739c,141,Kuraray,321,1032,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Kuraray.jpg,0,brands/kuraray
+65a57191eefeb27762b8739d,142,Lab Master,1168,1261,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Lab Master.gif,0,brands/lab-master
+65a57191eefeb27762b8739e,144,Lascod,531,645,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/lascod.png,0,brands/lascod
+65a57191eefeb27762b8739f,146,Leone,64,533,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/leone.jpg,0,brands/leone
+65a57191eefeb27762b873a0,147,Libral,157,644,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/libral.png,0,brands/libral
+65a57191eefeb27762b873a1,148,Life Steriware,105,731,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/life-steriware.jpg,0,brands/life-steriware
+65a57191eefeb27762b873a2,150,MAARC,320,915,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/maarc.png,0,brands/maarc
+65a57191eefeb27762b873a3,152,Marathon,42,535,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/marathon.png,0,brands/marathon
+65a57191eefeb27762b873a4,155,MDM,54,536,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/mdm.jpg,0,brands/mdm
+65a57191eefeb27762b873a5,156,Medicept,61,537,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/medicept.jpg,0,brands/medicept
+65a57191eefeb27762b873a6,157,Meditrix,171,1353,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/meditrix.jpg,0,brands/meditrix
+65a57191eefeb27762b873a7,160,Meta Biomed,19,580,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Meta Biomed.jpg,0,brands/metabiomed
+65a57191eefeb27762b873a8,161,micro-mega,89,538,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Micro-Mega.png,0,brands/micro-mega
+65a57191eefeb27762b873a9,162,Microdont,1164,1288,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/microdont.png,0,brands/microdont
+65a57191eefeb27762b873aa,164,modern-orthodontics,1117,539,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/modern-orthodontics.png,0,brands/modernorthodontics
+65a57191eefeb27762b873ab,166,Morelli,912,1078,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/morelli.png,0,brands/morelli
+65a57191eefeb27762b873ac,175,NeoEndo,1153,1228,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/NeoEndo.png,0,brands/neoendo
+65a57191eefeb27762b873ad,177,Neosilk,1159,1244,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/neosilk.png,0,brands/neosilk
+65a57191eefeb27762b873ae,178,nexobio,74,541,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/nexobio.png,0,brands/nexobio
+65a57191eefeb27762b873af,179,Nordin,103,1355,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/nordin.jpg,0,brands/nordin
+65a57191eefeb27762b873b0,180,NovaBone,102,1356,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/novabone.jpg,0,brands/novabone
+65a57191eefeb27762b873b1,181,NSK,38,542,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/nsk.png,0,brands/nsk
+65a57191eefeb27762b873b2,186,ormco,82,543,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ormco.jpg,0,brands/ormco
+65a57191eefeb27762b873b3,187,oro,123,544,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/oro.png,0,brands/oro
+65a57191eefeb27762b873b4,192,orthocare,119,592,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Orthocare.png,0,brands/orthocare
+65a57191eefeb27762b873b5,193,orthosource,87,545,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/OrthoSource.png,0,brands/orthosource
+65a57191eefeb27762b873b6,195,pd,65,547,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/pd.jpg,0,brands/pd
+65a57191eefeb27762b873b7,197,premier dental,101,573,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Premier Dental.jpg,0,brands/premier-dental
+65a57191eefeb27762b873b8,199,Prevest Denpro,39,549,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Prevest Denpro.jpg,0,brands/prevestdenpro
+65a57191eefeb27762b873b9,200,prima dental,59,583,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Prima Dental.png,0,brands/prima-dental
+65a57191eefeb27762b873ba,202,prime-dental,118,550,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/prime-dental.png,0,brands/prime
+65a57191eefeb27762b873bb,203,Pulpdent,561,707,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Pulpdent.jpg,0,brands/pulpdent
+65a57191eefeb27762b873bc,205,Pyrax,163,1132,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/pyrax.png,0,brands/pyrax
+65a57191eefeb27762b873bd,207,rabbit-force,63,551,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Rabbit-Force.jpg,0,brands/rabbit
+65a57191eefeb27762b873be,211,Refine,1156,1233,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/refine.png,0,brands/refine
+65a57191eefeb27762b873bf,212,Renfert,1169,1262,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/renfert.jpg,0,brands/renfert
+65a57191eefeb27762b873c0,213,Ribbond,1018,1123,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Ribbond.jpg,0,brands/ribbond
+65a57191eefeb27762b873c1,214,Rolex,580,765,https://images.dentalkart.com/dt-media/prd/brandpage/images/unnamed.jpg,0,brands/rolex
+65a57191eefeb27762b873c2,217,Ruby,1184,1277,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ruby.jpg,0,brands/ruby
+65a57191eefeb27762b873c3,218,Runyes,115,687,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/runyes.jpg,0,brands/runyes
+65a57191eefeb27762b873c4,220,Ruthinium,164,1129,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ruthinium.png,0,brands/ruthinium
+65a57191eefeb27762b873c5,221,Saeshin,415,698,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/saeshin.png,0,brands/saeshin
+65a57191eefeb27762b873c6,222,Safe-Med,100,1753,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/safemed.jpg,0,brands/safe-med
+65a57191eefeb27762b873c7,225,Samit Products,382,684,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Samit Products.jpg,0,brands/samit
+65a57191eefeb27762b873c8,228,Scheu,68,552,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/scheu.png,0,brands/scheu-dental
+65a57191eefeb27762b873c9,229,sdi,27,553,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/sdi.png,0,brands/pola
+65a57191eefeb27762b873ca,230,septodont,31,554,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Septodont.png,0,brands/septodent
+65a57191eefeb27762b873cb,232,shofu,14,555,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/shofu.jpg,0,brands/shofu
+65a57191eefeb27762b873cc,233,shree,85,556,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/shree_logo.jpg,0,brands/shree
+65a57191eefeb27762b873cd,234,sirona,53,557,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/sirona.png,0,brands/sirona
+65a57191eefeb27762b873ce,235,Sk-Dent,99,1341,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Sk-Dent.png,0,brands/sk-dent
+65a57191eefeb27762b873cf,236,Soflex Dental,1141,1187,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Soflex Dental.PNG,0,brands/soflex-dental
+65a57191eefeb27762b873d0,237,ss-white,30,558,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/SS-White.png,0,brands/sswhite
+65a57191eefeb27762b873d1,240,Stim,117,1031,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/stim.png,0,brands/stim
+65a57191eefeb27762b873d2,241,Strauss,545,696,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/strauss.png,0,brands/strauss
+65a57191eefeb27762b873d3,243,Sun Medical,551,699,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Sun Medical.jpg,0,brands/sun-medical
+65a57191eefeb27762b873d4,244,Sure Endo,503,926,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Sure Endo.png,0,brands/sure-endo
+65a57191eefeb27762b873d5,245,Sybron Endo,98,1225,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Sybron Endo.png,0,brands/sybron-endo
+65a57191eefeb27762b873d6,246,syden,93,559,https://images.dentalkart.com/dt-media/prd/brandpage/images/Syden Brand Logo.jpg,0,brands/syden
+65a57191eefeb27762b873d7,248,Tehno Dent,916,1103,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Tehno Dent.png,0,brands/tehno-dent
+65a57191eefeb27762b873d8,251,Thomas,1160,1245,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/thomas.png,0,brands/thomas
+65a57191eefeb27762b873d9,252,Toboom,902,1046,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/toboom.png,0,brands/toboom
+65a57191eefeb27762b873da,255,Top Dent,174,928,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Top Dent.jpg,0,brands/top-dent
+65a57191eefeb27762b873db,257,tornado,72,560,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/tornado.jpg,0,brands/tornado
+65a57191eefeb27762b873dc,258,Tp-Ortho,86,1350,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Tp-Ortho.png,0,brands/tp-ortho
+65a57191eefeb27762b873dd,260,Tri-Hawk,585,913,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Tri-Hawk.jpg,0,brands/tri-hawk
+65a57191eefeb27762b873de,261,Trisa,542,1026,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/TRISA.jpg,0,brands/trisa
+65a57191eefeb27762b873df,264,U Orthodontics,1134,1184,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/1542.jpg,0,brands/u-orthodontics
+65a57191eefeb27762b873e0,265,ultradent,40,562,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ultradent.png,0,brands/ultradent
+65a57191eefeb27762b873e1,266,Unicorn Denmart,152,1340,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Unicorn Denmart.png,0,brands/unicorn-denmart
+65a57191eefeb27762b873e2,267,Unident,1151,1223,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/unident.png,0,brands/unident
+65a57191eefeb27762b873e3,268,Unique,748,924,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/unique.jpg,0,brands/unique
+65a57191eefeb27762b873e4,269,Vatech,165,1106,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/vatech.png,0,brands/vatech
+65a57191eefeb27762b873e5,270,VDW,139,1183,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/vdw.png,0,brands/vdw
+65a57191eefeb27762b873e6,275,vita,43,497,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/vita.jpg,0,brands/vita
+65a57191eefeb27762b873e7,276,Vmax,1204,714,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/vmax.jpg,0,brands/vmax
+65a57191eefeb27762b873e8,277,Voco,55,564,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Voco.jpg,0,brands/voco
+65a57191eefeb27762b873e9,278,W&H,137,703,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/W&H.png,0,brands/w-h
+65a57191eefeb27762b873ea,280,waterpik,114,598,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Waterpik.png,0,brands/waterpik
+65a57191eefeb27762b873eb,285,Zhermack,56,567,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/zhermack.png,0,brands/zhermack
+65a57191eefeb27762b873ec,286,Zoom,90,548,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/zoom.png,0,brands/zoom
+65a57191eefeb27762b873ed,291,Cerkamed,1210,1311,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/cerkamed.png,0,brands/cerkamed
+65a57191eefeb27762b873ee,292,Wizdent,1211,1316,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/wizdent.jpg,0,brands/wizdent
+65a57191eefeb27762b873ef,295,Premadent,1228,1314,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/premadent.jpg,0,brands/premadent
+65a57191eefeb27762b873f0,296,Abgel,1229,1303,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/abgel.jpg,0,brands/abgel-dental
+65a57191eefeb27762b873f1,298,Anand,1235,1318,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Anand.png,0,brands/anand
+65a57191eefeb27762b873f2,309,Zirc,1246,1343,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/zircd.jpg,0,brands/zirc
+65a57191eefeb27762b873f3,316,EiTi,1254,1367,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/02863614-f08d-4b9e-bf4f-1cae0f19e686.jpg,0,brands/eiti
+65a57191eefeb27762b873f4,320,Andent,1258,1379,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/andentlogo1.jpg,0,brands/andent
+65a57191eefeb27762b873f5,322,Jaypee,1260,1403,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/jaypeeelogo.jpg,0,brands/jaypee
+65a57191eefeb27762b873f6,323,Rocky Mountain Orthodontics,1261,1404,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/rmologo11.jpg,0,brands/rocky-mountain-orthodontics
+65a57191eefeb27762b873f7,327,Lifeline,1265,1426,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/lifelinelogo.jpg,0,brands/brands-lifeline
+65a57191eefeb27762b873f8,329,Dentalfarm,1267,1413,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dentalfarm343.jpg,0,brands/dentalfarm
+65a57191eefeb27762b873f9,331,Meta Ergonomica,1269,1415,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/metalogo.jpg,0,brands/meta-ergonomica
+65a57191eefeb27762b873fa,335,Bomedent,1273,1428,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/bomedentlogo.jpg,0,brands/bomedent
+65a57191eefeb27762b873fb,336,DFS,1274,1429,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dfslogo2.jpg,0,brands/dfs
+65a57191eefeb27762b873fc,337,NewDiamond,1275,1430,https://images.dentalkart.com/dt-media/brandpage/images/new diamond.jpg,0,brands/neodiamond
+65a57191eefeb27762b873fd,338,Viva,1276,1432,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/vivabrand.jpg,0,brands/viva
+65a57191eefeb27762b873fe,340,E-Pros,1278,1434,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ehors.jpg,0,brands/e-pros
+65a57191eefeb27762b873ff,344,Major,1281,1437,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/major4.jpg,0,brands/major
+65a57191eefeb27762b87400,355,Indoco Remedies,1298,1461,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/indoco.jpg,0,brands/indoco-remedies
+65a57191eefeb27762b87401,357,Api+,1300,1464,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/apiplus1.jpg,0,brands/api-dental2
+65a57191eefeb27762b87402,359,UDG,1302,1467,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/udglogo9.jpg,0,brands/udg
+65a57191eefeb27762b87403,366,3M,6764,1499,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/3m-logo_1_.jpg,0,brands/3m-dental-brand
+65a57191eefeb27762b87404,368,Globus Spirits,6766,1501,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/globus_spirits.jpg,0,brands/globus-spirits
+65a57191eefeb27762b87405,384,Indident Life,6781,1519,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/indident-life.jpg,0,brands/indident-life
+65a57191eefeb27762b87406,387,Naulakha,6784,1522,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/naulakha.jpg,0,brands/naulakha
+65a57191eefeb27762b87407,389,SD Biosensor,6786,1524,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/sd-biosensor.jpg,0,brands/sd-biosensor
+65a57191eefeb27762b87408,394,Pink Plums,6791,1530,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/pink-pulp.jpg,0,brands/pink-plums
+65a57191eefeb27762b87409,397,Alpine,6794,1533,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/alpine_1_.jpg,0,brands/alpine
+65a57191eefeb27762b8740a,404,MIK,6801,1541,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/mik.jpg,0,brands/mik
+65a57191eefeb27762b8740b,405,Nulife,6802,1542,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/whatsapp_image_2020-09-11_at_16.49.32_1.jpeg,0,brands/nulife
+65a57191eefeb27762b8740c,406,Zumax,6803,1543,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/whatsapp_image_2020-09-11_at_16.49.21.jpeg,0,brands/zumax
+65a57191eefeb27762b8740d,409,Pharmadent Remedies,6806,1547,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/pharmadent-remedies.jpg,0,brands/pharmadent-remedies
+65a57191eefeb27762b8740e,414,Oral-B,6811,1557,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/oral-b-logo.jpg,0,brands/oral-b
+65a57191eefeb27762b8740f,416,Dr. Steve,6813,1559,https://images.dentalkart.com/dt-media/prd/brandpage/images/dr-steve.jpg,0,brands/dr-steve
+65a57191eefeb27762b87410,418,easyinSmile,6815,1561,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/2020-12-04_3_.jpg,0,brands/easyinsmile
+65a57191eefeb27762b87411,419,Best,6816,1562,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/2020-12-07.jpg,0,brands/best
+65a57191eefeb27762b87412,420,Zodenta,6817,1563,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/zodenta-logo.jpg,0,brands/zodenta
+65a57191eefeb27762b87413,423,ALL MED,6820,1566,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/allmed.jpg,0,brands/all-med
+65a57191eefeb27762b87414,425,DentalPlant,6822,1568,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dental_plant_logo.jpg,0,brands/dentalplant
+65a57191eefeb27762b87415,430,BISCO,6827,1575,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/logo_bisco.jpg,0,brands/bisco
+65a57191eefeb27762b87416,433,Api Instruments,6830,1579,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/asdx.jpg,0,brands/api-instruments
+65a57191eefeb27762b87417,435,Gomax,6832,1581,https://images.dentalkart.com/dt-media/brandpage/images/33ddeeee.jpg,0,brands/gomax
+65a57191eefeb27762b87418,436,Prime-Dent,6834,1585,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/logo_1.jpg,0,brands/prime-dent
+65a57191eefeb27762b87419,439,DentGist,6837,1587,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/untitled-2_1_.jpg,0,brands/dentgist
+65a57191eefeb27762b8741a,442,Microtek,6840,1590,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/2021-04-20_new_1.png,0,brands/microtek
+65a57191eefeb27762b8741b,448,I2cure,6846,1602,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/2021-05-17.jpg,0,brands/i2cure
+65a57191eefeb27762b8741c,453,Goodwill,6851,1607,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/2021-06-09.jpg,0,brands/goodwill
+65a57191eefeb27762b8741d,457,Matu,6855,1626,https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/123456789.jpg,0,brands/matu
+65a57191eefeb27762b8741e,458,Ortho Organizer,294,1198,https://images.dentalkart.com/dt-media/brandpage/images/3333ee44rr.jpg,0,brands/ortho-organizers

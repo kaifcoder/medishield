@@ -25,8 +25,8 @@ class THomeCategories extends StatelessWidget {
                     ? TColors.white
                     : TColors.black,
                 backgroundColor: THelperFunctions.isDarkMode(context)
-                    ? TColors.darkerGrey
-                    : TColors.white,
+                    ? TColors.dark
+                    : TColors.light,
                 onTap: () {});
           }),
     );

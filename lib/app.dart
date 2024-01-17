@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'MediSheild',
       themeMode: ThemeMode.system,
       theme: MediShieldTheme.lightTheme,
       darkTheme: MediShieldTheme.darkTheme,

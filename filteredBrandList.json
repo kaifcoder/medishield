@@ -1,0 +1,2169 @@
+[{
+  "id": 122,
+  "name": "iDENTical",
+  "brand_id": 1203,
+  "category_id": 1301,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/iDENTical.jpg",
+  "featured": "0",
+  "url_path": "brands/identical"
+},
+{
+  "id": 402,
+  "name": "Dr. Morepen",
+  "brand_id": 6799,
+  "category_id": 1538,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dr.-morepen.jpg",
+  "featured": "0",
+  "url_path": "brands/dr-morepen"
+},
+{
+  "id": 421,
+  "name": "Waldent Instruments",
+  "brand_id": 6818,
+  "category_id": 1227,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/waldent_fine_instrument.png",
+  "featured": "0",
+  "url_path": "brands/waldent-instruments"
+},
+{
+  "id": 279,
+  "name": "Waldent",
+  "brand_id": 292,
+  "category_id": 607,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/waldent.png",
+  "featured": "0",
+  "url_path": "brands/waldent"
+},
+{
+  "id": 107,
+  "name": "GC",
+  "brand_id": 16,
+  "category_id": 522,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/gc.png",
+  "featured": "1",
+  "url_path": "brands/gc"
+},
+{
+  "id": 328,
+  "name": "SuperEndo",
+  "brand_id": 1266,
+  "category_id": 1412,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/super_endo_logo_1_.jpg",
+  "featured": "1",
+  "url_path": "brands/superendo"
+},
+{
+  "id": 1596,
+  "name": "Russia TOR VM",
+  "brand_id": 6903,
+  "category_id": 1696,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/80x50.jpg",
+  "featured": "0",
+  "url_path": "brands/russia-tor-vm"
+},
+{
+  "id": 70,
+  "name": "Dentsply",
+  "brand_id": 15,
+  "category_id": 515,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dentsply.jpg",
+  "featured": "1",
+  "url_path": "brands/dentsply"
+},
+{
+  "id": 151,
+  "name": "Mani",
+  "brand_id": 18,
+  "category_id": 534,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/mani-2.jpg",
+  "featured": "0",
+  "url_path": "brands/mani"
+},
+{
+  "id": 281,
+  "name": "Woodpecker",
+  "brand_id": 51,
+  "category_id": 565,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/woodpecker.png",
+  "featured": "1",
+  "url_path": "brands/woodpecker"
+},
+{
+  "id": 108,
+  "name": "GDC",
+  "brand_id": 17,
+  "category_id": 523,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/gdc.png",
+  "featured": "1",
+  "url_path": "brands/gdc"
+},
+{
+  "id": 1539,
+  "name": "Oracraft",
+  "brand_id": 319,
+  "category_id": 1349,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/oradental-logo.jpg",
+  "featured": "0",
+  "url_path": "brands/ora-craft"
+},
+{
+  "id": 1555,
+  "name": "JULL-DENT",
+  "brand_id": 6867,
+  "category_id": 1644,
+  "logo": "https://images.dentalkart.com/dt-media/brandpage/images/Julldent.jpg",
+  "featured": "0",
+  "url_path": "brands/jull-dent"
+},
+{
+  "id": 1557,
+  "name": "SHINING 3D",
+  "brand_id": 6869,
+  "category_id": 1646,
+  "logo": "https://images.dentalkart.com/dt-media/brandpage/images/Shining.jpg",
+  "featured": "0",
+  "url_path": "brands/shining-3d"
+},
+{
+  "id": 1566,
+  "name": "KometaBio",
+  "brand_id": 6878,
+  "category_id": 1661,
+  "logo": "https://images.dentalkart.com/dt-media/brandpage/images/rtffedd554.jpg",
+  "featured": "0",
+  "url_path": "brands/kometabio"
+},
+{
+  "id": 1574,
+  "name": "Wagotrix",
+  "brand_id": 6884,
+  "category_id": 1677,
+  "logo": "https://images.dentalkart.com/dt-media/brandpage/images/wssedd.jpg",
+  "featured": "0",
+  "url_path": "brands/tor-vm/wagotrix"
+},
+{
+  "id": 1575,
+  "name": "Kenda",
+  "brand_id": 6885,
+  "category_id": 1678,
+  "logo": "https://images.dentalkart.com/dt-media/brandpage/images/rstdu.jpg",
+  "featured": "0",
+  "url_path": "brands/kenda"
+},
+{
+  "id": 1579,
+  "name": "Physics Forceps",
+  "brand_id": 6889,
+  "category_id": 1682,
+  "logo": "https://images.dentalkart.com/dt-media/brandpage/images/weddrff.jpg",
+  "featured": "0",
+  "url_path": "brands/physics-forceps"
+},
+{
+  "id": 1584,
+  "name": "Ardent",
+  "brand_id": 6894,
+  "category_id": 1687,
+  "logo": "https://images.dentalkart.com/dt-media/brandpage/images/ardent.jpg",
+  "featured": "0",
+  "url_path": "brands/ardent"
+},
+{
+  "id": 1587,
+  "name": "UPCERA",
+  "brand_id": 6897,
+  "category_id": 1690,
+  "logo": "https://images.dentalkart.com/dt-media/brandpage/images/Untitled-3 (2).jpg",
+  "featured": "0",
+  "url_path": "brands/upcera"
+},
+{
+  "id": 1595,
+  "name": "Garrison Dental",
+  "brand_id": 6902,
+  "category_id": 1695,
+  "logo": "https://images.dentalkart.com/dt-media/brandpage/images/Garrison Logo.jpg",
+  "featured": "0",
+  "url_path": "brands/garrison-dental"
+},
+{
+  "id": 1598,
+  "name": "Wismy",
+  "brand_id": 6905,
+  "category_id": 1698,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/wismy logo.jpg",
+  "featured": "0",
+  "url_path": "brands/wismy"
+},
+{
+  "id": 1603,
+  "name": "Rubydent",
+  "brand_id": 6910,
+  "category_id": 1703,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/eccfrt.jpg",
+  "featured": "0",
+  "url_path": "brands/rubydent"
+},
+{
+  "id": 1605,
+  "name": "Perfect",
+  "brand_id": 6913,
+  "category_id": 1706,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/download.png",
+  "featured": "0",
+  "url_path": "brands/perfect"
+},
+{
+  "id": 1610,
+  "name": "Prime Ortho",
+  "brand_id": 1147,
+  "category_id": 1468,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/prime ortho2.jpg",
+  "featured": "0",
+  "url_path": "brands/prime-ortho"
+},
+{
+  "id": 1611,
+  "name": "Oracura",
+  "brand_id": 6918,
+  "category_id": 1711,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/oracura.jpg",
+  "featured": "0",
+  "url_path": "brands/oracura"
+},
+{
+  "id": 1612,
+  "name": "SafeEndo",
+  "brand_id": 6919,
+  "category_id": 1712,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/ser.jpg",
+  "featured": "0",
+  "url_path": "brands/safeendo"
+},
+{
+  "id": 1613,
+  "name": "OrthoDent",
+  "brand_id": 6920,
+  "category_id": 1713,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/Untitled-4 (1).jpg",
+  "featured": "0",
+  "url_path": "brands/orthodent"
+},
+{
+  "id": 1620,
+  "name": "MARUCHI",
+  "brand_id": 6927,
+  "category_id": 1722,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/Maruchi logo.jpg",
+  "featured": "0",
+  "url_path": "brands/maruchi"
+},
+{
+  "id": 1623,
+  "name": "Geistlich",
+  "brand_id": 6930,
+  "category_id": 1726,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/546.jpg",
+  "featured": "0",
+  "url_path": "brands/geistlich"
+},
+{
+  "id": 1628,
+  "name": "Hygedent",
+  "brand_id": 6935,
+  "category_id": 1735,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/Hygedent.jpg",
+  "featured": "0",
+  "url_path": "brands/hygedent"
+},
+{
+  "id": 1633,
+  "name": "IndoSurgicals",
+  "brand_id": 6940,
+  "category_id": 1742,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/awesfc.jpg",
+  "featured": "0",
+  "url_path": "brands/indosurgicals"
+},
+{
+  "id": 1638,
+  "name": "Sanctuary",
+  "brand_id": 6943,
+  "category_id": 1755,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/Sanctuary logo.jpg",
+  "featured": "0",
+  "url_path": "brands/sanctuary"
+},
+{
+  "id": 1641,
+  "name": "Dontics",
+  "brand_id": 544,
+  "category_id": 1874,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/adfvaerf.jpg",
+  "featured": "0",
+  "url_path": "brands/dontics"
+},
+{
+  "id": 1644,
+  "name": "Nineten",
+  "brand_id": 550,
+  "category_id": 1905,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/2ssed.jpg",
+  "featured": "0",
+  "url_path": "brands/nineten"
+},
+{
+  "id": 1645,
+  "name": "Aquapick",
+  "brand_id": 551,
+  "category_id": 1906,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/Brand.jpg",
+  "featured": "0",
+  "url_path": "brands/aquapick"
+},
+{
+  "id": 1648,
+  "name": "Arum",
+  "brand_id": 554,
+  "category_id": 1909,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/logo (2).jpg",
+  "featured": "0",
+  "url_path": "brands/arum"
+},
+{
+  "id": 1649,
+  "name": "Riton",
+  "brand_id": 555,
+  "category_id": 1911,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/Riton.jpg",
+  "featured": "0",
+  "url_path": "brands/riton"
+},
+{
+  "id": 1653,
+  "name": "ALUWAX DENTAL PRODUCTS",
+  "brand_id": 558,
+  "category_id": 1914,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/Aluwax (1).jpg",
+  "featured": "0",
+  "url_path": "brands/aluwax-dental-products"
+},
+{
+  "id": 1655,
+  "name": "Xpedent",
+  "brand_id": 560,
+  "category_id": 1916,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/logo New Brand.jpg",
+  "featured": "0",
+  "url_path": "brands/xpedent"
+},
+{
+  "id": 1660,
+  "name": "Labodent",
+  "brand_id": 565,
+  "category_id": 1929,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/Labodent 80x50-01.jpg",
+  "featured": "0",
+  "url_path": "brands/labodent"
+},
+{
+  "id": 1661,
+  "name": "S.K. Surgicals",
+  "brand_id": 566,
+  "category_id": 1930,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/SK surgicals logo.jpg",
+  "featured": "0",
+  "url_path": "brands/s-k-surgicals"
+},
+{
+  "id": 1662,
+  "name": "Jaypee Medical Publishers",
+  "brand_id": 567,
+  "category_id": 1932,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/Artboard-1.jpg",
+  "featured": "0",
+  "url_path": "brands/jaypee-medical-publishers"
+},
+{
+  "id": 1669,
+  "name": "Trooth",
+  "brand_id": 6955,
+  "category_id": 1941,
+  "logo": "",
+  "featured": "0",
+  "url_path": "brands/trooth"
+},
+{
+  "id": 1,
+  "name": "3A Medes",
+  "brand_id": 1201,
+  "category_id": 1329,
+  "logo": "https://images.dentalkart.com/dt-media/brandpage/images/3A Medes.jpg",
+  "featured": "0",
+  "url_path": "brands/3a"
+},
+{
+  "id": 2,
+  "name": "3M ESPE",
+  "brand_id": 24,
+  "category_id": 495,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/3M ESPE.jpg",
+  "featured": "0",
+  "url_path": "brands/3m-espe"
+},
+{
+  "id": 3,
+  "name": "3M Unitek",
+  "brand_id": 124,
+  "category_id": 1201,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/3M Unitek.jpg",
+  "featured": "0",
+  "url_path": "brands/3m-unitek"
+},
+{
+  "id": 5,
+  "name": "A.J. Wilcock",
+  "brand_id": 522,
+  "category_id": 631,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/A.J. Wilcock.png",
+  "featured": "0",
+  "url_path": "brands/a-j-wilcock"
+},
+{
+  "id": 7,
+  "name": "Acteon",
+  "brand_id": 81,
+  "category_id": 568,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Acteon.jpg",
+  "featured": "0",
+  "url_path": "brands/acteon-dental-equipments"
+},
+{
+  "id": 9,
+  "name": "Advanced Biotech",
+  "brand_id": 502,
+  "category_id": 715,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Advanced Biotech.jpg",
+  "featured": "0",
+  "url_path": "brands/advanced-biotech-dental-products"
+},
+{
+  "id": 11,
+  "name": "Aidite",
+  "brand_id": 1145,
+  "category_id": 1193,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/aidite.png",
+  "featured": "0",
+  "url_path": "brands/aidite"
+},
+{
+  "id": 19,
+  "name": "API",
+  "brand_id": 70,
+  "category_id": 500,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/api.jpg",
+  "featured": "0",
+  "url_path": "brands/api-dental-instruments"
+},
+{
+  "id": 20,
+  "name": "APL",
+  "brand_id": 904,
+  "category_id": 1053,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/APL.jpeg",
+  "featured": "0",
+  "url_path": "brands/apl"
+},
+{
+  "id": 21,
+  "name": "Apple Dental",
+  "brand_id": 142,
+  "category_id": 918,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Apple Dental.png",
+  "featured": "0",
+  "url_path": "brands/apple-dental"
+},
+{
+  "id": 29,
+  "name": "Baolai Medical",
+  "brand_id": 540,
+  "category_id": 640,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Baolai Medical.png",
+  "featured": "0",
+  "url_path": "brands/baolai-medical"
+},
+{
+  "id": 30,
+  "name": "Baot",
+  "brand_id": 1172,
+  "category_id": 1272,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Baot.jpg",
+  "featured": "0",
+  "url_path": "brands/baot"
+},
+{
+  "id": 31,
+  "name": "Bausch",
+  "brand_id": 525,
+  "category_id": 634,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Bausch.jpg",
+  "featured": "0",
+  "url_path": "brands/bausch"
+},
+{
+  "id": 32,
+  "name": "Bego",
+  "brand_id": 1194,
+  "category_id": 1282,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/bego.png",
+  "featured": "0",
+  "url_path": "brands/bego"
+},
+{
+  "id": 33,
+  "name": "Being Foshan",
+  "brand_id": 49,
+  "category_id": 502,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Being Foshan.jpg",
+  "featured": "0",
+  "url_path": "brands/being-foshan-dental-handpieces"
+},
+{
+  "id": 36,
+  "name": "Bien Air",
+  "brand_id": 509,
+  "category_id": 697,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Bien Air.png",
+  "featured": "0",
+  "url_path": "brands/bien-air"
+},
+{
+  "id": 37,
+  "name": "Bio-Art",
+  "brand_id": 1139,
+  "category_id": 1192,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Bio-art.jpg",
+  "featured": "0",
+  "url_path": "brands/bio-art"
+},
+{
+  "id": 38,
+  "name": "Biolase",
+  "brand_id": 121,
+  "category_id": 729,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/biolase.jpg",
+  "featured": "0",
+  "url_path": "brands/biolase-dental-products"
+},
+{
+  "id": 43,
+  "name": "Bonart",
+  "brand_id": 1132,
+  "category_id": 1136,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/bonart.png",
+  "featured": "0",
+  "url_path": "brands/bonart"
+},
+{
+  "id": 44,
+  "name": "Capri",
+  "brand_id": 22,
+  "category_id": 504,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/capri.jpg",
+  "featured": "0",
+  "url_path": "brands/capri-dental-disposables"
+},
+{
+  "id": 45,
+  "name": "Captain Ortho",
+  "brand_id": 73,
+  "category_id": 505,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Captain Ortho.jpg",
+  "featured": "0",
+  "url_path": "brands/captainortho-dental-products"
+},
+{
+  "id": 47,
+  "name": "Carestream",
+  "brand_id": 37,
+  "category_id": 506,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/carestream.jpg",
+  "featured": "0",
+  "url_path": "brands/carestream-dental-products"
+},
+{
+  "id": 48,
+  "name": "CAT",
+  "brand_id": 62,
+  "category_id": 507,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/cat.png",
+  "featured": "0",
+  "url_path": "brands/cat-dental-instruments"
+},
+{
+  "id": 49,
+  "name": "Centrino",
+  "brand_id": 144,
+  "category_id": 635,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/centirologo54.jpg",
+  "featured": "0",
+  "url_path": "brands/centrino"
+},
+{
+  "id": 50,
+  "name": "Chinese",
+  "brand_id": 44,
+  "category_id": 508,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/chinese.jpg",
+  "featured": "0",
+  "url_path": "brands/chinese-dental-products"
+},
+{
+  "id": 51,
+  "name": "Cologenesis Healthcare",
+  "brand_id": 145,
+  "category_id": 1042,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Cologenesis Healthcare.jpg",
+  "featured": "0",
+  "url_path": "brands/cologenesis-healthcare"
+},
+{
+  "id": 52,
+  "name": "Coltene Whaledent",
+  "brand_id": 20,
+  "category_id": 509,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Coltene Whaledent.jpg",
+  "featured": "0",
+  "url_path": "brands/coltene-whaledent-dental-products"
+},
+{
+  "id": 56,
+  "name": "Cotisen",
+  "brand_id": 1138,
+  "category_id": 1185,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/cotisen.jpg",
+  "featured": "0",
+  "url_path": "brands/cotisen"
+},
+{
+  "id": 57,
+  "name": "Coxo",
+  "brand_id": 95,
+  "category_id": 510,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/coxo.jpg",
+  "featured": "0",
+  "url_path": "brands/coxo-dental-products"
+},
+{
+  "id": 59,
+  "name": "D-Tech",
+  "brand_id": 47,
+  "category_id": 511,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/D-Tech.png",
+  "featured": "0",
+  "url_path": "brands/dtech-demtal-material"
+},
+{
+  "id": 65,
+  "name": "Dentaids",
+  "brand_id": 94,
+  "category_id": 512,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dent-aids.jpg",
+  "featured": "0",
+  "url_path": "brands/dentaids-dental-products"
+},
+{
+  "id": 67,
+  "name": "Avue",
+  "brand_id": 45,
+  "category_id": 513,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/avue_1.jpg",
+  "featured": "0",
+  "url_path": "brands/dental-avenue-dental-products"
+},
+{
+  "id": 68,
+  "name": "Dentalfilm",
+  "brand_id": 149,
+  "category_id": 1333,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dentalfilm.jpg",
+  "featured": "0",
+  "url_path": "brands/dentalfilm"
+},
+{
+  "id": 69,
+  "name": "Dentaurum",
+  "brand_id": 80,
+  "category_id": 514,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dentaurum.jpg",
+  "featured": "0",
+  "url_path": "brands/dentarum-orthodontic-material"
+},
+{
+  "id": 72,
+  "name": "Detax",
+  "brand_id": 79,
+  "category_id": 516,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/detax.png",
+  "featured": "0",
+  "url_path": "brands/detax-dental-products"
+},
+{
+  "id": 73,
+  "name": "Diadent",
+  "brand_id": 29,
+  "category_id": 517,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/diadent.png",
+  "featured": "0",
+  "url_path": "brands/diadent-dental-products"
+},
+{
+  "id": 76,
+  "name": "DMG",
+  "brand_id": 28,
+  "category_id": 518,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dmg.png",
+  "featured": "0",
+  "url_path": "brands/dmg-dental-products"
+},
+{
+  "id": 78,
+  "name": "UU Orthodontics",
+  "brand_id": 918,
+  "category_id": 1112,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/uu-ortho.jpg",
+  "featured": "0",
+  "url_path": "brands/double-uu-orthodontics"
+},
+{
+  "id": 79,
+  "name": "DPI",
+  "brand_id": 23,
+  "category_id": 519,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dpi.png",
+  "featured": "0",
+  "url_path": "brands/dpi"
+},
+{
+  "id": 82,
+  "name": "Durr Dental",
+  "brand_id": 110,
+  "category_id": 574,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Durr dental.png",
+  "featured": "0",
+  "url_path": "brands/durr-dental"
+},
+{
+  "id": 83,
+  "name": "Kids E-Dental",
+  "brand_id": 1190,
+  "category_id": 1299,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/E-Dental.jpg",
+  "featured": "0",
+  "url_path": "brands/e-dental"
+},
+{
+  "id": 85,
+  "name": "Ecodent",
+  "brand_id": 1193,
+  "category_id": 1298,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ecodent.jpg",
+  "featured": "0",
+  "url_path": "brands/ecodent"
+},
+{
+  "id": 86,
+  "name": "EdgeEndo",
+  "brand_id": 1188,
+  "category_id": 1296,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/EdgeEndo.png",
+  "featured": "0",
+  "url_path": "brands/edgeendo"
+},
+{
+  "id": 87,
+  "name": "Eighteeth",
+  "brand_id": 1154,
+  "category_id": 1229,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/eighteeth.png",
+  "featured": "0",
+  "url_path": "brands/eighteeth"
+},
+{
+  "id": 88,
+  "name": "Eltee",
+  "brand_id": 78,
+  "category_id": 520,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/eltee.jpg",
+  "featured": "0",
+  "url_path": "brands/eltee"
+},
+{
+  "id": 89,
+  "name": "EMS",
+  "brand_id": 1140,
+  "category_id": 1189,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/EMS.jpg",
+  "featured": "0",
+  "url_path": "brands/ems"
+},
+{
+  "id": 91,
+  "name": "Endostar",
+  "brand_id": 1162,
+  "category_id": 1293,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Endostar.png",
+  "featured": "0",
+  "url_path": "brands/endostar"
+},
+{
+  "id": 92,
+  "name": "Ethicon",
+  "brand_id": 109,
+  "category_id": 575,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ethicon.png",
+  "featured": "0",
+  "url_path": "brands/ethicon"
+},
+{
+  "id": 95,
+  "name": "EVE",
+  "brand_id": 1155,
+  "category_id": 1231,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/eve.png",
+  "featured": "0",
+  "url_path": "brands/eve"
+},
+{
+  "id": 97,
+  "name": "FGM",
+  "brand_id": 293,
+  "category_id": 682,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/fgm.jpg",
+  "featured": "0",
+  "url_path": "brands/fgm"
+},
+{
+  "id": 99,
+  "name": "FKG",
+  "brand_id": 746,
+  "category_id": 923,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/fkg.jpg",
+  "featured": "0",
+  "url_path": "brands/fkg"
+},
+{
+  "id": 106,
+  "name": "Galaxy",
+  "brand_id": 154,
+  "category_id": 1320,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/galaxy.jpg",
+  "featured": "0",
+  "url_path": "brands/galaxy"
+},
+{
+  "id": 110,
+  "name": "Genoray",
+  "brand_id": 516,
+  "category_id": 718,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/genoray.png",
+  "featured": "0",
+  "url_path": "brands/genoray"
+},
+{
+  "id": 111,
+  "name": "Gnatus",
+  "brand_id": 325,
+  "category_id": 683,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/gnatus.png",
+  "featured": "0",
+  "url_path": "brands/gnatus"
+},
+{
+  "id": 114,
+  "name": "Hahnenkratt",
+  "brand_id": 800,
+  "category_id": 967,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Hahnenkratt.gif",
+  "featured": "0",
+  "url_path": "brands/hahnenkratt"
+},
+{
+  "id": 117,
+  "name": "Heraeus-Kulzer",
+  "brand_id": 69,
+  "category_id": 524,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Heraeus-Kulzer.png",
+  "featured": "0",
+  "url_path": "brands/heraeus"
+},
+{
+  "id": 118,
+  "name": "Hu-friedy",
+  "brand_id": 83,
+  "category_id": 525,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Hu-Friedy.png",
+  "featured": "0",
+  "url_path": "brands/hufriedy"
+},
+{
+  "id": 121,
+  "name": "icpa",
+  "brand_id": 58,
+  "category_id": 526,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/icpa.png",
+  "featured": "0",
+  "url_path": "brands/icpa"
+},
+{
+  "id": 123,
+  "name": "Ids Denmed",
+  "brand_id": 107,
+  "category_id": 578,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ids-denmed.jpg",
+  "featured": "0",
+  "url_path": "brands/ids-denmed"
+},
+{
+  "id": 124,
+  "name": "Indian",
+  "brand_id": 140,
+  "category_id": 675,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/indian.jpg",
+  "featured": "0",
+  "url_path": "brands/indian"
+},
+{
+  "id": 128,
+  "name": "Itena",
+  "brand_id": 127,
+  "category_id": 1202,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/itena.jpg",
+  "featured": "0",
+  "url_path": "brands/itena"
+},
+{
+  "id": 129,
+  "name": "Ivoclar Vivadent",
+  "brand_id": 32,
+  "category_id": 527,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Ivoclar Vivadent.png",
+  "featured": "0",
+  "url_path": "brands/ivoclar"
+},
+{
+  "id": 130,
+  "name": "J-morita",
+  "brand_id": 88,
+  "category_id": 528,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/J-Morita.jpg",
+  "featured": "0",
+  "url_path": "brands/jmorita"
+},
+{
+  "id": 133,
+  "name": "Kalabhai",
+  "brand_id": 106,
+  "category_id": 1339,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Kalabhai.jpg",
+  "featured": "0",
+  "url_path": "brands/kalabhai"
+},
+{
+  "id": 134,
+  "name": "Kavo",
+  "brand_id": 71,
+  "category_id": 530,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/kavo.png",
+  "featured": "0",
+  "url_path": "brands/kavo"
+},
+{
+  "id": 136,
+  "name": "kerr",
+  "brand_id": 50,
+  "category_id": 531,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/kerr.png",
+  "featured": "0",
+  "url_path": "brands/kerr"
+},
+{
+  "id": 141,
+  "name": "Kuraray",
+  "brand_id": 321,
+  "category_id": 1032,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Kuraray.jpg",
+  "featured": "0",
+  "url_path": "brands/kuraray"
+},
+{
+  "id": 142,
+  "name": "Lab Master",
+  "brand_id": 1168,
+  "category_id": 1261,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Lab Master.gif",
+  "featured": "0",
+  "url_path": "brands/lab-master"
+},
+{
+  "id": 144,
+  "name": "Lascod",
+  "brand_id": 531,
+  "category_id": 645,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/lascod.png",
+  "featured": "0",
+  "url_path": "brands/lascod"
+},
+{
+  "id": 146,
+  "name": "Leone",
+  "brand_id": 64,
+  "category_id": 533,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/leone.jpg",
+  "featured": "0",
+  "url_path": "brands/leone"
+},
+{
+  "id": 147,
+  "name": "Libral",
+  "brand_id": 157,
+  "category_id": 644,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/libral.png",
+  "featured": "0",
+  "url_path": "brands/libral"
+},
+{
+  "id": 148,
+  "name": "Life Steriware",
+  "brand_id": 105,
+  "category_id": 731,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/life-steriware.jpg",
+  "featured": "0",
+  "url_path": "brands/life-steriware"
+},
+{
+  "id": 150,
+  "name": "MAARC",
+  "brand_id": 320,
+  "category_id": 915,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/maarc.png",
+  "featured": "0",
+  "url_path": "brands/maarc"
+},
+{
+  "id": 152,
+  "name": "Marathon",
+  "brand_id": 42,
+  "category_id": 535,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/marathon.png",
+  "featured": "0",
+  "url_path": "brands/marathon"
+},
+{
+  "id": 155,
+  "name": "MDM",
+  "brand_id": 54,
+  "category_id": 536,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/mdm.jpg",
+  "featured": "0",
+  "url_path": "brands/mdm"
+},
+{
+  "id": 156,
+  "name": "Medicept",
+  "brand_id": 61,
+  "category_id": 537,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/medicept.jpg",
+  "featured": "0",
+  "url_path": "brands/medicept"
+},
+{
+  "id": 157,
+  "name": "Meditrix",
+  "brand_id": 171,
+  "category_id": 1353,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/meditrix.jpg",
+  "featured": "0",
+  "url_path": "brands/meditrix"
+},
+{
+  "id": 160,
+  "name": "Meta Biomed",
+  "brand_id": 19,
+  "category_id": 580,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Meta Biomed.jpg",
+  "featured": "0",
+  "url_path": "brands/metabiomed"
+},
+{
+  "id": 161,
+  "name": "micro-mega",
+  "brand_id": 89,
+  "category_id": 538,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Micro-Mega.png",
+  "featured": "0",
+  "url_path": "brands/micro-mega"
+},
+{
+  "id": 162,
+  "name": "Microdont",
+  "brand_id": 1164,
+  "category_id": 1288,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/microdont.png",
+  "featured": "0",
+  "url_path": "brands/microdont"
+},
+{
+  "id": 164,
+  "name": "modern-orthodontics",
+  "brand_id": 1117,
+  "category_id": 539,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/modern-orthodontics.png",
+  "featured": "0",
+  "url_path": "brands/modernorthodontics"
+},
+{
+  "id": 166,
+  "name": "Morelli",
+  "brand_id": 912,
+  "category_id": 1078,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/morelli.png",
+  "featured": "0",
+  "url_path": "brands/morelli"
+},
+{
+  "id": 175,
+  "name": "NeoEndo",
+  "brand_id": 1153,
+  "category_id": 1228,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/NeoEndo.png",
+  "featured": "0",
+  "url_path": "brands/neoendo"
+},
+{
+  "id": 177,
+  "name": "Neosilk",
+  "brand_id": 1159,
+  "category_id": 1244,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/neosilk.png",
+  "featured": "0",
+  "url_path": "brands/neosilk"
+},
+{
+  "id": 178,
+  "name": "nexobio",
+  "brand_id": 74,
+  "category_id": 541,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/nexobio.png",
+  "featured": "0",
+  "url_path": "brands/nexobio"
+},
+{
+  "id": 179,
+  "name": "Nordin",
+  "brand_id": 103,
+  "category_id": 1355,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/nordin.jpg",
+  "featured": "0",
+  "url_path": "brands/nordin"
+},
+{
+  "id": 180,
+  "name": "NovaBone",
+  "brand_id": 102,
+  "category_id": 1356,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/novabone.jpg",
+  "featured": "0",
+  "url_path": "brands/novabone"
+},
+{
+  "id": 181,
+  "name": "NSK",
+  "brand_id": 38,
+  "category_id": 542,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/nsk.png",
+  "featured": "0",
+  "url_path": "brands/nsk"
+},
+{
+  "id": 186,
+  "name": "ormco",
+  "brand_id": 82,
+  "category_id": 543,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ormco.jpg",
+  "featured": "0",
+  "url_path": "brands/ormco"
+},
+{
+  "id": 187,
+  "name": "oro",
+  "brand_id": 123,
+  "category_id": 544,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/oro.png",
+  "featured": "0",
+  "url_path": "brands/oro"
+},
+{
+  "id": 192,
+  "name": "orthocare",
+  "brand_id": 119,
+  "category_id": 592,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Orthocare.png",
+  "featured": "0",
+  "url_path": "brands/orthocare"
+},
+{
+  "id": 193,
+  "name": "orthosource",
+  "brand_id": 87,
+  "category_id": 545,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/OrthoSource.png",
+  "featured": "0",
+  "url_path": "brands/orthosource"
+},
+{
+  "id": 195,
+  "name": "pd",
+  "brand_id": 65,
+  "category_id": 547,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/pd.jpg",
+  "featured": "0",
+  "url_path": "brands/pd"
+},
+{
+  "id": 197,
+  "name": "premier dental",
+  "brand_id": 101,
+  "category_id": 573,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Premier Dental.jpg",
+  "featured": "0",
+  "url_path": "brands/premier-dental"
+},
+{
+  "id": 199,
+  "name": "Prevest Denpro",
+  "brand_id": 39,
+  "category_id": 549,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Prevest Denpro.jpg",
+  "featured": "0",
+  "url_path": "brands/prevestdenpro"
+},
+{
+  "id": 200,
+  "name": "prima dental",
+  "brand_id": 59,
+  "category_id": 583,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Prima Dental.png",
+  "featured": "0",
+  "url_path": "brands/prima-dental"
+},
+{
+  "id": 202,
+  "name": "prime-dental",
+  "brand_id": 118,
+  "category_id": 550,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/prime-dental.png",
+  "featured": "0",
+  "url_path": "brands/prime"
+},
+{
+  "id": 203,
+  "name": "Pulpdent",
+  "brand_id": 561,
+  "category_id": 707,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Pulpdent.jpg",
+  "featured": "0",
+  "url_path": "brands/pulpdent"
+},
+{
+  "id": 205,
+  "name": "Pyrax",
+  "brand_id": 163,
+  "category_id": 1132,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/pyrax.png",
+  "featured": "0",
+  "url_path": "brands/pyrax"
+},
+{
+  "id": 207,
+  "name": "rabbit-force",
+  "brand_id": 63,
+  "category_id": 551,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Rabbit-Force.jpg",
+  "featured": "0",
+  "url_path": "brands/rabbit"
+},
+{
+  "id": 211,
+  "name": "Refine",
+  "brand_id": 1156,
+  "category_id": 1233,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/refine.png",
+  "featured": "0",
+  "url_path": "brands/refine"
+},
+{
+  "id": 212,
+  "name": "Renfert",
+  "brand_id": 1169,
+  "category_id": 1262,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/renfert.jpg",
+  "featured": "0",
+  "url_path": "brands/renfert"
+},
+{
+  "id": 213,
+  "name": "Ribbond",
+  "brand_id": 1018,
+  "category_id": 1123,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Ribbond.jpg",
+  "featured": "0",
+  "url_path": "brands/ribbond"
+},
+{
+  "id": 214,
+  "name": "Rolex",
+  "brand_id": 580,
+  "category_id": 765,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/unnamed.jpg",
+  "featured": "0",
+  "url_path": "brands/rolex"
+},
+{
+  "id": 217,
+  "name": "Ruby",
+  "brand_id": 1184,
+  "category_id": 1277,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ruby.jpg",
+  "featured": "0",
+  "url_path": "brands/ruby"
+},
+{
+  "id": 218,
+  "name": "Runyes",
+  "brand_id": 115,
+  "category_id": 687,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/runyes.jpg",
+  "featured": "0",
+  "url_path": "brands/runyes"
+},
+{
+  "id": 220,
+  "name": "Ruthinium",
+  "brand_id": 164,
+  "category_id": 1129,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ruthinium.png",
+  "featured": "0",
+  "url_path": "brands/ruthinium"
+},
+{
+  "id": 221,
+  "name": "Saeshin",
+  "brand_id": 415,
+  "category_id": 698,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/saeshin.png",
+  "featured": "0",
+  "url_path": "brands/saeshin"
+},
+{
+  "id": 222,
+  "name": "Safe-Med",
+  "brand_id": 100,
+  "category_id": 1753,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/safemed.jpg",
+  "featured": "0",
+  "url_path": "brands/safe-med"
+},
+{
+  "id": 225,
+  "name": "Samit Products",
+  "brand_id": 382,
+  "category_id": 684,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Samit Products.jpg",
+  "featured": "0",
+  "url_path": "brands/samit"
+},
+{
+  "id": 228,
+  "name": "Scheu",
+  "brand_id": 68,
+  "category_id": 552,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/scheu.png",
+  "featured": "0",
+  "url_path": "brands/scheu-dental"
+},
+{
+  "id": 229,
+  "name": "sdi",
+  "brand_id": 27,
+  "category_id": 553,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/sdi.png",
+  "featured": "0",
+  "url_path": "brands/pola"
+},
+{
+  "id": 230,
+  "name": "septodont",
+  "brand_id": 31,
+  "category_id": 554,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Septodont.png",
+  "featured": "0",
+  "url_path": "brands/septodent"
+},
+{
+  "id": 232,
+  "name": "shofu",
+  "brand_id": 14,
+  "category_id": 555,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/shofu.jpg",
+  "featured": "0",
+  "url_path": "brands/shofu"
+},
+{
+  "id": 233,
+  "name": "shree",
+  "brand_id": 85,
+  "category_id": 556,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/shree_logo.jpg",
+  "featured": "0",
+  "url_path": "brands/shree"
+},
+{
+  "id": 234,
+  "name": "sirona",
+  "brand_id": 53,
+  "category_id": 557,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/sirona.png",
+  "featured": "0",
+  "url_path": "brands/sirona"
+},
+{
+  "id": 235,
+  "name": "Sk-Dent",
+  "brand_id": 99,
+  "category_id": 1341,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Sk-Dent.png",
+  "featured": "0",
+  "url_path": "brands/sk-dent"
+},
+{
+  "id": 236,
+  "name": "Soflex Dental",
+  "brand_id": 1141,
+  "category_id": 1187,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Soflex Dental.PNG",
+  "featured": "0",
+  "url_path": "brands/soflex-dental"
+},
+{
+  "id": 237,
+  "name": "ss-white",
+  "brand_id": 30,
+  "category_id": 558,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/SS-White.png",
+  "featured": "0",
+  "url_path": "brands/sswhite"
+},
+{
+  "id": 240,
+  "name": "Stim",
+  "brand_id": 117,
+  "category_id": 1031,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/stim.png",
+  "featured": "0",
+  "url_path": "brands/stim"
+},
+{
+  "id": 241,
+  "name": "Strauss",
+  "brand_id": 545,
+  "category_id": 696,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/strauss.png",
+  "featured": "0",
+  "url_path": "brands/strauss"
+},
+{
+  "id": 243,
+  "name": "Sun Medical",
+  "brand_id": 551,
+  "category_id": 699,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Sun Medical.jpg",
+  "featured": "0",
+  "url_path": "brands/sun-medical"
+},
+{
+  "id": 244,
+  "name": "Sure Endo",
+  "brand_id": 503,
+  "category_id": 926,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Sure Endo.png",
+  "featured": "0",
+  "url_path": "brands/sure-endo"
+},
+{
+  "id": 245,
+  "name": "Sybron Endo",
+  "brand_id": 98,
+  "category_id": 1225,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Sybron Endo.png",
+  "featured": "0",
+  "url_path": "brands/sybron-endo"
+},
+{
+  "id": 246,
+  "name": "syden",
+  "brand_id": 93,
+  "category_id": 559,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/Syden Brand Logo.jpg",
+  "featured": "0",
+  "url_path": "brands/syden"
+},
+{
+  "id": 248,
+  "name": "Tehno Dent",
+  "brand_id": 916,
+  "category_id": 1103,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Tehno Dent.png",
+  "featured": "0",
+  "url_path": "brands/tehno-dent"
+},
+{
+  "id": 251,
+  "name": "Thomas",
+  "brand_id": 1160,
+  "category_id": 1245,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/thomas.png",
+  "featured": "0",
+  "url_path": "brands/thomas"
+},
+{
+  "id": 252,
+  "name": "Toboom",
+  "brand_id": 902,
+  "category_id": 1046,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/toboom.png",
+  "featured": "0",
+  "url_path": "brands/toboom"
+},
+{
+  "id": 255,
+  "name": "Top Dent",
+  "brand_id": 174,
+  "category_id": 928,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Top Dent.jpg",
+  "featured": "0",
+  "url_path": "brands/top-dent"
+},
+{
+  "id": 257,
+  "name": "tornado",
+  "brand_id": 72,
+  "category_id": 560,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/tornado.jpg",
+  "featured": "0",
+  "url_path": "brands/tornado"
+},
+{
+  "id": 258,
+  "name": "Tp-Ortho",
+  "brand_id": 86,
+  "category_id": 1350,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Tp-Ortho.png",
+  "featured": "0",
+  "url_path": "brands/tp-ortho"
+},
+{
+  "id": 260,
+  "name": "Tri-Hawk",
+  "brand_id": 585,
+  "category_id": 913,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Tri-Hawk.jpg",
+  "featured": "0",
+  "url_path": "brands/tri-hawk"
+},
+{
+  "id": 261,
+  "name": "Trisa",
+  "brand_id": 542,
+  "category_id": 1026,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/TRISA.jpg",
+  "featured": "0",
+  "url_path": "brands/trisa"
+},
+{
+  "id": 264,
+  "name": "U Orthodontics",
+  "brand_id": 1134,
+  "category_id": 1184,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/1542.jpg",
+  "featured": "0",
+  "url_path": "brands/u-orthodontics"
+},
+{
+  "id": 265,
+  "name": "ultradent",
+  "brand_id": 40,
+  "category_id": 562,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ultradent.png",
+  "featured": "0",
+  "url_path": "brands/ultradent"
+},
+{
+  "id": 266,
+  "name": "Unicorn Denmart",
+  "brand_id": 152,
+  "category_id": 1340,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Unicorn Denmart.png",
+  "featured": "0",
+  "url_path": "brands/unicorn-denmart"
+},
+{
+  "id": 267,
+  "name": "Unident",
+  "brand_id": 1151,
+  "category_id": 1223,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/unident.png",
+  "featured": "0",
+  "url_path": "brands/unident"
+},
+{
+  "id": 268,
+  "name": "Unique",
+  "brand_id": 748,
+  "category_id": 924,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/unique.jpg",
+  "featured": "0",
+  "url_path": "brands/unique"
+},
+{
+  "id": 269,
+  "name": "Vatech",
+  "brand_id": 165,
+  "category_id": 1106,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/vatech.png",
+  "featured": "0",
+  "url_path": "brands/vatech"
+},
+{
+  "id": 270,
+  "name": "VDW",
+  "brand_id": 139,
+  "category_id": 1183,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/vdw.png",
+  "featured": "0",
+  "url_path": "brands/vdw"
+},
+{
+  "id": 275,
+  "name": "vita",
+  "brand_id": 43,
+  "category_id": 497,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/vita.jpg",
+  "featured": "0",
+  "url_path": "brands/vita"
+},
+{
+  "id": 276,
+  "name": "Vmax",
+  "brand_id": 1204,
+  "category_id": 714,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/vmax.jpg",
+  "featured": "0",
+  "url_path": "brands/vmax"
+},
+{
+  "id": 277,
+  "name": "Voco",
+  "brand_id": 55,
+  "category_id": 564,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Voco.jpg",
+  "featured": "0",
+  "url_path": "brands/voco"
+},
+{
+  "id": 278,
+  "name": "W&H",
+  "brand_id": 137,
+  "category_id": 703,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/W&H.png",
+  "featured": "0",
+  "url_path": "brands/w-h"
+},
+{
+  "id": 280,
+  "name": "waterpik",
+  "brand_id": 114,
+  "category_id": 598,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Waterpik.png",
+  "featured": "0",
+  "url_path": "brands/waterpik"
+},
+{
+  "id": 285,
+  "name": "Zhermack",
+  "brand_id": 56,
+  "category_id": 567,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/zhermack.png",
+  "featured": "0",
+  "url_path": "brands/zhermack"
+},
+{
+  "id": 286,
+  "name": "Zoom",
+  "brand_id": 90,
+  "category_id": 548,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/zoom.png",
+  "featured": "0",
+  "url_path": "brands/zoom"
+},
+{
+  "id": 291,
+  "name": "Cerkamed",
+  "brand_id": 1210,
+  "category_id": 1311,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/cerkamed.png",
+  "featured": "0",
+  "url_path": "brands/cerkamed"
+},
+{
+  "id": 292,
+  "name": "Wizdent",
+  "brand_id": 1211,
+  "category_id": 1316,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/wizdent.jpg",
+  "featured": "0",
+  "url_path": "brands/wizdent"
+},
+{
+  "id": 295,
+  "name": "Premadent",
+  "brand_id": 1228,
+  "category_id": 1314,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/premadent.jpg",
+  "featured": "0",
+  "url_path": "brands/premadent"
+},
+{
+  "id": 296,
+  "name": "Abgel",
+  "brand_id": 1229,
+  "category_id": 1303,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/abgel.jpg",
+  "featured": "0",
+  "url_path": "brands/abgel-dental"
+},
+{
+  "id": 298,
+  "name": "Anand",
+  "brand_id": 1235,
+  "category_id": 1318,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/Anand.png",
+  "featured": "0",
+  "url_path": "brands/anand"
+},
+{
+  "id": 309,
+  "name": "Zirc",
+  "brand_id": 1246,
+  "category_id": 1343,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/zircd.jpg",
+  "featured": "0",
+  "url_path": "brands/zirc"
+},
+{
+  "id": 316,
+  "name": "EiTi",
+  "brand_id": 1254,
+  "category_id": 1367,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/02863614-f08d-4b9e-bf4f-1cae0f19e686.jpg",
+  "featured": "0",
+  "url_path": "brands/eiti"
+},
+{
+  "id": 320,
+  "name": "Andent",
+  "brand_id": 1258,
+  "category_id": 1379,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/andentlogo1.jpg",
+  "featured": "0",
+  "url_path": "brands/andent"
+},
+{
+  "id": 322,
+  "name": "Jaypee",
+  "brand_id": 1260,
+  "category_id": 1403,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/jaypeeelogo.jpg",
+  "featured": "0",
+  "url_path": "brands/jaypee"
+},
+{
+  "id": 323,
+  "name": "Rocky Mountain Orthodontics",
+  "brand_id": 1261,
+  "category_id": 1404,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/rmologo11.jpg",
+  "featured": "0",
+  "url_path": "brands/rocky-mountain-orthodontics"
+},
+{
+  "id": 327,
+  "name": "Lifeline",
+  "brand_id": 1265,
+  "category_id": 1426,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/lifelinelogo.jpg",
+  "featured": "0",
+  "url_path": "brands/brands-lifeline"
+},
+{
+  "id": 329,
+  "name": "Dentalfarm",
+  "brand_id": 1267,
+  "category_id": 1413,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dentalfarm343.jpg",
+  "featured": "0",
+  "url_path": "brands/dentalfarm"
+},
+{
+  "id": 331,
+  "name": "Meta Ergonomica",
+  "brand_id": 1269,
+  "category_id": 1415,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/metalogo.jpg",
+  "featured": "0",
+  "url_path": "brands/meta-ergonomica"
+},
+{
+  "id": 335,
+  "name": "Bomedent",
+  "brand_id": 1273,
+  "category_id": 1428,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/bomedentlogo.jpg",
+  "featured": "0",
+  "url_path": "brands/bomedent"
+},
+{
+  "id": 336,
+  "name": "DFS",
+  "brand_id": 1274,
+  "category_id": 1429,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dfslogo2.jpg",
+  "featured": "0",
+  "url_path": "brands/dfs"
+},
+{
+  "id": 337,
+  "name": "NewDiamond",
+  "brand_id": 1275,
+  "category_id": 1430,
+  "logo": "https://images.dentalkart.com/dt-media/brandpage/images/new diamond.jpg",
+  "featured": "0",
+  "url_path": "brands/neodiamond"
+},
+{
+  "id": 338,
+  "name": "Viva",
+  "brand_id": 1276,
+  "category_id": 1432,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/vivabrand.jpg",
+  "featured": "0",
+  "url_path": "brands/viva"
+},
+{
+  "id": 340,
+  "name": "E-Pros",
+  "brand_id": 1278,
+  "category_id": 1434,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/ehors.jpg",
+  "featured": "0",
+  "url_path": "brands/e-pros"
+},
+{
+  "id": 344,
+  "name": "Major",
+  "brand_id": 1281,
+  "category_id": 1437,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/major4.jpg",
+  "featured": "0",
+  "url_path": "brands/major"
+},
+{
+  "id": 355,
+  "name": "Indoco Remedies",
+  "brand_id": 1298,
+  "category_id": 1461,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/indoco.jpg",
+  "featured": "0",
+  "url_path": "brands/indoco-remedies"
+},
+{
+  "id": 357,
+  "name": "Api+",
+  "brand_id": 1300,
+  "category_id": 1464,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/apiplus1.jpg",
+  "featured": "0",
+  "url_path": "brands/api-dental2"
+},
+{
+  "id": 359,
+  "name": "UDG",
+  "brand_id": 1302,
+  "category_id": 1467,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/udglogo9.jpg",
+  "featured": "0",
+  "url_path": "brands/udg"
+},
+{
+  "id": 366,
+  "name": "3M",
+  "brand_id": 6764,
+  "category_id": 1499,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/3m-logo_1_.jpg",
+  "featured": "0",
+  "url_path": "brands/3m-dental-brand"
+},
+{
+  "id": 368,
+  "name": "Globus Spirits",
+  "brand_id": 6766,
+  "category_id": 1501,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/globus_spirits.jpg",
+  "featured": "0",
+  "url_path": "brands/globus-spirits"
+},
+{
+  "id": 384,
+  "name": "Indident Life",
+  "brand_id": 6781,
+  "category_id": 1519,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/indident-life.jpg",
+  "featured": "0",
+  "url_path": "brands/indident-life"
+},
+{
+  "id": 387,
+  "name": "Naulakha",
+  "brand_id": 6784,
+  "category_id": 1522,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/naulakha.jpg",
+  "featured": "0",
+  "url_path": "brands/naulakha"
+},
+{
+  "id": 389,
+  "name": "SD Biosensor",
+  "brand_id": 6786,
+  "category_id": 1524,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/sd-biosensor.jpg",
+  "featured": "0",
+  "url_path": "brands/sd-biosensor"
+},
+{
+  "id": 394,
+  "name": "Pink Plums",
+  "brand_id": 6791,
+  "category_id": 1530,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/pink-pulp.jpg",
+  "featured": "0",
+  "url_path": "brands/pink-plums"
+},
+{
+  "id": 397,
+  "name": "Alpine",
+  "brand_id": 6794,
+  "category_id": 1533,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/alpine_1_.jpg",
+  "featured": "0",
+  "url_path": "brands/alpine"
+},
+{
+  "id": 404,
+  "name": "MIK",
+  "brand_id": 6801,
+  "category_id": 1541,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/mik.jpg",
+  "featured": "0",
+  "url_path": "brands/mik"
+},
+{
+  "id": 405,
+  "name": "Nulife",
+  "brand_id": 6802,
+  "category_id": 1542,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/whatsapp_image_2020-09-11_at_16.49.32_1.jpeg",
+  "featured": "0",
+  "url_path": "brands/nulife"
+},
+{
+  "id": 406,
+  "name": "Zumax",
+  "brand_id": 6803,
+  "category_id": 1543,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/whatsapp_image_2020-09-11_at_16.49.21.jpeg",
+  "featured": "0",
+  "url_path": "brands/zumax"
+},
+{
+  "id": 409,
+  "name": "Pharmadent Remedies",
+  "brand_id": 6806,
+  "category_id": 1547,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/pharmadent-remedies.jpg",
+  "featured": "0",
+  "url_path": "brands/pharmadent-remedies"
+},
+{
+  "id": 414,
+  "name": "Oral-B",
+  "brand_id": 6811,
+  "category_id": 1557,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/oral-b-logo.jpg",
+  "featured": "0",
+  "url_path": "brands/oral-b"
+},
+{
+  "id": 416,
+  "name": "Dr. Steve",
+  "brand_id": 6813,
+  "category_id": 1559,
+  "logo": "https://images.dentalkart.com/dt-media/prd/brandpage/images/dr-steve.jpg",
+  "featured": "0",
+  "url_path": "brands/dr-steve"
+},
+{
+  "id": 418,
+  "name": "easyinSmile",
+  "brand_id": 6815,
+  "category_id": 1561,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/2020-12-04_3_.jpg",
+  "featured": "0",
+  "url_path": "brands/easyinsmile"
+},
+{
+  "id": 419,
+  "name": "Best",
+  "brand_id": 6816,
+  "category_id": 1562,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/2020-12-07.jpg",
+  "featured": "0",
+  "url_path": "brands/best"
+},
+{
+  "id": 420,
+  "name": "Zodenta",
+  "brand_id": 6817,
+  "category_id": 1563,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/zodenta-logo.jpg",
+  "featured": "0",
+  "url_path": "brands/zodenta"
+},
+{
+  "id": 423,
+  "name": "ALL MED",
+  "brand_id": 6820,
+  "category_id": 1566,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/allmed.jpg",
+  "featured": "0",
+  "url_path": "brands/all-med"
+},
+{
+  "id": 425,
+  "name": "DentalPlant",
+  "brand_id": 6822,
+  "category_id": 1568,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/dental_plant_logo.jpg",
+  "featured": "0",
+  "url_path": "brands/dentalplant"
+},
+{
+  "id": 430,
+  "name": "BISCO",
+  "brand_id": 6827,
+  "category_id": 1575,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/logo_bisco.jpg",
+  "featured": "0",
+  "url_path": "brands/bisco"
+},
+{
+  "id": 433,
+  "name": "Api Instruments",
+  "brand_id": 6830,
+  "category_id": 1579,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/asdx.jpg",
+  "featured": "0",
+  "url_path": "brands/api-instruments"
+},
+{
+  "id": 435,
+  "name": "Gomax",
+  "brand_id": 6832,
+  "category_id": 1581,
+  "logo": "https://images.dentalkart.com/dt-media/brandpage/images/33ddeeee.jpg",
+  "featured": "0",
+  "url_path": "brands/gomax"
+},
+{
+  "id": 436,
+  "name": "Prime-Dent",
+  "brand_id": 6834,
+  "category_id": 1585,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/logo_1.jpg",
+  "featured": "0",
+  "url_path": "brands/prime-dent"
+},
+{
+  "id": 439,
+  "name": "DentGist",
+  "brand_id": 6837,
+  "category_id": 1587,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/untitled-2_1_.jpg",
+  "featured": "0",
+  "url_path": "brands/dentgist"
+},
+{
+  "id": 442,
+  "name": "Microtek",
+  "brand_id": 6840,
+  "category_id": 1590,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/2021-04-20_new_1.png",
+  "featured": "0",
+  "url_path": "brands/microtek"
+},
+{
+  "id": 448,
+  "name": "I2cure",
+  "brand_id": 6846,
+  "category_id": 1602,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/2021-05-17.jpg",
+  "featured": "0",
+  "url_path": "brands/i2cure"
+},
+{
+  "id": 453,
+  "name": "Goodwill",
+  "brand_id": 6851,
+  "category_id": 1607,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/2021-06-09.jpg",
+  "featured": "0",
+  "url_path": "brands/goodwill"
+},
+{
+  "id": 457,
+  "name": "Matu",
+  "brand_id": 6855,
+  "category_id": 1626,
+  "logo": "https://dentalkart-application-media.s3.ap-south-1.amazonaws.com/brandpage/images/123456789.jpg",
+  "featured": "0",
+  "url_path": "brands/matu"
+},
+{
+  "id": 458,
+  "name": "Ortho Organizer",
+  "brand_id": 294,
+  "category_id": 1198,
+  "logo": "https://images.dentalkart.com/dt-media/brandpage/images/3333ee44rr.jpg",
+  "featured": "0",
+  "url_path": "brands/ortho-organizers"
+}]
