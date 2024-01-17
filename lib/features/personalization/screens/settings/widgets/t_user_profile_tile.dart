@@ -5,11 +5,15 @@ import 'package:medihealth/utils/constants/image_strings.dart';
 class TUserProfileTile extends StatelessWidget {
   const TUserProfileTile({
     super.key,
+    this.onTap,
   });
+
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: onTap,
       leading: const TCircularImage(
         image: TImages.user,
         height: 50,

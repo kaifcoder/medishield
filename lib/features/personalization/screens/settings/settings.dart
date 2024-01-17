@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medihealth/common/widgets/appbar/appbar.dart';
 import 'package:medihealth/common/widgets/custom_shapes/containers/t_primary_header_container.dart';
 import 'package:medihealth/common/widgets/list_tile/settings_menu_tile.dart';
 import 'package:medihealth/common/widgets/text/t_section_heading.dart';
+import 'package:medihealth/features/personalization/screens/profile/profile.dart';
 import 'package:medihealth/utils/constants/sizes.dart';
 
 import 'widgets/t_user_profile_tile.dart';
@@ -52,7 +54,9 @@ class SettingScreen extends StatelessWidget {
                           ),
                     ),
                   ),
-                  const TUserProfileTile(),
+                  TUserProfileTile(
+                    onTap: () => Get.to(() => const ProfileScreen()),
+                  ),
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
@@ -60,7 +64,8 @@ class SettingScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
               child: Column(
                 children: [
                   const TSectionHeading(title: 'Account Settings'),
