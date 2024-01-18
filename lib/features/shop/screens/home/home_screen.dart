@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:medihealth/common/widgets/custom_shapes/containers/t_primary_header_container.dart';
 import 'package:medihealth/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:medihealth/features/shop/screens/Search/Search.dart';
+import 'package:medihealth/features/shop/screens/categories/categories.dart';
 
 import 'package:medihealth/utils/constants/image_strings.dart';
 import 'package:medihealth/utils/constants/sizes.dart';
@@ -32,7 +35,7 @@ class HomeScreen extends StatelessWidget {
               //Search Bar
               TSearchContainer(
                 text: 'Search for products',
-                onTap: () {},
+                onTap: () => Get.to(() => const SearchScreen()),
               ),
             ],
           ),
@@ -45,7 +48,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               ///body
               /// //Categories
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
                 child: Column(
                   children: [
@@ -54,6 +57,9 @@ class HomeScreen extends StatelessWidget {
                       title: 'Popular Categories',
                       buttonTitle: 'View All',
                       showButton: true,
+                      onButtonPressed: () => Get.to(
+                        () => CategoiesScreen(),
+                      ),
                     ),
                     SizedBox(height: TSizes.spaceBtwItems),
                     THomeCategories(),

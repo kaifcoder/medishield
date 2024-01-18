@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:medihealth/common/widgets/appbar/appbar.dart';
 import 'package:medihealth/common/widgets/custom_shapes/containers/t_search_container.dart';
 import 'package:medihealth/common/widgets/layouts/grid_layout.dart';
 import 'package:medihealth/common/widgets/products/cart/t_cart_counter_icon.dart';
 import 'package:medihealth/common/widgets/tabbar/tabbar.dart';
 import 'package:medihealth/common/widgets/text/t_section_heading.dart';
+import 'package:medihealth/features/shop/screens/Search/Search.dart';
+import 'package:medihealth/features/shop/screens/cart/cart.dart';
 import 'package:medihealth/utils/constants/colors.dart';
 import 'package:medihealth/utils/constants/sizes.dart';
 import 'package:medihealth/utils/helpers/helper_functions.dart';
@@ -33,7 +36,9 @@ class StoreScreen extends StatelessWidget {
             ],
           ),
           actions: [
-            TCartCounterIcon(iconColor: TColors.black, onPressed: () {})
+            TCartCounterIcon(
+                iconColor: TColors.black,
+                onPressed: () => Get.to(() => const CartScreen()))
           ],
         ),
         body: NestedScrollView(
@@ -48,17 +53,18 @@ class StoreScreen extends StatelessWidget {
                       : TColors.white,
                   expandedHeight: 400,
                   flexibleSpace: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: TSizes.defaultSpace),
                     child: ListView(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       children: [
-                        const TSearchContainer(
+                        TSearchContainer(
                           text: 'Search for products',
                           showBackgroud: false,
                           showBorder: true,
                           padding: EdgeInsets.zero,
+                          onTap: () => Get.to(() => const SearchScreen()),
                         ),
                         const SizedBox(
                           height: TSizes.spaceBtwSections,

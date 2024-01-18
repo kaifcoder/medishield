@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:medihealth/common/widgets/custom_shapes/containers/t_circular_container.dart';
 import 'package:medihealth/common/widgets/images/t_rounded_image.dart';
 import 'package:medihealth/features/shop/controllers/home_controller.dart';
+import 'package:medihealth/features/shop/screens/product_details/product_details.dart';
 import 'package:medihealth/utils/constants/colors.dart';
 import 'package:medihealth/utils/constants/sizes.dart';
 
@@ -21,6 +22,7 @@ class TPromoSlider extends StatelessWidget {
           items: banners
               .map(
                 (e) => TRoundedImage(
+                  onPressed: () => Get.to(() => const ProductDetailScreen()),
                   imageUrl: e,
                 ),
               )

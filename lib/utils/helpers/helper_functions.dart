@@ -78,6 +78,24 @@ class THelperFunctions {
     }
   }
 
+  static double calculateDiscountPercentage(
+      double originalPrice, double discountedPrice) {
+    if (originalPrice <= 0 || discountedPrice <= 0) {
+      throw ArgumentError("Prices must be greater than zero.");
+    }
+
+    // Calculate the discount amount
+    double discountAmount = originalPrice - discountedPrice;
+
+    // Calculate the discount percentage
+    double discountPercentage = (discountAmount / originalPrice) * 100;
+
+    // Round the discount percentage to two decimal places
+    discountPercentage = double.parse(discountPercentage.toStringAsFixed(2));
+
+    return discountPercentage;
+  }
+
   static bool isDarkMode(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark;
   }

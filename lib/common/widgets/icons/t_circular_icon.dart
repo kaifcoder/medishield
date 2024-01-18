@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:medihealth/utils/constants/colors.dart';
 import 'package:medihealth/utils/constants/sizes.dart';
+import 'package:medihealth/utils/helpers/helper_functions.dart';
 
 class TCircularIcon extends StatelessWidget {
   const TCircularIcon({
     super.key,
-    required this.dark,
+    this.dark,
     this.width,
     this.height,
     this.size = TSizes.lg,
@@ -15,7 +16,7 @@ class TCircularIcon extends StatelessWidget {
     this.onPressed,
   });
 
-  final bool dark;
+  final bool? dark;
   final double? width, height, size;
   final IconData icon;
   final Color? color;
@@ -24,6 +25,7 @@ class TCircularIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
     return Container(
       height: height,
       width: width,

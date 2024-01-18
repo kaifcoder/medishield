@@ -13,7 +13,6 @@ class TUserProfileTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: onTap,
       leading: const TCircularImage(
         image: TImages.user,
         height: 50,
@@ -32,7 +31,7 @@ class TUserProfileTile extends StatelessWidget {
             ),
       ),
       trailing: IconButton(
-        onPressed: () {},
+        onPressed: onTap,
         icon: const Icon(
           Icons.edit,
           color: Colors.white,

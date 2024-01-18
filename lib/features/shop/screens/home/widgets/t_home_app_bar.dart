@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:medihealth/common/widgets/appbar/appbar.dart';
 import 'package:medihealth/common/widgets/products/cart/t_cart_counter_icon.dart';
+import 'package:medihealth/features/shop/screens/cart/cart.dart';
 import 'package:medihealth/utils/constants/colors.dart';
 import 'package:medihealth/utils/constants/text_strings.dart';
 
@@ -29,7 +31,9 @@ class THomeAppBar extends StatelessWidget {
       actions: [
         TCartCounterIcon(
           iconColor: TColors.white,
-          onPressed: () {},
+          onPressed: () => Get.to(
+            () => CartScreen(),
+          ),
         )
       ],
     );

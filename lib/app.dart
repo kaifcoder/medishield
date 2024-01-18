@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'MediSheild',
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       theme: MediShieldTheme.lightTheme,
       darkTheme: MediShieldTheme.darkTheme,
       home: const Onboarding(),
