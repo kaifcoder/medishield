@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:medihealth/common/widgets/appbar/appbar.dart';
+import 'package:medishield/common/widgets/appbar/appbar.dart';
 
 class CategoiesScreen extends StatelessWidget {
   const CategoiesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: TAppBar(
         title: Text('Categoies'),
         showBackArrow: true,

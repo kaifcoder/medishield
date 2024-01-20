@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medihealth/common/widgets/appbar/appbar.dart';
-import 'package:medihealth/common/widgets/custom_shapes/containers/t_primary_header_container.dart';
-import 'package:medihealth/common/widgets/list_tile/settings_menu_tile.dart';
-import 'package:medihealth/common/widgets/text/t_section_heading.dart';
-import 'package:medihealth/features/personalization/screens/profile/profile.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
+import 'package:medishield/common/widgets/appbar/appbar.dart';
+import 'package:medishield/common/widgets/custom_shapes/containers/t_primary_header_container.dart';
+import 'package:medishield/common/widgets/list_tile/settings_menu_tile.dart';
+import 'package:medishield/common/widgets/text/t_section_heading.dart';
+import 'package:medishield/features/authentication/screens/login/login.dart';
+import 'package:medishield/features/personalization/screens/address/address.dart';
+import 'package:medishield/features/personalization/screens/profile/profile.dart';
+import 'package:medishield/features/shop/screens/cart/cart.dart';
+import 'package:medishield/features/shop/screens/orders/orders.dart';
+import 'package:medishield/utils/constants/sizes.dart';
 
 import 'widgets/t_user_profile_tile.dart';
 
@@ -76,16 +80,20 @@ class SettingScreen extends StatelessWidget {
                     icon: Iconsax.safe_home,
                     title: 'My Address',
                     subtitle: 'Add or change your address',
-                    onTap: () {},
+                    onTap: () => Get.to(() => const AddressScreen()),
                   ),
-                  const SettingsMenuTile(
-                      icon: Iconsax.shopping_cart,
-                      title: 'My Cart',
-                      subtitle: 'Add, remove products and move to checkout'),
-                  const SettingsMenuTile(
-                      icon: Iconsax.bag_tick,
-                      title: 'My Orders',
-                      subtitle: 'In-progress and Completed Orders'),
+                  SettingsMenuTile(
+                    icon: Iconsax.shopping_cart,
+                    title: 'My Cart',
+                    subtitle: 'Add, remove products and move to checkout',
+                    onTap: () => Get.to(() => const CartScreen()),
+                  ),
+                  SettingsMenuTile(
+                    icon: Iconsax.bag_tick,
+                    title: 'My Orders',
+                    subtitle: 'In-progress and Completed Orders',
+                    onTap: () => Get.to(() => const OrderScreen()),
+                  ),
                   // SettingsMenuTile(
                   //     icon: Iconsax.bank,
                   //     title: 'Bank Account',
@@ -94,33 +102,17 @@ class SettingScreen extends StatelessWidget {
                   //     icon: Iconsax.discount_shape,
                   //     title: 'My Coupons',
                   //     subtitle: 'List of all the discounted coupons'),
-                  const SettingsMenuTile(
-                      icon: Iconsax.notification,
-                      title: 'Notifications',
-                      subtitle: 'Set any kind of notification message'),
+
                   // SettingsMenuTile(
                   //     icon: Iconsax.security_card,
                   //     title: 'Account Privacy',
                   //     subtitle: 'Manage data usage and connected accounts'),
 
-                  const SizedBox(
-                    height: TSizes.spaceBtwSections,
-                  ),
-                  const TSectionHeading(title: 'App Settings'),
-                  const SizedBox(
-                    height: TSizes.spaceBtwItems,
-                  ),
-                  SettingsMenuTile(
-                    icon: Iconsax.location,
-                    title: 'Dark Mode',
-                    subtitle: 'Enable or disable dark mode',
-                    trailing: Switch(value: false, onChanged: (value) {}),
-                  ),
                   const SizedBox(height: TSizes.spaceBtwSections),
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                        onPressed: () {},
+                        onPressed: () => Get.offAll(() => const LoginScreen()),
                         child: const Text(
                           'Logout',
                           style: TextStyle(color: Colors.red),

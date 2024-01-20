@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:medihealth/common/widgets/appbar/appbar.dart';
-import 'package:medihealth/common/widgets/images/t_circular_image.dart';
-import 'package:medihealth/common/widgets/text/t_section_heading.dart';
-import 'package:medihealth/utils/constants/image_strings.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
+import 'package:medishield/common/widgets/appbar/appbar.dart';
+import 'package:medishield/common/widgets/images/t_circular_image.dart';
+import 'package:medishield/common/widgets/text/t_section_heading.dart';
+import 'package:medishield/utils/constants/image_strings.dart';
+import 'package:medishield/utils/constants/sizes.dart';
 
 import 'widgets/profile_menu.dart';
 
@@ -14,7 +13,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TAppBar(
+      appBar: const TAppBar(
         showBackArrow: true,
         title: Text(
           'Profile',
@@ -30,14 +29,14 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    TCircularImage(
+                    const TCircularImage(
                       image: TImages.user,
                       width: 80,
                       height: 80,
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Text('Hello Username'),
+                      child: const Text('Hello Username'),
                     )
                   ],
                 ),
@@ -49,14 +48,19 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(
                 height: TSizes.spaceBtwItems,
               ),
-              TSectionHeading(title: 'Profile Imformation'),
+              const TSectionHeading(title: 'Profile Imformation'),
               const SizedBox(
                 height: TSizes.spaceBtwItems,
               ),
               ProfileMenu(
                 onTap: () {},
-                title: 'Full Name',
-                value: 'John Doe',
+                title: 'First Name',
+                value: 'John',
+              ),
+              ProfileMenu(
+                onTap: () {},
+                title: 'Last Name',
+                value: 'Doe',
               ),
 
               const SizedBox(
@@ -67,7 +71,7 @@ class ProfileScreen extends StatelessWidget {
                 height: TSizes.spaceBtwItems,
               ),
 
-              TSectionHeading(title: 'Profile Imformation'),
+              const TSectionHeading(title: 'Profile Imformation'),
               const SizedBox(
                 height: TSizes.spaceBtwItems,
               ),
@@ -96,7 +100,7 @@ class ProfileScreen extends StatelessWidget {
               Center(
                 child: TextButton(
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     'Close Account',
                     style: TextStyle(color: Colors.red),
                   ),

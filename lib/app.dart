@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medihealth/features/authentication/screens/onboarding/onboarding.dart';
-import 'package:medihealth/utils/theme/theme.dart';
+import 'package:medishield/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:medishield/utils/theme/theme.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

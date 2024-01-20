@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medihealth/common/widgets/images/t_circular_image.dart';
-import 'package:medihealth/utils/constants/image_strings.dart';
+import 'package:medishield/common/widgets/images/t_circular_image.dart';
+import 'package:medishield/utils/constants/image_strings.dart';
 
 class TUserProfileTile extends StatelessWidget {
   const TUserProfileTile({

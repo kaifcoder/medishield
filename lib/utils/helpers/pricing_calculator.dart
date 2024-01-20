@@ -1,4 +1,3 @@
-import '../../features/shop/models/cart_model.dart';
 
 class TPricingCalculator {
 

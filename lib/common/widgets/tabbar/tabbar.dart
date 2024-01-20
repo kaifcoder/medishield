@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medihealth/utils/constants/colors.dart';
-import 'package:medihealth/utils/device/device_utility.dart';
-import 'package:medihealth/utils/helpers/helper_functions.dart';
+import 'package:medishield/utils/constants/colors.dart';
+import 'package:medishield/utils/device/device_utility.dart';
+import 'package:medishield/utils/helpers/helper_functions.dart';
 
 class TabBarCustom extends StatelessWidget implements PreferredSizeWidget {
   const TabBarCustom({super.key, required this.tabs});

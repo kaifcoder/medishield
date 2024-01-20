@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:medihealth/common/widgets/layouts/grid_layout.dart';
-import 'package:medihealth/common/widgets/products/product_cards/product_card_vertical.dart';
-import 'package:medihealth/common/widgets/text/t_section_heading.dart';
-import 'package:medihealth/features/shop/screens/product_details/widgets/bottom_add_to_cartbar.dart';
-import 'package:medihealth/features/shop/screens/product_details/widgets/product_meta_data.dart';
-import 'package:medihealth/features/shop/screens/product_details/widgets/product_variants.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
+import 'package:medishield/common/widgets/layouts/grid_layout.dart';
+import 'package:medishield/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:medishield/common/widgets/text/t_section_heading.dart';
+import 'package:medishield/features/shop/screens/product_details/widgets/bottom_add_to_cartbar.dart';
+import 'package:medishield/features/shop/screens/product_details/widgets/product_meta_data.dart';
+import 'package:medishield/features/shop/screens/product_details/widgets/product_variants.dart';
+import 'package:medishield/utils/constants/sizes.dart';
 
 import 'widgets/product_image_slider.dart';
 import 'widgets/review_text.dart';
@@ -34,11 +34,11 @@ class ProductDetailScreen extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
               child: Column(
                 children: [
-                  ReviewText(),
+                  const ReviewText(),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  ProductMetaData(
+                  const ProductMetaData(
                     title: 'Product Name',
                     shortDescription: 'Product short description',
                     manufacturer: 'Manufacturer',
@@ -50,13 +50,13 @@ class ProductDetailScreen extends StatelessWidget {
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  ChildProductDisplay(
+                  const ChildProductDisplay(
                     selected: true,
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  ChildProductDisplay(
+                  const ChildProductDisplay(
                     selected: false,
                   ),
                   const SizedBox(
@@ -66,7 +66,7 @@ class ProductDetailScreen extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {},
-                      child: Text('Checkout'),
+                      child: const Text('Checkout'),
                     ),
                   ),
                   const SizedBox(
@@ -75,7 +75,7 @@ class ProductDetailScreen extends StatelessWidget {
                   ExpansionTile(
                       tilePadding: EdgeInsets.zero,
                       initiallyExpanded: true,
-                      title: Text('Description'),
+                      title: const Text('Description'),
                       children: [
                         Html(
                           data:
@@ -147,7 +147,7 @@ class ProductDetailScreen extends StatelessWidget {
                   ),
                   GridLayout(
                     itemCount: 4,
-                    itemBuilder: (_, index) => ProductCardVertical(),
+                    itemBuilder: (_, index) => const ProductCardVertical(),
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
@@ -165,7 +165,7 @@ class ProductDetailScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomAddToCartBar(),
+      bottomNavigationBar: const BottomAddToCartBar(),
     );
   }
 }

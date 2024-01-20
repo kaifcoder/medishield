@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medihealth/common/widgets/appbar/appbar.dart';
-import 'package:medihealth/common/widgets/custom_shapes/containers/t_search_container.dart';
-import 'package:medihealth/common/widgets/layouts/grid_layout.dart';
-import 'package:medihealth/common/widgets/products/cart/t_cart_counter_icon.dart';
-import 'package:medihealth/common/widgets/tabbar/tabbar.dart';
-import 'package:medihealth/common/widgets/text/t_section_heading.dart';
-import 'package:medihealth/features/shop/screens/Search/Search.dart';
-import 'package:medihealth/features/shop/screens/cart/cart.dart';
-import 'package:medihealth/utils/constants/colors.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
-import 'package:medihealth/utils/helpers/helper_functions.dart';
+import 'package:medishield/common/widgets/appbar/appbar.dart';
+import 'package:medishield/common/widgets/custom_shapes/containers/t_search_container.dart';
+import 'package:medishield/common/widgets/layouts/grid_layout.dart';
+import 'package:medishield/common/widgets/products/cart/t_cart_counter_icon.dart';
+import 'package:medishield/common/widgets/tabbar/tabbar.dart';
+import 'package:medishield/common/widgets/text/t_section_heading.dart';
+import 'package:medishield/features/shop/screens/Search/Search.dart';
+import 'package:medishield/features/shop/screens/cart/cart.dart';
+import 'package:medishield/utils/constants/colors.dart';
+import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/helpers/helper_functions.dart';
 
 import 'widgets/brand_card.dart';
 import 'widgets/t_category_tab.dart';

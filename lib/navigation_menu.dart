@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medihealth/features/personalization/screens/settings/settings.dart';
-import 'package:medihealth/features/shop/screens/home/home_screen.dart';
-import 'package:medihealth/features/shop/screens/store/store.dart';
-import 'package:medihealth/features/shop/screens/wishlist/wishlist.dart';
-import 'package:medihealth/utils/constants/colors.dart';
-import 'package:medihealth/utils/helpers/helper_functions.dart';
+import 'package:medishield/features/personalization/screens/settings/settings.dart';
+import 'package:medishield/features/shop/screens/home/home_screen.dart';
+import 'package:medishield/features/shop/screens/store/store.dart';
+import 'package:medishield/features/shop/screens/wishlist/wishlist.dart';
+import 'package:medishield/utils/constants/colors.dart';
+import 'package:medishield/utils/helpers/helper_functions.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});

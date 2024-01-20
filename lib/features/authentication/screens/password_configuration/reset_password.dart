@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medihealth/features/authentication/screens/login/login.dart';
-import 'package:medihealth/utils/constants/image_strings.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
-import 'package:medihealth/utils/constants/text_strings.dart';
-import 'package:medihealth/utils/helpers/helper_functions.dart';
+import 'package:medishield/features/authentication/screens/login/login.dart';
+import 'package:medishield/utils/constants/image_strings.dart';
+import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/constants/text_strings.dart';
+import 'package:medishield/utils/helpers/helper_functions.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});

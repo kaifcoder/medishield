@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medihealth/common/styles/shadow.dart';
-import 'package:medihealth/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:medihealth/common/widgets/images/t_rounded_image.dart';
-import 'package:medihealth/features/shop/screens/product_details/product_details.dart';
-import 'package:medihealth/utils/constants/colors.dart';
-import 'package:medihealth/utils/constants/enums.dart';
-import 'package:medihealth/utils/constants/image_strings.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
-import 'package:medihealth/utils/helpers/helper_functions.dart';
+import 'package:medishield/common/styles/shadow.dart';
+import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:medishield/common/widgets/images/t_rounded_image.dart';
+import 'package:medishield/features/shop/screens/product_details/product_details.dart';
+import 'package:medishield/utils/constants/colors.dart';
+import 'package:medishield/utils/constants/enums.dart';
+import 'package:medishield/utils/constants/image_strings.dart';
+import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/helpers/helper_functions.dart';
 
 import '../../icons/t_circular_icon.dart';
 import '../../text/price_text.dart';

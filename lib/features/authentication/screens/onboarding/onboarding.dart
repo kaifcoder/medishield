@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medihealth/features/authentication/controllers/onboarding/onboarding_controller.dart';
-import 'package:medihealth/utils/constants/image_strings.dart';
-import 'package:medihealth/utils/constants/text_strings.dart';
+import 'package:medishield/features/authentication/controllers/onboarding/onboarding_controller.dart';
+import 'package:medishield/utils/constants/image_strings.dart';
+import 'package:medishield/utils/constants/text_strings.dart';
 
 import 'widgets/onboarding_dot_navigation.dart';
 import 'widgets/onboarding_next_button.dart';

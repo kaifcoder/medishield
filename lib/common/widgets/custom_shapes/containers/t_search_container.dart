@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medihealth/utils/constants/colors.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
-import 'package:medihealth/utils/device/device_utility.dart';
-import 'package:medihealth/utils/helpers/helper_functions.dart';
+import 'package:medishield/utils/constants/colors.dart';
+import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/device/device_utility.dart';
+import 'package:medishield/utils/helpers/helper_functions.dart';
 
 class TSearchContainer extends StatelessWidget {
   const TSearchContainer({

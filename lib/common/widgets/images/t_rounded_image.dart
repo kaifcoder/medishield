@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
+import 'package:medishield/utils/constants/sizes.dart';
 
 class TRoundedImage extends StatelessWidget {
   const TRoundedImage({

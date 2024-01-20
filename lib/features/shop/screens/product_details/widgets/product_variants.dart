@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medihealth/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:medihealth/utils/constants/colors.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
+import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:medishield/utils/constants/colors.dart';
+import 'package:medishield/utils/constants/sizes.dart';
 
 class ChildProductDisplay extends StatelessWidget {
   const ChildProductDisplay({super.key, required this.selected});
@@ -14,7 +14,7 @@ class ChildProductDisplay extends StatelessWidget {
     return Column(
       children: [
         TRoundedContainer(
-          padding: EdgeInsets.all(TSizes.md),
+          padding: const EdgeInsets.all(TSizes.md),
           width: double.infinity,
           showBorder: true,
           backgroundColor:

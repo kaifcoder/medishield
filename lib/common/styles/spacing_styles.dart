@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
+import 'package:medishield/utils/constants/sizes.dart';
 
 class TSpacingStyle {
   static const EdgeInsetsGeometry paddingWithTopAppBar = EdgeInsets.only(

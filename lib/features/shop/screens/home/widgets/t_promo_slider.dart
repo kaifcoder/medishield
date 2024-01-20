@@ -1,12 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medihealth/common/widgets/custom_shapes/containers/t_circular_container.dart';
-import 'package:medihealth/common/widgets/images/t_rounded_image.dart';
-import 'package:medihealth/features/shop/controllers/home_controller.dart';
-import 'package:medihealth/features/shop/screens/product_details/product_details.dart';
-import 'package:medihealth/utils/constants/colors.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
+import 'package:medishield/common/widgets/custom_shapes/containers/t_circular_container.dart';
+import 'package:medishield/common/widgets/images/t_rounded_image.dart';
+import 'package:medishield/features/shop/controllers/home_controller.dart';
+import 'package:medishield/features/shop/screens/product_details/product_details.dart';
+import 'package:medishield/utils/constants/colors.dart';
+import 'package:medishield/utils/constants/sizes.dart';
 
 class TPromoSlider extends StatelessWidget {
   const TPromoSlider({super.key, required this.banners});

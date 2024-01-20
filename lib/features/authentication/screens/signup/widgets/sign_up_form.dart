@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medihealth/common/widgets/login_signup/login_footer.dart';
-import 'package:medihealth/common/widgets/login_signup/t_divider.dart';
-import 'package:medihealth/features/authentication/screens/signup/verify_email.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
-import 'package:medihealth/utils/constants/text_strings.dart';
+import 'package:medishield/common/widgets/login_signup/login_footer.dart';
+import 'package:medishield/common/widgets/login_signup/t_divider.dart';
+import 'package:medishield/features/authentication/screens/signup/verify_email.dart';
+import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/constants/text_strings.dart';
 
 import 'terms_and_condition_checkbox.dart';
 
@@ -44,15 +44,6 @@ class SignUpForm extends StatelessWidget {
                 ),
               ),
             ],
-          ),
-          const SizedBox(
-            height: TSizes.spaceBtwInputFields,
-          ),
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: TTexts.username,
-              prefixIcon: Icon(Iconsax.user_edit),
-            ),
           ),
           const SizedBox(
             height: TSizes.spaceBtwInputFields,

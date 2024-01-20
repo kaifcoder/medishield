@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medihealth/utils/constants/colors.dart';
+import 'package:medishield/utils/constants/colors.dart';
 
 class TDivider extends StatelessWidget {
   const TDivider({

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:medihealth/common/styles/spacing_styles.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
-import 'package:medihealth/utils/constants/text_strings.dart';
-import 'package:medihealth/utils/helpers/helper_functions.dart';
+import 'package:medishield/common/styles/spacing_styles.dart';
+import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/constants/text_strings.dart';
+import 'package:medishield/utils/helpers/helper_functions.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen(

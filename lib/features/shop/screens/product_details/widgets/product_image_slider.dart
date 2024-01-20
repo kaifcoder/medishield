@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medihealth/common/widgets/appbar/appbar.dart';
-import 'package:medihealth/common/widgets/custom_shapes/curved_edges/t_curved_edge_widget.dart';
-import 'package:medihealth/common/widgets/icons/t_circular_icon.dart';
-import 'package:medihealth/common/widgets/images/t_rounded_image.dart';
-import 'package:medihealth/utils/constants/colors.dart';
-import 'package:medihealth/utils/constants/image_strings.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
-import 'package:medihealth/utils/helpers/helper_functions.dart';
+import 'package:medishield/common/widgets/appbar/appbar.dart';
+import 'package:medishield/common/widgets/custom_shapes/curved_edges/t_curved_edge_widget.dart';
+import 'package:medishield/common/widgets/icons/t_circular_icon.dart';
+import 'package:medishield/common/widgets/images/t_rounded_image.dart';
+import 'package:medishield/utils/constants/colors.dart';
+import 'package:medishield/utils/constants/image_strings.dart';
+import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/helpers/helper_functions.dart';
 
 class ProductImageSlider extends StatelessWidget {
   const ProductImageSlider({

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medihealth/common/widgets/icons/t_circular_icon.dart';
-import 'package:medihealth/utils/constants/colors.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
+import 'package:medishield/common/widgets/icons/t_circular_icon.dart';
+import 'package:medishield/utils/constants/colors.dart';
+import 'package:medishield/utils/constants/sizes.dart';
 
 class BottomAddToCartBar extends StatelessWidget {
   const BottomAddToCartBar({super.key});
@@ -10,9 +10,9 @@ class BottomAddToCartBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
           horizontal: TSizes.defaultSpace, vertical: TSizes.defaultSpace / 2),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: TColors.light,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(TSizes.cardRadiusLg),
@@ -24,7 +24,7 @@ class BottomAddToCartBar extends StatelessWidget {
         children: [
           Row(
             children: [
-              TCircularIcon(
+              const TCircularIcon(
                 icon: Iconsax.minus,
                 backgroundColor: TColors.darkGrey,
                 color: TColors.white,
@@ -44,7 +44,7 @@ class BottomAddToCartBar extends StatelessWidget {
               const SizedBox(
                 width: TSizes.spaceBtwItems,
               ),
-              TCircularIcon(
+              const TCircularIcon(
                 icon: Iconsax.add,
                 backgroundColor: TColors.black,
                 color: TColors.white,
@@ -57,14 +57,14 @@ class BottomAddToCartBar extends StatelessWidget {
           //add to cart button
           ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.all(TSizes.md),
+                  padding: const EdgeInsets.all(TSizes.md),
                   backgroundColor: TColors.black,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
                   ),
-                  side: BorderSide(color: TColors.black)),
+                  side: const BorderSide(color: TColors.black)),
               onPressed: () {},
-              child: Text('Add to cart'))
+              child: const Text('Add to cart'))
         ],
       ),
     );

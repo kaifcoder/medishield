@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medihealth/features/authentication/screens/password_configuration/reset_password.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
-import 'package:medihealth/utils/constants/text_strings.dart';
+import 'package:medishield/features/authentication/screens/password_configuration/reset_password.dart';
+import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/constants/text_strings.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
   const ForgetPasswordScreen({super.key});

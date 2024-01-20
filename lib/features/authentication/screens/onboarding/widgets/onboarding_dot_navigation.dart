@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:medihealth/features/authentication/controllers/onboarding/onboarding_controller.dart';
-import 'package:medihealth/utils/constants/colors.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
-import 'package:medihealth/utils/device/device_utility.dart';
-import 'package:medihealth/utils/helpers/helper_functions.dart';
+import 'package:medishield/features/authentication/controllers/onboarding/onboarding_controller.dart';
+import 'package:medishield/utils/constants/colors.dart';
+import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/device/device_utility.dart';
+import 'package:medishield/utils/helpers/helper_functions.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingDotNavigation extends StatelessWidget {

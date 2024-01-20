@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medihealth/utils/constants/colors.dart';
+import 'package:medishield/utils/constants/colors.dart';
 
 class TBottomSheetTheme {
   TBottomSheetTheme._();

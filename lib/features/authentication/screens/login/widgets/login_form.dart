@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medihealth/features/authentication/screens/password_configuration/forget_password.dart';
-import 'package:medihealth/features/authentication/screens/signup/signup_screen.dart';
-import 'package:medihealth/navigation_menu.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
-import 'package:medihealth/utils/constants/text_strings.dart';
+import 'package:medishield/features/authentication/screens/password_configuration/forget_password.dart';
+import 'package:medishield/features/authentication/screens/signup/signup_screen.dart';
+import 'package:medishield/navigation_menu.dart';
+import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/constants/text_strings.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({

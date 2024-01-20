@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medihealth/utils/constants/enums.dart';
+import 'package:medishield/utils/constants/enums.dart';
 
 class TBrandTitleText extends StatelessWidget {
   const TBrandTitleText({

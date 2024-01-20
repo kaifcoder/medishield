@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medihealth/utils/constants/colors.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
-import 'package:medihealth/utils/constants/text_strings.dart';
+import 'package:medishield/utils/constants/colors.dart';
+import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/constants/text_strings.dart';
 
 class TermsAndConditionCheckbox extends StatelessWidget {
   const TermsAndConditionCheckbox({

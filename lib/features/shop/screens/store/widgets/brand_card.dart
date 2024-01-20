@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:medihealth/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:medihealth/common/widgets/images/t_circular_image.dart';
-import 'package:medihealth/common/widgets/text/t_brand_title_text.dart';
-import 'package:medihealth/utils/constants/colors.dart';
-import 'package:medihealth/utils/constants/enums.dart';
-import 'package:medihealth/utils/constants/image_strings.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
-import 'package:medihealth/utils/helpers/helper_functions.dart';
+import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:medishield/common/widgets/images/t_circular_image.dart';
+import 'package:medishield/common/widgets/text/t_brand_title_text.dart';
+import 'package:medishield/utils/constants/colors.dart';
+import 'package:medishield/utils/constants/enums.dart';
+import 'package:medishield/utils/constants/image_strings.dart';
+import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/helpers/helper_functions.dart';
 
 class BrandCard extends StatelessWidget {
   const BrandCard({

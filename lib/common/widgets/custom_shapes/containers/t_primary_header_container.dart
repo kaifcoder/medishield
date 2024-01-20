@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medihealth/common/widgets/custom_shapes/containers/t_circular_container.dart';
-import 'package:medihealth/common/widgets/custom_shapes/curved_edges/t_curved_edge_widget.dart';
-import 'package:medihealth/utils/constants/colors.dart';
+import 'package:medishield/common/widgets/custom_shapes/containers/t_circular_container.dart';
+import 'package:medishield/common/widgets/custom_shapes/curved_edges/t_curved_edge_widget.dart';
+import 'package:medishield/utils/constants/colors.dart';
 
 class TPrimaryHeaderContainer extends StatelessWidget {
   const TPrimaryHeaderContainer({

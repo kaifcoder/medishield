@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medihealth/utils/constants/sizes.dart';
+import 'package:medishield/utils/constants/sizes.dart';
 
 class ReviewText extends StatelessWidget {
   const ReviewText({
