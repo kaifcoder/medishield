@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.only(top: TDeviceUtils.getAppBarHeight()),
+        padding: EdgeInsets.only(top: TDeviceUtils.getAppBarHeight() + 20),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -55,7 +55,6 @@ class HomeScreen extends StatelessWidget {
                         () => const CategoiesScreen(),
                       ),
                     ),
-                    const SizedBox(height: TSizes.spaceBtwItems),
                     const THomeCategories(),
                   ],
                 ),
@@ -73,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
-                    TSectionHeading(
+                    const TSectionHeading(
                       title: 'Trending Products',
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
