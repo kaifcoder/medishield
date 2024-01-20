@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:medishield/common/widgets/layouts/grid_layout.dart';
-import 'package:medishield/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/bottom_add_to_cartbar.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/product_variants.dart';
+import 'package:medishield/features/shop/screens/product_details/widgets/qa_widget.dart';
+import 'package:medishield/features/shop/screens/product_details/widgets/t_rating_bar_indicator.dart';
+import 'package:medishield/features/shop/screens/product_details/widgets/user_review.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
+import 'widgets/overall_product_rating.dart';
 import 'widgets/product_image_slider.dart';
 import 'widgets/review_text.dart';
 
@@ -22,12 +24,6 @@ class ProductDetailScreen extends StatelessWidget {
           children: [
             // product images carousel
             const ProductImageSlider(),
-            // product details
-
-            // product name
-            // product brand
-            // product price
-            // product rating
 
             Padding(
               padding:
@@ -45,7 +41,7 @@ class ProductDetailScreen extends StatelessWidget {
                     price: 100,
                     originalPrice: 200,
                     discount: 50,
-                    child: true,
+                    child: false,
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
@@ -115,42 +111,70 @@ class ProductDetailScreen extends StatelessWidget {
                           'data',
                         ),
                       ]),
-                  const ExpansionTile(
+                  ExpansionTile(
+                      expandedCrossAxisAlignment: CrossAxisAlignment.start,
                       tilePadding: EdgeInsets.zero,
                       initiallyExpanded: true,
                       title: Text('FAQs'),
                       children: [
-                        Text(
-                          'data',
-                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ListView.separated(
+                                padding: EdgeInsets.zero,
+                                physics: const NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                itemBuilder: (context, index) => QnA(
+                                    index: index + 1,
+                                    question: 'Question',
+                                    answer: 'Answer'),
+                                separatorBuilder: (context, index) => SizedBox(
+                                      height: TSizes.sm,
+                                      child: Divider(),
+                                    ),
+                                itemCount: 5),
+                            const SizedBox(
+                              height: TSizes.spaceBtwItems,
+                            ),
+                            TextButton(
+                                style: TextButton.styleFrom(
+                                  foregroundColor: Colors.black,
+                                ),
+                                onPressed: () {},
+                                child: const Text('Ask a question'))
+                          ],
+                        )
                       ]),
-
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
-                  // related products
                   TSectionHeading(
-                    title: 'Reviews',
-                    showButton: true,
-                    onButtonPressed: () {},
+                    title: 'Reviews (233)',
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwItems,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      OverallProductRating(),
+                      TRatingBarIndicator(rating: 4.5),
+                      Text('1,100'),
+                      const SizedBox(
+                        height: TSizes.spaceBtwItems,
+                      ),
+                      ListView.separated(
+                        padding: EdgeInsets.zero,
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: 5,
+                        itemBuilder: (context, index) => const UserReview(),
+                        separatorBuilder: (context, index) => const Divider(),
+                      )
+                    ],
                   ),
-                  // related products
-                  const TSectionHeading(title: 'Related Products'),
                   const SizedBox(
-                    height: TSizes.spaceBtwItems,
-                  ),
-                  GridLayout(
-                    itemCount: 4,
-                    itemBuilder: (_, index) => const ProductCardVertical(),
-                  ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwItems,
+                    height: TSizes.spaceBtwSections,
                   ),
                 ],
               ),

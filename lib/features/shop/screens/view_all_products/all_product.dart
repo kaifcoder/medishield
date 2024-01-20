@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medishield/common/widgets/products/product_cards/product_card_horizontal.dart';
+import 'package:medishield/utils/constants/sizes.dart';
 
 class AllProductScreen extends StatelessWidget {
   const AllProductScreen({super.key});
@@ -9,9 +11,12 @@ class AllProductScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('All Product'),
       ),
-      body: Center(
-        child: Text('All Product Screen'),
-      ),
+      body: ListView.builder(
+          padding: EdgeInsets.all(TSizes.defaultSpace / 2),
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return ProductCardHorizontal();
+          }),
     );
   }
 }
