@@ -38,6 +38,7 @@ class TRoundedContainer extends StatelessWidget {
         width: width,
         height: height,
         padding: padding,
+        margin: margin,
         decoration: BoxDecoration(
           border: showBorder ? Border.all(color: borderColor) : null,
           color: backgroundColor,

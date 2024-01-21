@@ -5,7 +5,7 @@ import 'package:medishield/utils/constants/colors.dart';
 class TDivider extends StatelessWidget {
   const TDivider({
     super.key,
-    required this.dark,
+    this.dark = false,
     required this.dividerText,
   });
 

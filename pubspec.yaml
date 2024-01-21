@@ -32,12 +32,13 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   capped_progress_indicator: ^0.0.2
   connectivity_plus: ^5.0.2
-  firebase_storage: ^11.6.0
+
   firebase_core: ^2.24.2
   firebase_auth: ^4.16.0
-  cloud_firestore: ^4.14.0
+
   carousel_indicator: ^1.0.6
   flutter_html: ^3.0.0-beta.2
+  order_tracker_zen: ^1.0.0+4
 
 dev_dependencies:
   flutter_test:
@@ -55,7 +56,6 @@ flutter:
     - assets/images/products/
     - assets/icons/categories/
     - assets/images/animations/
-    - assets/icons/payment_methods/
     - assets/images/on_boarding_images/
   fonts:
     - family: Poppins
