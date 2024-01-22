@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:medishield/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:medishield/bindings/general_bindings.dart';
+import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/utils/theme/theme.dart';
 
 class MyApp extends StatelessWidget {
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: MediShieldTheme.lightTheme,
       darkTheme: MediShieldTheme.darkTheme,
-      home: const Onboarding(),
+      initialBinding: GeneralBindings(),
+      home: const LoginScreen(),
     );
   }
 }

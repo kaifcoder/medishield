@@ -18,12 +18,12 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: TSpacingStyle.paddingWithTopAppBar,
+          padding: TSpacingStyle.paddingWithTopAppBar / 1.5,
           child: Column(
             children: [
               LoginHeader(dark: dark),
               const SizedBox(
-                height: TSizes.spaceBtwSections,
+                height: TSizes.spaceBtwSections / 2,
               ),
               const LoginForm(),
               TDivider(dark: dark, dividerText: TTexts.orSignInWith),

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medishield/features/authentication/controllers/login/login_controller.dart';
 import 'package:medishield/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:medishield/features/authentication/screens/signup/signup_screen.dart';
 import 'package:medishield/navigation_menu.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/constants/text_strings.dart';
+import 'package:medishield/utils/validators/validation.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -14,12 +16,16 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Form(
+      key: controller.loginFormKey,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: TSizes.spaceBtwSections),
+        padding: const EdgeInsets.symmetric(vertical: TSizes.defaultSpace),
         child: Column(
           children: [
             TextFormField(
+              controller: controller.email,
+              validator: (value) => TValidator.validateEmail(value),
               decoration: const InputDecoration(
                 prefixIcon: Icon(Iconsax.direct5),
                 labelText: TTexts.email,
@@ -29,6 +35,8 @@ class LoginForm extends StatelessWidget {
               height: TSizes.spaceBtwInputFields,
             ),
             TextFormField(
+              controller: controller.password,
+              validator: (value) => TValidator.validatePassword(value),
               decoration: const InputDecoration(
                 prefixIcon: Icon(Iconsax.lock),
                 labelText: TTexts.password,
@@ -40,27 +48,21 @@ class LoginForm extends StatelessWidget {
               height: TSizes.spaceBtwInputFields / 2,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Row(
-                  children: [
-                    Checkbox(value: true, onChanged: (value) {}),
-                    const Text(TTexts.rememberMe),
-                  ],
-                ),
                 TextButton(
                     onPressed: () => Get.to(() => const ForgetPasswordScreen()),
                     child: const Text(TTexts.forgetPassword))
               ],
             ),
             const SizedBox(
-              height: TSizes.spaceBtwSections,
+              height: TSizes.spaceBtwSections / 3,
             ),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => Get.offAll(() => const NavigationMenu()),
-                child: const Text(TTexts.signIn),
+                onPressed: () => controller.login(),
+                child: Text(TTexts.signIn),
               ),
             ),
             const SizedBox(

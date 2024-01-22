@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/login_signup/login_footer.dart';
 import 'package:medishield/common/widgets/login_signup/t_divider.dart';
-import 'package:medishield/features/authentication/screens/signup/verify_email.dart';
+import 'package:medishield/features/authentication/controllers/signup/sign_up_controller.dart';
+
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/constants/text_strings.dart';
-
-import 'terms_and_condition_checkbox.dart';
+import 'package:medishield/utils/validators/validation.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({
@@ -19,13 +19,17 @@ class SignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignUpController());
     return Form(
+      key: controller.signupFormKey,
       child: Column(
         children: [
           Row(
             children: [
               Expanded(
                 child: TextFormField(
+                  controller: controller.firstName,
+                  validator: (value) => TValidator.validateEmpty(value),
                   decoration: const InputDecoration(
                     labelText: TTexts.firstName,
                     prefixIcon: Icon(Iconsax.user),
@@ -37,6 +41,8 @@ class SignUpForm extends StatelessWidget {
               ),
               Expanded(
                 child: TextFormField(
+                  controller: controller.lastName,
+                  validator: (value) => TValidator.validateEmpty(value),
                   decoration: const InputDecoration(
                     labelText: TTexts.lastName,
                     prefixIcon: Icon(Iconsax.user),
@@ -49,6 +55,8 @@ class SignUpForm extends StatelessWidget {
             height: TSizes.spaceBtwInputFields,
           ),
           TextFormField(
+            controller: controller.email,
+            validator: (value) => TValidator.validateEmail(value),
             decoration: const InputDecoration(
               labelText: TTexts.email,
               prefixIcon: Icon(Iconsax.direct),
@@ -58,6 +66,8 @@ class SignUpForm extends StatelessWidget {
             height: TSizes.spaceBtwInputFields,
           ),
           TextFormField(
+            controller: controller.phoneNumber,
+            validator: (value) => TValidator.validatePhoneNumber(value),
             decoration: const InputDecoration(
               labelText: TTexts.phoneNo,
               prefixIcon: Icon(Iconsax.call),
@@ -66,25 +76,34 @@ class SignUpForm extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: TTexts.password,
-              prefixIcon: Icon(Iconsax.password_check),
-              suffixIcon: Icon(Iconsax.eye_slash),
+          Obx(
+            () => TextFormField(
+              controller: controller.password,
+              validator: (value) => TValidator.validatePassword(value),
+              decoration: InputDecoration(
+                labelText: TTexts.password,
+                prefixIcon: Icon(Iconsax.password_check),
+                suffixIcon: IconButton(
+                  onPressed: () => controller.hidePassword.value =
+                      !controller.hidePassword.value,
+                  icon: Icon(controller.hidePassword.value
+                      ? Iconsax.eye_slash
+                      : Iconsax.eye),
+                ),
+              ),
+              obscureText: controller.hidePassword.value,
             ),
-            obscureText: true,
           ),
           const SizedBox(
             height: TSizes.spaceBtwItems,
           ),
-          TermsAndConditionCheckbox(dark: dark),
           const SizedBox(
             height: TSizes.spaceBtwSections,
           ),
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () => Get.to(() => const VerifyEmail()),
+              onPressed: () => controller.signUp(),
               child: const Text(TTexts.createAccount),
             ),
           ),

@@ -1,4 +1,3 @@
-
 class TValidator {
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
@@ -59,4 +58,10 @@ class TValidator {
   }
 
 // Add more custom validators as needed for your specific requirements.
+  static String? validateEmpty(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'This field is required.';
+    }
+    return null;
+  }
 }
