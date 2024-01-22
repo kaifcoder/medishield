@@ -12,12 +12,12 @@ class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
 
   final hidePassword = true.obs;
-  final email = TextEditingController(); // Controller for
-  final lastName = TextEditingController(); // Controller
-  final username = TextEditingController(); // Controller
-  final password = TextEditingController(); // Controller
-  final firstName = TextEditingController(); // Controller
-  final phoneNumber = TextEditingController(); // Controll
+  final email = TextEditingController();
+  final lastName = TextEditingController();
+  final username = TextEditingController();
+  final password = TextEditingController();
+  final firstName = TextEditingController();
+  final phoneNumber = TextEditingController();
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
   Future<void> signUp() async {
@@ -29,11 +29,15 @@ class SignUpController extends GetxController {
       // check internet
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
+        FullScreenLoader.stopLoading();
         return THelperFunctions.showSnackBar('No internet connection');
       }
 
       // //form validation
-      if (!signupFormKey.currentState!.validate()) return;
+      if (!signupFormKey.currentState!.validate()) {
+        FullScreenLoader.stopLoading();
+        return;
+      }
 
       // set data in model
       final data = User(
@@ -44,18 +48,21 @@ class SignUpController extends GetxController {
         mobile: phoneNumber.text.trim(),
       );
 
-      // call api
+      // call signup api
 
-      final resp = await AuthenticationRepository.instance.signup(data);
-      print(resp);
+      await AuthenticationRepository.instance.signup(data);
+      // save token in local storage
+      // save user data in local storage
+      // show snackbar
+      FullScreenLoader.stopLoading();
       THelperFunctions.showSnackBar('Congrats! You are registered');
       // navigate to verify email
-      Get.to(() => VerifyEmail());
+
+      Get.to(() => const VerifyEmail());
     } catch (e) {
+      FullScreenLoader.stopLoading();
       var err = e.toString().replaceAll('Exception: ', '');
       THelperFunctions.showSnackBar('Oh Snap! $err');
-    } finally {
-      FullScreenLoader.stopLoading();
     }
   }
 }

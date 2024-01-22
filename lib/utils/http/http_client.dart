@@ -17,7 +17,9 @@ class THttpHelper {
       String endpoint, dynamic data) async {
     final response = await http.post(
       Uri.parse('$_baseUrl/$endpoint'),
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: json.encode(data),
     );
     return _handleResponse(response);

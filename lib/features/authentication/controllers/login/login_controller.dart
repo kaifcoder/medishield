@@ -11,6 +11,7 @@ class LoginController extends GetxController {
   final email = TextEditingController();
   final password = TextEditingController();
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+
   Future<void> login() async {
     try {
       FullScreenLoader.openLoadingDialog(
@@ -19,14 +20,16 @@ class LoginController extends GetxController {
       // check internet
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
+        FullScreenLoader.stopLoading();
         return THelperFunctions.showSnackBar('No internet connection');
       }
       // //form validation
-      if (!loginFormKey.currentState!.validate()) return;
+      if (!loginFormKey.currentState!.validate()) {
+        FullScreenLoader.stopLoading();
+        return;
+      }
     } catch (e) {
       THelperFunctions.showSnackBar('Oh Snap! ' + e.toString());
-    } finally {
-      FullScreenLoader.stopLoading();
     }
   }
 }

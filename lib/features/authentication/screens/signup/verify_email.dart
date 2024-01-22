@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/success_screen/success_screen.dart';
+import 'package:medishield/features/authentication/controllers/signup/verify_email_controller.dart';
 import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/utils/constants/image_strings.dart';
 import 'package:medishield/utils/constants/sizes.dart';
@@ -13,6 +14,7 @@ class VerifyEmail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerifyEmailController());
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,

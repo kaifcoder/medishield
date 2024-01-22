@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:medishield/features/authentication/controllers/signup/sign_up_controller.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/constants/text_strings.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
@@ -13,7 +11,6 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
-    final controller = Get.put(SignUpController());
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
