@@ -1,11 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:medishield/features/authentication/models/user.dart';
 import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/features/authentication/screens/signup/verify_email.dart';
 import 'package:medishield/navigation_menu.dart';
+import 'package:medishield/utils/exceptions/firebase_auth_exceptions.dart';
+import 'package:medishield/utils/exceptions/firebase_exceptions.dart';
+import 'package:medishield/utils/exceptions/platform_exceptions.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
-import 'package:medishield/utils/helpers/network_manager.dart';
 import 'package:medishield/utils/http/http_client.dart';
 
 class AuthenticationRepository extends GetxController {
@@ -23,66 +29,104 @@ class AuthenticationRepository extends GetxController {
 
   Future<void> screenRedirect() async {
     final token = await deviceStorage.read('token');
-    // check internet
-    final isConnected = await NetworkManager.instance.isConnected();
-    if (!isConnected) {
-      Get.offAll(() => const LoginScreen());
-      return THelperFunctions.showSnackBar(
-          'No internet connection please reconnect and try again');
-    }
-
     if (token != null) {
-      // check if email is verified
+      final isVerfied = await deviceStorage.read('isVerfied');
+      if (isVerfied != null && isVerfied == true)
+        return Get.offAll(() => const NavigationMenu());
+      print(token);
       final res = await THttpHelper.get('api/user/verify-email/$token');
-      // if not verified send it to verification screen
       if (res['message'] != 'true') {
-        Get.offAll(() => const VerifyEmail());
+        final email = deviceStorage.read('email');
+        Get.offAll(() => VerifyEmail(
+              email: email,
+            ));
       } else {
-        // else send it to home screen
+        await deviceStorage.writeIfNull('isVerfied', true);
         Get.offAll(() => const NavigationMenu());
       }
-    } else {
-      // send it to login screen
-      Get.offAll(() => const LoginScreen());
     }
   }
 
   // signup user
-  Future signup(User data) async {
-    final res = await THttpHelper.post('api/user/register', data.toJson());
-    deviceStorage.write('token', res['token']);
-    deviceStorage.write('email', res['email']);
-    return res;
+  Future signup(UserModel data) async {
+    try {
+      final res = await THttpHelper.post('api/user/register', data.toJson());
+      await deviceStorage.write('token', res['token']);
+      await deviceStorage.write('email', res['email']);
+      return res;
+    } on Exception catch (e) {
+      THelperFunctions.showSnackBar(
+          'Oh Snap! $e'.replaceAll('Exception: ', ''));
+    }
   }
 
   // verify email / resend email
-  sendVerfiyEmail() async {
-    final res = await THttpHelper.post('api/user/verify-email', {});
-
-    return res;
+  Future<void> sendVerfiyEmail() async {
+    final token = await deviceStorage.read('token');
+    print(token);
+    await THttpHelper.get('api/user/sendVerificationEmail/$token');
   }
 
-  // check if user is logged in
-
-  // reauthenticate user
+  // check if email is verified
+  Future<bool> isEmailVerified() async {
+    final token = await deviceStorage.read('token');
+    final res = await THttpHelper.get('api/user/verify-email/$token');
+    return res['message'] == 'true';
+  }
 
   // login user
   Future login(String email, String password) async {
-    final res = await THttpHelper.post('api/user/login', {
-      'email': email,
-      'password': password,
-    });
-    deviceStorage.write('token', res['token']);
-    return res;
+    try {
+      final res = await THttpHelper.post('api/user/login', {
+        'email': email,
+        'password': password,
+      });
+      deviceStorage.write('token', res['token']);
+      deviceStorage.write('email', res['email']);
+      return res;
+    } on Exception catch (e) {
+      THelperFunctions.showSnackBar('Oh Snap! ' + e.toString());
+    }
   }
 
   // forgot password
 
+  // sign in with google
+  Future signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication? googleAuth =
+          await userAccount?.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+      final userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+      return userCredential;
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      if (kDebugMode) print(e);
+      return;
+    }
+  }
+
   // delete account
 
   // logout user
-  logout() {
-    deviceStorage.remove('token');
-    deviceStorage.writeIfNull('token', null);
+  logout() async {
+    await deviceStorage.remove('token');
+    await deviceStorage.writeIfNull('token', null);
+    await deviceStorage.remove('email');
+    await deviceStorage.writeIfNull('email', null);
+    await deviceStorage.remove('isVerfied');
+    await deviceStorage.writeIfNull('isVerfied', null);
+    await FirebaseAuth.instance.signOut();
+    Get.offAll(() => const LoginScreen());
   }
 }

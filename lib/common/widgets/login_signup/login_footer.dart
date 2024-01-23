@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:medishield/features/authentication/controllers/google_sign_in_controller/google_controller.dart';
 import 'package:medishield/utils/constants/image_strings.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
@@ -10,11 +11,12 @@ class LoginFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(GoogleController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         OutlinedButton(
-          onPressed: () {},
+          onPressed: () => controller.googleSignIn(),
           child: Row(
             children: [
               const Image(

@@ -40,7 +40,7 @@ class SignUpController extends GetxController {
       }
 
       // set data in model
-      final data = User(
+      final data = UserModel(
         email: email.text.trim(),
         firstName: firstName.text.trim(),
         lastName: lastName.text.trim(),
@@ -51,14 +51,11 @@ class SignUpController extends GetxController {
       // call signup api
 
       await AuthenticationRepository.instance.signup(data);
-      // save token in local storage
-      // save user data in local storage
-      // show snackbar
       FullScreenLoader.stopLoading();
       THelperFunctions.showSnackBar('Congrats! You are registered');
       // navigate to verify email
 
-      Get.to(() => const VerifyEmail());
+      Get.off(() => VerifyEmail(email: email.text.trim()));
     } catch (e) {
       FullScreenLoader.stopLoading();
       var err = e.toString().replaceAll('Exception: ', '');

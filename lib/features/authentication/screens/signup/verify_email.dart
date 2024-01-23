@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/success_screen/success_screen.dart';
+import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/features/authentication/controllers/signup/verify_email_controller.dart';
 import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/utils/constants/image_strings.dart';
@@ -10,7 +11,9 @@ import 'package:medishield/utils/constants/text_strings.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
 
 class VerifyEmail extends StatelessWidget {
-  const VerifyEmail({super.key});
+  const VerifyEmail({super.key, required this.email});
+
+  final String email;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +23,7 @@ class VerifyEmail extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () => Get.offAll(
-                    () => const LoginScreen(),
-                  ),
+              onPressed: () => AuthenticationRepository.instance.logout(),
               icon: const Icon(CupertinoIcons.clear))
         ],
       ),
@@ -47,7 +48,7 @@ class VerifyEmail extends StatelessWidget {
                 height: TSizes.spaceBtwItems,
               ),
               Text(
-                'support@darkinc.tech',
+                email,
                 style: Theme.of(context).textTheme.labelLarge,
                 textAlign: TextAlign.center,
               ),
@@ -65,14 +66,8 @@ class VerifyEmail extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () => Get.to(
-                    () => SuccessScreen(
-                      onPressed: () => Get.offAll(() => const LoginScreen()),
-                      title: TTexts.yourAccountCreatedTitle,
-                      subtitle: TTexts.yourAccountCreatedSubTitle,
-                      image: TImages.staticSuccessIllustration,
-                    ),
-                  ),
+                  onPressed: () =>
+                      controller.checkForEmailVerificationManually(),
                   child: const Text(TTexts.tContinue),
                 ),
               ),
@@ -82,7 +77,8 @@ class VerifyEmail extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: TextButton(
-                      onPressed: () {}, child: const Text(TTexts.resendEmail)))
+                      onPressed: () => controller.sendVerificationMail(),
+                      child: const Text(TTexts.resendEmail)))
             ],
           ),
         ),

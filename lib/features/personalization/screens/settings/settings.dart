@@ -5,6 +5,7 @@ import 'package:medishield/common/widgets/appbar/appbar.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/t_primary_header_container.dart';
 import 'package:medishield/common/widgets/list_tile/settings_menu_tile.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
+import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/features/personalization/screens/address/address.dart';
 import 'package:medishield/features/personalization/screens/profile/profile.dart';
@@ -112,7 +113,8 @@ class SettingScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                        onPressed: () => Get.offAll(() => const LoginScreen()),
+                        onPressed: () =>
+                            AuthenticationRepository.instance.logout(),
                         child: const Text(
                           'Logout',
                           style: TextStyle(color: Colors.red),

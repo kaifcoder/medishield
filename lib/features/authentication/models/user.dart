@@ -1,18 +1,29 @@
-class User {
+class UserModel {
   String? email;
   String? password;
   String? firstName;
   String? lastName;
   String? mobile;
+  bool? isEmailVerified;
+  String? googleAuthToken;
 
-  User({this.email, this.password, this.firstName, this.lastName, this.mobile});
+  UserModel(
+      {this.email,
+      this.password,
+      this.firstName,
+      this.lastName,
+      this.mobile,
+      this.isEmailVerified,
+      this.googleAuthToken});
 
-  User.fromJson(Map<String, dynamic> json) {
+  UserModel.fromJson(Map<String, dynamic> json) {
     email = json['email'] ?? '';
     password = json['password'] ?? '';
     firstName = json['firstname'] ?? '';
     lastName = json['lastname'] ?? '';
     mobile = json['mobile'] ?? '';
+    isEmailVerified = json['isEmailVerified'] ?? false;
+    googleAuthToken = json['googleAuthToken'] ?? '';
   }
 
   Map<String, dynamic> toJson() {
@@ -22,6 +33,8 @@ class User {
     data['firstname'] = firstName;
     data['lastname'] = lastName;
     data['mobile'] = mobile;
+    data['isEmailVerified'] = isEmailVerified ?? false;
+    data['googleAuthToken'] = googleAuthToken ?? '';
     return data;
   }
 }

@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "86990247944-g8igle6ombl4girnn6b0p8eus2b6u25q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medihealth",
+            "certificate_hash": "b09d363acb5e32ac2167b90d79d7da54966ebceb"
+          }
+        },
+        {
           "client_id": "86990247944-34ep25lje0s6o9tanfc96u4mjsorahvp.apps.googleusercontent.com",
           "client_type": 3
         }
