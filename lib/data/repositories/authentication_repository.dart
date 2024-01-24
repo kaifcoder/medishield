@@ -91,6 +91,16 @@ class AuthenticationRepository extends GetxController {
   }
 
   // forgot password
+  Future forgetPassword(String email) async {
+    try {
+      final res = await THttpHelper.post('api/user/forgot-password-token', {
+        'email': email,
+      });
+      return res;
+    } on Exception {
+      rethrow;
+    }
+  }
 
   // sign in with google
   Future signInWithGoogle() async {

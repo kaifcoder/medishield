@@ -1,3 +1,5 @@
+import 'package:medishield/utils/formatters/formatter.dart';
+
 class UserModel {
   String? email;
   String? password;
@@ -16,14 +18,35 @@ class UserModel {
       this.isEmailVerified,
       this.googleAuthToken});
 
-  UserModel.fromJson(Map<String, dynamic> json) {
-    email = json['email'] ?? '';
-    password = json['password'] ?? '';
-    firstName = json['firstname'] ?? '';
-    lastName = json['lastname'] ?? '';
-    mobile = json['mobile'] ?? '';
-    isEmailVerified = json['isEmailVerified'] ?? false;
-    googleAuthToken = json['googleAuthToken'] ?? '';
+  String get fullName => '$firstName $lastName';
+
+  String get formattedMobile => '+91 $mobile';
+
+  static UserModel empty() {
+    return UserModel(
+      email: '',
+      password: '',
+      firstName: '',
+      lastName: '',
+      mobile: '',
+      isEmailVerified: null,
+      googleAuthToken: '',
+    );
+  }
+
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    if (json.isEmpty) {
+      return UserModel.empty();
+    }
+    return UserModel(
+      email: json['email'] ?? '',
+      password: json['password'] ?? '',
+      firstName: json['firstname'] ?? '',
+      lastName: json['lastname'] ?? '',
+      mobile: json['mobile'] ?? '',
+      isEmailVerified: json['isEmailVerified'] ?? false,
+      googleAuthToken: json['googleAuthToken'] ?? '',
+    );
   }
 
   Map<String, dynamic> toJson() {

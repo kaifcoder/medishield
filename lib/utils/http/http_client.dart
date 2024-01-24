@@ -25,10 +25,14 @@ class THttpHelper {
   }
 
   // Helper method to make a PUT request
-  static Future<Map<String, dynamic>> put(String endpoint, dynamic data) async {
+  static Future<Map<String, dynamic>> put(
+      String endpoint, dynamic data, String token) async {
     final response = await http.put(
       Uri.parse('$_baseUrl/$endpoint'),
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': 'Bearer $token'
+      },
       body: json.encode(data),
     );
     return _handleResponse(response);

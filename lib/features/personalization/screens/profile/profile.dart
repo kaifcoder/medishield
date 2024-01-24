@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
 import 'package:medishield/common/widgets/images/t_circular_image.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
+import 'package:medishield/features/personalization/screens/profile/change_name.dart';
+import 'package:medishield/features/shop/controllers/user_controller.dart';
 import 'package:medishield/utils/constants/image_strings.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
@@ -12,6 +17,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       appBar: const TAppBar(
         showBackArrow: true,
@@ -34,9 +40,11 @@ class ProfileScreen extends StatelessWidget {
                       width: 80,
                       height: 80,
                     ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text('Hello Username'),
+                    Obx(
+                      () => TextButton(
+                        onPressed: () {},
+                        child: Text('Hello ${controller.user.value.fullName}'),
+                      ),
                     )
                   ],
                 ),
@@ -48,50 +56,58 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(
                 height: TSizes.spaceBtwItems,
               ),
-              const TSectionHeading(title: 'Profile Imformation'),
-              const SizedBox(
-                height: TSizes.spaceBtwItems,
-              ),
-              ProfileMenu(
-                onTap: () {},
-                title: 'First Name',
-                value: 'John',
-              ),
-              ProfileMenu(
-                onTap: () {},
-                title: 'Last Name',
-                value: 'Doe',
-              ),
-
-              const SizedBox(
-                height: TSizes.spaceBtwItems,
-              ),
-              const Divider(),
+              const TSectionHeading(title: 'Profile Information'),
               const SizedBox(
                 height: TSizes.spaceBtwItems,
               ),
 
-              const TSectionHeading(title: 'Profile Imformation'),
+              Obx(
+                () => ProfileMenu(
+                  onTap: () => Get.to(() => ChangeName(
+                      firstName: controller.user.value.firstName!,
+                      lastName: controller.user.value.lastName!)),
+                  title: 'Name',
+                  value: controller.user.value.fullName,
+                ),
+              ),
               const SizedBox(
                 height: TSizes.spaceBtwItems,
               ),
+              Obx(
+                () => ProfileMenu(
+                  onTap: () {
+                    //copy the value to clipboard
+                    Clipboard.setData(
+                      ClipboardData(text: controller.user.value.email!),
+                    );
+                    Get.snackbar(
+                      'Email Copied',
+                      'Email copied to clipboard',
+                      snackPosition: SnackPosition.BOTTOM,
+                      margin: const EdgeInsets.all(10),
+                    );
+                  },
+                  title: 'Email',
+                  value: controller.user.value.email!,
+                  icon: Iconsax.copy,
+                ),
+              ),
+              const SizedBox(
+                height: TSizes.spaceBtwItems,
+              ),
+              Obx(
+                () => ProfileMenu(
+                  onTap: () {},
+                  title: 'Phone Number',
+                  value: controller.user.value.formattedMobile,
+                ),
+              ),
 
-              ProfileMenu(
-                onTap: () {},
-                title: 'Email',
-                value: 'John Doe',
-              ),
-              ProfileMenu(
-                onTap: () {},
-                title: 'Phone Number',
-                value: 'John Doe',
-              ),
-
-              ProfileMenu(
-                onTap: () {},
-                title: 'Address',
-                value: 'John Doe',
-              ),
+              // ProfileMenu(
+              //   onTap: () {},
+              //   title: 'Address',
+              //   value: ,
+              // ),
 
               const SizedBox(
                 height: TSizes.spaceBtwItems,
