@@ -33,7 +33,7 @@ class THomeAppBar extends StatelessWidget {
       actions: [
         IconButton(
             onPressed: () => Get.to(() => const SearchScreen()),
-            icon: Icon(
+            icon: const Icon(
               Iconsax.search_normal,
               color: TColors.white,
             )),

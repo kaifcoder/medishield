@@ -83,7 +83,7 @@ class SignUpForm extends StatelessWidget {
               validator: (value) => TValidator.validatePassword(value),
               decoration: InputDecoration(
                 labelText: TTexts.password,
-                prefixIcon: Icon(Iconsax.password_check),
+                prefixIcon: const Icon(Iconsax.password_check),
                 suffixIcon: IconButton(
                   onPressed: () => controller.hidePassword.value =
                       !controller.hidePassword.value,

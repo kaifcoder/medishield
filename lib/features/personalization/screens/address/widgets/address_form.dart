@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medishield/common/widgets/login_signup/login_footer.dart';
-import 'package:medishield/common/widgets/login_signup/t_divider.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/constants/text_strings.dart';
 

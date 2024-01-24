@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
-import 'package:medishield/features/shop/screens/cart/widget/cart_item.dart';
 import 'package:medishield/features/shop/screens/checkout/widget/billing_address.dart';
 import 'package:medishield/features/shop/screens/checkout/widget/billing_payment_details.dart';
 import 'package:medishield/features/shop/screens/order_detail/widgets/order_items.dart';

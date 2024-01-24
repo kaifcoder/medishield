@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:medishield/utils/constants/colors.dart';
-import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/device/device_utility.dart';
 
 class RatingProgressIndicator extends StatelessWidget {

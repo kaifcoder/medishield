@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:get/utils.dart';
 import 'package:http/http.dart' as http;
 
 class THttpHelper {

@@ -35,7 +35,7 @@ class BillingAddress extends StatelessWidget {
         ),
         Row(
           children: [
-            Icon(
+            const Icon(
               Iconsax.call,
               size: 16,
             ),
@@ -53,7 +53,7 @@ class BillingAddress extends StatelessWidget {
         ),
         Row(
           children: [
-            Icon(Iconsax.location, size: 16),
+            const Icon(Iconsax.location, size: 16),
             const SizedBox(
               width: TSizes.sm,
             ),

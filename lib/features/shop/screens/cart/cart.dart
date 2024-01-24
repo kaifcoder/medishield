@@ -18,17 +18,17 @@ class CartScreen extends StatelessWidget {
         ),
         showBackArrow: true,
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         padding: EdgeInsets.all(TSizes.defaultSpace),
         child: CartItem(
           showQuantity: true,
         ),
       ),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: ElevatedButton(
-          child: Text('Checkout '),
-          onPressed: () => Get.to(() => CheckoutScreen()),
+          child: const Text('Checkout '),
+          onPressed: () => Get.to(() => const CheckoutScreen()),
         ),
       ),
     );

@@ -25,11 +25,11 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         toolbarHeight: TDeviceUtils.getAppBarHeight() + 30,
-        flexibleSpace: TPrimaryHeaderContainer(
+        flexibleSpace: const TPrimaryHeaderContainer(
           child: Column(
             children: [
-              const THomeAppBar(),
-              const SizedBox(height: TSizes.spaceBtwSections / 1.5),
+              THomeAppBar(),
+              SizedBox(height: TSizes.spaceBtwSections / 1.5),
             ],
           ),
         ),
@@ -89,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
-                    TSectionHeading(
+                    const TSectionHeading(
                       title: 'Super Endo',
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),

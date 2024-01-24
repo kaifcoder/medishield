@@ -66,7 +66,7 @@ class GoogleController extends GetxController {
       print(userCredential);
       await AuthenticationRepository.instance.screenRedirect();
     } catch (e) {
-      print("GOOGLE CONTROLLER" + e.toString());
+      print("GOOGLE CONTROLLER$e");
     }
   }
 }

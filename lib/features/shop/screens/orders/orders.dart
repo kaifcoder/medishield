@@ -15,15 +15,15 @@ class OrderScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineSmall),
         ),
         body: ListView.separated(
-            padding: EdgeInsets.all(TSizes.defaultSpace),
+            padding: const EdgeInsets.all(TSizes.defaultSpace),
             itemBuilder: (_, index) => TOrderCard(
                   orderNumber: 'Order #123456',
                   orderDate: '12/12/2020',
                   orderStatus: 'Delivered',
                   orderAmount: '₹ 400',
-                  onTap: () => Get.to(() => OrderDetailScreen()),
+                  onTap: () => Get.to(() => const OrderDetailScreen()),
                 ),
-            separatorBuilder: (_, __) => SizedBox(
+            separatorBuilder: (_, __) => const SizedBox(
                   height: TSizes.spaceBtwItems,
                 ),
             itemCount: 3));

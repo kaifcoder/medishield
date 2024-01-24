@@ -21,7 +21,7 @@ class QnA extends StatelessWidget {
           'Ques. $index: $question',
           style: Theme.of(context).textTheme.bodyLarge,
         ),
-        SizedBox(
+        const SizedBox(
           height: TSizes.sm / 2,
         ),
         Text(

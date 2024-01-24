@@ -50,7 +50,7 @@ class TOrderCard extends StatelessWidget {
             ],
           ),
           Text(
-            'Order Date: ' + orderDate,
+            'Order Date: $orderDate',
             style: Theme.of(context).textTheme.bodySmall,
           ),
           const SizedBox(
@@ -66,7 +66,7 @@ class TOrderCard extends StatelessWidget {
             height: 8,
           ),
           Text(
-            'Total Price: ' + orderAmount,
+            'Total Price: $orderAmount',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ],

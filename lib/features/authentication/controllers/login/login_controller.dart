@@ -38,7 +38,7 @@ class LoginController extends GetxController {
 
       await AuthenticationRepository.instance.screenRedirect();
     } catch (e) {
-      THelperFunctions.showSnackBar('Oh Snap! ' + e.toString());
+      THelperFunctions.showSnackBar('Oh Snap! $e');
     }
   }
 }

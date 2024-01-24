@@ -15,13 +15,13 @@ class AddressContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TRoundedContainer(
-      padding: EdgeInsets.all(TSizes.md),
+      padding: const EdgeInsets.all(TSizes.md),
       width: double.infinity,
       showBorder: true,
       backgroundColor:
           selected ? TColors.primary.withOpacity(0.1) : Colors.transparent,
       borderColor: selected ? TColors.primary : TColors.grey,
-      margin: EdgeInsets.only(bottom: TSizes.spaceBtwItems),
+      margin: const EdgeInsets.only(bottom: TSizes.spaceBtwItems),
       child: Stack(children: [
         Positioned(
           top: 0,
@@ -40,11 +40,11 @@ class AddressContainer extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.titleLarge,
             ),
-            SizedBox(
+            const SizedBox(
               height: TSizes.sm,
             ),
-            Text('+91-1234567890'),
-            Text('ram nagar, delhi, 110092'),
+            const Text('+91-1234567890'),
+            const Text('ram nagar, delhi, 110092'),
           ],
         )
       ]),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class UserReview extends StatelessWidget {
   const UserReview({super.key});
@@ -9,7 +8,7 @@ class UserReview extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
+        const Row(
           children: [
             Icon(Icons.star),
             Text('4.3'),
@@ -19,11 +18,11 @@ class UserReview extends StatelessWidget {
             Text('Excellent'),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 8,
         ),
-        Text('Rating description'),
-        SizedBox(
+        const Text('Rating description'),
+        const SizedBox(
           height: 8,
         ),
         Row(

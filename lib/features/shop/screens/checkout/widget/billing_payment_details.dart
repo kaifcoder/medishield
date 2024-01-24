@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medishield/common/widgets/login_signup/t_divider.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
 class BillingPaymentDetails extends StatelessWidget {
@@ -57,7 +56,7 @@ class BillingPaymentDetails extends StatelessWidget {
             )
           ],
         ),
-        Divider(),
+        const Divider(),
         const SizedBox(
           height: TSizes.spaceBtwItems / 2,
         ),

@@ -9,32 +9,32 @@ class CategoiesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: TAppBar(
+        appBar: const TAppBar(
           title: Text('Categoies'),
           showBackArrow: true,
         ),
         body: ListView.builder(
           itemCount: 21,
           itemBuilder: (context, index) => ExpansionTile(
-            childrenPadding: EdgeInsets.only(left: 20),
+            childrenPadding: const EdgeInsets.only(left: 20),
             title: Text(
               'Category $index',
             ),
             children: [
               ListTile(
-                title: Text('View All'),
+                title: const Text('View All'),
                 onTap: () => Get.to(() => const AllProductScreen()),
               ),
               ListTile(
-                title: Text('Sub Category 1'),
+                title: const Text('Sub Category 1'),
                 onTap: () => Get.to(() => const AllProductScreen()),
               ),
               ExpansionTile(
-                  childrenPadding: EdgeInsets.only(left: 20),
-                  title: Text('sub category 4'),
+                  childrenPadding: const EdgeInsets.only(left: 20),
+                  title: const Text('sub category 4'),
                   children: [
                     ListTile(
-                      title: Text('Sub Category 1'),
+                      title: const Text('Sub Category 1'),
                       onTap: () => Get.to(() => const AllProductScreen()),
                     ),
                   ]),

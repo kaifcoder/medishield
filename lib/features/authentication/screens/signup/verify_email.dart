@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medishield/common/widgets/success_screen/success_screen.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/features/authentication/controllers/signup/verify_email_controller.dart';
-import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/utils/constants/image_strings.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/constants/text_strings.dart';

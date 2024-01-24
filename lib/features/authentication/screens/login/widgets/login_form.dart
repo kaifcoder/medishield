@@ -38,7 +38,7 @@ class LoginForm extends StatelessWidget {
                 controller: controller.password,
                 validator: (value) => TValidator.validatePassword(value),
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Iconsax.lock),
+                  prefixIcon: const Icon(Iconsax.lock),
                   labelText: TTexts.password,
                   suffixIcon: IconButton(
                       onPressed: () => controller.hidePassword.value =
@@ -68,7 +68,7 @@ class LoginForm extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () => controller.login(),
-                child: Text(TTexts.signIn),
+                child: const Text(TTexts.signIn),
               ),
             ),
             const SizedBox(

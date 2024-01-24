@@ -9,13 +9,13 @@ class AllProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('All Product'),
+        title: const Text('All Product'),
       ),
       body: ListView.builder(
-          padding: EdgeInsets.all(TSizes.defaultSpace / 2),
+          padding: const EdgeInsets.all(TSizes.defaultSpace / 2),
           itemCount: 10,
           itemBuilder: (context, index) {
-            return ProductCardHorizontal();
+            return const ProductCardHorizontal();
           }),
     );
   }

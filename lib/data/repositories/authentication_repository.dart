@@ -31,8 +31,9 @@ class AuthenticationRepository extends GetxController {
     final token = await deviceStorage.read('token');
     if (token != null) {
       final isVerfied = await deviceStorage.read('isVerfied');
-      if (isVerfied != null && isVerfied == true)
+      if (isVerfied != null && isVerfied == true) {
         return Get.offAll(() => const NavigationMenu());
+      }
       print(token);
       final res = await THttpHelper.get('api/user/verify-email/$token');
       if (res['message'] != 'true') {
@@ -85,7 +86,7 @@ class AuthenticationRepository extends GetxController {
       deviceStorage.write('email', res['email']);
       return res;
     } on Exception catch (e) {
-      THelperFunctions.showSnackBar('Oh Snap! ' + e.toString());
+      THelperFunctions.showSnackBar('Oh Snap! $e');
     }
   }
 
@@ -126,6 +127,7 @@ class AuthenticationRepository extends GetxController {
     await deviceStorage.writeIfNull('email', null);
     await deviceStorage.remove('isVerfied');
     await deviceStorage.writeIfNull('isVerfied', null);
+    await GoogleSignIn().signOut();
     await FirebaseAuth.instance.signOut();
     Get.offAll(() => const LoginScreen());
   }

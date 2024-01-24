@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medishield/common/widgets/icons/t_circular_icon.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/image_strings.dart';
@@ -15,14 +14,14 @@ class CartItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (_, index) => Column(
               children: [
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   //image
                   children: [
-                    TRoundedImage(
+                    const TRoundedImage(
                       imageUrl: TImages.productImage20,
                       height: 80,
                       width: 80,
@@ -49,7 +48,7 @@ class CartItem extends StatelessWidget {
                                   children: [
                                     IconButton(
                                         onPressed: () {},
-                                        icon: Icon(Iconsax.minus)),
+                                        icon: const Icon(Iconsax.minus)),
                                     const SizedBox(
                                       width: TSizes.spaceBtwItems,
                                     ),
@@ -65,11 +64,11 @@ class CartItem extends StatelessWidget {
                                     ),
                                     IconButton(
                                       onPressed: () {},
-                                      icon: Icon(Iconsax.add),
+                                      icon: const Icon(Iconsax.add),
                                     ),
                                   ],
                                 ),
-                              Spacer(),
+                              const Spacer(),
                               Text(
                                 '₹ 100',
                                 style:
@@ -88,7 +87,7 @@ class CartItem extends StatelessWidget {
                 // quantity
               ],
             ),
-        separatorBuilder: (_, __) => SizedBox(
+        separatorBuilder: (_, __) => const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
         itemCount: 4);

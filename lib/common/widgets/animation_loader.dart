@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/utils.dart';
 import 'package:lottie/lottie.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/device/device_utility.dart';

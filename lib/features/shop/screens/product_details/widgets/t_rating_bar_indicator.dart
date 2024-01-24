@@ -12,7 +12,7 @@ class TRatingBarIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RatingBarIndicator(
-      itemBuilder: (context, index) => Icon(
+      itemBuilder: (context, index) => const Icon(
         Icons.star,
         color: TColors.primary,
       ),

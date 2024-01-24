@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/sockets/src/socket_notifier.dart';
 import 'package:medishield/common/widgets/animation_loader.dart';
 
 import 'pop_scope.dart';

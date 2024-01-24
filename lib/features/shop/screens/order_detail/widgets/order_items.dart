@@ -11,14 +11,14 @@ class OrderItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (_, index) => Column(
               children: [
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   //image
                   children: [
-                    TRoundedImage(
+                    const TRoundedImage(
                       imageUrl: TImages.productImage20,
                       height: 80,
                       width: 80,
@@ -40,7 +40,7 @@ class OrderItems extends StatelessWidget {
                               overflow: TextOverflow.ellipsis),
                           Row(
                             children: [
-                              Spacer(),
+                              const Spacer(),
                               Text(
                                 '₹ 100',
                                 style:
@@ -59,7 +59,7 @@ class OrderItems extends StatelessWidget {
                 // quantity
               ],
             ),
-        separatorBuilder: (_, __) => SizedBox(
+        separatorBuilder: (_, __) => const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
         itemCount: 4);

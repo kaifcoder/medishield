@@ -24,7 +24,7 @@ class CheckoutScreen extends StatelessWidget {
         child: Column(
           children: [
             TSectionHeading(title: 'Order Summary'),
-            const SizedBox(
+            SizedBox(
               height: TSizes.spaceBtwItems,
             ),
             CartItem(showQuantity: false),

@@ -22,7 +22,7 @@ class ProductCardHorizontal extends StatelessWidget {
     return GestureDetector(
       onTap: () => Get.to(() => const ProductDetailScreen()),
       child: Container(
-        padding: EdgeInsets.all(1),
+        padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
           boxShadow: [TShadowStyle.horizontalProductShadow],
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
@@ -80,7 +80,7 @@ class ProductCardHorizontal extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems / 2),
-                  TBrandTitleText(
+                  const TBrandTitleText(
                     title: 'Nike',
                     maxLines: 1,
                     textColor: TColors.black,

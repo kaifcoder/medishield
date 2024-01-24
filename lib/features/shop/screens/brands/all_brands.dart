@@ -14,16 +14,16 @@ class AllBrandScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('All Brands'),
+        title: const Text('All Brands'),
         actions: [
           IconButton(
-            icon: Icon(Iconsax.search_normal),
+            icon: const Icon(Iconsax.search_normal),
             onPressed: () => Get.to(() => const SearchScreen()),
           )
         ],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
             horizontal: TSizes.defaultSpace / 2,
             vertical: TSizes.defaultSpace / 2),
         child: GridLayout(

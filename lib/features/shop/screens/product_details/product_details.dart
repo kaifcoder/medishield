@@ -115,7 +115,7 @@ class ProductDetailScreen extends StatelessWidget {
                       expandedCrossAxisAlignment: CrossAxisAlignment.start,
                       tilePadding: EdgeInsets.zero,
                       initiallyExpanded: true,
-                      title: Text('FAQs'),
+                      title: const Text('FAQs'),
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -128,7 +128,7 @@ class ProductDetailScreen extends StatelessWidget {
                                     index: index + 1,
                                     question: 'Question',
                                     answer: 'Answer'),
-                                separatorBuilder: (context, index) => SizedBox(
+                                separatorBuilder: (context, index) => const SizedBox(
                                       height: TSizes.sm,
                                       child: Divider(),
                                     ),
@@ -148,7 +148,7 @@ class ProductDetailScreen extends StatelessWidget {
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
-                  TSectionHeading(
+                  const TSectionHeading(
                     title: 'Reviews (233)',
                   ),
                   const SizedBox(
@@ -157,9 +157,9 @@ class ProductDetailScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      OverallProductRating(),
-                      TRatingBarIndicator(rating: 4.5),
-                      Text('1,100'),
+                      const OverallProductRating(),
+                      const TRatingBarIndicator(rating: 4.5),
+                      const Text('1,100'),
                       const SizedBox(
                         height: TSizes.spaceBtwItems,
                       ),
