@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
+import 'package:medishield/features/shop/controllers/category_controller.dart';
 import 'package:medishield/features/shop/screens/view_all_products/all_product.dart';
 
 class CategoiesScreen extends StatelessWidget {
@@ -8,38 +9,68 @@ class CategoiesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = CategoryController.instance;
     return Scaffold(
-        appBar: const TAppBar(
-          title: Text('Categoies'),
-          showBackArrow: true,
-        ),
-        body: ListView.builder(
-          itemCount: 21,
-          itemBuilder: (context, index) => ExpansionTile(
-            childrenPadding: const EdgeInsets.only(left: 20),
-            title: Text(
-              'Category $index',
-            ),
-            children: [
-              ListTile(
-                title: const Text('View All'),
-                onTap: () => Get.to(() => const AllProductScreen()),
-              ),
-              ListTile(
-                title: const Text('Sub Category 1'),
-                onTap: () => Get.to(() => const AllProductScreen()),
-              ),
-              ExpansionTile(
-                  childrenPadding: const EdgeInsets.only(left: 20),
-                  title: const Text('sub category 4'),
-                  children: [
-                    ListTile(
-                      title: const Text('Sub Category 1'),
-                      onTap: () => Get.to(() => const AllProductScreen()),
-                    ),
-                  ]),
-            ],
-          ),
-        ));
+      appBar: const TAppBar(
+        title: Text('Categoies'),
+        showBackArrow: true,
+      ),
+      body: Obx(
+        () => ListView.builder(
+            itemCount: controller.categoryList.length,
+            itemBuilder: (context, index) {
+              if (controller.categoryList[index].children.isEmpty) {
+                return ListTile(
+                  onTap: () {
+                    Get.to(() => AllProductScreen());
+                  },
+                  title: Text(
+                    controller.categoryList[index].name,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                );
+              }
+
+              return ExpansionTile(
+                childrenPadding: const EdgeInsets.only(left: 20),
+                title: Text(
+                  controller.categoryList[index].name,
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+                children: [
+                  ...controller.categoryList[index].children.map((subCategory) {
+                    if (subCategory.children.isNotEmpty) {
+                      return ExpansionTile(
+                          childrenPadding: const EdgeInsets.only(left: 20),
+                          title: Text(subCategory.name,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineSmall!
+                                  .apply(
+                                    fontSizeDelta: -2,
+                                  )),
+                          children: [
+                            ...subCategory.children.map((child) {
+                              return ListTile(
+                                onTap: () {
+                                  Get.to(() => AllProductScreen());
+                                },
+                                title: Text(child.name),
+                              );
+                            })
+                          ]);
+                    }
+                    return ListTile(
+                      onTap: () {
+                        Get.to(() => AllProductScreen());
+                      },
+                      title: Text(subCategory.name),
+                    );
+                  })
+                ],
+              );
+            }),
+      ),
+    );
   }
 }

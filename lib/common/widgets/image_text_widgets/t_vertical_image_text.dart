@@ -26,6 +26,7 @@ class TVerticalImageText extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(right: TSizes.spaceBtwItems),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               height: 56,
@@ -46,10 +47,11 @@ class TVerticalImageText extends StatelessWidget {
             ),
             const SizedBox(height: TSizes.spaceBtwItems / 2),
             SizedBox(
-              width: 55,
+              width: 70,
               child: Text(
                 title,
                 overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
                 maxLines: 1,
                 style: Theme.of(context)
                     .textTheme
