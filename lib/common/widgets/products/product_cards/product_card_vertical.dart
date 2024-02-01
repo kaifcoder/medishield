@@ -4,10 +4,12 @@ import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/styles/shadow.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
+import 'package:medishield/features/shop/controllers/brand_controller.dart';
+import 'package:medishield/features/shop/controllers/product_controller.dart';
+import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/features/shop/screens/product_details/product_details.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/enums.dart';
-import 'package:medishield/utils/constants/image_strings.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
 
@@ -17,13 +19,21 @@ import '../../text/product_title_text.dart';
 import '../../text/t_brand_title_text.dart';
 
 class ProductCardVertical extends StatelessWidget {
-  const ProductCardVertical({super.key});
+  const ProductCardVertical({super.key, this.product});
+
+  final ProductModel? product;
 
   @override
   Widget build(BuildContext context) {
+    final brand = Get.put(BrandController());
+    final controller = ProductController.instance;
+    // final salePercentage = controller.calculateSalePercentage(product!);
+    final salePercentage = controller.calculateSalePercentage(product!);
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () => Get.to(() => const ProductDetailScreen()),
+      onTap: () => Get.to(() => ProductDetailScreen(
+            product: product,
+          )),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -39,7 +49,11 @@ class ProductCardVertical extends StatelessWidget {
               padding: const EdgeInsets.all(TSizes.sm),
               backgroundColor: dark ? TColors.dark : TColors.light,
               child: Stack(children: [
-                const TRoundedImage(imageUrl: TImages.productImage1),
+                TRoundedImage(
+                  imageUrl:
+                      'https://images.dentalkart.com/media/catalog/product/${product!.thumbnailUrl}',
+                  isNetworkImage: true,
+                ),
                 Positioned(
                   top: 12,
                   child: TRoundedContainer(
@@ -48,7 +62,7 @@ class ProductCardVertical extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: TSizes.sm, vertical: TSizes.xs),
                     child: Text(
-                      '25%',
+                      '${salePercentage.round()}% OFF',
                       style: Theme.of(context)
                           .textTheme
                           .labelLarge!
@@ -75,13 +89,13 @@ class ProductCardVertical extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const ProductTitleText(
-                    title: 'Green Nike air shoes adfasdfasdfadfadfsdfafasdfadf',
+                  ProductTitleText(
+                    title: product!.name,
                     smallSize: true,
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems / 2),
                   TBrandTitleText(
-                    title: 'Nike',
+                    title: product!.manufacturer,
                     maxLines: 1,
                     textColor: dark ? TColors.white : TColors.black,
                     textAlign: TextAlign.start,
@@ -94,10 +108,10 @@ class ProductCardVertical extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(left: 8.0),
                   child: PriceText(
-                    price: '2000',
+                    price: product!.price.minimalPrice.toString(),
                     maxLines: 1,
                     isLarge: false,
                     isLineThrough: false,

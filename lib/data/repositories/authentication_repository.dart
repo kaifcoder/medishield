@@ -34,7 +34,6 @@ class AuthenticationRepository extends GetxController {
       if (isVerfied != null && isVerfied == true) {
         return Get.offAll(() => const NavigationMenu());
       }
-      print(token);
       final res = await THttpHelper.get('api/user/verify-email/$token');
       if (res['message'] != 'true') {
         final email = deviceStorage.read('email');
@@ -46,6 +45,14 @@ class AuthenticationRepository extends GetxController {
         Get.offAll(() => const NavigationMenu());
       }
     }
+  }
+
+  // skip login
+  Future skipLogin() async {
+    await deviceStorage.writeIfNull('token', null);
+    await deviceStorage.writeIfNull('email', null);
+    await deviceStorage.writeIfNull('isVerfied', null);
+    Get.offAll(() => const NavigationMenu());
   }
 
   // signup user

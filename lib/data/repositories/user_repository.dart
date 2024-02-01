@@ -52,5 +52,4 @@ class UserRepository extends GetxController {
       rethrow;
     }
   }
-  // delete user data from server
 }

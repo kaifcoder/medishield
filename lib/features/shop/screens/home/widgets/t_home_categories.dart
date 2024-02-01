@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/image_text_widgets/t_vertical_image_text.dart';
+import 'package:medishield/common/widgets/shimmers/category_shimmer.dart';
 import 'package:medishield/features/shop/controllers/category_controller.dart';
 import 'package:medishield/features/shop/screens/view_all_products/all_product.dart';
 import 'package:medishield/utils/constants/colors.dart';
@@ -26,29 +27,39 @@ class THomeCategories extends StatelessWidget {
     final controller = Get.put(CategoryController());
     return SizedBox(
       height: 80,
-      child: Obx(
-        () => ListView.builder(
-            shrinkWrap: true,
-            itemCount: controller.featuredCategory.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (_, index) {
-              return TVerticalImageText(
-                title: controller.featuredCategory[index].name,
-                image: images[index],
-                textColor: THelperFunctions.isDarkMode(context)
-                    ? TColors.white
-                    : TColors.black,
-                backgroundColor: THelperFunctions.isDarkMode(context)
-                    ? TColors.dark
-                    : TColors.light,
-                onTap: () => Get.to(
-                  () => AllProductScreen(
-                    title: controller.featuredCategory[index].name,
-                  ),
+      child: Obx(() {
+        if (controller.categoryLoading.value) return const CategoryShimmer();
+        if (controller.categoryList.isEmpty) {
+          return Center(
+            child: Text(
+              'No Categories found',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          );
+        }
+        return ListView.builder(
+          shrinkWrap: true,
+          itemCount: controller.featuredCategory.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (_, index) {
+            return TVerticalImageText(
+              title: controller.featuredCategory[index].name,
+              image: images[index],
+              textColor: THelperFunctions.isDarkMode(context)
+                  ? TColors.white
+                  : TColors.black,
+              backgroundColor: THelperFunctions.isDarkMode(context)
+                  ? TColors.dark
+                  : TColors.light,
+              onTap: () => Get.to(
+                () => AllProductScreen(
+                  title: controller.featuredCategory[index].name,
                 ),
-              );
-            }),
-      ),
+              ),
+            );
+          },
+        );
+      }),
     );
   }
 }

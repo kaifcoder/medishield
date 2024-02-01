@@ -42,4 +42,9 @@ class BrandController extends GetxController {
       brandLoading(false);
     }
   }
+
+  // get brand by id
+  getBrandById(String id) {
+    return brandList.firstWhere((brand) => brand.brandId as String == id);
+  }
 }

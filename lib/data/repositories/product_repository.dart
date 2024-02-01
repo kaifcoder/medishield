@@ -1,15 +1,18 @@
 import 'package:get/get.dart';
+import 'package:medishield/utils/http/http_client.dart';
 
 class ProductRepository extends GetxController {
-  // fetch products from server
+  // fetch products by category or brand from server
 
-  // fetch product by id from server
-
-  // fetch products by category from server
-
-  // fetch products by subcategory from server
-
-  // fetch products by brand from server
+  fetchProducts(int page, int limit, String category) async {
+    try {
+      final res = await THttpHelper.get(
+          'api/product?page=$page&limit=$limit&category=$category');
+      return res;
+    } catch (e) {
+      rethrow;
+    }
+  }
 
   // fetch products by price from server
 
@@ -20,6 +23,4 @@ class ProductRepository extends GetxController {
   // fetch products by filter from server
 
   // fetch products by sort from server
-
-  // fetch products by pagination from server
 }
