@@ -104,20 +104,6 @@ class ProductMetaData extends StatelessWidget {
                 color: TColors.success,
               ),
         ),
-        // tier pricing if available
-        //- Buy 2 or more: $1050 each
-// - Buy 5 or more: $1010 each
-        const SizedBox(
-          height: TSizes.spaceBtwItems / 1.5,
-        ),
-        if (!child)
-          for (var i = 0; i < 2; i++)
-            Text(
-              'Buy 2 or more: ₹ 1050 each',
-              style: Theme.of(context).textTheme.labelMedium!.apply(
-                    color: TColors.success,
-                  ),
-            ),
       ],
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/image_text_widgets/t_vertical_image_text.dart';
 import 'package:medishield/features/shop/controllers/category_controller.dart';
+import 'package:medishield/features/shop/screens/view_all_products/all_product.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/image_strings.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
@@ -13,6 +14,15 @@ class THomeCategories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final images = [
+      TImages.orthodontics,
+      TImages.instruments,
+      TImages.pharmacy,
+      TImages.generalDentistry,
+      TImages.restorative,
+      TImages.endodontics,
+    ];
+
     final controller = Get.put(CategoryController());
     return SizedBox(
       height: 80,
@@ -23,15 +33,20 @@ class THomeCategories extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: (_, index) {
               return TVerticalImageText(
-                  title: controller.featuredCategory[index].name,
-                  image: TImages.sportIcon,
-                  textColor: THelperFunctions.isDarkMode(context)
-                      ? TColors.white
-                      : TColors.black,
-                  backgroundColor: THelperFunctions.isDarkMode(context)
-                      ? TColors.dark
-                      : TColors.light,
-                  onTap: () {});
+                title: controller.featuredCategory[index].name,
+                image: images[index],
+                textColor: THelperFunctions.isDarkMode(context)
+                    ? TColors.white
+                    : TColors.black,
+                backgroundColor: THelperFunctions.isDarkMode(context)
+                    ? TColors.dark
+                    : TColors.light,
+                onTap: () => Get.to(
+                  () => AllProductScreen(
+                    title: controller.featuredCategory[index].name,
+                  ),
+                ),
+              );
             }),
       ),
     );

@@ -22,7 +22,8 @@ class CategoiesScreen extends StatelessWidget {
               if (controller.categoryList[index].children.isEmpty) {
                 return ListTile(
                   onTap: () {
-                    Get.to(() => AllProductScreen());
+                    Get.to(() => AllProductScreen(
+                        title: controller.categoryList[index].name));
                   },
                   title: Text(
                     controller.categoryList[index].name,
@@ -53,7 +54,8 @@ class CategoiesScreen extends StatelessWidget {
                             ...subCategory.children.map((child) {
                               return ListTile(
                                 onTap: () {
-                                  Get.to(() => AllProductScreen());
+                                  Get.to(() =>
+                                      AllProductScreen(title: child.name));
                                 },
                                 title: Text(child.name),
                               );
@@ -62,7 +64,7 @@ class CategoiesScreen extends StatelessWidget {
                     }
                     return ListTile(
                       onTap: () {
-                        Get.to(() => AllProductScreen());
+                        Get.to(() => AllProductScreen(title: subCategory.name));
                       },
                       title: Text(subCategory.name),
                     );

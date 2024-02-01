@@ -44,7 +44,7 @@ class TBrandTitleText extends StatelessWidget {
                             .bodyMedium!
                             .apply(color: textColor),
             overflow: TextOverflow.ellipsis,
-            maxLines: 1,
+            maxLines: maxLines,
             textAlign: textAlign,
           ),
         )

@@ -76,13 +76,6 @@ class ChildProductDisplay extends StatelessWidget {
                 const SizedBox(
                   height: TSizes.xs,
                 ),
-                for (var i = 0; i < 2; i++)
-                  Text(
-                    'Buy 2 or more: ₹ 1050 each',
-                    style: Theme.of(context).textTheme.labelMedium!.apply(
-                          color: TColors.success,
-                        ),
-                  ),
               ],
             ),
           ]),

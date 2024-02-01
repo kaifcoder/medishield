@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/layouts/grid_layout.dart';
+import 'package:medishield/features/shop/controllers/brand_controller.dart';
 import 'package:medishield/features/shop/screens/Search/search.dart';
 import 'package:medishield/features/shop/screens/store/widgets/brand_card.dart';
 import 'package:medishield/features/shop/screens/view_all_products/all_product.dart';
@@ -12,6 +13,7 @@ class AllBrandScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = BrandController.instance;
     return Scaffold(
       appBar: AppBar(
         title: const Text('All Brands'),
@@ -26,14 +28,21 @@ class AllBrandScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(
             horizontal: TSizes.defaultSpace / 2,
             vertical: TSizes.defaultSpace / 2),
-        child: GridLayout(
-            mainAxisExtent: 80,
-            itemCount: 219,
-            itemBuilder: (context, index) {
-              return BrandCard(
-                onPressed: () => Get.to(() => const AllProductScreen()),
-              );
-            }),
+        child: Obx(
+          () => GridLayout(
+              mainAxisExtent: 80,
+              itemCount: controller.brandList.length,
+              itemBuilder: (context, index) {
+                return BrandCard(
+                  image: controller.brandList[index].logo,
+                  title: controller.brandList[index].name,
+                  isNetworkImage: true,
+                  onPressed: () => Get.to(() => AllProductScreen(
+                        title: controller.brandList[index].name,
+                      )),
+                );
+              }),
+        ),
       ),
     );
   }

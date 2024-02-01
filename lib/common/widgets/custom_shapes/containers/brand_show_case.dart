@@ -19,7 +19,6 @@ class BrandShowCase extends StatelessWidget {
         borderColor: THelperFunctions.isDarkMode(context)
             ? TColors.grey
             : TColors.darkGrey,
-        margin: const EdgeInsets.only(bottom: TSizes.spaceBtwItems),
         child: const Column(
           children: [
             BrandCard(),

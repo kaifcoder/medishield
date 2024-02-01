@@ -14,6 +14,7 @@ class UserController extends GetxController {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final firstName = TextEditingController();
   final lastName = TextEditingController();
+  final phoneNumber = TextEditingController();
 
   @override
   void onInit() {
@@ -47,6 +48,21 @@ class UserController extends GetxController {
         lastName,
       );
       THelperFunctions.showSnackBar('Profile updated successfully');
+      this.user(user);
+    } catch (e) {
+      TLoggerHelper.error(e.toString());
+    }
+  }
+
+  // update phone number in repository
+  Future updatePhoneRecord(
+    String phone,
+  ) async {
+    try {
+      final user = await userRepository.updatePhoneData(
+        phone,
+      );
+      THelperFunctions.showSnackBar('Phone number updated successfully');
       this.user(user);
     } catch (e) {
       TLoggerHelper.error(e.toString());

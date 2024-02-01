@@ -14,6 +14,4 @@ class CartRepository extends GetxController {
 // clear cart
 
 // checkout cart
-
-// calculate total price
 }

@@ -6,18 +6,17 @@ import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/constants/text_strings.dart';
 import 'package:medishield/utils/validators/validation.dart';
 
-class ChangeName extends StatelessWidget {
-  const ChangeName(
-      {super.key, required this.firstName, required this.lastName});
+class ChangePhone extends StatelessWidget {
+  const ChangePhone({super.key, required this.phone});
 
-  final String firstName, lastName;
+  final String phone;
 
   @override
   Widget build(BuildContext context) {
     final controller = UserController.instance;
     return Scaffold(
       appBar: const TAppBar(
-        title: Text('Change Name'),
+        title: Text('Change Phone Number'),
         showBackArrow: true,
       ),
       body: SingleChildScrollView(
@@ -25,7 +24,7 @@ class ChangeName extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              'Please use your real name so that we can verify your identity.',
+              'Please use your real phone number so that we can verify your identity.',
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(
@@ -36,23 +35,11 @@ class ChangeName extends StatelessWidget {
                 child: Column(
                   children: [
                     TextFormField(
-                      controller: controller.firstName,
+                      controller: controller.phoneNumber,
                       expands: false,
                       decoration: const InputDecoration(
-                        labelText: TTexts.firstName,
-                        prefixIcon: Icon(Iconsax.user),
-                      ),
-                      validator: (value) => TValidator.validateEmpty(value),
-                    ),
-                    const SizedBox(
-                      height: TSizes.spaceBtwInputFields,
-                    ),
-                    TextFormField(
-                      controller: controller.lastName,
-                      expands: false,
-                      decoration: const InputDecoration(
-                        labelText: TTexts.lastName,
-                        prefixIcon: Icon(Iconsax.user),
+                        labelText: TTexts.phoneNo,
+                        prefixIcon: Icon(Iconsax.call),
                       ),
                       validator: (value) => TValidator.validateEmpty(value),
                     ),
@@ -62,9 +49,9 @@ class ChangeName extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () => controller.updateUserRecord(
-                            controller.firstName.text.trim(),
-                            controller.lastName.text.trim()),
+                        onPressed: () => controller.updatePhoneRecord(
+                          controller.phoneNumber.text.trim(),
+                        ),
                         child: const Text('Save'),
                       ),
                     ),

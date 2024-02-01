@@ -39,8 +39,6 @@ class HomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ///body
-              /// //Categories
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
@@ -59,7 +57,6 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-
               Padding(
                 padding: const EdgeInsets.all(TSizes.defaultSpace),
                 child: Column(

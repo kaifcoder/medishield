@@ -11,6 +11,7 @@ class TImages {
       "assets/logos/t-store-splash-logo-black.png";
   static const String lightAppLogo =
       "assets/logos/t-store-splash-logo-white.png";
+  static const String appLogo = "assets/logos/logo.png";
 
   // -- Social Logos
   static const String google = "assets/logos/google-icon.png";
@@ -22,31 +23,14 @@ class TImages {
   static const String clothIcon =
       "assets/icons/categories/icons8-tailors-dummy-64.png";
   static const String shoeIcon = "assets/icons/categories/icons8-shoes-64.png";
-  static const String cosmeticsIcon =
-      "assets/icons/categories/icons8-cosmetics-64.png";
-  static const String animalIcon =
-      "assets/icons/categories/icons8-dog-heart-64.png";
-  static const String toyIcon =
-      "assets/icons/categories/icons8-wooden-toy-car-50.png";
-  static const String furnitureIcon =
-      "assets/icons/categories/icons8-dining-chair-64.png";
-  static const String jeweleryIcon =
-      "assets/icons/categories/icons8-sparkling-diamond-64.png";
-  static const String electronicsIcon =
-      "assets/icons/categories/icons8-smartphone-64.png";
 
-  // -- Brand Icons
-  static const String nikeLogo = "assets/icons/brands/nike.png";
-  static const String adidasLogo = "assets/icons/brands/adidas-logo.png";
-  static const String appleLogo = "assets/icons/brands/apple-logo.png";
-  static const String jordanLogo = "assets/icons/brands/jordan-logo.png";
-  static const String pumaLogo = "assets/icons/brands/puma-logo.png";
-  static const String zaraLogo = "assets/icons/brands/zara-logo.png";
-  static const String kenwoodLogo = "assets/icons/brands/kenwood-logo.png";
-  static const String hermanMillerLogo =
-      "assets/icons/brands/herman-miller-logo.png";
-  static const String ikeaLogo = "assets/icons/brands/ikea_logo.png";
-  static const String acerlogo = "assets/icons/brands/acer_logo.png";
+  static const String endodontics = "assets/icons/categories/endodontics.png";
+  static const String orthodontics = "assets/icons/categories/orthodontics.png";
+  static const String instruments = "assets/icons/categories/equipments.png";
+  static const String generalDentistry =
+      "assets/icons/categories/general dentistry.png";
+  static const String pharmacy = "assets/icons/categories/pharmacy.png";
+  static const String restorative = "assets/icons/categories/restoration.png";
 
   // -- Animations
   static const String productsIllustration =

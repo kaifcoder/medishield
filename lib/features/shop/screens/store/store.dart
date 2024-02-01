@@ -6,6 +6,7 @@ import 'package:medishield/common/widgets/layouts/grid_layout.dart';
 import 'package:medishield/common/widgets/products/cart/t_cart_counter_icon.dart';
 import 'package:medishield/common/widgets/tabbar/tabbar.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
+import 'package:medishield/features/shop/controllers/brand_controller.dart';
 import 'package:medishield/features/shop/screens/Search/Search.dart';
 import 'package:medishield/features/shop/screens/brands/all_brands.dart';
 import 'package:medishield/features/shop/screens/cart/cart.dart';
@@ -22,6 +23,7 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(BrandController());
     return DefaultTabController(
       length: 15,
       child: Scaffold(
@@ -80,15 +82,24 @@ class StoreScreen extends StatelessWidget {
                         const SizedBox(
                           height: TSizes.spaceBtwItems / 1.5,
                         ),
-                        GridLayout(
-                            mainAxisExtent: 80,
-                            itemCount: 4,
-                            itemBuilder: (context, index) {
-                              return BrandCard(
-                                onPressed: () =>
-                                    Get.to(() => const AllProductScreen()),
-                              );
-                            }),
+                        Obx(
+                          () => GridLayout(
+                              mainAxisExtent: 80,
+                              itemCount: controller.featuredBrand.length,
+                              itemBuilder: (context, index) {
+                                return BrandCard(
+                                  title: controller.featuredBrand[index].name,
+                                  image: controller.featuredBrand[index].logo,
+                                  isNetworkImage: true,
+                                  onPressed: () => Get.to(
+                                    () => AllProductScreen(
+                                      title:
+                                          controller.featuredBrand[index].name,
+                                    ),
+                                  ),
+                                );
+                              }),
+                        ),
                       ],
                     ),
                   ),

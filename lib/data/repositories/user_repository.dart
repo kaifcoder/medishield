@@ -35,5 +35,22 @@ class UserRepository extends GetxController {
     }
   }
 
+  // update phone number to server
+  Future<UserModel> updatePhoneData(
+    String phone,
+  ) async {
+    final token = AuthenticationRepository.instance.deviceStorage.read('token');
+    try {
+      final res = await THttpHelper.put(
+          'api/user/edit-user',
+          {
+            'mobile': phone,
+          },
+          token);
+      return UserModel.fromJson(res);
+    } catch (e) {
+      rethrow;
+    }
+  }
   // delete user data from server
 }
