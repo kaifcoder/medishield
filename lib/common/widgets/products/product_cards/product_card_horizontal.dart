@@ -8,6 +8,7 @@ import 'package:medishield/common/widgets/images/t_rounded_image.dart';
 import 'package:medishield/common/widgets/text/price_text.dart';
 import 'package:medishield/common/widgets/text/product_title_text.dart';
 import 'package:medishield/common/widgets/text/t_brand_title_text.dart';
+import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/features/shop/screens/product_details/product_details.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/enums.dart';
@@ -15,12 +16,16 @@ import 'package:medishield/utils/constants/image_strings.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
 class ProductCardHorizontal extends StatelessWidget {
-  const ProductCardHorizontal({super.key});
+  const ProductCardHorizontal({super.key, this.product});
+
+  final ProductModel? product;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.to(() => const ProductDetailScreen()),
+      onTap: () => Get.to(() => ProductDetailScreen(
+            product: product,
+          )),
       child: Container(
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
@@ -62,12 +67,11 @@ class ProductCardHorizontal extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Row(
+                  Row(
                     children: [
                       Flexible(
                         child: ProductTitleText(
-                          title:
-                              'Green Nike air shoes adfasdfasdfadfadfsdfafasdfadf',
+                          title: product!.name,
                           smallSize: false,
                           maxLines: 2,
                         ),

@@ -7,6 +7,7 @@ import 'package:medishield/common/widgets/products/cart/t_cart_counter_icon.dart
 import 'package:medishield/common/widgets/tabbar/tabbar.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
 import 'package:medishield/features/shop/controllers/brand_controller.dart';
+import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/screens/Search/Search.dart';
 import 'package:medishield/features/shop/screens/brands/all_brands.dart';
 import 'package:medishield/features/shop/screens/cart/cart.dart';
@@ -24,6 +25,7 @@ class StoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(BrandController());
+    final productController = ProductController.instance;
     return DefaultTabController(
       length: 15,
       child: Scaffold(
@@ -88,16 +90,23 @@ class StoreScreen extends StatelessWidget {
                               itemCount: controller.featuredBrand.length,
                               itemBuilder: (context, index) {
                                 return BrandCard(
-                                  title: controller.featuredBrand[index].name,
-                                  image: controller.featuredBrand[index].logo,
-                                  isNetworkImage: true,
-                                  onPressed: () => Get.to(
-                                    () => AllProductScreen(
-                                      title:
-                                          controller.featuredBrand[index].name,
-                                    ),
-                                  ),
-                                );
+                                    title: controller.featuredBrand[index].name,
+                                    image: controller.featuredBrand[index].logo,
+                                    isNetworkImage: true,
+                                    onPressed: () async {
+                                      await productController
+                                          .fetchProductsbycategory(controller
+                                              .featuredBrand[index].name);
+
+                                      Get.to(
+                                        () => AllProductScreen(
+                                          title: controller
+                                              .featuredBrand[index].name,
+                                          product: productController
+                                              .CategoryProducts,
+                                        ),
+                                      );
+                                    });
                               }),
                         ),
                       ],

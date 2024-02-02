@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:medishield/common/widgets/image_text_widgets/t_vertical_image_text.dart';
 import 'package:medishield/common/widgets/shimmers/category_shimmer.dart';
 import 'package:medishield/features/shop/controllers/category_controller.dart';
+import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/screens/view_all_products/all_product.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/image_strings.dart';
@@ -25,6 +26,9 @@ class THomeCategories extends StatelessWidget {
     ];
 
     final controller = Get.put(CategoryController());
+
+    final productController = ProductController.instance;
+
     return SizedBox(
       height: 80,
       child: Obx(() {
@@ -43,20 +47,24 @@ class THomeCategories extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (_, index) {
             return TVerticalImageText(
-              title: controller.featuredCategory[index].name,
-              image: images[index],
-              textColor: THelperFunctions.isDarkMode(context)
-                  ? TColors.white
-                  : TColors.black,
-              backgroundColor: THelperFunctions.isDarkMode(context)
-                  ? TColors.dark
-                  : TColors.light,
-              onTap: () => Get.to(
-                () => AllProductScreen(
-                  title: controller.featuredCategory[index].name,
-                ),
-              ),
-            );
+                title: controller.featuredCategory[index].name,
+                image: images[index],
+                textColor: THelperFunctions.isDarkMode(context)
+                    ? TColors.white
+                    : TColors.black,
+                backgroundColor: THelperFunctions.isDarkMode(context)
+                    ? TColors.dark
+                    : TColors.light,
+                onTap: () async {
+                  await productController.fetchProductsbycategory(
+                      controller.featuredCategory[index].name);
+                  Get.to(
+                    () => AllProductScreen(
+                      title: controller.featuredCategory[index].name,
+                      product: productController.CategoryProducts,
+                    ),
+                  );
+                });
           },
         );
       }),

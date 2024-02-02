@@ -15,6 +15,14 @@ class ProductRepository extends GetxController {
   }
 
   // fetch products by price from server
+  fetchProductById(int id) async {
+    try {
+      final res = await THttpHelper.get('api/product/$id');
+      return res;
+    } catch (e) {
+      rethrow;
+    }
+  }
 
   // fetch products by rating from server
 

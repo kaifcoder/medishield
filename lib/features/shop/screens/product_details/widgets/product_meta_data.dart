@@ -64,7 +64,7 @@ class ProductMetaData extends StatelessWidget {
               ),
             if (!child)
               Text(
-                '₹ $discount',
+                '₹ $price',
                 style: Theme.of(context)
                     .textTheme
                     .headlineMedium!

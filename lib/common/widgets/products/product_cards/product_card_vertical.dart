@@ -25,7 +25,6 @@ class ProductCardVertical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final brand = Get.put(BrandController());
     final controller = ProductController.instance;
     // final salePercentage = controller.calculateSalePercentage(product!);
     final salePercentage = controller.calculateSalePercentage(product!);
@@ -109,9 +108,11 @@ class ProductCardVertical extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 8.0),
+                  padding: const EdgeInsets.only(left: 8.0),
                   child: PriceText(
-                    price: product!.price.minimalPrice.toString(),
+                    price: (product!.childProducts.length > 1)
+                        ? 'Starts at ${product!.price.minimalPrice}'
+                        : product!.price.minimalPrice.toString(),
                     maxLines: 1,
                     isLarge: false,
                     isLineThrough: false,
@@ -123,8 +124,8 @@ class ProductCardVertical extends StatelessWidget {
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(TSizes.cardRadiusMd),
                       bottomRight: Radius.circular(TSizes.productImageRadius),
-                    ), // BorderRadius.only
-                  ), // BoxDecoration
+                    ),
+                  ),
                   child: const SizedBox(
                     width: TSizes.iconLg * 1.2,
                     height: TSizes.iconLg * 1.2,

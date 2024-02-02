@@ -148,7 +148,7 @@ class ChildProduct {
   final String imageUrl;
   final String name;
   final String sku;
-
+  final int? specialPrice;
   final String shortDescription;
   final String manufacturer;
   final String averageRating;
@@ -164,6 +164,7 @@ class ChildProduct {
     required this.imageUrl,
     required this.name,
     required this.sku,
+    this.specialPrice,
     required this.shortDescription,
     required this.manufacturer,
     required this.averageRating,
@@ -181,6 +182,7 @@ class ChildProduct {
       imageUrl: json['image_url'] ?? '',
       name: json['name'] ?? '',
       sku: json['sku'] ?? '',
+      specialPrice: json['special_price'] ?? 0,
       shortDescription: json['short_description'] ?? '',
       manufacturer: json['manufacturer'] ?? '',
       averageRating: json['average_rating'] ?? '',

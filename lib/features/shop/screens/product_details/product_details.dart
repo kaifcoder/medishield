@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
+import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/bottom_add_to_cartbar.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/product_meta_data.dart';
@@ -22,6 +23,11 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = ProductController.instance;
+    if (id != 0) {
+      // fetch product by id
+      controller.getProductById(id);
+    }
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -45,23 +51,39 @@ class ProductDetailScreen extends StatelessWidget {
                     price: product!.price.maximalPrice.toDouble(),
                     originalPrice: product!.price.maximalPrice.toDouble() * 2,
                     discount: product!.price.minimalPrice.toDouble(),
-                    child: false,
+                    child: product!.childProducts.length > 1,
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  const ChildProductDisplay(
-                    selected: true,
-                  ),
+
+                  /// product variants
+                  if (product!.childProducts.length > 1)
+                    ListView.separated(
+                      padding: EdgeInsets.zero,
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: product!.childProducts.length,
+                      itemBuilder: (context, index) {
+                        return ChildProductDisplay(
+                          selected: true,
+                          title: product!.childProducts[index].name,
+                          price: product!.childProducts[index].specialPrice!,
+                        );
+                      },
+                      separatorBuilder: (context, index) => const SizedBox(
+                        height: TSizes.spaceBtwItems,
+                      ),
+                    ),
+
+                  // const ChildProductDisplay(
+                  //   selected: false,
+                  // ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  const ChildProductDisplay(
-                    selected: false,
-                  ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwItems,
-                  ),
+
+                  /// checkout button
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -72,9 +94,11 @@ class ProductDetailScreen extends StatelessWidget {
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
+
+                  /// product description
                   ExpansionTile(
                       tilePadding: EdgeInsets.zero,
-                      initiallyExpanded: true,
+                      initiallyExpanded: false,
                       title: const Text('Description'),
                       children: [
                         Html(
@@ -118,20 +142,31 @@ class ProductDetailScreen extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            ListView.separated(
-                                padding: EdgeInsets.zero,
-                                physics: const NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemBuilder: (context, index) => QnA(
-                                    index: index + 1,
-                                    question: product!.qaData[index].question,
-                                    answer: product!.qaData[index].answer),
-                                separatorBuilder: (context, index) =>
-                                    const SizedBox(
-                                      height: TSizes.sm,
-                                      child: Divider(),
-                                    ),
-                                itemCount: 5),
+                            if (product!.qaData.isEmpty)
+                              const Center(
+                                child: Text('No questions found'),
+                              ),
+                            if (product!.qaData.isNotEmpty)
+                              ListView.separated(
+                                  padding: EdgeInsets.zero,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  shrinkWrap: true,
+                                  itemBuilder: (context, index) {
+                                    return QnA(
+                                      index: index + 1,
+                                      question: product!.qaData[index].question,
+                                      answer: product!.qaData[index].answer,
+                                    );
+                                  },
+                                  separatorBuilder: (context, index) =>
+                                      const SizedBox(
+                                        height: TSizes.sm,
+                                        child: Divider(
+                                          color: Colors.grey,
+                                          height: 1.5,
+                                        ),
+                                      ),
+                                  itemCount: product!.qaData.length),
                             const SizedBox(
                               height: TSizes.spaceBtwItems,
                             ),
@@ -166,7 +201,7 @@ class ProductDetailScreen extends StatelessWidget {
                         padding: EdgeInsets.zero,
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount: 5,
+                        itemCount: 2,
                         itemBuilder: (context, index) => const UserReview(),
                         separatorBuilder: (context, index) => const Divider(),
                       )
@@ -178,13 +213,6 @@ class ProductDetailScreen extends StatelessWidget {
                 ],
               ),
             ),
-
-            // variant if any
-
-            // product description
-            //features collapisble
-
-            // product reviews
           ],
         ),
       ),

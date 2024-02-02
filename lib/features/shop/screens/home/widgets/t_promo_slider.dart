@@ -5,6 +5,7 @@ import 'package:medishield/common/widgets/custom_shapes/containers/t_circular_co
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
 import 'package:medishield/common/widgets/loaders/custom_shimmer.dart';
 import 'package:medishield/features/shop/controllers/banner_controller.dart';
+import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/screens/product_details/product_details.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
@@ -28,9 +29,14 @@ class TPromoSlider extends StatelessWidget {
                 .take(3)
                 .map(
                   (banner) => TRoundedImage(
-                    onPressed: () => Get.to(() => ProductDetailScreen(
-                          id: banner.id,
-                        )),
+                    onPressed: () async {
+                      await ProductController.instance
+                          .getProductById(banner.id);
+                      Get.to(() => ProductDetailScreen(
+                            product: ProductController
+                                .instance.CategoryProducts.last,
+                          ));
+                    },
                     imageUrl: banner.mobileImage,
                     isNetworkImage: true,
                   ),

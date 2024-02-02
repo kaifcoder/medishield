@@ -5,9 +5,15 @@ import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
 class ChildProductDisplay extends StatelessWidget {
-  const ChildProductDisplay({super.key, required this.selected});
+  const ChildProductDisplay(
+      {super.key,
+      required this.selected,
+      required this.title,
+      required this.price});
 
   final bool selected;
+  final String title;
+  final int price;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +38,7 @@ class ChildProductDisplay extends StatelessWidget {
               children: [
                 //variant title
                 Text(
-                  'Variant Title some text here and it is long so this will go under icon',
+                  title,
                   style: Theme.of(context).textTheme.bodyMedium,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
@@ -44,31 +50,11 @@ class ChildProductDisplay extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      '₹ 100',
+                      '₹ $price',
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium!
                           .apply(fontSizeFactor: 0.7),
-                    ),
-                    const SizedBox(
-                      width: TSizes.xs,
-                    ),
-                    // original price
-                    Text(
-                      '₹ 200',
-                      style: Theme.of(context).textTheme.bodySmall!.apply(
-                            decoration: TextDecoration.lineThrough,
-                          ),
-                    ),
-                    const SizedBox(
-                      width: TSizes.sm,
-                    ),
-                    // discount
-                    Text(
-                      '50% off',
-                      style: Theme.of(context).textTheme.labelLarge!.apply(
-                            color: TColors.primary,
-                          ),
                     ),
                   ],
                 ),

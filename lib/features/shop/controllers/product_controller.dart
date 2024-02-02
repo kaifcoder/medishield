@@ -6,8 +6,8 @@ import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/utils/logging/logger.dart';
 
 class ProductController extends GetxController {
-  static ProductController get instance => Get.find();
   final productRepo = Get.put(ProductRepository());
+  static ProductController get instance => Get.find();
   final isLoading = false.obs;
 
   RxList<ProductModel> Endodontics = <ProductModel>[].obs;
@@ -93,9 +93,38 @@ class ProductController extends GetxController {
     }
   }
 
-  void fetchProductsbycategory(String category) async {
+  fetchProductsbycategory(
+    String category,
+  ) async {
     try {
       isLoading.value = true;
+
+      final response = await productRepo.fetchProducts(
+        1,
+        16,
+        category,
+      );
+      CategoryProducts.assignAll(response['data'].map<ProductModel>((product) {
+        return ProductModel.fromJson(product);
+      }).toList());
+    } catch (e) {
+      CustomSnackbar.errorSnackBar('Something went wrong');
+      TLoggerHelper.error(e.toString());
+      rethrow;
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  getProductById(int id) async {
+    try {
+      isLoading.value = true;
+      // fetch
+      final response = await productRepo.fetchProductById(id);
+      // assign to list
+      CategoryProducts.assignAll(response['data'].map<ProductModel>((product) {
+        return ProductModel.fromJson(product);
+      }).toList());
     } catch (e) {
       CustomSnackbar.errorSnackBar('Something went wrong');
       TLoggerHelper.error(e.toString());

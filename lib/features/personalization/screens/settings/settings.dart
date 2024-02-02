@@ -94,20 +94,18 @@ class SettingScreen extends StatelessWidget {
                     subtitle: 'In-progress and Completed Orders',
                     onTap: () => Get.to(() => const OrderScreen()),
                   ),
-                  // SettingsMenuTile(
-                  //     icon: Iconsax.bank,
-                  //     title: 'Bank Account',
-                  //     subtitle: 'Withdraw balance to registered bank account'),
-                  // SettingsMenuTile(
-                  //     icon: Iconsax.discount_shape,
-                  //     title: 'My Coupons',
-                  //     subtitle: 'List of all the discounted coupons'),
-
-                  // SettingsMenuTile(
-                  //     icon: Iconsax.security_card,
-                  //     title: 'Account Privacy',
-                  //     subtitle: 'Manage data usage and connected accounts'),
-
+                  SettingsMenuTile(
+                    icon: Iconsax.gift,
+                    title: 'My Rewards',
+                    subtitle: 'Check your rewards and points',
+                    onTap: () => Get.to(() => const OrderScreen()),
+                  ),
+                  SettingsMenuTile(
+                    icon: Iconsax.people,
+                    title: 'Refer & Earn',
+                    subtitle: 'Refer your friends and earn rewards',
+                    onTap: () => Get.to(() => const OrderScreen()),
+                  ),
                   const SizedBox(height: TSizes.spaceBtwSections),
                   SizedBox(
                     width: double.infinity,
