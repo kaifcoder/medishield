@@ -12,7 +12,6 @@ import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/features/shop/screens/product_details/product_details.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/enums.dart';
-import 'package:medishield/utils/constants/image_strings.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
 class ProductCardHorizontal extends StatelessWidget {
@@ -24,7 +23,7 @@ class ProductCardHorizontal extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailScreen(
-            product: product,
+            product: product!,
           )),
       child: Container(
         padding: const EdgeInsets.all(1),
@@ -38,12 +37,16 @@ class ProductCardHorizontal extends StatelessWidget {
             // image
             TRoundedContainer(
               height: 120,
+              width: 120,
               padding: const EdgeInsets.all(TSizes.sm),
               backgroundColor: TColors.light,
               child: Stack(children: [
-                const TRoundedImage(
-                    backgroundColor: TColors.light,
-                    imageUrl: TImages.productImage1),
+                TRoundedImage(
+                  backgroundColor: TColors.light,
+                  imageUrl:
+                      'https://images.dentalkart.com/media/catalog/product/${product!.thumbnailUrl}',
+                  isNetworkImage: true,
+                ),
                 Positioned(
                   top: 12,
                   child: TRoundedContainer(
@@ -68,6 +71,7 @@ class ProductCardHorizontal extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Flexible(
                         child: ProductTitleText(
@@ -76,7 +80,7 @@ class ProductCardHorizontal extends StatelessWidget {
                           maxLines: 2,
                         ),
                       ),
-                      TCircularIcon(
+                      const TCircularIcon(
                         backgroundColor: Colors.transparent,
                         icon: Iconsax.heart5,
                         color: Colors.red,
@@ -94,10 +98,10 @@ class ProductCardHorizontal extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.only(left: 1.0),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 1.0),
                         child: PriceText(
-                          price: '2000',
+                          price: product!.price.minimalPrice.toString(),
                           maxLines: 1,
                           isLarge: false,
                           isLineThrough: false,

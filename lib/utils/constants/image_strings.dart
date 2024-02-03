@@ -5,17 +5,12 @@ class TImages {
   // -- animations
 
   static const String loader = "assets/images/animations/loader-animation.json";
-
-  // -- App Logos
-  static const String darkAppLogo =
-      "assets/logos/t-store-splash-logo-black.png";
-  static const String lightAppLogo =
-      "assets/logos/t-store-splash-logo-white.png";
   static const String appLogo = "assets/logos/logo.png";
 
   // -- Social Logos
   static const String google = "assets/logos/google-icon.png";
   static const String facebook = "assets/logos/facebook-icon.png";
+  static const String whatsapp = "assets/logos/wa_icon.png";
 
   // -- Category Icons
   static const String sportIcon =
@@ -176,34 +171,6 @@ class TImages {
       "assets/images/products/tshirt_green_collar.png";
   static const String productImage63 =
       "assets/images/products/tshirt_blue_collar.png";
-  static const String productImage64 =
-      "assets/images/products/leather_jacket_1.png";
-  static const String productImage65 =
-      "assets/images/products/leather_jacket_2.png";
-  static const String productImage66 =
-      "assets/images/products/leather_jacket_3.png";
-  static const String productImage67 =
-      "assets/images/products/leather_jacket_4.png";
-  static const String productImage68 =
-      "assets/images/products/tshirt_blue_without_collar_back.png";
-  static const String productImage69 =
-      "assets/images/products/tshirt_blue_without_collar_front.png";
-  static const String productImage70 =
-      "assets/images/products/iphone_12_red.png";
-  static const String productImage71 =
-      "assets/images/products/iphone_12_blue.png";
-  static const String productImage72 =
-      "assets/images/products/iphone_12_green.png";
-  static const String productImage73 =
-      "assets/images/products/iphone_12_black.png";
-  static const String productImage74 =
-      "assets/images/products/slipper-product-1.png";
-  static const String productImage75 =
-      "assets/images/products/slipper-product-2.png";
-  static const String productImage76 =
-      "assets/images/products/slipper-product-3.png";
-  static const String productImage77 =
-      "assets/images/products/slipper-product.png";
 
   //Banners
   static const String promoBanner1 =
@@ -212,14 +179,6 @@ class TImages {
       "assets/images/products/promo-banner-2.png";
   static const String promoBanner3 =
       "assets/images/products/promo-banner-3.png";
-  static const String banner1 = "assets/images/banners/banner_1.jpg";
-  static const String banner2 = "assets/images/banners/banner_2.jpg";
-  static const String banner3 = "assets/images/banners/banner_3.jpg";
-  static const String banner4 = "assets/images/banners/banner_4.jpg";
-  static const String banner5 = "assets/images/banners/banner_5.jpg";
-  static const String banner6 = "assets/images/banners/banner_6.jpg";
-  static const String banner7 = "assets/images/banners/banner_7.jpg";
-  static const String banner8 = "assets/images/banners/banner_8.jpg";
 
   //Profile
   static const String user = "assets/images/content/user.png";

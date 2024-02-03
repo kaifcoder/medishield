@@ -8,7 +8,9 @@ import 'package:medishield/features/shop/controllers/user_controller.dart';
 import 'package:medishield/features/shop/screens/Search/search.dart';
 import 'package:medishield/features/shop/screens/cart/cart.dart';
 import 'package:medishield/utils/constants/colors.dart';
+import 'package:medishield/utils/constants/image_strings.dart';
 import 'package:medishield/utils/constants/text_strings.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class THomeAppBar extends StatelessWidget {
   const THomeAppBar({
@@ -40,18 +42,34 @@ class THomeAppBar extends StatelessWidget {
         }),
       ]),
       actions: [
+        GestureDetector(
+          onTap: () async {
+            final Uri url = Uri.parse(
+                'https://api.whatsapp.com/send/?phone=919889770559&text&type=phone_number&app_absent=0');
+            if (!await launchUrl(url)) {
+              throw Exception('Could not launch $url');
+            }
+          },
+          child: const Image(
+            image: AssetImage(TImages.whatsapp),
+            height: 30,
+            width: 30,
+          ),
+        ),
+        const SizedBox(width: 10),
         IconButton(
-            onPressed: () => Get.to(() => const SearchScreen()),
-            icon: const Icon(
-              Iconsax.search_normal,
-              color: TColors.white,
-            )),
+          onPressed: () => Get.to(() => const SearchScreen()),
+          icon: const Icon(
+            Iconsax.search_normal,
+            color: TColors.white,
+          ),
+        ),
         TCartCounterIcon(
           iconColor: TColors.white,
           onPressed: () => Get.to(
             () => const CartScreen(),
           ),
-        )
+        ),
       ],
     );
   }

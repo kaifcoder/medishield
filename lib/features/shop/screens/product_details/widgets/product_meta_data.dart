@@ -56,7 +56,7 @@ class ProductMetaData extends StatelessWidget {
           children: [
             if (child)
               Text(
-                'Starting at ₹ $price',
+                'Starting at  ₹ $price',
                 style: Theme.of(context)
                     .textTheme
                     .headlineMedium!

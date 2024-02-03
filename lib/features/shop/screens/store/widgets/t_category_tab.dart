@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:medishield/common/widgets/custom_shapes/containers/brand_show_case.dart';
+import 'package:get/get.dart';
 import 'package:medishield/common/widgets/layouts/grid_layout.dart';
 import 'package:medishield/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
+import 'package:medishield/features/shop/controllers/category_tab_controller.dart';
+import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
 class TCategoryTab extends StatelessWidget {
   const TCategoryTab({
     super.key,
+    required this.category,
   });
+
+  final String category;
 
   @override
   Widget build(BuildContext context) {
+    final categoryController = Get.put(CategoryTabController());
+    final productController = ProductController.instance;
+    categoryController.changeCategory(category);
     return ListView(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
@@ -21,23 +29,21 @@ class TCategoryTab extends StatelessWidget {
                 const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
             child: Column(
               children: [
-                const BrandShowCase(),
-                const BrandShowCase(),
                 const SizedBox(
                   height: TSizes.spaceBtwItems,
                 ),
-                TSectionHeading(
-                  title: 'Related Products',
-                  onButtonPressed: () {},
-                  showButton: true,
-                ),
+                const TSectionHeading(title: 'Related Products'),
                 const SizedBox(
                   height: TSizes.spaceBtwItems,
                 ),
-                GridLayout(
-                  itemCount: 4,
-                  itemBuilder: (context, index) => const ProductCardVertical(),
-                ),
+                Obx(() {
+                  return GridLayout(
+                    itemCount: productController.CategoryProducts.length,
+                    itemBuilder: (context, index) => ProductCardVertical(
+                      product: productController.CategoryProducts[index],
+                    ),
+                  );
+                }),
                 const SizedBox(
                   height: TSizes.spaceBtwItems,
                 ),

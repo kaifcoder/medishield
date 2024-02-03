@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:medishield/features/shop/models/banner_model.dart';
 import 'package:medishield/utils/http/http_client.dart';
 import 'package:medishield/utils/logging/logger.dart';
 

@@ -23,7 +23,7 @@ class ProductShimmer extends StatelessWidget {
                 SizedBox(
                   height: TSizes.spaceBtwItems / 2,
                 ),
-                CustomShimmer(height: 110, width: 15),
+                CustomShimmer(height: 8, width: 15),
               ],
             ),
           );

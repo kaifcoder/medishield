@@ -7,6 +7,7 @@ import 'package:medishield/common/widgets/products/cart/t_cart_counter_icon.dart
 import 'package:medishield/common/widgets/tabbar/tabbar.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
 import 'package:medishield/features/shop/controllers/brand_controller.dart';
+import 'package:medishield/features/shop/controllers/category_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/screens/Search/Search.dart';
 import 'package:medishield/features/shop/screens/brands/all_brands.dart';
@@ -26,8 +27,9 @@ class StoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(BrandController());
     final productController = ProductController.instance;
+    final categoryController = CategoryController.instance;
     return DefaultTabController(
-      length: 15,
+      length: categoryController.featuredCategory.length,
       child: Scaffold(
         appBar: TAppBar(
           title: Column(
@@ -48,139 +50,92 @@ class StoreScreen extends StatelessWidget {
           ],
         ),
         body: NestedScrollView(
-            headerSliverBuilder: (_, innerBoxScrolled) {
-              return [
-                SliverAppBar(
-                  automaticallyImplyLeading: false,
-                  pinned: true,
-                  floating: false,
-                  backgroundColor: THelperFunctions.isDarkMode(context)
-                      ? TColors.black
-                      : TColors.white,
-                  expandedHeight: 400,
-                  flexibleSpace: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: TSizes.defaultSpace),
-                    child: ListView(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      children: [
-                        TSearchContainer(
-                          text: 'Search for products',
-                          showBackgroud: false,
-                          showBorder: true,
-                          padding: EdgeInsets.zero,
-                          onTap: () => Get.to(() => const SearchScreen()),
-                        ),
-                        const SizedBox(
-                          height: TSizes.spaceBtwSections,
-                        ),
-                        TSectionHeading(
-                          title: 'Featured Brands',
-                          showButton: true,
-                          onButtonPressed: () =>
-                              Get.to(() => const AllBrandScreen()),
-                        ),
-                        const SizedBox(
-                          height: TSizes.spaceBtwItems / 1.5,
-                        ),
-                        Obx(
-                          () => GridLayout(
-                              mainAxisExtent: 80,
-                              itemCount: controller.featuredBrand.length,
-                              itemBuilder: (context, index) {
-                                return BrandCard(
-                                    title: controller.featuredBrand[index].name,
-                                    image: controller.featuredBrand[index].logo,
-                                    isNetworkImage: true,
-                                    onPressed: () async {
-                                      await productController
-                                          .fetchProductsbycategory(controller
-                                              .featuredBrand[index].name);
+          headerSliverBuilder: (_, innerBoxScrolled) {
+            return [
+              SliverAppBar(
+                automaticallyImplyLeading: false,
+                pinned: true,
+                floating: false,
+                backgroundColor: THelperFunctions.isDarkMode(context)
+                    ? TColors.black
+                    : TColors.white,
+                expandedHeight: 400,
+                flexibleSpace: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: TSizes.defaultSpace),
+                  child: ListView(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    children: [
+                      TSearchContainer(
+                        text: 'Search for products',
+                        showBackgroud: false,
+                        showBorder: true,
+                        padding: EdgeInsets.zero,
+                        onTap: () => Get.to(() => const SearchScreen()),
+                      ),
+                      const SizedBox(
+                        height: TSizes.spaceBtwSections,
+                      ),
+                      TSectionHeading(
+                        title: 'Featured Brands',
+                        showButton: true,
+                        onButtonPressed: () =>
+                            Get.to(() => const AllBrandScreen()),
+                      ),
+                      const SizedBox(
+                        height: TSizes.spaceBtwItems / 1.5,
+                      ),
+                      Obx(
+                        () => GridLayout(
+                            mainAxisExtent: 80,
+                            itemCount: controller.featuredBrand.length,
+                            itemBuilder: (context, index) {
+                              return BrandCard(
+                                  title: controller.featuredBrand[index].name,
+                                  image: controller.featuredBrand[index].logo,
+                                  isNetworkImage: true,
+                                  onPressed: () async {
+                                    await productController
+                                        .fetchProductsbycategory(controller
+                                            .featuredBrand[index].name);
 
-                                      Get.to(
-                                        () => AllProductScreen(
-                                          title: controller
-                                              .featuredBrand[index].name,
-                                          product: productController
-                                              .CategoryProducts,
-                                        ),
-                                      );
-                                    });
-                              }),
-                        ),
-                      ],
-                    ),
+                                    Get.to(
+                                      () => AllProductScreen(
+                                        title: controller
+                                            .featuredBrand[index].name,
+                                        product:
+                                            productController.CategoryProducts,
+                                      ),
+                                    );
+                                  });
+                            }),
+                      ),
+                    ],
                   ),
-                  bottom: const TabBarCustom(tabs: [
-                    Tab(
-                      text: 'Pharmacy',
-                    ),
-                    Tab(
-                      text: 'General Dentistry',
-                    ),
-                    Tab(
-                      text: 'Equipments',
-                    ),
-                    Tab(
-                      text: 'Hand Sanitizer',
-                    ),
-                    Tab(
-                      text: 'Restorative',
-                    ),
-                    Tab(
-                      text: 'Endodontics',
-                    ),
-                    Tab(
-                      text: 'Orthodontics',
-                    ),
-                    Tab(
-                      text: 'Paedodontics',
-                    ),
-                    Tab(
-                      text: 'Prosthodontics',
-                    ),
-                    Tab(
-                      text: 'Oral Surgery',
-                    ),
-                    Tab(
-                      text: 'Periodontics',
-                    ),
-                    Tab(
-                      text: 'Instruments',
-                    ),
-                    Tab(
-                      text: 'Implantology',
-                    ),
-                    Tab(
-                      text: 'Sterialization',
-                    ),
-                    Tab(
-                      text: 'New Clinical Setup Kits',
-                    ),
-                  ]),
                 ),
-              ];
-            },
-            body: const TabBarView(
-              children: [
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-                TCategoryTab(),
-              ],
-            )),
+                bottom: TabBarCustom(tabs: [
+                  for (int i = 0;
+                      i < categoryController.featuredCategory.length;
+                      i++)
+                    Tab(
+                      text: categoryController.featuredCategory[i].name,
+                    ),
+                ]),
+              ),
+            ];
+          },
+          body: TabBarView(
+            children: [
+              for (int i = 0;
+                  i < categoryController.featuredCategory.length;
+                  i++)
+                TCategoryTab(
+                  category: categoryController.featuredCategory[i].name,
+                ),
+            ],
+          ),
+        ),
       ),
     );
   }

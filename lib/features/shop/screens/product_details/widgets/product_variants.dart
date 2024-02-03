@@ -9,17 +9,20 @@ class ChildProductDisplay extends StatelessWidget {
       {super.key,
       required this.selected,
       required this.title,
-      required this.price});
+      required this.price,
+      this.ontap});
 
   final bool selected;
   final String title;
   final int price;
+  final VoidCallback? ontap;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         TRoundedContainer(
+          onPressed: ontap,
           padding: const EdgeInsets.all(TSizes.md),
           width: double.infinity,
           showBorder: true,

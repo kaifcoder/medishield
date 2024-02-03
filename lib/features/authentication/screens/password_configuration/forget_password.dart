@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medishield/features/authentication/controllers/password_configuration/forget_password_controller.dart';
-import 'package:medishield/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/constants/text_strings.dart';
 import 'package:medishield/utils/validators/validation.dart';

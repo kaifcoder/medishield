@@ -4,7 +4,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/styles/shadow.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
-import 'package:medishield/features/shop/controllers/brand_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/features/shop/screens/product_details/product_details.dart';
@@ -31,7 +30,7 @@ class ProductCardVertical extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailScreen(
-            product: product,
+            product: product!,
           )),
       child: Container(
         width: 180,
@@ -94,7 +93,7 @@ class ProductCardVertical extends StatelessWidget {
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems / 2),
                   TBrandTitleText(
-                    title: product!.manufacturer,
+                    title: product!.name.split(' ')[0],
                     maxLines: 1,
                     textColor: dark ? TColors.white : TColors.black,
                     textAlign: TextAlign.start,

@@ -1,4 +1,3 @@
-import 'package:medishield/utils/formatters/formatter.dart';
 
 class UserModel {
   String? email;

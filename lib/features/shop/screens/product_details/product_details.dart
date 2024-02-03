@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:get/get.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
+import 'package:medishield/features/shop/controllers/product_variants_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/bottom_add_to_cartbar.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/product_meta_data.dart';
@@ -16,14 +18,15 @@ import 'widgets/product_image_slider.dart';
 import 'widgets/review_text.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key, this.id = 0, this.product});
+  const ProductDetailScreen({super.key, this.id = 0, required this.product});
 
   final int id;
-  final ProductModel? product;
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
     final controller = ProductController.instance;
+    final variantController = Get.put(ProductVariantsController());
     if (id != 0) {
       // fetch product by id
       controller.getProductById(id);
@@ -33,7 +36,9 @@ class ProductDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             // product images carousel
-            const ProductImageSlider(),
+            ProductImageSlider(
+              product: product,
+            ),
 
             Padding(
               padding:
@@ -45,30 +50,42 @@ class ProductDetailScreen extends StatelessWidget {
                     height: TSizes.spaceBtwItems,
                   ),
                   ProductMetaData(
-                    title: product!.name,
-                    shortDescription: product!.shortDescription,
-                    manufacturer: 'Manufacturer',
-                    price: product!.price.maximalPrice.toDouble(),
-                    originalPrice: product!.price.maximalPrice.toDouble() * 2,
-                    discount: product!.price.minimalPrice.toDouble(),
-                    child: product!.childProducts.length > 1,
+                    title: product.name,
+                    shortDescription: product.shortDescription,
+                    manufacturer: product.name.split(' ')[0],
+                    price: product.price.maximalPrice.toDouble(),
+                    originalPrice: product.price.maximalPrice.toDouble() * 2,
+                    discount: product.price.minimalPrice.toDouble(),
+                    child: product.childProducts.length > 1,
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
 
                   /// product variants
-                  if (product!.childProducts.length > 1)
+                  if (product.childProducts.length > 1)
+                    const TSectionHeading(title: 'Product Variants'),
+                  if (product.childProducts.length > 1)
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    ),
+                  if (product.childProducts.length > 1)
                     ListView.separated(
                       padding: EdgeInsets.zero,
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: product!.childProducts.length,
+                      itemCount: product.childProducts.length,
                       itemBuilder: (context, index) {
-                        return ChildProductDisplay(
-                          selected: true,
-                          title: product!.childProducts[index].name,
-                          price: product!.childProducts[index].specialPrice!,
+                        return Obx(
+                          () => ChildProductDisplay(
+                            ontap: () => variantController.selectVariant(
+                                product.childProducts[index].id, index),
+                            selected:
+                                variantController.selectedVariantIndex.value ==
+                                    index,
+                            title: product.childProducts[index].name,
+                            price: product.childProducts[index].specialPrice!,
+                          ),
                         );
                       },
                       separatorBuilder: (context, index) => const SizedBox(
@@ -76,9 +93,6 @@ class ProductDetailScreen extends StatelessWidget {
                       ),
                     ),
 
-                  // const ChildProductDisplay(
-                  //   selected: false,
-                  // ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
@@ -102,36 +116,35 @@ class ProductDetailScreen extends StatelessWidget {
                       title: const Text('Description'),
                       children: [
                         Html(
-                            data:
-                                '''${product!.productSpecs['description']}'''),
+                            data: '''${product.productSpecs['description']}'''),
                       ]),
                   ExpansionTile(
                       tilePadding: EdgeInsets.zero,
-                      title: Text('Key Specification'),
+                      title: const Text('Key Specification'),
                       children: [
                         Html(
                             data:
-                                '''${product!.productSpecs['key_specifications']}'''),
+                                '''${product.productSpecs['key_specifications']}'''),
                       ]),
                   ExpansionTile(
                       tilePadding: EdgeInsets.zero,
-                      title: Text('Packaging'),
+                      title: const Text('Packaging'),
                       children: [
-                        Html(data: '''${product!.productSpecs['packaging']}'''),
+                        Html(data: '''${product.productSpecs['packaging']}'''),
                       ]),
                   ExpansionTile(
                       tilePadding: EdgeInsets.zero,
-                      title: Text('Direction To Use'),
+                      title: const Text('Direction To Use'),
                       children: [
                         Html(
                             data:
-                                '''${product!.productSpecs['direction_to_use']}''')
+                                '''${product.productSpecs['direction_to_use']}''')
                       ]),
                   ExpansionTile(
                       tilePadding: EdgeInsets.zero,
-                      title: Text('Features'),
+                      title: const Text('Features'),
                       children: [
-                        Html(data: '''${product!.productSpecs['features']}'''),
+                        Html(data: '''${product.productSpecs['features']}'''),
                       ]),
                   ExpansionTile(
                       expandedCrossAxisAlignment: CrossAxisAlignment.start,
@@ -142,11 +155,11 @@ class ProductDetailScreen extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            if (product!.qaData.isEmpty)
+                            if (product.qaData.isEmpty)
                               const Center(
                                 child: Text('No questions found'),
                               ),
-                            if (product!.qaData.isNotEmpty)
+                            if (product.qaData.isNotEmpty)
                               ListView.separated(
                                   padding: EdgeInsets.zero,
                                   physics: const NeverScrollableScrollPhysics(),
@@ -154,8 +167,8 @@ class ProductDetailScreen extends StatelessWidget {
                                   itemBuilder: (context, index) {
                                     return QnA(
                                       index: index + 1,
-                                      question: product!.qaData[index].question,
-                                      answer: product!.qaData[index].answer,
+                                      question: product.qaData[index].question,
+                                      answer: product.qaData[index].answer,
                                     );
                                   },
                                   separatorBuilder: (context, index) =>
@@ -166,7 +179,7 @@ class ProductDetailScreen extends StatelessWidget {
                                           height: 1.5,
                                         ),
                                       ),
-                                  itemCount: product!.qaData.length),
+                                  itemCount: product.qaData.length),
                             const SizedBox(
                               height: TSizes.spaceBtwItems,
                             ),

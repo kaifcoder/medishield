@@ -93,15 +93,34 @@ class ProductController extends GetxController {
     }
   }
 
-  fetchProductsbycategory(
-    String category,
-  ) async {
+  fetchProductsbycategory(String category) async {
     try {
       isLoading.value = true;
 
       final response = await productRepo.fetchProducts(
         1,
         16,
+        category,
+      );
+      CategoryProducts.assignAll(response['data'].map<ProductModel>((product) {
+        return ProductModel.fromJson(product);
+      }).toList());
+    } catch (e) {
+      CustomSnackbar.errorSnackBar('Something went wrong');
+      TLoggerHelper.error(e.toString());
+      rethrow;
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  fetchProductsbycategorySpecial(String category, int limit) async {
+    try {
+      isLoading.value = true;
+
+      final response = await productRepo.fetchProducts(
+        1,
+        limit,
         category,
       );
       CategoryProducts.assignAll(response['data'].map<ProductModel>((product) {

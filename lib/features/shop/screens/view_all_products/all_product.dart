@@ -17,10 +17,10 @@ class AllProductScreen extends StatelessWidget {
         title: Text(title),
       ),
       body: product.isEmpty
-          ? Column(
+          ? const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Center(
+                Center(
                   child: Text('No Product Found'),
                 ),
               ],
@@ -37,7 +37,8 @@ class AllProductScreen extends StatelessWidget {
                 return const SizedBox(
                   height: TSizes.spaceBtwItems,
                 );
-              }),
+              },
+            ),
     );
   }
 }

@@ -9,7 +9,7 @@ class CustomSnackbar {
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Colors.green,
       colorText: Colors.white,
-      icon: Icon(
+      icon: const Icon(
         Icons.check_circle_outline,
         color: Colors.white,
       ),
@@ -23,7 +23,7 @@ class CustomSnackbar {
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Colors.orange,
       colorText: Colors.white,
-      icon: Icon(
+      icon: const Icon(
         Icons.warning_amber_outlined,
         color: Colors.white,
       ),
@@ -37,8 +37,8 @@ class CustomSnackbar {
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Colors.red,
       colorText: Colors.white,
-      margin: EdgeInsets.all(8),
-      icon: Icon(
+      margin: const EdgeInsets.all(8),
+      icon: const Icon(
         Icons.error_outline,
         color: Colors.white,
       ),

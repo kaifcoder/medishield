@@ -20,30 +20,6 @@ class SettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // extendBodyBehindAppBar: true,
-      // appBar: AppBar(
-      //   elevation: 0,
-      //   toolbarHeight: TDeviceUtils.getAppBarHeight() + 120,
-      //   backgroundColor: Colors.transparent,
-      //   flexibleSpace: TPrimaryHeaderContainer(
-      //     child: Column(
-      //       children: [
-      //         TAppBar(
-      //           title: Text(
-      //             'Account',
-      //             style: Theme.of(context).textTheme.headlineMedium!.apply(
-      //                   color: Colors.white,
-      //                 ),
-      //           ),
-      //         ),
-      //         TUserProfileTile(),
-      //         const SizedBox(
-      //           height: TSizes.spaceBtwSections,
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      // ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -104,6 +80,12 @@ class SettingScreen extends StatelessWidget {
                     icon: Iconsax.people,
                     title: 'Refer & Earn',
                     subtitle: 'Refer your friends and earn rewards',
+                    onTap: () => Get.to(() => const OrderScreen()),
+                  ),
+                  SettingsMenuTile(
+                    icon: Icons.help_outline,
+                    title: 'Contact Support',
+                    subtitle: 'Chat with our support team',
                     onTap: () => Get.to(() => const OrderScreen()),
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections),
