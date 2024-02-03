@@ -2,11 +2,13 @@ import 'package:get/get.dart';
 import 'package:medishield/utils/http/http_client.dart';
 
 class OrderRepository extends GetxController {
+  static OrderRepository get instance => Get.find();
+
   // create order to server
-  createOrder() async {
-    print('createOrder');
+  createOrder(String paymentId, int amount, int shipping) async {
     try {
-      final res = THttpHelper.post('/user/createOrder', {});
+      final res = THttpHelper.post('api/user/cart/create-order',
+          {'paymentId': paymentId, 'amount': amount, 'shipping': shipping});
       return res;
     } catch (e) {
       rethrow;
@@ -16,8 +18,9 @@ class OrderRepository extends GetxController {
   // fetch orders from server
   fetchOrders() async {
     print('fetchOrders');
+
     try {
-      final res = THttpHelper.get('/user/fetchOrders');
+      final res = THttpHelper.get('api/user/get-orders');
       return res;
     } catch (e) {
       rethrow;
@@ -34,6 +37,4 @@ class OrderRepository extends GetxController {
       rethrow;
     }
   }
-
-  // update order to server
 }

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
+import 'package:medishield/features/shop/controllers/order_controller.dart';
 import 'package:medishield/features/shop/screens/order_detail/order_details.dart';
+import 'package:medishield/features/shop/screens/orders/orders.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class CheckoutController extends GetxController {
   static CheckoutController get instance => Get.find();
   final cartController = CartController.instance;
+  final orderController = OrderController.instance;
   late Razorpay _razorpay;
 
   void openCheckout({
@@ -28,11 +31,13 @@ class CheckoutController extends GetxController {
     }
   }
 
-  void handlePaymentSuccess(PaymentSuccessResponse response) {
+  void handlePaymentSuccess(PaymentSuccessResponse response) async {
     Get.snackbar('Payment Success', 'Payment Id: ${response.paymentId}');
+    await orderController.createOrder(
+        response.paymentId!, cartController.grandTotal.value, 150);
     cartController.clearCart();
-
-    Get.off(() => OrderDetailScreen());
+    await orderController.fetchOrders();
+    Get.off(() => OrderScreen());
     disposeRazorpay();
   }
 

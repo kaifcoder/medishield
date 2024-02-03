@@ -9,12 +9,16 @@ class TOrderCard extends StatelessWidget {
       required this.orderDate,
       required this.orderStatus,
       required this.orderAmount,
-      required this.onTap});
+      required this.onTap,
+      required this.name,
+      required this.count});
 
   final String orderNumber;
   final String orderDate;
+  final String name;
   final String orderStatus;
   final String orderAmount;
+  final int count;
   final VoidCallback onTap;
 
   @override
@@ -39,19 +43,32 @@ class TOrderCard extends StatelessWidget {
               ),
               TextButton(
                   style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      minimumSize: Size.zero,
-                      alignment: Alignment.centerRight),
+                      padding: EdgeInsets.all(4),
+                      backgroundColor: TColors.primary,
+                      alignment: Alignment.center),
                   onPressed: onTap,
                   child: Text(
                     'View Details',
-                    style: Theme.of(context).textTheme.labelSmall,
+                    style: Theme.of(context).textTheme.labelMedium!.apply(
+                        color: TColors.white, fontStyle: FontStyle.normal),
                   ))
             ],
+          ),
+          const SizedBox(
+            height: 8,
           ),
           Text(
             'Order Date: $orderDate',
             style: Theme.of(context).textTheme.bodySmall,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Text(
+            '$name...',
+            style: Theme.of(context).textTheme.titleLarge!.apply(
+                  color: TColors.darkerGrey,
+                ),
           ),
           const SizedBox(
             height: 8,
@@ -69,6 +86,11 @@ class TOrderCard extends StatelessWidget {
             'Total Price: $orderAmount',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
+          const SizedBox(
+            height: 6,
+          ),
+          Text('Number of items in the order: $count',
+              style: Theme.of(context).textTheme.bodyLarge),
         ],
       ),
     );

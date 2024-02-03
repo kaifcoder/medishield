@@ -1,12 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
+import 'package:medishield/features/authentication/models/user.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
 class BillingAddress extends StatelessWidget {
-  const BillingAddress({super.key, required this.showButton});
+  const BillingAddress(
+      {super.key, required this.showButton, required this.user});
 
   final bool showButton;
+  final UserModel user;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +21,9 @@ class BillingAddress extends StatelessWidget {
         TSectionHeading(
           title: 'Address',
           buttonTitle: 'change',
-          onButtonPressed: () {},
+          onButtonPressed: () {
+            // open modal to change address
+          },
           showButton: showButton,
         ),
         const SizedBox(
@@ -25,7 +32,7 @@ class BillingAddress extends StatelessWidget {
         Row(
           children: [
             Text(
-              'Mohd Kaif',
+              user.fullName,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
           ],
@@ -43,7 +50,7 @@ class BillingAddress extends StatelessWidget {
               width: TSizes.sm,
             ),
             Text(
-              '+91-9876543210',
+              '+91 - ${user.mobile.toString()}',
               style: Theme.of(context).textTheme.bodyLarge,
             ),
           ],

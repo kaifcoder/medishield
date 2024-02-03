@@ -47,15 +47,18 @@ class CheckoutScreen extends StatelessWidget {
             SizedBox(
               height: TSizes.spaceBtwItems,
             ),
-            const TRoundedContainer(
+            TRoundedContainer(
               showBorder: true,
               backgroundColor: TColors.lightGrey,
               padding: EdgeInsets.all(TSizes.md),
               child: Column(
                 children: [
-                  BillingPaymentDetails(),
+                  BillingPaymentDetails(
+                    total: controller.total.value,
+                  ),
                   BillingAddress(
                     showButton: true,
+                    user: usercontroller.user.value,
                   ),
                 ],
               ),

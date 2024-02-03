@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
+import 'package:medishield/features/shop/controllers/order_controller.dart';
 import 'package:medishield/utils/constants/colors.dart';
-import 'package:medishield/utils/constants/image_strings.dart';
+
 import 'package:medishield/utils/constants/sizes.dart';
 
 class OrderItems extends StatelessWidget {
-  const OrderItems({super.key});
+  const OrderItems({super.key, required this.oindex});
+
+  final int oindex;
 
   @override
   Widget build(BuildContext context) {
+    final controller = OrderController.instance;
     return ListView.separated(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
@@ -18,11 +22,13 @@ class OrderItems extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   //image
                   children: [
-                    const TRoundedImage(
-                      imageUrl: TImages.productImage20,
+                    TRoundedImage(
+                      isNetworkImage: true,
+                      imageUrl:
+                          'https://images.dentalkart.com/media/catalog/product/${controller.orderData[oindex].products[index].product.thumbnailUrl}',
                       height: 80,
                       width: 80,
-                      padding: EdgeInsets.all(TSizes.xs),
+                      padding: const EdgeInsets.all(TSizes.xs),
                       backgroundColor: TColors.grey,
                     ),
                     // brand
@@ -32,9 +38,29 @@ class OrderItems extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Brand name',
+                          Text(
+                              controller.orderData[oindex].products[index]
+                                  .product.name
+                                  .split(' ')[0],
                               style: Theme.of(context).textTheme.labelMedium),
-                          Text('Product sdfadfas asdfas namejssdfasdfasd',
+                          Text(
+                              controller.orderData[oindex].products[index]
+                                          .variant !=
+                                      ''
+                                  ? controller.orderData[oindex].products[index]
+                                      .product.childProducts
+                                      .map((e) => e.sku ==
+                                              controller.orderData[oindex]
+                                                  .products[index].variant
+                                          ? e.name
+                                          : '')
+                                      .toString()
+                                      .replaceAll('(', '')
+                                      .replaceAll(')', '')
+                                      .replaceAll(',', '')
+                                      .trim()
+                                  : controller.orderData[oindex].products[index]
+                                      .product.name,
                               style: Theme.of(context).textTheme.titleMedium,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis),
@@ -42,7 +68,7 @@ class OrderItems extends StatelessWidget {
                             children: [
                               const Spacer(),
                               Text(
-                                '₹ 100',
+                                '₹ ${controller.orderData[oindex].products[index].price}',
                                 style:
                                     Theme.of(context).textTheme.headlineSmall,
                               ),
@@ -62,6 +88,6 @@ class OrderItems extends StatelessWidget {
         separatorBuilder: (_, __) => const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
-        itemCount: 4);
+        itemCount: controller.orderData[oindex].products.length);
   }
 }

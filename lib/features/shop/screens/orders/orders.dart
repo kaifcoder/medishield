@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:medishield/features/shop/controllers/order_controller.dart';
 import 'package:medishield/features/shop/screens/order_detail/order_details.dart';
 import 'package:medishield/features/shop/screens/orders/widgets/order_card.dart';
 import 'package:medishield/utils/constants/sizes.dart';
@@ -9,6 +10,7 @@ class OrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = OrderController.instance;
     return Scaffold(
         appBar: AppBar(
           title: Text('My Orders',
@@ -17,15 +19,22 @@ class OrderScreen extends StatelessWidget {
         body: ListView.separated(
             padding: const EdgeInsets.all(TSizes.defaultSpace),
             itemBuilder: (_, index) => TOrderCard(
-                  orderNumber: 'Order #123456',
-                  orderDate: '12/12/2020',
-                  orderStatus: 'Delivered',
-                  orderAmount: '₹ 400',
-                  onTap: () => Get.to(() => const OrderDetailScreen()),
+                  orderNumber: 'Order #${controller.orderData[index].id}',
+                  orderDate: controller.orderData[index].createdAt,
+                  name: controller.orderData[index].products.first.product.name,
+                  orderStatus: controller.orderData[index].orderStatus,
+                  orderAmount:
+                      '₹ ${controller.orderData[index].paymentIntent.amount}',
+                  onTap: () => Get.to(
+                    () => OrderDetailScreen(
+                      index: index,
+                    ),
+                  ),
+                  count: controller.orderData[index].products.length,
                 ),
             separatorBuilder: (_, __) => const SizedBox(
                   height: TSizes.spaceBtwItems,
                 ),
-            itemCount: 3));
+            itemCount: controller.orderData.length));
   }
 }

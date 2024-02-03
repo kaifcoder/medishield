@@ -3,11 +3,12 @@ import 'package:medishield/features/shop/controllers/cart_controller.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
 class BillingPaymentDetails extends StatelessWidget {
-  const BillingPaymentDetails({super.key});
+  const BillingPaymentDetails({super.key, required this.total});
+
+  final int total;
 
   @override
   Widget build(BuildContext context) {
-    final controller = CartController.instance;
     return Column(
       children: [
         const SizedBox(
@@ -21,7 +22,7 @@ class BillingPaymentDetails extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
-              '₹ ${controller.total.value}',
+              '₹ ${total}',
               style: Theme.of(context).textTheme.bodyLarge,
             )
           ],
@@ -53,7 +54,7 @@ class BillingPaymentDetails extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
-              '₹ ${controller.total.value + 150}',
+              '₹ ${total + 150}',
               style: Theme.of(context).textTheme.bodyLarge,
             )
           ],

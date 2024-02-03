@@ -9,6 +9,7 @@ import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/features/personalization/screens/address/address.dart';
 import 'package:medishield/features/personalization/screens/profile/profile.dart';
 import 'package:medishield/features/shop/screens/cart/cart.dart';
+import 'package:medishield/features/shop/screens/comming_soon/comming_soon.dart';
 import 'package:medishield/features/shop/screens/orders/orders.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
@@ -74,19 +75,19 @@ class SettingScreen extends StatelessWidget {
                     icon: Iconsax.gift,
                     title: 'My Rewards',
                     subtitle: 'Check your rewards and points',
-                    onTap: () => Get.to(() => const OrderScreen()),
+                    onTap: () => Get.to(() => const CommingSoonScreen()),
                   ),
                   SettingsMenuTile(
                     icon: Iconsax.people,
                     title: 'Refer & Earn',
                     subtitle: 'Refer your friends and earn rewards',
-                    onTap: () => Get.to(() => const OrderScreen()),
+                    onTap: () => Get.to(() => const CommingSoonScreen()),
                   ),
                   SettingsMenuTile(
                     icon: Icons.help_outline,
                     title: 'Contact Support',
                     subtitle: 'Chat with our support team',
-                    onTap: () => Get.to(() => const OrderScreen()),
+                    onTap: () => Get.to(() => const CommingSoonScreen()),
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections),
                   SizedBox(
