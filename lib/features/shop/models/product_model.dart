@@ -1,4 +1,5 @@
 class ProductModel {
+  final String prodId;
   final int id;
   final String name;
   final String sku;
@@ -18,6 +19,7 @@ class ProductModel {
   final List<dynamic> banners;
 
   ProductModel({
+    required this.prodId,
     required this.id,
     required this.name,
     required this.sku,
@@ -38,6 +40,7 @@ class ProductModel {
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
+      prodId: json['_id'] ?? '',
       id: json['id'] ?? '',
       name: json['name'] ?? '',
       sku: json['sku'] ?? '',

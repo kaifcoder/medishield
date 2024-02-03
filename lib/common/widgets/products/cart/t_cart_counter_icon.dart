@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medishield/features/shop/controllers/cart_controller.dart';
 import 'package:medishield/utils/constants/colors.dart';
 
 class TCartCounterIcon extends StatelessWidget {
@@ -32,11 +34,14 @@ class TCartCounterIcon extends StatelessWidget {
             color: TColors.black.withOpacity(0.7),
           ),
           child: Center(
-            child: Text(
-              "2",
-              style: Theme.of(context).textTheme.labelLarge!.apply(
-                    color: TColors.white,
-                  ),
+            child: Obx(
+              () => Text(
+                CartController.instance.userCart.value.products.length
+                    .toString(),
+                style: Theme.of(context).textTheme.labelLarge!.apply(
+                      color: TColors.white,
+                    ),
+              ),
             ),
           ),
         ),

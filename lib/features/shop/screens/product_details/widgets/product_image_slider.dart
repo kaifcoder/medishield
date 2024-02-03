@@ -7,6 +7,7 @@ import 'package:medishield/common/widgets/custom_shapes/curved_edges/t_curved_ed
 import 'package:medishield/common/widgets/icons/t_circular_icon.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
 import 'package:medishield/features/shop/controllers/images_controller.dart';
+import 'package:medishield/features/shop/controllers/wishlist_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
@@ -25,6 +26,7 @@ class ProductImageSlider extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
     final controller = Get.put(ImagesController());
     final images = controller.getAllProductImages(product);
+    final wishc = WishlistController.instance;
     return TCurvedEdgeWidget(
       child: Container(
         color: dark ? TColors.darkerGrey : TColors.light,
@@ -86,12 +88,18 @@ class ProductImageSlider extends StatelessWidget {
             TAppBar(
               showBackArrow: true,
               actions: [
-                TCircularIcon(
-                  dark: dark,
-                  onPressed: () {},
-                  icon: Iconsax.heart5,
-                  color: Colors.red,
-                )
+                Obx(
+                  () => TCircularIcon(
+                    onPressed: () => wishc.toggleWishlist(
+                      product.prodId,
+                    ),
+                    dark: dark,
+                    icon: Iconsax.heart5,
+                    color: wishc.isWishlisted(product.prodId)
+                        ? Colors.red
+                        : TColors.darkGrey,
+                  ),
+                ),
               ],
             )
           ],

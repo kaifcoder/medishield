@@ -5,6 +5,7 @@ import 'package:medishield/common/styles/shadow.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
+import 'package:medishield/features/shop/controllers/wishlist_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/features/shop/screens/product_details/product_details.dart';
 import 'package:medishield/utils/constants/colors.dart';
@@ -25,6 +26,7 @@ class ProductCardVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = ProductController.instance;
+    final wishC = WishlistController.instance;
     // final salePercentage = controller.calculateSalePercentage(product!);
     final salePercentage = controller.calculateSalePercentage(product!);
     final dark = THelperFunctions.isDarkMode(context);
@@ -71,10 +73,17 @@ class ProductCardVertical extends StatelessWidget {
                 Positioned(
                   top: 0,
                   right: 0,
-                  child: TCircularIcon(
-                    dark: dark,
-                    icon: Iconsax.heart5,
-                    color: Colors.red,
+                  child: Obx(
+                    () => TCircularIcon(
+                      onPressed: () => wishC.toggleWishlist(
+                        product!.prodId,
+                      ),
+                      dark: dark,
+                      icon: Iconsax.heart5,
+                      color: wishC.isWishlisted(product!.prodId)
+                          ? Colors.red
+                          : TColors.darkGrey,
+                    ),
                   ),
                 )
               ]),

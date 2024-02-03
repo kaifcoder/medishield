@@ -1,7 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
+import 'package:medishield/features/shop/controllers/cart_controller.dart';
+import 'package:medishield/features/shop/controllers/checkout_controller.dart';
+import 'package:medishield/features/shop/controllers/user_controller.dart';
 import 'package:medishield/features/shop/screens/cart/widget/cart_item.dart';
 import 'package:medishield/features/shop/screens/checkout/widget/billing_address.dart';
 import 'package:medishield/features/shop/screens/checkout/widget/billing_payment_details.dart';
@@ -13,13 +19,16 @@ class CheckoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = CartController.instance;
+    final usercontroller = UserController.instance;
+    final checkout = Get.put(CheckoutController());
     return Scaffold(
       appBar: TAppBar(
         title:
             Text('Checkout', style: Theme.of(context).textTheme.headlineSmall),
         showBackArrow: true,
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         padding: EdgeInsets.all(TSizes.defaultSpace),
         child: Column(
           children: [
@@ -27,7 +36,10 @@ class CheckoutScreen extends StatelessWidget {
             SizedBox(
               height: TSizes.spaceBtwItems,
             ),
-            CartItem(showQuantity: false),
+            CartItem(
+              showQuantity: false,
+              product: controller.userCart.value.products,
+            ),
             SizedBox(
               height: TSizes.spaceBtwItems,
             ),
@@ -35,7 +47,7 @@ class CheckoutScreen extends StatelessWidget {
             SizedBox(
               height: TSizes.spaceBtwItems,
             ),
-            TRoundedContainer(
+            const TRoundedContainer(
               showBorder: true,
               backgroundColor: TColors.lightGrey,
               padding: EdgeInsets.all(TSizes.md),
@@ -55,7 +67,14 @@ class CheckoutScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: ElevatedButton(
           child: const Text('Proceed to payment'),
-          onPressed: () {},
+          onPressed: () async {
+            await checkout.initiatePayment();
+            checkout.openCheckout(
+                amount: controller.grandTotal.value,
+                name: 'MediShield',
+                email: usercontroller.user.value.email!,
+                contact: usercontroller.user.value.mobile!);
+          },
         ),
       ),
     );

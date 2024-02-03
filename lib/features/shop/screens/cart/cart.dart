@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
+import 'package:medishield/features/shop/controllers/cart_controller.dart';
 import 'package:medishield/features/shop/screens/cart/widget/cart_item.dart';
 import 'package:medishield/features/shop/screens/checkout/checkout.dart';
 import 'package:medishield/utils/constants/sizes.dart';
@@ -10,6 +11,7 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = CartController.instance;
     return Scaffold(
       appBar: TAppBar(
         title: Text(
@@ -18,19 +20,30 @@ class CartScreen extends StatelessWidget {
         ),
         showBackArrow: true,
       ),
-      body: const SingleChildScrollView(
-        padding: EdgeInsets.all(TSizes.defaultSpace),
-        child: CartItem(
-          showQuantity: true,
-        ),
-      ),
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.all(16),
-        child: ElevatedButton(
-          child: const Text('Checkout '),
-          onPressed: () => Get.to(() => const CheckoutScreen()),
-        ),
-      ),
+      body: Obx(() {
+        if (controller.userCart.value.products.isEmpty) {
+          return const Center(child: Text('No items in cart'));
+        }
+        return SingleChildScrollView(
+          padding: EdgeInsets.all(TSizes.defaultSpace),
+          child: Obx(() {
+            return CartItem(
+              showQuantity: true,
+              product: controller.userCart.value.products,
+            );
+          }),
+        );
+      }),
+      bottomNavigationBar: Obx(() {
+        if (controller.userCart.value.products.isEmpty) return const SizedBox();
+        return Container(
+          padding: const EdgeInsets.all(16),
+          child: ElevatedButton(
+            child: Obx(() => Text('Checkout ₹ ${controller.total}')),
+            onPressed: () => Get.to(() => const CheckoutScreen()),
+          ),
+        );
+      }),
     );
   }
 }
