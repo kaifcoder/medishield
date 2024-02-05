@@ -7,6 +7,7 @@ class CustomSnackbar {
       'Success',
       message,
       snackPosition: SnackPosition.BOTTOM,
+      margin: const EdgeInsets.all(8),
       backgroundColor: Colors.green,
       colorText: Colors.white,
       icon: const Icon(
@@ -22,6 +23,7 @@ class CustomSnackbar {
       message,
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Colors.orange,
+      margin: const EdgeInsets.all(8),
       colorText: Colors.white,
       icon: const Icon(
         Icons.warning_amber_outlined,

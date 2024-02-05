@@ -24,10 +24,16 @@ class ProductRepository extends GetxController {
     }
   }
 
-  // fetch products by rating from server
-
   // fetch products by search from server
-
+  fetchProductsBySearch(int page, int limit, String search) async {
+    try {
+      final res = await THttpHelper.get(
+          'api/product?page=$page&limit=$limit&search=$search');
+      return res;
+    } catch (e) {
+      rethrow;
+    }
+  }
   // fetch products by filter from server
 
   // fetch products by sort from server

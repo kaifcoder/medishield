@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medishield/data/repositories/authentication_repository.dart';
+import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/features/personalization/screens/settings/settings.dart';
 import 'package:medishield/features/shop/screens/home/home_screen.dart';
 import 'package:medishield/features/shop/screens/store/store.dart';
@@ -15,6 +17,7 @@ class NavigationMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());
     final darkMode = THelperFunctions.isDarkMode(context);
+
     return Scaffold(
       bottomNavigationBar: Obx(
         () => NavigationBar(
@@ -46,7 +49,9 @@ class NavigationMenu extends StatelessWidget {
               ),
             ]),
       ),
-      body: Obx(() => controller.screens[controller.selectedIndex.value]),
+      body: Obx(() {
+        return controller.screens[controller.selectedIndex.value];
+      }),
     );
   }
 }

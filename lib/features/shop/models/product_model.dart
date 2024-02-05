@@ -86,6 +86,26 @@ class Price {
   }
 }
 
+class ChildProductPrice {
+  final int minimalPrice;
+  final int maximalPrice;
+  final int regularPrice;
+
+  ChildProductPrice({
+    required this.minimalPrice,
+    required this.maximalPrice,
+    required this.regularPrice,
+  });
+
+  factory ChildProductPrice.fromJson(Map<String, dynamic> json) {
+    return ChildProductPrice(
+      minimalPrice: json['minimalPrice']?['amount']?['value'] ?? 0,
+      maximalPrice: json['maximalPrice']?['amount']?['value'] ?? 0,
+      regularPrice: json['regularPrice']?['amount']?['value'] ?? 0,
+    );
+  }
+}
+
 class MediaGalleryEntry {
   final int id;
   final String mediaType;
@@ -158,7 +178,7 @@ class ChildProduct {
   final String ratingCount;
   final bool isInStock;
   final String? pdExpiryDate;
-  final Price price;
+  final ChildProductPrice price;
   final List<MediaGalleryEntry> mediaGalleryEntries;
   final List<String> categories;
 
@@ -192,7 +212,7 @@ class ChildProduct {
       ratingCount: json['rating_count'] ?? '',
       isInStock: json['is_in_stock'] ?? false,
       pdExpiryDate: json['pd_expiry_date'] ?? '',
-      price: Price.fromJson(json['price'] ?? {}),
+      price: ChildProductPrice.fromJson(json['price'] ?? {}),
       mediaGalleryEntries: List<MediaGalleryEntry>.from(
         (json['media_gallery_entries'] ?? []).map(
           (entry) => MediaGalleryEntry.fromJson(entry),

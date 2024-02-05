@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/data/repositories/user_repository.dart';
 import 'package:medishield/features/authentication/models/user.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
@@ -15,11 +16,15 @@ class UserController extends GetxController {
   final firstName = TextEditingController();
   final lastName = TextEditingController();
   final phoneNumber = TextEditingController();
+  final guest = AuthenticationRepository.instance.deviceStorage.read('guest');
 
   @override
   void onInit() {
     super.onInit();
     fetchUserRecord();
+    if (guest == true) {
+      return;
+    }
   }
 
   // fetch user data from repository

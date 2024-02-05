@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
 import 'package:medishield/features/personalization/controllers/address_controller.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
@@ -74,6 +75,10 @@ class CheckoutScreen extends StatelessWidget {
         child: ElevatedButton(
           child: const Text('Proceed to payment'),
           onPressed: () async {
+            if (addressController.addresses.isEmpty) {
+              CustomSnackbar.errorSnackBar('Please add an address to proceed');
+              return;
+            }
             await checkout.initiatePayment();
             checkout.openCheckout(
                 amount: controller.grandTotal.value,

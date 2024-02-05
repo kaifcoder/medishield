@@ -8,6 +8,14 @@ class UserRepository extends GetxController {
   Future<UserModel> getUserData() async {
     final email = AuthenticationRepository.instance.deviceStorage.read('email');
     try {
+      if (email == null) {
+        return UserModel(
+          firstName: 'Guest',
+          lastName: 'User',
+          email: '',
+          password: '',
+        );
+      }
       final res = await THttpHelper.get('api/user/get/$email');
       return UserModel.fromJson(res);
     } catch (e) {

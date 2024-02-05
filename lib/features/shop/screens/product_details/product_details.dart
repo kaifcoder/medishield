@@ -90,7 +90,8 @@ class ProductDetailScreen extends StatelessWidget {
                                 variantController.selectedVariantIndex.value ==
                                     index,
                             title: product.childProducts[index].name,
-                            price: product.childProducts[index].specialPrice!,
+                            price:
+                                product.childProducts[index].price.minimalPrice,
                           ),
                         );
                       },

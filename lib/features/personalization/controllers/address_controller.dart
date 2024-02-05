@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/address_repository.dart';
+import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/features/personalization/models/address_model.dart';
 import 'package:medishield/utils/helpers/network_manager.dart';
 
@@ -24,6 +25,17 @@ class AddressController extends GetxController {
   final country = TextEditingController(
     text: 'India',
   );
+
+  final guest = AuthenticationRepository.instance.deviceStorage.read('guest');
+
+  @override
+  void onInit() {
+    if (guest == true) {
+      return;
+    }
+    fetchAddresses();
+    super.onInit();
+  }
 
   // get list of addresses from the repository
   Future<void> fetchAddresses() async {

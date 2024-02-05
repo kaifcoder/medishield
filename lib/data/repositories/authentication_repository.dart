@@ -24,11 +24,16 @@ class AuthenticationRepository extends GetxController {
     super.onReady();
     deviceStorage.writeIfNull('token', null);
     deviceStorage.writeIfNull('email', null);
+    deviceStorage.writeIfNull('guest', null);
     screenRedirect();
   }
 
   Future<void> screenRedirect() async {
     final token = await deviceStorage.read('token');
+    final guest = await deviceStorage.read('guest');
+    if (guest != null && guest == true) {
+      return Get.offAll(() => const NavigationMenu());
+    }
     if (token != null) {
       final isVerfied = await deviceStorage.read('isVerfied');
       if (isVerfied != null && isVerfied == true) {
@@ -49,9 +54,16 @@ class AuthenticationRepository extends GetxController {
 
   // skip login
   Future skipLogin() async {
+    UserModel(
+      firstName: 'Guest',
+      lastName: 'User',
+      email: '',
+      password: '',
+    );
     await deviceStorage.writeIfNull('token', null);
     await deviceStorage.writeIfNull('email', null);
     await deviceStorage.writeIfNull('isVerfied', null);
+    await deviceStorage.write('guest', true);
     Get.offAll(() => const NavigationMenu());
   }
 
@@ -61,6 +73,7 @@ class AuthenticationRepository extends GetxController {
       final res = await THttpHelper.post('api/user/register', data.toJson());
       await deviceStorage.write('token', res['token']);
       await deviceStorage.write('email', res['email']);
+      deviceStorage.remove('guest');
       return res;
     } on Exception catch (e) {
       THelperFunctions.showSnackBar(
@@ -91,6 +104,7 @@ class AuthenticationRepository extends GetxController {
       });
       deviceStorage.write('token', res['token']);
       deviceStorage.write('email', res['email']);
+      deviceStorage.remove('guest');
       return res;
     } on Exception catch (e) {
       THelperFunctions.showSnackBar('Oh Snap! $e');
@@ -121,6 +135,7 @@ class AuthenticationRepository extends GetxController {
       );
       final userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
+      deviceStorage.remove('guest');
       return userCredential;
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
@@ -144,6 +159,7 @@ class AuthenticationRepository extends GetxController {
     await deviceStorage.writeIfNull('email', null);
     await deviceStorage.remove('isVerfied');
     await deviceStorage.writeIfNull('isVerfied', null);
+    await deviceStorage.remove('guest');
     await GoogleSignIn().signOut();
     await FirebaseAuth.instance.signOut();
     Get.offAll(() => const LoginScreen());

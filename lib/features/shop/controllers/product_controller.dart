@@ -14,7 +14,7 @@ class ProductController extends GetxController {
   RxList<ProductModel> Orthodontics = <ProductModel>[].obs;
   RxList<ProductModel> Instruments = <ProductModel>[].obs;
   RxList<ProductModel> CategoryProducts = <ProductModel>[].obs;
-  RxList<BannerModel> SearchProducts = <BannerModel>[].obs;
+  RxList<ProductModel> SearchProducts = <ProductModel>[].obs;
 
   @override
   void onInit() {
@@ -124,6 +124,26 @@ class ProductController extends GetxController {
         category,
       );
       CategoryProducts.assignAll(response['data'].map<ProductModel>((product) {
+        return ProductModel.fromJson(product);
+      }).toList());
+    } catch (e) {
+      CustomSnackbar.errorSnackBar('Something went wrong');
+      TLoggerHelper.error(e.toString());
+      rethrow;
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  fetchProductsbySearch(String search) async {
+    try {
+      isLoading.value = true;
+      final response = await productRepo.fetchProductsBySearch(
+        1,
+        16,
+        search,
+      );
+      SearchProducts.assignAll(response['data'].map<ProductModel>((product) {
         return ProductModel.fromJson(product);
       }).toList());
     } catch (e) {
