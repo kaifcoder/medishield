@@ -20,15 +20,14 @@ class UserRepository extends GetxController {
     String firstName,
     String lastName,
   ) async {
-    final token = AuthenticationRepository.instance.deviceStorage.read('token');
     try {
       final res = await THttpHelper.put(
-          'api/user/edit-user',
-          {
-            'firstname': firstName,
-            'lastname': lastName,
-          },
-          token);
+        'api/user/edit-user',
+        {
+          'firstname': firstName,
+          'lastname': lastName,
+        },
+      );
       return UserModel.fromJson(res);
     } catch (e) {
       rethrow;
@@ -39,14 +38,13 @@ class UserRepository extends GetxController {
   Future<UserModel> updatePhoneData(
     String phone,
   ) async {
-    final token = AuthenticationRepository.instance.deviceStorage.read('token');
     try {
       final res = await THttpHelper.put(
-          'api/user/edit-user',
-          {
-            'mobile': phone,
-          },
-          token);
+        'api/user/edit-user',
+        {
+          'mobile': phone,
+        },
+      );
       return UserModel.fromJson(res);
     } catch (e) {
       rethrow;

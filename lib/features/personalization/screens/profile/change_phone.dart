@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
-import 'package:medishield/features/shop/controllers/user_controller.dart';
+import 'package:medishield/features/personalization/controllers/user_controller.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/constants/text_strings.dart';
 import 'package:medishield/utils/validators/validation.dart';

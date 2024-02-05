@@ -10,13 +10,11 @@ class CategoryTabController extends GetxController {
   @override
   void onInit() {
     productRepo.fetchProductsbycategorySpecial(category.value, 4);
-    print('CategoryTabController onInit');
     super.onInit();
   }
 
   void changeCategory(String category) {
     this.category.value = category;
-    print('CategoryTabController changeCategory');
     try {
       isloading.value = true;
       productRepo.fetchProductsbycategorySpecial(category, 4);

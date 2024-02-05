@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medishield/features/shop/controllers/cart_controller.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
 class BillingPaymentDetails extends StatelessWidget {
@@ -22,7 +21,7 @@ class BillingPaymentDetails extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
-              '₹ ${total}',
+              '₹ $total',
               style: Theme.of(context).textTheme.bodyLarge,
             )
           ],

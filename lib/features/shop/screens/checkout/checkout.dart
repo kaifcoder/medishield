@@ -1,13 +1,12 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
+import 'package:medishield/features/personalization/controllers/address_controller.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
 import 'package:medishield/features/shop/controllers/checkout_controller.dart';
-import 'package:medishield/features/shop/controllers/user_controller.dart';
+import 'package:medishield/features/personalization/controllers/user_controller.dart';
 import 'package:medishield/features/shop/screens/cart/widget/cart_item.dart';
 import 'package:medishield/features/shop/screens/checkout/widget/billing_address.dart';
 import 'package:medishield/features/shop/screens/checkout/widget/billing_payment_details.dart';
@@ -21,6 +20,7 @@ class CheckoutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = CartController.instance;
     final usercontroller = UserController.instance;
+    final addressController = AddressController.instance;
     final checkout = Get.put(CheckoutController());
     return Scaffold(
       appBar: TAppBar(
@@ -29,36 +29,39 @@ class CheckoutScreen extends StatelessWidget {
         showBackArrow: true,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(TSizes.defaultSpace),
+        padding: const EdgeInsets.all(TSizes.defaultSpace),
         child: Column(
           children: [
-            TSectionHeading(title: 'Order Summary'),
-            SizedBox(
+            const TSectionHeading(title: 'Order Summary'),
+            const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
             CartItem(
               showQuantity: false,
               product: controller.userCart.value.products,
             ),
-            SizedBox(
+            const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
-            TSectionHeading(title: 'Billing Details'),
-            SizedBox(
+            const TSectionHeading(title: 'Billing Details'),
+            const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
             TRoundedContainer(
               showBorder: true,
               backgroundColor: TColors.lightGrey,
-              padding: EdgeInsets.all(TSizes.md),
+              padding: const EdgeInsets.all(TSizes.md),
               child: Column(
                 children: [
                   BillingPaymentDetails(
                     total: controller.total.value,
                   ),
-                  BillingAddress(
-                    showButton: true,
-                    user: usercontroller.user.value,
+                  Obx(
+                    () => BillingAddress(
+                      showButton: true,
+                      user: usercontroller.user.value,
+                      address: addressController.selectedAddress.value,
+                    ),
                   ),
                 ],
               ),

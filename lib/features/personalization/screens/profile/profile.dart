@@ -7,7 +7,7 @@ import 'package:medishield/common/widgets/images/t_circular_image.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
 import 'package:medishield/features/personalization/screens/profile/change_name.dart';
 import 'package:medishield/features/personalization/screens/profile/change_phone.dart';
-import 'package:medishield/features/shop/controllers/user_controller.dart';
+import 'package:medishield/features/personalization/controllers/user_controller.dart';
 import 'package:medishield/utils/constants/image_strings.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 

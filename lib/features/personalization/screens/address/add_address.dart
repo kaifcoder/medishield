@@ -16,11 +16,7 @@ class AddNewAddressScreen extends StatelessWidget {
       body: SingleChildScrollView(
         padding: EdgeInsets.all(TSizes.defaultSpace),
         child: Column(
-          children: [
-            //address form
-            AddressForm()
-            //save button
-          ],
+          children: [AddressForm()],
         ),
       ),
     );

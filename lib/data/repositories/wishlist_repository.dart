@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/utils/http/http_client.dart';
 
 class WishlistRepository extends GetxController {
@@ -18,15 +17,13 @@ class WishlistRepository extends GetxController {
   }
 
   addorremToWishlist(String prodId) async {
-    final token =
-        await AuthenticationRepository.instance.deviceStorage.read('token');
     try {
       final res = THttpHelper.put(
-          'api/product/wishlist',
-          {
-            "prodId": prodId,
-          },
-          token);
+        'api/product/wishlist',
+        {
+          "prodId": prodId,
+        },
+      );
       return res;
     } catch (e) {
       rethrow;

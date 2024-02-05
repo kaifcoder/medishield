@@ -4,7 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
 import 'package:medishield/common/widgets/loaders/custom_shimmer.dart';
 import 'package:medishield/common/widgets/products/cart/t_cart_counter_icon.dart';
-import 'package:medishield/features/shop/controllers/user_controller.dart';
+import 'package:medishield/features/personalization/controllers/user_controller.dart';
 import 'package:medishield/features/shop/screens/Search/search.dart';
 import 'package:medishield/features/shop/screens/cart/cart.dart';
 import 'package:medishield/utils/constants/colors.dart';

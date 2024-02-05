@@ -37,8 +37,9 @@ class THttpHelper {
   }
 
   // Helper method to make a PUT request
-  static Future<Map<String, dynamic>> put(
-      String endpoint, dynamic data, String token) async {
+  static Future<Map<String, dynamic>> put(String endpoint, dynamic data) async {
+    final token =
+        await AuthenticationRepository.instance.deviceStorage.read('token');
     final response = await http.put(
       Uri.parse('$_baseUrl/$endpoint'),
       headers: {

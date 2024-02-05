@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:medishield/data/repositories/order_repository.dart';
+import 'package:medishield/features/personalization/models/address_model.dart';
 import 'package:medishield/features/shop/models/order_model.dart';
 
 class OrderController extends GetxController {
@@ -18,12 +19,14 @@ class OrderController extends GetxController {
 
   // create order to server
 
-  createOrder(String paymentId, int amount, int shipping) async {
+  createOrder(String paymentId, int amount, int shipping,
+      AddressModel shippingAddress) async {
     try {
       final res = await orderRepo.createOrder(
         paymentId,
         amount,
         shipping,
+        shippingAddress,
       );
       return res;
     } catch (e) {

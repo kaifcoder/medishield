@@ -31,7 +31,7 @@ class CartItem extends StatelessWidget {
                     'https://images.dentalkart.com/media/catalog/product/${product![index].product.thumbnailUrl}',
                 height: 80,
                 width: 80,
-                padding: EdgeInsets.all(TSizes.xs),
+                padding: const EdgeInsets.all(TSizes.xs),
                 backgroundColor: TColors.grey,
               ),
               // brand

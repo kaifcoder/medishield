@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
+import 'package:medishield/features/personalization/controllers/address_controller.dart';
 import 'package:medishield/features/shop/controllers/home_controller.dart';
 import 'package:medishield/features/shop/controllers/wishlist_controller.dart';
 import 'package:medishield/utils/helpers/network_manager.dart';
@@ -11,5 +12,6 @@ class GeneralBindings extends Bindings {
     Get.put(AuthenticationRepository());
     Get.put(HomeController());
     Get.put(WishlistController());
+    Get.put(AddressController());
   }
 }

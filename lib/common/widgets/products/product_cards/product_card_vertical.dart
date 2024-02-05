@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/styles/shadow.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
+import 'package:medishield/features/shop/controllers/cart_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/controllers/wishlist_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
@@ -12,7 +13,6 @@ import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/enums.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
-
 import '../../icons/t_circular_icon.dart';
 import '../../text/price_text.dart';
 import '../../text/product_title_text.dart';
@@ -27,6 +27,7 @@ class ProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = ProductController.instance;
     final wishC = WishlistController.instance;
+    final cart = CartController.instance;
     // final salePercentage = controller.calculateSalePercentage(product!);
     final salePercentage = controller.calculateSalePercentage(product!);
     final dark = THelperFunctions.isDarkMode(context);
@@ -54,22 +55,23 @@ class ProductCardVertical extends StatelessWidget {
                       'https://images.dentalkart.com/media/catalog/product/${product!.thumbnailUrl}',
                   isNetworkImage: true,
                 ),
-                Positioned(
-                  top: 12,
-                  child: TRoundedContainer(
-                    borderRadius: TSizes.sm,
-                    backgroundColor: TColors.secondary.withOpacity(0.8),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: TSizes.sm, vertical: TSizes.xs),
-                    child: Text(
-                      '${salePercentage.round()}% OFF',
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge!
-                          .apply(color: TColors.black),
-                    ),
-                  ), // TRoundedContainer
-                ),
+                if (salePercentage > 0)
+                  Positioned(
+                    top: 12,
+                    child: TRoundedContainer(
+                      borderRadius: TSizes.sm,
+                      backgroundColor: TColors.secondary.withOpacity(0.8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: TSizes.sm, vertical: TSizes.xs),
+                      child: Text(
+                        '${salePercentage.round()}% OFF',
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge!
+                            .apply(color: TColors.black),
+                      ),
+                    ), // TRoundedContainer
+                  ),
                 Positioned(
                   top: 0,
                   right: 0,
@@ -134,11 +136,26 @@ class ProductCardVertical extends StatelessWidget {
                       bottomRight: Radius.circular(TSizes.productImageRadius),
                     ),
                   ),
-                  child: const SizedBox(
+                  child: SizedBox(
                     width: TSizes.iconLg * 1.2,
                     height: TSizes.iconLg * 1.2,
-                    child:
-                        Center(child: Icon(Iconsax.add, color: TColors.white)),
+                    child: Center(
+                      child: IconButton(
+                        onPressed: () {
+                          if (product!.childProducts.length > 1) {
+                            Get.to(() => ProductDetailScreen(
+                                  product: product!,
+                                ));
+                          } else {
+                            cart.addToCart(
+                                price: product!.price.minimalPrice,
+                                product: product!.prodId,
+                                count: 1);
+                          }
+                        },
+                        icon: const Icon(Iconsax.add, color: TColors.white),
+                      ),
+                    ),
                   ),
                 ),
               ],

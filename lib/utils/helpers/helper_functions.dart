@@ -81,7 +81,7 @@ class THelperFunctions {
   static double calculateDiscountPercentage(
       double originalPrice, double discountedPrice) {
     if (originalPrice <= 0 || discountedPrice <= 0) {
-      throw ArgumentError("Prices must be greater than zero.");
+      return 0;
     }
 
     // Calculate the discount amount

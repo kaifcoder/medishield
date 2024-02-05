@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/images/t_circular_image.dart';
 import 'package:medishield/common/widgets/loaders/custom_shimmer.dart';
-import 'package:medishield/features/shop/controllers/user_controller.dart';
+import 'package:medishield/features/personalization/controllers/user_controller.dart';
 import 'package:medishield/utils/constants/image_strings.dart';
 
 class TUserProfileTile extends StatelessWidget {

@@ -25,7 +25,7 @@ class CartScreen extends StatelessWidget {
           return const Center(child: Text('No items in cart'));
         }
         return SingleChildScrollView(
-          padding: EdgeInsets.all(TSizes.defaultSpace),
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Obx(() {
             return CartItem(
               showQuantity: true,

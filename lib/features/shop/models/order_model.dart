@@ -1,4 +1,5 @@
 import 'package:medishield/features/authentication/models/user.dart';
+import 'package:medishield/features/personalization/models/address_model.dart';
 import 'package:medishield/features/shop/models/cart_model.dart';
 
 class OrderModel {
@@ -7,6 +8,7 @@ class OrderModel {
   final UserModel orderby;
   final List<Products> products;
   final PaymentIntent paymentIntent;
+  final AddressModel shippingAddress;
   final String createdAt;
 
   OrderModel({
@@ -15,20 +17,21 @@ class OrderModel {
     required this.orderby,
     required this.products,
     required this.paymentIntent,
+    required this.shippingAddress,
     required this.createdAt,
   });
 
   factory OrderModel.fromJson(Map<String, dynamic> json) {
     return OrderModel(
-      id: json['_id'] ?? '',
-      orderStatus: json['orderStatus'] ?? '',
-      orderby: UserModel.fromJson(json['orderby']),
-      products: json['products'].map<Products>((product) {
-        return Products.fromJson(product);
-      }).toList(),
-      paymentIntent: PaymentIntent.fromJson(json['paymentIntent']),
-      createdAt: json['createdAt'] ?? '',
-    );
+        id: json['_id'] ?? '',
+        orderStatus: json['orderStatus'] ?? '',
+        orderby: UserModel.fromJson(json['orderby']),
+        products: json['products'].map<Products>((product) {
+          return Products.fromJson(product);
+        }).toList(),
+        paymentIntent: PaymentIntent.fromJson(json['paymentIntent']),
+        createdAt: json['createdAt'] ?? '',
+        shippingAddress: AddressModel.fromJson(json['shippingAddress']));
   }
 
   Map<String, dynamic> toJson() {
@@ -38,6 +41,7 @@ class OrderModel {
       'orderby': orderby.toJson(),
       'products': products.map((product) => product.toJson()).toList(),
       'paymentIntent': paymentIntent.toJson(),
+      'shippingAddress': shippingAddress.toJson(),
     };
   }
 }

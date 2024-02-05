@@ -8,6 +8,8 @@ import 'package:medishield/common/widgets/images/t_rounded_image.dart';
 import 'package:medishield/common/widgets/text/price_text.dart';
 import 'package:medishield/common/widgets/text/product_title_text.dart';
 import 'package:medishield/common/widgets/text/t_brand_title_text.dart';
+import 'package:medishield/features/shop/controllers/product_controller.dart';
+import 'package:medishield/features/shop/controllers/wishlist_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/features/shop/screens/product_details/product_details.dart';
 import 'package:medishield/utils/constants/colors.dart';
@@ -21,6 +23,9 @@ class ProductCardHorizontal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = ProductController.instance;
+    final wishC = WishlistController.instance;
+    final salePercentage = controller.calculateSalePercentage(product!);
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailScreen(
             product: product!,
@@ -47,22 +52,23 @@ class ProductCardHorizontal extends StatelessWidget {
                       'https://images.dentalkart.com/media/catalog/product/${product!.thumbnailUrl}',
                   isNetworkImage: true,
                 ),
-                Positioned(
-                  top: 12,
-                  child: TRoundedContainer(
-                    borderRadius: TSizes.sm,
-                    backgroundColor: TColors.secondary.withOpacity(0.8),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: TSizes.sm, vertical: TSizes.xs),
-                    child: Text(
-                      '25%',
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge!
-                          .apply(color: TColors.black),
-                    ),
-                  ), // TRoundedContainer
-                ),
+                if (salePercentage > 0)
+                  Positioned(
+                    top: 12,
+                    child: TRoundedContainer(
+                      borderRadius: TSizes.sm,
+                      backgroundColor: TColors.secondary.withOpacity(0.8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: TSizes.sm, vertical: TSizes.xs),
+                      child: Text(
+                        '${salePercentage.round()}% OFF',
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge!
+                            .apply(color: TColors.black),
+                      ),
+                    ), // TRoundedContainer
+                  ),
               ]),
             ),
             // title, brand, price
@@ -80,16 +86,22 @@ class ProductCardHorizontal extends StatelessWidget {
                           maxLines: 2,
                         ),
                       ),
-                      const TCircularIcon(
-                        backgroundColor: Colors.transparent,
-                        icon: Iconsax.heart5,
-                        color: Colors.red,
+                      Obx(
+                        () => TCircularIcon(
+                          onPressed: () => wishC.toggleWishlist(
+                            product!.prodId,
+                          ),
+                          icon: Iconsax.heart5,
+                          color: wishC.isWishlisted(product!.prodId)
+                              ? Colors.red
+                              : TColors.darkGrey,
+                        ),
                       ),
                     ],
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems / 2),
-                  const TBrandTitleText(
-                    title: 'Nike',
+                  TBrandTitleText(
+                    title: product!.name.split(' ')[0],
                     maxLines: 1,
                     textColor: TColors.black,
                     textAlign: TextAlign.start,
@@ -116,11 +128,15 @@ class ProductCardHorizontal extends StatelessWidget {
                                 Radius.circular(TSizes.productImageRadius),
                           ), // BorderRadius.only
                         ), // BoxDecoration
-                        child: const SizedBox(
+                        child: SizedBox(
                           width: TSizes.iconLg * 1.2,
                           height: TSizes.iconLg * 1.2,
                           child: Center(
-                              child: Icon(Iconsax.add, color: TColors.white)),
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: Icon(Iconsax.add, color: TColors.white),
+                            ),
+                          ),
                         ),
                       ),
                     ],

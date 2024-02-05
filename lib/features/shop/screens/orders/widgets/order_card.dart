@@ -43,7 +43,7 @@ class TOrderCard extends StatelessWidget {
               ),
               TextButton(
                   style: TextButton.styleFrom(
-                      padding: EdgeInsets.all(4),
+                      padding: const EdgeInsets.all(4),
                       backgroundColor: TColors.primary,
                       alignment: Alignment.center),
                   onPressed: onTap,

@@ -74,7 +74,7 @@ class OrderDetailScreen extends StatelessWidget {
             TRoundedContainer(
               showBorder: true,
               backgroundColor: TColors.lightGrey,
-              padding: EdgeInsets.all(TSizes.md),
+              padding: const EdgeInsets.all(TSizes.md),
               child: Column(
                 children: [
                   BillingPaymentDetails(
@@ -86,6 +86,8 @@ class OrderDetailScreen extends StatelessWidget {
                   BillingAddress(
                     showButton: false,
                     user: OrderController.instance.orderData[index].orderby,
+                    address: OrderController
+                        .instance.orderData[index].shippingAddress,
                   ),
                 ],
               ),
@@ -97,7 +99,7 @@ class OrderDetailScreen extends StatelessWidget {
 
             // contact details
             Text(
-              'Contact Us',
+              'Contact Us for any queries',
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(

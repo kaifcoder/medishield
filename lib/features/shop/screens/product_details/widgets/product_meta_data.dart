@@ -10,8 +10,8 @@ class ProductMetaData extends StatelessWidget {
       required this.shortDescription,
       required this.manufacturer,
       required this.price,
-      required this.originalPrice,
-      required this.discount,
+      this.originalPrice = 1,
+      this.discount = 1,
       required this.child});
 
   final String title, shortDescription, manufacturer;
