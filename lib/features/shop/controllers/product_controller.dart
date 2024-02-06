@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/product_repository.dart';
@@ -8,6 +9,9 @@ class ProductController extends GetxController {
   final productRepo = Get.put(ProductRepository());
   static ProductController get instance => Get.find();
   final isLoading = false.obs;
+
+  final page = 1;
+  final ScrollController scrollController = ScrollController();
 
   RxList<ProductModel> Endodontics = <ProductModel>[].obs;
   RxList<ProductModel> Orthodontics = <ProductModel>[].obs;
@@ -134,15 +138,18 @@ class ProductController extends GetxController {
     }
   }
 
-  fetchProductsbySearch(String search) async {
+  fetchProductsbySearch(String search, int page) async {
     try {
       isLoading.value = true;
       final response = await productRepo.fetchProductsBySearch(
-        1,
+        page,
         16,
         search,
       );
-      SearchProducts.assignAll(response['data'].map<ProductModel>((product) {
+      if (page == 1) {
+        SearchProducts.clear();
+      }
+      SearchProducts.addAll(response['data'].map<ProductModel>((product) {
         return ProductModel.fromJson(product);
       }).toList());
     } catch (e) {

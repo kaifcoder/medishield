@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: MediShieldTheme.lightTheme,
       darkTheme: MediShieldTheme.darkTheme,
+      debugShowCheckedModeBanner: false,
       initialBinding: GeneralBindings(),
       home: const LoginScreen(),
     );

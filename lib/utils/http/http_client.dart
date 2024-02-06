@@ -4,7 +4,7 @@ import 'package:medishield/data/repositories/authentication_repository.dart';
 
 class THttpHelper {
   static const String _baseUrl =
-      'http://192.168.29.134:5000'; // Replace with your API base URL
+      'https://medishield-backend.onrender.com'; // Replace with your API base URL
 
   // Helper method to make a GET request
   static Future<Map<String, dynamic>> get(String endpoint) async {

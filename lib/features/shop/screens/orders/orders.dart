@@ -23,29 +23,30 @@ class OrderScreen extends StatelessWidget {
       );
     }
     return Scaffold(
-        appBar: AppBar(
-          title: Text('My Orders',
-              style: Theme.of(context).textTheme.headlineSmall),
+      appBar: AppBar(
+        title:
+            Text('My Orders', style: Theme.of(context).textTheme.headlineSmall),
+      ),
+      body: ListView.separated(
+        padding: const EdgeInsets.all(TSizes.defaultSpace),
+        itemBuilder: (_, index) => TOrderCard(
+          orderNumber: 'Order #${controller.orderData[index].id}',
+          orderDate: controller.orderData[index].createdAt,
+          name: controller.orderData[index].products.first.product.name,
+          orderStatus: controller.orderData[index].orderStatus,
+          orderAmount: '₹ ${controller.orderData[index].paymentIntent.amount}',
+          onTap: () => Get.to(
+            () => OrderDetailScreen(
+              index: index,
+            ),
+          ),
+          count: controller.orderData[index].products.length,
         ),
-        body: ListView.separated(
-            padding: const EdgeInsets.all(TSizes.defaultSpace),
-            itemBuilder: (_, index) => TOrderCard(
-                  orderNumber: 'Order #${controller.orderData[index].id}',
-                  orderDate: controller.orderData[index].createdAt,
-                  name: controller.orderData[index].products.first.product.name,
-                  orderStatus: controller.orderData[index].orderStatus,
-                  orderAmount:
-                      '₹ ${controller.orderData[index].paymentIntent.amount}',
-                  onTap: () => Get.to(
-                    () => OrderDetailScreen(
-                      index: index,
-                    ),
-                  ),
-                  count: controller.orderData[index].products.length,
-                ),
-            separatorBuilder: (_, __) => const SizedBox(
-                  height: TSizes.spaceBtwItems,
-                ),
-            itemCount: controller.orderData.length));
+        separatorBuilder: (_, __) => const SizedBox(
+          height: TSizes.spaceBtwItems,
+        ),
+        itemCount: controller.orderData.length,
+      ),
+    );
   }
 }

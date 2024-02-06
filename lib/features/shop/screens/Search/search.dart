@@ -52,9 +52,16 @@ class SearchScreen extends StatelessWidget {
 
               return Expanded(
                 child: ListView.builder(
+                  controller: controller.searchScrollController,
                   padding: EdgeInsets.zero,
                   itemCount: products.length,
                   itemBuilder: (context, index) {
+                    // show loading indicator at the end of the list
+                    if (controller.isSearching.value &&
+                        index == products.length - 1) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+
                     return ListTile(
                         title: Text(products[index].name),
                         onTap: () {

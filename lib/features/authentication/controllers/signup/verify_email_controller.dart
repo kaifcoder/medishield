@@ -24,8 +24,12 @@ class VerifyEmailController extends GetxController {
     }
   }
 
-  void setTimerAutoRedirect() {
-    Timer.periodic(const Duration(seconds: 1), (timer) async {
+  void setTimerAutoRedirect() async {
+    if (await AuthenticationRepository.instance.deviceStorage.read('token') ==
+        null) {
+      return;
+    }
+    Timer.periodic(const Duration(seconds: 5), (timer) async {
       await AuthenticationRepository.instance
           .isEmailVerified()
           .then((value) => {

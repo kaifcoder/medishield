@@ -39,6 +39,9 @@ class AddressController extends GetxController {
 
   // get list of addresses from the repository
   Future<void> fetchAddresses() async {
+    if (guest != null && guest == true) {
+      return;
+    }
     try {
       addresses.value = await addressRepository.fetchAddresses();
       selectedAddress.value =

@@ -7,7 +7,10 @@ class SearchControler extends GetxController {
   final productcontroller = ProductController.instance;
   final searchQuery = ''.obs;
   final searchHistory = <String>[].obs;
+
   TextEditingController searchText = TextEditingController();
+  ScrollController searchScrollController = ScrollController();
+  final page = 1;
   FocusNode searchFocusNode = FocusNode();
   RxBool isSearching = false.obs;
 
@@ -16,6 +19,7 @@ class SearchControler extends GetxController {
     super.onInit();
     searchFocusNode.requestFocus();
     searchQuery.value = '';
+    onSearchScroll();
   }
 
   @override
@@ -28,7 +32,27 @@ class SearchControler extends GetxController {
 
   Future<void> searchProducts() async {
     // add a delay while searching
-    await productcontroller.fetchProductsbySearch(searchQuery.value);
+    await productcontroller.fetchProductsbySearch(searchQuery.value, page);
+  }
+
+  // pagination
+  void onSearchScroll() async {
+    searchScrollController.addListener(() async {
+      if (searchScrollController.position.pixels ==
+          searchScrollController.position.maxScrollExtent) {
+        try {
+          isSearching.value = true;
+          await productcontroller.fetchProductsbySearch(
+              searchQuery.value, page + 1);
+
+          update();
+        } catch (e) {
+          rethrow;
+        } finally {
+          isSearching.value = false;
+        }
+      }
+    });
   }
 
   void addToSearchHistory(String query) {
