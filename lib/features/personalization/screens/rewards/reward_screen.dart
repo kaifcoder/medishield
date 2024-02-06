@@ -27,20 +27,20 @@ class RewardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Rewards'),
+        title: const Text('Your Rewards'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Congratulations! You have earned the following rewards:',
               style: TextStyle(
                 fontSize: 16.0,
               ),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             Expanded(
               child: ListView.builder(
                 itemCount: rewards.length,
@@ -59,7 +59,7 @@ class RewardScreen extends StatelessWidget {
 class RewardCard extends StatelessWidget {
   final Reward reward;
 
-  RewardCard({required this.reward});
+  const RewardCard({super.key, required this.reward});
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +68,7 @@ class RewardCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
-      margin: EdgeInsets.symmetric(vertical: 8.0),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -76,15 +76,15 @@ class RewardCard extends StatelessWidget {
           children: [
             Text(
               reward.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             Text(
               reward.description,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16.0,
               ),
             ),

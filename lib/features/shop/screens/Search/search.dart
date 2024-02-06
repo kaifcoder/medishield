@@ -15,12 +15,12 @@ class SearchScreen extends StatelessWidget {
     final controller = Get.put(SearchControler());
     final products = ProductController.instance.SearchProducts;
     return Scaffold(
-      appBar: TAppBar(
+      appBar: const TAppBar(
         title: Text('Search'),
         showBackArrow: true,
       ),
       body: Padding(
-        padding: EdgeInsets.all(TSizes.defaultSpace),
+        padding: const EdgeInsets.all(TSizes.defaultSpace),
         child: Column(
           children: [
             // search bar

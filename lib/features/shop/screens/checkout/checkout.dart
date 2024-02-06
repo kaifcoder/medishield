@@ -75,7 +75,7 @@ class CheckoutScreen extends StatelessWidget {
         child: ElevatedButton(
           child: const Text('Proceed to payment'),
           onPressed: () async {
-            if (addressController.addresses.isEmpty) {
+            if (addressController.selectedAddress.value.address == null) {
               CustomSnackbar.errorSnackBar('Please add an address to proceed');
               return;
             }
@@ -84,7 +84,7 @@ class CheckoutScreen extends StatelessWidget {
                 amount: controller.grandTotal.value,
                 name: 'MediShield',
                 email: usercontroller.user.value.email!,
-                contact: usercontroller.user.value.mobile!);
+                contact: addressController.selectedAddress.value.mobile!);
           },
         ),
       ),

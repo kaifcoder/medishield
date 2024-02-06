@@ -8,7 +8,6 @@ import 'package:medishield/features/shop/models/order_model.dart';
 class OrderController extends GetxController {
   static OrderController get instance => Get.find();
   final orderRepo = Get.put(OrderRepository());
-  final isguest = AuthenticationRepository.instance.deviceStorage.read('guest');
 
   final orderData = <OrderModel>[].obs;
 
@@ -16,11 +15,18 @@ class OrderController extends GetxController {
 
   @override
   void onInit() async {
-    if (isguest == true) {
+    if (AuthenticationRepository.instance.deviceStorage.read('token') == null) {
       return;
     }
     super.onInit();
     await fetchOrders();
+  }
+
+  // dispose order data
+  @override
+  void onClose() {
+    orderData.clear();
+    super.onClose();
   }
 
   // create order to server
@@ -28,7 +34,8 @@ class OrderController extends GetxController {
   createOrder(String paymentId, int amount, int shipping,
       AddressModel shippingAddress) async {
     try {
-      if (isguest == true) {
+      if (AuthenticationRepository.instance.deviceStorage.read('token') ==
+          null) {
         return CustomSnackbar.errorSnackBar('Please login to place order');
       }
       final res = await orderRepo.createOrder(
@@ -47,7 +54,8 @@ class OrderController extends GetxController {
 
   fetchOrders() async {
     try {
-      if (isguest == true) {
+      if (AuthenticationRepository.instance.deviceStorage.read('token') ==
+          null) {
         return;
       }
       final res = await orderRepo.fetchOrders();

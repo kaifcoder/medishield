@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/features/authentication/models/user.dart';
 import 'package:medishield/utils/constants/image_strings.dart';
@@ -17,8 +18,10 @@ class GoogleController extends GetxController {
   }
 
   isUserExist(uid) async {
+    
     final res = await THttpHelper.get('api/user/isUserExist/$uid');
-    print(res['status']);
+
+    print(uid + "---> " + res['status'].toString());
     return res['status'];
   }
 
@@ -49,24 +52,19 @@ class GoogleController extends GetxController {
       );
 
       if (await isUserExist(newUser.googleAuthToken)) {
-        final uid = FirebaseAuth.instance.currentUser!.uid;
-        final token = await getUserTokenFromServer(uid);
-        await AuthenticationRepository.instance.deviceStorage
-            .write('token', token);
-        await AuthenticationRepository.instance.deviceStorage
-            .write('email', userCredential.user!.email);
-        print(token);
+        await AuthenticationRepository.instance.loginWithGoogle();
       } else {
         await AuthenticationRepository.instance.signup(newUser);
+        await AuthenticationRepository.instance.deviceStorage
+            .write('isVerfied', true);
       }
 
       FullScreenLoader.stopLoading();
-      THelperFunctions.showSnackBar('Congrats! You are registered');
-
-      print(userCredential);
       await AuthenticationRepository.instance.screenRedirect();
     } catch (e) {
-      print("GOOGLE CONTROLLER$e");
+      FullScreenLoader.stopLoading();
+      CustomSnackbar.errorSnackBar(e.toString());
+      rethrow;
     }
   }
 }

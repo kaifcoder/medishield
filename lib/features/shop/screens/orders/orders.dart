@@ -11,6 +11,17 @@ class OrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = OrderController.instance;
+    if (controller.orderData.isEmpty) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('My Orders',
+              style: Theme.of(context).textTheme.headlineSmall),
+        ),
+        body: const Center(
+          child: Text('No Orders Yet'),
+        ),
+      );
+    }
     return Scaffold(
         appBar: AppBar(
           title: Text('My Orders',

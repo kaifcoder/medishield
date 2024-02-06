@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -22,6 +21,7 @@ class AuthenticationRepository extends GetxController {
   @override
   void onReady() {
     super.onReady();
+
     deviceStorage.writeIfNull('token', null);
     deviceStorage.writeIfNull('email', null);
     deviceStorage.writeIfNull('guest', null);
@@ -31,10 +31,10 @@ class AuthenticationRepository extends GetxController {
   Future<void> screenRedirect() async {
     final token = await deviceStorage.read('token');
     final guest = await deviceStorage.read('guest');
+    print('Guest: $guest');
     if (guest != null && guest == true) {
       return Get.offAll(() => const NavigationMenu());
-    }
-    if (token != null) {
+    } else if (token != null) {
       final isVerfied = await deviceStorage.read('isVerfied');
       if (isVerfied != null && isVerfied == true) {
         return Get.offAll(() => const NavigationMenu());
@@ -71,11 +71,22 @@ class AuthenticationRepository extends GetxController {
   Future signup(UserModel data) async {
     try {
       final res = await THttpHelper.post('api/user/register', data.toJson());
-      await deviceStorage.write('token', res['token']);
-      await deviceStorage.write('email', res['email']);
+      await deviceStorage.writeIfNull('token', res['token']);
+      print(res);
+      await deviceStorage.writeIfNull('email', res['email']);
       deviceStorage.remove('guest');
       return res;
     } on Exception catch (e) {
+      await deviceStorage.remove('token');
+      await deviceStorage.write('token', null);
+      await deviceStorage.remove('email');
+      await deviceStorage.write('email', null);
+      await deviceStorage.remove('isVerfied');
+      await deviceStorage.write('isVerfied', null);
+      await deviceStorage.remove('guest');
+      await deviceStorage.write('guest', false);
+      await GoogleSignIn().signOut();
+      await FirebaseAuth.instance.signOut();
       THelperFunctions.showSnackBar(
           'Oh Snap! $e'.replaceAll('Exception: ', ''));
     }
@@ -107,6 +118,16 @@ class AuthenticationRepository extends GetxController {
       deviceStorage.remove('guest');
       return res;
     } on Exception catch (e) {
+      await deviceStorage.remove('token');
+      await deviceStorage.write('token', null);
+      await deviceStorage.remove('email');
+      await deviceStorage.write('email', null);
+      await deviceStorage.remove('isVerfied');
+      await deviceStorage.write('isVerfied', null);
+      await deviceStorage.remove('guest');
+      await deviceStorage.write('guest', false);
+      await GoogleSignIn().signOut();
+      await FirebaseAuth.instance.signOut();
       THelperFunctions.showSnackBar('Oh Snap! $e');
     }
   }
@@ -129,6 +150,7 @@ class AuthenticationRepository extends GetxController {
       final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
       final GoogleSignInAuthentication? googleAuth =
           await userAccount?.authentication;
+
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth?.accessToken,
         idToken: googleAuth?.idToken,
@@ -144,24 +166,41 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {
-      if (kDebugMode) print(e);
-      return;
+      rethrow;
     }
   }
 
-  // delete account
+  loginWithGoogle() async {
+    try {
+      final res = await THttpHelper.get(
+          'api/user/loginWithGoogle/${FirebaseAuth.instance.currentUser!.uid}');
+      await deviceStorage.write('token', res['token']);
+
+      await deviceStorage.write(
+          'email', FirebaseAuth.instance.currentUser!.email);
+
+      await deviceStorage.write('isVerfied', true);
+      await deviceStorage.remove('guest');
+      print(res);
+    } catch (e) {
+      rethrow;
+    }
+  }
 
   // logout user
   logout() async {
     await deviceStorage.remove('token');
-    await deviceStorage.writeIfNull('token', null);
+    await deviceStorage.write('token', null);
     await deviceStorage.remove('email');
-    await deviceStorage.writeIfNull('email', null);
+    await deviceStorage.write('email', null);
     await deviceStorage.remove('isVerfied');
-    await deviceStorage.writeIfNull('isVerfied', null);
+    await deviceStorage.write('isVerfied', null);
     await deviceStorage.remove('guest');
+    await deviceStorage.write('guest', false);
     await GoogleSignIn().signOut();
     await FirebaseAuth.instance.signOut();
+    await deviceStorage.erase();
+    // reset all controllers
     Get.offAll(() => const LoginScreen());
   }
 }

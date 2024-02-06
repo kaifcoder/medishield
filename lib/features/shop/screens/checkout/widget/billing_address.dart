@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
 import 'package:medishield/features/authentication/models/user.dart';
+import 'package:medishield/features/personalization/controllers/address_controller.dart';
 import 'package:medishield/features/personalization/models/address_model.dart';
 import 'package:medishield/features/personalization/screens/address/address.dart';
+import 'package:medishield/features/personalization/screens/address/widgets/address_container.dart';
 import 'package:medishield/features/personalization/screens/address/widgets/address_form.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
@@ -24,7 +25,7 @@ class BillingAddress extends StatelessWidget {
   Widget build(BuildContext context) {
     if (address.address == null) {
       return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        TSectionHeading(title: 'shipping Address'),
+        const TSectionHeading(title: 'shipping Address'),
         const SizedBox(
           height: TSizes.spaceBtwItems / 2,
         ),
@@ -44,17 +45,17 @@ class BillingAddress extends StatelessWidget {
             // open modal to add address
             Get.bottomSheet(
               const SingleChildScrollView(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
-                  child: Column(
-                    children: [
-                      TSectionHeading(title: 'Add Address'),
-                      SizedBox(
-                        height: TSizes.spaceBtwItems,
-                      ),
-                      AddressForm(),
-                    ],
-                  )),
+                padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+                child: Column(
+                  children: [
+                    TSectionHeading(title: 'Add Address'),
+                    SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    ),
+                    AddressForm(),
+                  ],
+                ),
+              ),
               isScrollControlled: true,
               backgroundColor: Colors.white,
               // remove bottom rounded corner
@@ -89,7 +90,7 @@ class BillingAddress extends StatelessWidget {
           onButtonPressed: () {
             // open modal to change address
             Get.bottomSheet(
-              AddressScreen(),
+              const AddressScreen(),
               enableDrag: true,
               backgroundColor: Colors.white,
               shape: const RoundedRectangleBorder(

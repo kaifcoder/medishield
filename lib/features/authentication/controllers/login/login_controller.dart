@@ -35,6 +35,9 @@ class LoginController extends GetxController {
           .login(email.text.trim(), password.text.trim());
 
       FullScreenLoader.stopLoading();
+      password.clear();
+
+      loginFormKey.currentState!.reset();
 
       await AuthenticationRepository.instance.screenRedirect();
     } catch (e) {

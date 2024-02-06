@@ -7,8 +7,10 @@ class UserRepository extends GetxController {
   // fetch user data from server
   Future<UserModel> getUserData() async {
     final email = AuthenticationRepository.instance.deviceStorage.read('email');
+    print(email);
     try {
-      if (email == null) {
+      if (AuthenticationRepository.instance.deviceStorage.read('token') ==
+          null) {
         return UserModel(
           firstName: 'Guest',
           lastName: 'User',

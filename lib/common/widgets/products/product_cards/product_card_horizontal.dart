@@ -134,7 +134,7 @@ class ProductCardHorizontal extends StatelessWidget {
                           child: Center(
                             child: IconButton(
                               onPressed: () {},
-                              icon: Icon(Iconsax.add, color: TColors.white),
+                              icon: const Icon(Iconsax.add, color: TColors.white),
                             ),
                           ),
                         ),

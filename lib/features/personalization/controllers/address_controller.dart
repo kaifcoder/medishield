@@ -30,7 +30,7 @@ class AddressController extends GetxController {
 
   @override
   void onInit() {
-    if (guest == true) {
+    if (AuthenticationRepository.instance.deviceStorage.read('token') == null) {
       return;
     }
     fetchAddresses();

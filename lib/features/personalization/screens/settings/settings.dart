@@ -43,7 +43,7 @@ class SettingScreen extends StatelessWidget {
                   TUserProfileTile(
                     onTap: () {
                       if (isguest == true) {
-                        Get.to(() => const LoginScreen());
+                        Get.offAll(() => const LoginScreen());
                       } else {
                         Get.to(() => const ProfileScreen());
                       }
@@ -64,7 +64,8 @@ class SettingScreen extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                          onPressed: () => Get.to(() => const LoginScreen()),
+                          onPressed: () =>
+                              Get.offAll(() => const LoginScreen()),
                           child: const Text(
                             'Login',
                             style: TextStyle(color: Colors.white),
@@ -83,7 +84,7 @@ class SettingScreen extends StatelessWidget {
                     subtitle: 'Add or change your address',
                     onTap: () {
                       if (isguest == true) {
-                        Get.to(() => const LoginScreen());
+                        Get.offAll(() => const LoginScreen());
                       } else {
                         Get.to(() => const AddressScreen());
                       }
@@ -95,7 +96,7 @@ class SettingScreen extends StatelessWidget {
                     subtitle: 'Add, remove products and move to checkout',
                     onTap: () {
                       if (isguest == true) {
-                        Get.to(() => const LoginScreen());
+                        Get.offAll(() => const LoginScreen());
                       } else {
                         Get.to(() => const CartScreen());
                       }
@@ -107,7 +108,7 @@ class SettingScreen extends StatelessWidget {
                     subtitle: 'In-progress and Completed Orders',
                     onTap: () {
                       if (isguest == true) {
-                        Get.to(() => const LoginScreen());
+                        Get.offAll(() => const LoginScreen());
                       } else {
                         Get.to(() => const OrderScreen());
                       }
@@ -119,7 +120,7 @@ class SettingScreen extends StatelessWidget {
                     subtitle: 'Check your rewards and points',
                     onTap: () {
                       if (isguest == true) {
-                        Get.to(() => const LoginScreen());
+                        Get.offAll(() => const LoginScreen());
                       } else {
                         Get.to(() => RewardScreen());
                       }
@@ -131,7 +132,7 @@ class SettingScreen extends StatelessWidget {
                     subtitle: 'Refer your friends and earn rewards',
                     onTap: () {
                       if (isguest == true) {
-                        Get.to(() => const LoginScreen());
+                        Get.offAll(() => const LoginScreen());
                       } else {
                         Get.to(() => const ReferAndEarnScreen());
                       }
@@ -141,7 +142,7 @@ class SettingScreen extends StatelessWidget {
                     icon: Icons.help_outline,
                     title: 'Contact Support',
                     subtitle: 'Chat with our support team',
-                    onTap: () => Get.to(() => ContactScreen()),
+                    onTap: () => Get.to(() => const ContactScreen()),
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections),
 

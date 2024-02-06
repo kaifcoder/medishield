@@ -22,9 +22,6 @@ class UserController extends GetxController {
   void onInit() {
     super.onInit();
     fetchUserRecord();
-    if (guest == true) {
-      return;
-    }
   }
 
   // fetch user data from repository
@@ -35,7 +32,6 @@ class UserController extends GetxController {
       this.user(user);
       userLoading(false);
     } catch (e) {
-      user(UserModel.empty());
       TLoggerHelper.error(e.toString());
     } finally {
       userLoading(false);

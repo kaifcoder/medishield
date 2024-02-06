@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
@@ -20,7 +19,8 @@ class CartController extends GetxController {
 
   @override
   void onInit() async {
-    if (auth.deviceStorage.read('guest') == true) {
+    if (auth.deviceStorage.read('guest') == true ||
+        auth.deviceStorage.read('token') == null) {
       return;
     }
     super.onInit();
@@ -29,6 +29,10 @@ class CartController extends GetxController {
 
   fetchCartItems() async {
     try {
+      if (auth.deviceStorage.read('guest') == true ||
+          auth.deviceStorage.read('token') == null) {
+        return;
+      }
       final res = await cartRepo.fetchCartItems();
       if (res['data'] == null) {
         userCart.value = CartModel(
@@ -109,5 +113,11 @@ class CartController extends GetxController {
     } catch (e) {
       rethrow;
     }
+  }
+
+  @override
+  void onClose() {
+    userCart.close();
+    super.onClose();
   }
 }

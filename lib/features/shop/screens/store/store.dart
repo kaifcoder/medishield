@@ -28,112 +28,118 @@ class StoreScreen extends StatelessWidget {
     final controller = Get.put(BrandController());
     final productController = ProductController.instance;
     final categoryController = CategoryController.instance;
-    return DefaultTabController(
-      length: categoryController.featuredCategory.length,
-      child: Scaffold(
-        appBar: TAppBar(
-          title: Column(
-            children: [
-              Text(
-                'Store',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              const SizedBox(
-                height: TSizes.spaceBtwItems / 2,
-              ),
-            ],
-          ),
-          actions: [
-            TCartCounterIcon(
-                iconColor: TColors.black,
-                onPressed: () => Get.to(() => const CartScreen()))
-          ],
-        ),
-        body: NestedScrollView(
-          headerSliverBuilder: (_, innerBoxScrolled) {
-            return [
-              SliverAppBar(
-                automaticallyImplyLeading: false,
-                pinned: true,
-                floating: false,
-                backgroundColor: THelperFunctions.isDarkMode(context)
-                    ? TColors.black
-                    : TColors.white,
-                expandedHeight: 400,
-                flexibleSpace: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: TSizes.defaultSpace),
-                  child: ListView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    children: [
-                      TSearchContainer(
-                        text: 'Search for products',
-                        showBackgroud: false,
-                        showBorder: true,
-                        padding: EdgeInsets.zero,
-                        onTap: () => Get.to(() => const SearchScreen()),
-                      ),
-                      const SizedBox(
-                        height: TSizes.spaceBtwSections,
-                      ),
-                      TSectionHeading(
-                        title: 'Featured Brands',
-                        showButton: true,
-                        onButtonPressed: () =>
-                            Get.to(() => const AllBrandScreen()),
-                      ),
-                      const SizedBox(
-                        height: TSizes.spaceBtwItems / 1.5,
-                      ),
-                      Obx(
-                        () => GridLayout(
-                            mainAxisExtent: 80,
-                            itemCount: controller.featuredBrand.length,
-                            itemBuilder: (context, index) {
-                              return BrandCard(
-                                  title: controller.featuredBrand[index].name,
-                                  image: controller.featuredBrand[index].logo,
-                                  isNetworkImage: true,
-                                  onPressed: () async {
-                                    await productController
-                                        .fetchProductsbycategory(controller
-                                            .featuredBrand[index].name);
-
-                                    Get.to(
-                                      () => AllProductScreen(
-                                        title: controller
-                                            .featuredBrand[index].name,
-                                        product:
-                                            productController.CategoryProducts,
-                                      ),
-                                    );
-                                  });
-                            }),
-                      ),
-                    ],
+    return SafeArea(
+      child: DefaultTabController(
+        length: categoryController.featuredCategory.length,
+        child: SafeArea(
+          child: Scaffold(
+            appBar: TAppBar(
+              title: Column(
+                children: [
+                  Text(
+                    'Store',
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
-                ),
-                bottom: TabBarCustom(tabs: [
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems / 2,
+                  ),
+                ],
+              ),
+              actions: [
+                TCartCounterIcon(
+                    iconColor: TColors.black,
+                    onPressed: () => Get.to(() => const CartScreen()))
+              ],
+            ),
+            body: NestedScrollView(
+              headerSliverBuilder: (_, innerBoxScrolled) {
+                return [
+                  SliverAppBar(
+                    automaticallyImplyLeading: false,
+                    pinned: true,
+                    floating: false,
+                    backgroundColor: THelperFunctions.isDarkMode(context)
+                        ? TColors.black
+                        : TColors.white,
+                    expandedHeight: 400,
+                    flexibleSpace: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: TSizes.defaultSpace),
+                      child: ListView(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        children: [
+                          TSearchContainer(
+                            text: 'Search for products',
+                            showBackgroud: false,
+                            showBorder: true,
+                            padding: EdgeInsets.zero,
+                            onTap: () => Get.to(() => const SearchScreen()),
+                          ),
+                          const SizedBox(
+                            height: TSizes.spaceBtwSections,
+                          ),
+                          TSectionHeading(
+                            title: 'Featured Brands',
+                            showButton: true,
+                            onButtonPressed: () =>
+                                Get.to(() => const AllBrandScreen()),
+                          ),
+                          const SizedBox(
+                            height: TSizes.spaceBtwItems / 1.5,
+                          ),
+                          Obx(
+                            () => GridLayout(
+                                mainAxisExtent: 80,
+                                itemCount: controller.featuredBrand.length,
+                                itemBuilder: (context, index) {
+                                  return BrandCard(
+                                      title:
+                                          controller.featuredBrand[index].name,
+                                      image:
+                                          controller.featuredBrand[index].logo,
+                                      isNetworkImage: true,
+                                      onPressed: () async {
+                                        await productController
+                                            .fetchProductsbycategory(controller
+                                                .featuredBrand[index].name);
+
+                                        Get.to(
+                                          () => AllProductScreen(
+                                            title: controller
+                                                .featuredBrand[index].name,
+                                            product: productController
+                                                .CategoryProducts,
+                                          ),
+                                        );
+                                      });
+                                }),
+                          ),
+                        ],
+                      ),
+                    ),
+                    bottom: TabBarCustom(tabs: [
+                      for (int i = 0;
+                          i < categoryController.featuredCategory.length;
+                          i++)
+                        Tab(
+                          text: categoryController.featuredCategory[i].name,
+                        ),
+                    ]),
+                  ),
+                ];
+              },
+              body: TabBarView(
+                children: [
                   for (int i = 0;
                       i < categoryController.featuredCategory.length;
                       i++)
-                    Tab(
-                      text: categoryController.featuredCategory[i].name,
+                    TCategoryTab(
+                      category: categoryController.featuredCategory[i].name,
                     ),
-                ]),
+                ],
               ),
-            ];
-          },
-          body: TabBarView(
-            children: [
-              for (int i = 0;
-                  i < categoryController.featuredCategory.length;
-                  i++)
-                TCategoryTab(
-                  category: categoryController.featuredCategory[i].name,
-                ),
-            ],
+            ),
           ),
         ),
       ),

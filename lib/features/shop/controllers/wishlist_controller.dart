@@ -14,15 +14,26 @@ class WishlistController extends GetxController {
 
   @override
   void onInit() {
-    if (auth.deviceStorage.read('guest') == true) {
+    if (auth.deviceStorage.read('guest') == true ||
+        auth.deviceStorage.read('token') == null) {
       return;
     }
     fetchItems();
     super.onInit();
   }
 
+  @override
+  void onClose() {
+    wishlist.clear();
+    super.onClose();
+  }
+
   fetchItems() async {
     try {
+      if (auth.deviceStorage.read('guest') == true ||
+          auth.deviceStorage.read('token') == null) {
+        return;
+      }
       final res = await wishlistrepo.fetchItems();
       wishlist.assignAll(res['data'].map<ProductModel>((product) {
         return ProductModel.fromJson(product);
@@ -40,7 +51,6 @@ class WishlistController extends GetxController {
         return CustomSnackbar.errorSnackBar('Please login to add to wishlist');
       }
       await wishlistrepo.addorremToWishlist(prodId);
-      CustomSnackbar.successSnackBar('Added to wishlist');
       fetchItems();
     } catch (e) {
       rethrow;

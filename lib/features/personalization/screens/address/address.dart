@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
 import 'package:medishield/common/widgets/custom_snackbar.dart';
@@ -75,7 +74,7 @@ class AddressScreen extends StatelessWidget {
         showBackArrow: true,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(TSizes.defaultSpace),
+        padding: const EdgeInsets.all(TSizes.defaultSpace),
         child: Obx(
           () => FutureBuilder(
               key: Key(controller.refreshData.value.toString()),

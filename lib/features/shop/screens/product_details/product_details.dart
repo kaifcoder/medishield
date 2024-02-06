@@ -7,18 +7,13 @@ import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/controllers/product_variants_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/features/shop/screens/cart/cart.dart';
-import 'package:medishield/features/shop/screens/checkout/checkout.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/bottom_add_to_cartbar.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/product_variants.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/qa_widget.dart';
-import 'package:medishield/features/shop/screens/product_details/widgets/t_rating_bar_indicator.dart';
-import 'package:medishield/features/shop/screens/product_details/widgets/user_review.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
-import 'widgets/overall_product_rating.dart';
 import 'widgets/product_image_slider.dart';
-import 'widgets/review_text.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({super.key, this.id = 0, required this.product});
@@ -138,7 +133,7 @@ class ProductDetailScreen extends StatelessWidget {
                               : '',
                         );
                         // navigate to cart
-                        Get.to(() => CartScreen());
+                        Get.to(() => const CartScreen());
                       },
                       child: const Text('Checkout'),
                     ),

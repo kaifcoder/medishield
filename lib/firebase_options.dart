@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAbF0Jln55nSFRE65JFsdDjBbff59tuRbE',
-    appId: '1:86990247944:android:916ffcce5684f5b40e59bd',
+    appId: '1:86990247944:android:1ca9456a1e5d2eb90e59bd',
     messagingSenderId: '86990247944',
     projectId: 'medishield-ecom',
     storageBucket: 'medishield-ecom.appspot.com',

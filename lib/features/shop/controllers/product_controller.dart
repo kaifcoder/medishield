@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/product_repository.dart';
-import 'package:medishield/features/shop/models/banner_model.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/utils/logging/logger.dart';
 

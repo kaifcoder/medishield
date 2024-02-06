@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/t_primary_header_container.dart';
 import 'package:medishield/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:medishield/common/widgets/shimmers/product_shimmer.dart';
+import 'package:medishield/features/shop/controllers/home_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/screens/categories/categories.dart';
 import 'package:medishield/utils/constants/sizes.dart';
@@ -18,6 +19,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(HomeController());
     final controller = Get.put(ProductController());
     return Scaffold(
       extendBodyBehindAppBar: true,

@@ -4,6 +4,8 @@ import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
 import 'package:medishield/common/widgets/loaders/custom_shimmer.dart';
 import 'package:medishield/common/widgets/products/cart/t_cart_counter_icon.dart';
+import 'package:medishield/data/repositories/authentication_repository.dart';
+import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/features/personalization/controllers/user_controller.dart';
 import 'package:medishield/features/shop/screens/Search/search.dart';
 import 'package:medishield/features/shop/screens/cart/cart.dart';
@@ -66,9 +68,14 @@ class THomeAppBar extends StatelessWidget {
         ),
         TCartCounterIcon(
           iconColor: TColors.white,
-          onPressed: () => Get.to(
-            () => const CartScreen(),
-          ),
+          onPressed: () {
+            if (AuthenticationRepository.instance.deviceStorage.read('guest') ==
+                true) {
+              Get.offAll(() => const LoginScreen());
+            } else {
+              Get.to(() => const CartScreen());
+            }
+          },
         ),
       ],
     );

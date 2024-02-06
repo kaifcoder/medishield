@@ -40,7 +40,7 @@ class LoginHeader extends StatelessWidget {
           onPressed: () {
             auth.skipLogin();
           },
-          child: Text('Skip Login'),
+          child: const Text('Skip Login'),
         ),
       )
     ]);
