@@ -6,6 +6,8 @@ class CustomSnackbar {
     return Get.snackbar(
       'Success',
       message,
+      isDismissible: true,
+      duration: const Duration(seconds: 3),
       snackPosition: SnackPosition.BOTTOM,
       margin: const EdgeInsets.all(8),
       backgroundColor: Colors.green,
@@ -36,6 +38,8 @@ class CustomSnackbar {
     return Get.snackbar(
       'Error',
       message,
+      isDismissible: true,
+      duration: const Duration(seconds: 3),
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Colors.red,
       colorText: Colors.white,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/layouts/grid_layout.dart';
+import 'package:medishield/features/shop/controllers/all_product_controller.dart';
 import 'package:medishield/features/shop/controllers/brand_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/screens/Search/search.dart';
@@ -14,6 +15,7 @@ class AllBrandScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final allProductController = Get.put(AllProductController());
     final controller = BrandController.instance;
     final productController = ProductController.instance;
     return Scaffold(
@@ -40,12 +42,17 @@ class AllBrandScreen extends StatelessWidget {
                     title: controller.brandList[index].name,
                     isNetworkImage: true,
                     onPressed: () async {
+                      allProductController
+                          .setTitle(controller.brandList[index].name);
+                      allProductController.reset();
                       await productController.fetchProductsbycategory(
-                          controller.brandList[index].name);
-                      Get.to(() => AllProductScreen(
-                            title: controller.brandList[index].name,
-                            product: productController.CategoryProducts,
-                          ));
+                          controller.brandList[index].name, 1);
+                      Get.to(
+                        () => AllProductScreen(
+                          title: controller.brandList[index].name,
+                          product: productController.CategoryProducts,
+                        ),
+                      );
                     });
               }),
         ),

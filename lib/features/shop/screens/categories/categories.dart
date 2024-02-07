@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
+import 'package:medishield/features/shop/controllers/all_product_controller.dart';
 import 'package:medishield/features/shop/controllers/category_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/screens/view_all_products/all_product.dart';
@@ -11,6 +12,7 @@ class CategoiesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = CategoryController.instance;
+    final allProductController = Get.put(AllProductController());
     final productController = ProductController.instance;
     return Scaffold(
       appBar: const TAppBar(
@@ -25,8 +27,10 @@ class CategoiesScreen extends StatelessWidget {
                 return ListTile(
                   onTap: () async {
                     await productController.fetchProductsbycategory(
-                      controller.categoryList[index].name,
-                    );
+                        controller.categoryList[index].name, 1);
+                    allProductController
+                        .setTitle(controller.categoryList[index].name);
+                    allProductController.reset();
                     Get.to(
                       () => AllProductScreen(
                         title: controller.categoryList[index].name,
@@ -64,9 +68,9 @@ class CategoiesScreen extends StatelessWidget {
                               return ListTile(
                                 onTap: () async {
                                   await productController
-                                      .fetchProductsbycategory(
-                                    child.name,
-                                  );
+                                      .fetchProductsbycategory(child.name, 1);
+                                  allProductController.setTitle(child.name);
+                                  allProductController.reset();
                                   Get.to(() => AllProductScreen(
                                         title: child.name,
                                         product:
@@ -81,8 +85,9 @@ class CategoiesScreen extends StatelessWidget {
                     return ListTile(
                       onTap: () async {
                         await productController.fetchProductsbycategory(
-                          subCategory.name,
-                        );
+                            subCategory.name, 1);
+                        allProductController.setTitle(subCategory.name);
+                        allProductController.reset();
                         Get.to(() => AllProductScreen(
                               title: subCategory.name,
                               product: productController.CategoryProducts,

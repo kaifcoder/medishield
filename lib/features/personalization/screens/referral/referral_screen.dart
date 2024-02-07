@@ -34,7 +34,7 @@ class ReferAndEarnScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16.0),
               const Text(
-                'Refer friends and earn rewards!',
+                'Refer friends and earn MediShield Coins!',
                 style: TextStyle(
                   fontSize: 16.0,
                 ),

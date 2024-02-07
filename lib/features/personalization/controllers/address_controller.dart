@@ -39,7 +39,7 @@ class AddressController extends GetxController {
 
   // get list of addresses from the repository
   Future<void> fetchAddresses() async {
-    if (guest != null && guest == true) {
+    if (AuthenticationRepository.instance.deviceStorage.read('token') == null) {
       return;
     }
     try {

@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:medishield/common/widgets/loaders/custom_shimmer.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
@@ -36,11 +38,22 @@ class TCircularImage extends StatelessWidget {
                 : TColors.light),
         borderRadius: BorderRadius.circular(100),
       ),
-      child: Image(
-        image: isNetworkImage
-            ? NetworkImage(image)
-            : AssetImage(image) as ImageProvider,
-      ),
+      child: isNetworkImage
+          ? CachedNetworkImage(
+              imageUrl: isNetworkImage ? image : '',
+              placeholder: (context, url) => const Center(
+                child: CustomShimmer(
+                  height: double.infinity,
+                  width: double.infinity,
+                  radius: 100,
+                ),
+              ),
+              errorListener: (value) {
+                print('Error: $value');
+              },
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+            )
+          : Image.asset(image),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
+import 'package:medishield/common/widgets/loaders/custom_shimmer.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/screens/product_details/product_details.dart';
 import 'package:medishield/utils/constants/sizes.dart';
@@ -42,6 +43,7 @@ class SearchScreen extends StatelessWidget {
                 await controller.searchProducts();
               },
             ),
+            const SizedBox(height: TSizes.spaceBtwItems),
 
             // search results
             Obx(() {
@@ -54,35 +56,47 @@ class SearchScreen extends StatelessWidget {
                 child: ListView.builder(
                   controller: controller.searchScrollController,
                   padding: EdgeInsets.zero,
-                  itemCount: products.length,
+                  itemCount:
+                      products.length + (controller.isSearching.value ? 1 : 0),
                   itemBuilder: (context, index) {
                     // show loading indicator at the end of the list
-                    if (controller.isSearching.value &&
-                        index == products.length - 1) {
-                      return const Center(child: CircularProgressIndicator());
-                    }
-
-                    return ListTile(
-                        title: Text(products[index].name),
-                        onTap: () {
-                          Get.to(() => ProductDetailScreen(
-                                product: products[index],
-                              ));
-                        },
-                        leading: CachedNetworkImage(
-                          imageUrl:
-                              'https://images.dentalkart.com/media/catalog/product/${products[index].thumbnailUrl}',
-                          placeholder: (context, url) =>
-                              const CircularProgressIndicator(),
-                          errorWidget: (context, url, error) =>
-                              const Icon(Icons.error),
-                        ),
-                        subtitle: Text(
-                          '₹${products[index].price.minimalPrice}',
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
+                    if (index < products.length) {
+                      return ListTile(
+                          title: Text(products[index].name),
+                          onTap: () {
+                            Get.to(() => ProductDetailScreen(
+                                  product: products[index],
+                                ));
+                          },
+                          leading: SizedBox(
+                            height: 50,
+                            width: 50,
+                            child: CachedNetworkImage(
+                              imageUrl:
+                                  'https://images.dentalkart.com/media/catalog/product/${products[index].thumbnailUrl}',
+                              placeholder: (context, url) =>
+                                  const CustomShimmer(
+                                height: 50,
+                                width: 50,
+                              ),
+                              errorWidget: (context, url, error) =>
+                                  const Icon(Icons.error),
+                            ),
                           ),
-                        ));
+                          subtitle: Text(
+                            '₹${products[index].price.minimalPrice}',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ));
+                    } else {
+                      return const SizedBox(
+                        height: 50,
+                        child: Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      );
+                    }
                   },
                 ),
               );

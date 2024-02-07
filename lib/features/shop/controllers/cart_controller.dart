@@ -16,6 +16,7 @@ class CartController extends GetxController {
   ).obs;
   var total = 0.obs;
   var grandTotal = 0.obs;
+  var counter = 1.obs;
 
   @override
   void onInit() async {
@@ -25,6 +26,17 @@ class CartController extends GetxController {
     }
     super.onInit();
     await fetchCartItems();
+  }
+
+  increaseCount() {
+    counter.value++;
+  }
+
+  decreaseCount() {
+    if (counter.value == 1) {
+      return;
+    }
+    counter.value--;
   }
 
   fetchCartItems() async {
@@ -68,6 +80,7 @@ class CartController extends GetxController {
         v: v,
       );
       CustomSnackbar.successSnackBar('Added to cart');
+      counter.value = 1;
       await fetchCartItems();
     } catch (e) {
       rethrow;
@@ -92,7 +105,7 @@ class CartController extends GetxController {
         await cartRepo.addtocart(
           prodId: product,
           count: -count,
-          price: -price,
+          price: price,
           v: v,
         );
         CustomSnackbar.successSnackBar('Removed from cart');
@@ -109,6 +122,7 @@ class CartController extends GetxController {
   void clearCart() async {
     try {
       await cartRepo.clearCart();
+      counter.value = 1;
       await fetchCartItems();
     } catch (e) {
       rethrow;

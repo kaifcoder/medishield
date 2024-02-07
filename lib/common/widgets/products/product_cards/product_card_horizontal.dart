@@ -17,15 +17,18 @@ import 'package:medishield/utils/constants/enums.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
 class ProductCardHorizontal extends StatelessWidget {
-  const ProductCardHorizontal({super.key, this.product});
+  const ProductCardHorizontal(
+      {super.key, this.product, required this.isLoadMore});
 
   final ProductModel? product;
+  final bool isLoadMore;
 
   @override
   Widget build(BuildContext context) {
     final controller = ProductController.instance;
     final wishC = WishlistController.instance;
     final salePercentage = controller.calculateSalePercentage(product!);
+
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailScreen(
             product: product!,
@@ -134,7 +137,8 @@ class ProductCardHorizontal extends StatelessWidget {
                           child: Center(
                             child: IconButton(
                               onPressed: () {},
-                              icon: const Icon(Iconsax.add, color: TColors.white),
+                              icon:
+                                  const Icon(Iconsax.add, color: TColors.white),
                             ),
                           ),
                         ),

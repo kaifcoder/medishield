@@ -6,6 +6,7 @@ import 'package:medishield/common/widgets/layouts/grid_layout.dart';
 import 'package:medishield/common/widgets/products/cart/t_cart_counter_icon.dart';
 import 'package:medishield/common/widgets/tabbar/tabbar.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
+import 'package:medishield/features/shop/controllers/all_product_controller.dart';
 import 'package:medishield/features/shop/controllers/brand_controller.dart';
 import 'package:medishield/features/shop/controllers/category_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
@@ -25,6 +26,7 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final all = Get.put(AllProductController());
     final controller = Get.put(BrandController());
     final productController = ProductController.instance;
     final categoryController = CategoryController.instance;
@@ -101,9 +103,13 @@ class StoreScreen extends StatelessWidget {
                                       isNetworkImage: true,
                                       onPressed: () async {
                                         await productController
-                                            .fetchProductsbycategory(controller
-                                                .featuredBrand[index].name);
-
+                                            .fetchProductsbycategory(
+                                                controller
+                                                    .featuredBrand[index].name,
+                                                1);
+                                        all.setTitle(controller
+                                            .featuredBrand[index].name);
+                                        all.reset();
                                         Get.to(
                                           () => AllProductScreen(
                                             title: controller
@@ -122,9 +128,16 @@ class StoreScreen extends StatelessWidget {
                       for (int i = 0;
                           i < categoryController.featuredCategory.length;
                           i++)
-                        Tab(
-                          text: categoryController.featuredCategory[i].name,
-                        ),
+                        Obx(() {
+                          if (categoryController.featuredCategory.isEmpty) {
+                            return const Tab(
+                              text: 'Loading...',
+                            );
+                          }
+                          return Tab(
+                            text: categoryController.featuredCategory[i].name,
+                          );
+                        }),
                     ]),
                   ),
                 ];
@@ -134,9 +147,16 @@ class StoreScreen extends StatelessWidget {
                   for (int i = 0;
                       i < categoryController.featuredCategory.length;
                       i++)
-                    TCategoryTab(
-                      category: categoryController.featuredCategory[i].name,
-                    ),
+                    Obx(() {
+                      if (categoryController.featuredCategory.isEmpty) {
+                        return const Center(
+                          child: Text('Loading...'),
+                        );
+                      }
+                      return TCategoryTab(
+                        category: categoryController.featuredCategory[i].name,
+                      );
+                    }),
                 ],
               ),
             ),

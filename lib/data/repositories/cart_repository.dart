@@ -30,6 +30,7 @@ class CartRepository extends GetxController {
       final res = await THttpHelper.post('api/user/cart/remove', {
         "product": {"productId": prodId, "variant": v}
       });
+
       return res;
     } catch (e) {
       rethrow;

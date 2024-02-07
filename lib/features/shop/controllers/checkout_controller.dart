@@ -28,7 +28,7 @@ class CheckoutController extends GetxController {
     try {
       _razorpay.open(options);
     } catch (e) {
-      debugPrint(e.toString());
+      debugPrint('Error: ${e.toString()}');
     }
   }
 

@@ -115,15 +115,6 @@ class ProfileScreen extends StatelessWidget {
                 height: TSizes.spaceBtwItems,
               ),
               const Divider(),
-              Center(
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Close Account',
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ),
-              )
             ],
           ),
         ),

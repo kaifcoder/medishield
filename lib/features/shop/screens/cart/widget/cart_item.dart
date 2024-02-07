@@ -44,7 +44,7 @@ class CartItem extends StatelessWidget {
                     Text(product![index].product.name.split(' ')[0],
                         style: Theme.of(context).textTheme.labelMedium),
                     Text(
-                        controller.userCart.value.products[index].variant != ''
+                        product![index].product.childProducts.length > 1
                             ? product![index]
                                 .product
                                 .childProducts
@@ -80,7 +80,7 @@ class CartItem extends StatelessWidget {
                                 width: TSizes.spaceBtwItems,
                               ),
                               Text(
-                                product![index].count.toString() ?? '0',
+                                product![index].count.toString(),
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleSmall!

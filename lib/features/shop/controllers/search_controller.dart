@@ -10,7 +10,7 @@ class SearchControler extends GetxController {
 
   TextEditingController searchText = TextEditingController();
   ScrollController searchScrollController = ScrollController();
-  final page = 1;
+  var page = 1;
   FocusNode searchFocusNode = FocusNode();
   RxBool isSearching = false.obs;
 
@@ -27,11 +27,13 @@ class SearchControler extends GetxController {
     searchText.dispose();
     productcontroller.SearchProducts.clear();
     searchFocusNode.dispose();
+    page = 1;
     super.onClose();
   }
 
   Future<void> searchProducts() async {
     // add a delay while searching
+
     await productcontroller.fetchProductsbySearch(searchQuery.value, page);
   }
 
@@ -41,11 +43,10 @@ class SearchControler extends GetxController {
       if (searchScrollController.position.pixels ==
           searchScrollController.position.maxScrollExtent) {
         try {
+          page++; // Increment page here
           isSearching.value = true;
-          await productcontroller.fetchProductsbySearch(
-              searchQuery.value, page + 1);
 
-          update();
+          searchProducts(); // Call searchProducts to load the next page
         } catch (e) {
           rethrow;
         } finally {
@@ -70,6 +71,7 @@ class SearchControler extends GetxController {
   }
 
   void setSearchQuery(String query) {
+    page = 1;
     searchQuery.value = query;
   }
 

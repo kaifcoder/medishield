@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 class Reward {
   final String title;
@@ -10,15 +11,7 @@ class Reward {
 class RewardScreen extends StatelessWidget {
   // Dummy list of rewards for demonstration purposes
   final List<Reward> rewards = [
-    Reward(
-        title: 'Discount Coupon',
-        description: 'Get 10% off on your next purchase.'),
-    Reward(
-        title: 'Free Shipping',
-        description: 'Enjoy free shipping on your next order.'),
-    Reward(
-        title: 'Premium Membership',
-        description: 'Access exclusive features with our premium membership.'),
+    Reward(title: 'Your Medishield Coins', description: '100 MSC'),
   ];
 
   RewardScreen({super.key});
@@ -35,7 +28,7 @@ class RewardScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Congratulations! You have earned the following rewards:',
+              'Your rewards:',
               style: TextStyle(
                 fontSize: 16.0,
               ),
@@ -47,6 +40,29 @@ class RewardScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return RewardCard(reward: rewards[index]);
                 },
+              ),
+            ),
+
+            // terms and conditions
+            const SizedBox(height: 16.0),
+            const Text(
+              'Terms and conditions:',
+              style: TextStyle(
+                fontSize: 16.0,
+              ),
+            ),
+            const SizedBox(height: 8.0),
+            const Text(
+              '1. Medishield Coins (MSC) can be used to get discounts on your next purchase.',
+              style: TextStyle(
+                fontSize: 14.0,
+              ),
+            ),
+            const SizedBox(height: 8.0),
+            const Text(
+              '2. MSC can be earned by referring a friend or purchasing any product.',
+              style: TextStyle(
+                fontSize: 14.0,
               ),
             ),
           ],
@@ -64,7 +80,7 @@ class RewardCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5.0,
+      elevation: 1.0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
@@ -76,17 +92,16 @@ class RewardCard extends StatelessWidget {
           children: [
             Text(
               reward.title,
-              style: const TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(height: 8.0),
-            Text(
-              reward.description,
-              style: const TextStyle(
-                fontSize: 16.0,
-              ),
+            Row(
+              children: [
+                const Icon(Iconsax.coin5, size: 24.0, color: Colors.orange),
+                const SizedBox(width: 8.0),
+                Text(reward.description,
+                    style: Theme.of(context).textTheme.headlineLarge),
+              ],
             ),
           ],
         ),

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/product_repository.dart';
@@ -9,9 +8,11 @@ class ProductController extends GetxController {
   final productRepo = Get.put(ProductRepository());
   static ProductController get instance => Get.find();
   final isLoading = false.obs;
-
-  final page = 1;
-  final ScrollController scrollController = ScrollController();
+  final isLoadingAnother = false.obs;
+  List sortOptions = [
+    'Sort by price: low to high',
+    'Sort by price: high to low',
+  ];
 
   RxList<ProductModel> Endodontics = <ProductModel>[].obs;
   RxList<ProductModel> Orthodontics = <ProductModel>[].obs;
@@ -96,24 +97,30 @@ class ProductController extends GetxController {
     }
   }
 
-  fetchProductsbycategory(String category) async {
+  fetchProductsbycategory(String category, int page) async {
     try {
-      isLoading.value = true;
+      isLoadingAnother.value = true;
 
       final response = await productRepo.fetchProducts(
-        1,
-        16,
+        page,
+        20,
         category,
       );
-      CategoryProducts.assignAll(response['data'].map<ProductModel>((product) {
+      if (page == 1) {
+        CategoryProducts.clear();
+      }
+
+      CategoryProducts.addAll(response['data'].map<ProductModel>((product) {
         return ProductModel.fromJson(product);
       }).toList());
+      update();
     } catch (e) {
+      isLoadingAnother.value = false;
       CustomSnackbar.errorSnackBar('Something went wrong');
       TLoggerHelper.error(e.toString());
       rethrow;
     } finally {
-      isLoading.value = false;
+      isLoadingAnother.value = false;
     }
   }
 
@@ -146,6 +153,7 @@ class ProductController extends GetxController {
         16,
         search,
       );
+
       if (page == 1) {
         SearchProducts.clear();
       }
@@ -205,5 +213,13 @@ class ProductController extends GetxController {
     if (product.childProducts.length == 1) {
       return product.childProducts.first.isInStock;
     }
+  }
+
+  filterProductsByPrices() {
+    CategoryProducts.sort((a, b) {
+      final priceA = a.price.minimalPrice;
+      final priceB = b.price.minimalPrice;
+      return priceA.compareTo(priceB);
+    });
   }
 }

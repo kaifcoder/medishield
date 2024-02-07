@@ -32,36 +32,22 @@ class BottomAddToCartBar extends StatelessWidget {
         children: [
           Row(
             children: [
-              const TCircularIcon(
+              TCircularIcon(
                 icon: Iconsax.minus,
                 backgroundColor: TColors.darkGrey,
                 color: TColors.white,
                 height: 40,
                 width: 40,
+                onPressed: () {
+                  controller.decreaseCount();
+                },
               ),
               const SizedBox(
                 width: TSizes.spaceBtwItems,
               ),
               Obx(
                 () => Text(
-                  controller.userCart.value.products
-                          .map((e) =>
-                              e.variant ==
-                              product
-                                  .childProducts[
-                                      varient.selectedVariantIndex.value]
-                                  .sku)
-                          .contains(true)
-                      ? controller.userCart.value.products
-                          .firstWhere((e) =>
-                              e.variant ==
-                              product
-                                  .childProducts[
-                                      varient.selectedVariantIndex.value]
-                                  .sku)
-                          .count
-                          .toString()
-                      : '0',
+                  controller.counter.value.toString(),
                   style: Theme.of(context)
                       .textTheme
                       .titleSmall!
@@ -78,32 +64,7 @@ class BottomAddToCartBar extends StatelessWidget {
                 height: 40,
                 width: 40,
                 onPressed: () {
-                  controller.addToCart(
-                    product: product.prodId,
-                    count: 1,
-                    price: product.childProducts.length > 1
-                        ? product
-                                    .childProducts[
-                                        varient.selectedVariantIndex.value]
-                                    .price
-                                    .minimalPrice ==
-                                0
-                            ? product
-                                .childProducts[
-                                    varient.selectedVariantIndex.value]
-                                .specialPrice!
-                            : product
-                                .childProducts[
-                                    varient.selectedVariantIndex.value]
-                                .price
-                                .minimalPrice
-                        : product.price.minimalPrice,
-                    v: product.childProducts.length > 1
-                        ? product
-                            .childProducts[varient.selectedVariantIndex.value]
-                            .sku
-                        : '',
-                  );
+                  controller.increaseCount();
                 },
               ),
             ],
@@ -121,7 +82,7 @@ class BottomAddToCartBar extends StatelessWidget {
               onPressed: () {
                 controller.addToCart(
                   product: product.prodId,
-                  count: 1,
+                  count: controller.counter.value,
                   price: product.childProducts.length > 1
                       ? product
                                   .childProducts[
@@ -140,7 +101,7 @@ class BottomAddToCartBar extends StatelessWidget {
                   v: product.childProducts.length > 1
                       ? product
                           .childProducts[varient.selectedVariantIndex.value].sku
-                      : '',
+                      : product.sku,
                 );
               },
               child: const Text('Add to cart'))

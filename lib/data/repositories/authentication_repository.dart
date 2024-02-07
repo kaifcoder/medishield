@@ -32,7 +32,7 @@ class AuthenticationRepository extends GetxController {
   Future<void> screenRedirect() async {
     final token = await deviceStorage.read('token');
     final guest = await deviceStorage.read('guest');
-    print('Guest: $guest');
+
     if (guest != null && guest == true) {
       return Get.offAll(() => const NavigationMenu());
     } else if (token != null) {
@@ -73,7 +73,7 @@ class AuthenticationRepository extends GetxController {
     try {
       final res = await THttpHelper.post('api/user/register', data.toJson());
       await deviceStorage.writeIfNull('token', res['token']);
-      print(res);
+
       await deviceStorage.writeIfNull('email', res['email']);
       deviceStorage.remove('guest');
       return res;
@@ -96,7 +96,7 @@ class AuthenticationRepository extends GetxController {
   // verify email / resend email
   Future<void> sendVerfiyEmail() async {
     final token = await deviceStorage.read('token');
-    print(token);
+
     await THttpHelper.get('api/user/sendVerificationEmail/$token');
   }
 
@@ -182,7 +182,6 @@ class AuthenticationRepository extends GetxController {
 
       await deviceStorage.write('isVerfied', true);
       await deviceStorage.remove('guest');
-      print(res);
     } catch (e) {
       rethrow;
     }
