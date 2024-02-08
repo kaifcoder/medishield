@@ -19,7 +19,6 @@ class GoogleController extends GetxController {
 
   isUserExist(uid) async {
     final res = await THttpHelper.get('api/user/isUserExist/$uid');
-
     return res['status'];
   }
 

@@ -73,7 +73,6 @@ class AuthenticationRepository extends GetxController {
     try {
       final res = await THttpHelper.post('api/user/register', data.toJson());
       await deviceStorage.writeIfNull('token', res['token']);
-
       await deviceStorage.writeIfNull('email', res['email']);
       deviceStorage.remove('guest');
       return res;

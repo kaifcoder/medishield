@@ -1,4 +1,3 @@
-
 class UserModel {
   String? email;
   String? password;
@@ -56,7 +55,7 @@ class UserModel {
     data['lastname'] = lastName;
     data['mobile'] = mobile;
     data['isEmailVerified'] = isEmailVerified ?? false;
-    data['googleAuthToken'] = googleAuthToken ?? '';
+    data['googleAuthToken'] = googleAuthToken;
     return data;
   }
 }

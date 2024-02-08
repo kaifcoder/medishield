@@ -103,10 +103,16 @@ class CartItem extends StatelessWidget {
                             ],
                           ),
                         const Spacer(),
-                        Text(
-                          '₹ ${product![index].price * product![index].count}',
-                          style: Theme.of(context).textTheme.headlineSmall,
-                        ),
+                        if (showQuantity)
+                          Text(
+                            '₹ ${product![index].price * product![index].count}',
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
+                        if (!showQuantity)
+                          Text(
+                            '₹ ${product![index].price * product![index].count} x ${product![index].count}',
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
                       ],
                     ),
                   ],

@@ -6,6 +6,7 @@ import 'package:medishield/features/authentication/screens/signup/verify_email.d
 import 'package:medishield/utils/constants/image_strings.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
 import 'package:medishield/utils/helpers/network_manager.dart';
+import 'package:medishield/utils/http/http_client.dart';
 import 'package:medishield/utils/popups/full_screen_loader.dart';
 
 class SignUpController extends GetxController {
@@ -19,6 +20,11 @@ class SignUpController extends GetxController {
   final firstName = TextEditingController();
   final phoneNumber = TextEditingController();
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
+
+  isUserExist(uid) async {
+    final res = await THttpHelper.get('api/user/isUserExist/$uid');
+    return res['status'];
+  }
 
   Future<void> signUp() async {
     try {
@@ -46,7 +52,15 @@ class SignUpController extends GetxController {
         lastName: lastName.text.trim(),
         password: password.text.trim(),
         mobile: phoneNumber.text.trim(),
+        googleAuthToken: email.text.trim(),
       );
+
+      final userExist = await isUserExist(email.text.trim());
+      if (userExist) {
+        FullScreenLoader.stopLoading();
+        return THelperFunctions.showSnackBar(
+            'User already exist with this email address. Please login');
+      }
 
       // call signup api
 

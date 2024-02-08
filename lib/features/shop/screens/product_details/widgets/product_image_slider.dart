@@ -6,9 +6,13 @@ import 'package:medishield/common/widgets/appbar/appbar.dart';
 import 'package:medishield/common/widgets/custom_shapes/curved_edges/t_curved_edge_widget.dart';
 import 'package:medishield/common/widgets/icons/t_circular_icon.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
+import 'package:medishield/common/widgets/products/cart/t_cart_counter_icon.dart';
+import 'package:medishield/data/repositories/authentication_repository.dart';
+import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/features/shop/controllers/images_controller.dart';
 import 'package:medishield/features/shop/controllers/wishlist_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
+import 'package:medishield/features/shop/screens/cart/cart.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
@@ -99,6 +103,18 @@ class ProductImageSlider extends StatelessWidget {
                         ? Colors.red
                         : TColors.darkGrey,
                   ),
+                ),
+                TCartCounterIcon(
+                  iconColor: TColors.black,
+                  onPressed: () {
+                    if (AuthenticationRepository.instance.deviceStorage
+                            .read('guest') ==
+                        true) {
+                      Get.offAll(() => const LoginScreen());
+                    } else {
+                      Get.to(() => const CartScreen());
+                    }
+                  },
                 ),
               ],
             )
