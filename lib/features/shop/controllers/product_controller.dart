@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/product_repository.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
+import 'package:medishield/utils/helpers/currency_converter.dart';
 import 'package:medishield/utils/logging/logger.dart';
 
 class ProductController extends GetxController {
@@ -188,11 +189,10 @@ class ProductController extends GetxController {
   }
 
   getProductPrices(ProductModel product) {
-    if (product.childProducts.isEmpty) {
+    if (product.childProducts.length > 1) {
+      return product.childProducts.last.price.minimalPrice.toString();
+    } else {
       return product.price.minimalPrice.toString();
-    }
-    if (product.childProducts.length == 1) {
-      return product.childProducts.first.price.minimalPrice.toString();
     }
   }
 
@@ -221,5 +221,18 @@ class ProductController extends GetxController {
       final priceB = b.price.minimalPrice;
       return priceA.compareTo(priceB);
     });
+  }
+
+  convertCurrency(String from, String to, String amount) {
+    try {
+      final response = CurrencyConverter.convertCurrency(from, to, amount)
+          .then((value) => value)
+          .toString();
+      return response;
+    } catch (e) {
+      CustomSnackbar.errorSnackBar('Something went wrong');
+      TLoggerHelper.error(e.toString());
+      rethrow;
+    }
   }
 }

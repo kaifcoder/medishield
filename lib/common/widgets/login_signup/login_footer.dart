@@ -31,6 +31,20 @@ class LoginFooter extends StatelessWidget {
             ],
           ),
         ),
+        OutlinedButton(
+          onPressed: () => controller.phoneSignIn(),
+          child: Row(
+            children: [
+              const Icon(
+                Icons.phone,
+              ),
+              const SizedBox(
+                width: TSizes.spaceBtwItems,
+              ),
+              Text('OTP'.capitalize!),
+            ],
+          ),
+        ),
       ],
     );
   }

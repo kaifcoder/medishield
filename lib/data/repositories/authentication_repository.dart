@@ -186,6 +186,18 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
+  // sign in with phone
+  Future signInWithPhone(String phone) async {
+    try {
+      final res = await THttpHelper.post('api/user/loginWithPhone', {
+        'mobile': phone,
+      });
+      return res;
+    } on Exception {
+      rethrow;
+    }
+  }
+
   // logout user
   logout() async {
     await deviceStorage.remove('token');

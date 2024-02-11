@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/data/repositories/cart_repository.dart';
+import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/features/shop/models/cart_model.dart';
 
 class CartController extends GetxController {
@@ -73,7 +74,7 @@ class CartController extends GetxController {
       String v = ''}) async {
     try {
       if (auth.deviceStorage.read('token') == null) {
-        CustomSnackbar.errorSnackBar('Please login to purchase products');
+        Get.offAll(() => const LoginScreen());
         return;
       }
       await cartRepo.addtocart(

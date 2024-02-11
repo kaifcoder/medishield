@@ -4,6 +4,7 @@ import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/address_repository.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/features/personalization/models/address_model.dart';
+import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/utils/helpers/network_manager.dart';
 
 class AddressController extends GetxController {
@@ -19,12 +20,12 @@ class AddressController extends GetxController {
   final name = TextEditingController();
   final addresstext = TextEditingController();
   final mobile = TextEditingController();
-  final pincode = TextEditingController();
-  final state = TextEditingController();
-  final city = TextEditingController();
-  final country = TextEditingController(
-    text: 'India',
+  final pincode = TextEditingController(
+    text: LocationController.instance.currentPlace.postalCode ?? 'none',
   );
+  RxString? state = ''.obs;
+  RxString? city = ''.obs;
+  RxString? country = ''.obs;
 
   final guest = AuthenticationRepository.instance.deviceStorage.read('guest');
 
@@ -71,17 +72,21 @@ class AddressController extends GetxController {
         address: addresstext.text.trim(),
         mobile: mobile.text.trim(),
         pincode: pincode.text.trim(),
-        state: state.text.trim(),
-        city: city.text.trim(),
-        country: country.text.trim(),
+        state: state?.value,
+        city: city?.value,
+        country: country?.value,
       );
       // call add address api
       await addressRepository.addAddress(data);
+
       // update the list of addresses
       refreshData.toggle();
       // select the newly added address
       selectedAddress.value = data;
       // reset the form
+      city?.value = '';
+      state?.value = '';
+      country?.value = '';
       addressFormKey.currentState!.reset();
       Get.back();
     } catch (e) {

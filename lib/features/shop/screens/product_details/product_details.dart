@@ -7,6 +7,7 @@ import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/controllers/product_variants_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/features/shop/screens/cart/cart.dart';
+import 'package:medishield/features/shop/screens/checkout/checkout.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/bottom_add_to_cartbar.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/product_variants.dart';
@@ -130,10 +131,10 @@ class ProductDetailScreen extends StatelessWidget {
                                   .childProducts[variantController
                                       .selectedVariantIndex.value]
                                   .sku
-                              : '',
+                              : product.sku,
                         );
                         // navigate to cart
-                        Get.to(() => const CartScreen());
+                        await Get.to(() => const CheckoutScreen());
                       },
                       child: const Text('Checkout'),
                     ),

@@ -37,9 +37,11 @@ class CheckoutScreen extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
-            CartItem(
-              showQuantity: false,
-              product: controller.userCart.value.products,
+            Obx(
+              () => CartItem(
+                showQuantity: false,
+                product: controller.userCart.value.products,
+              ),
             ),
             const SizedBox(
               height: TSizes.spaceBtwItems,
@@ -54,8 +56,10 @@ class CheckoutScreen extends StatelessWidget {
               padding: const EdgeInsets.all(TSizes.md),
               child: Column(
                 children: [
-                  BillingPaymentDetails(
-                    total: controller.total.value,
+                  Obx(
+                    () => BillingPaymentDetails(
+                      total: controller.total.value,
+                    ),
                   ),
                   Obx(
                     () => BillingAddress(

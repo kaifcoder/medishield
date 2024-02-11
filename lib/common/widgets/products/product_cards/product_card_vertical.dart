@@ -5,6 +5,7 @@ import 'package:medishield/common/styles/shadow.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
+import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/controllers/wishlist_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
@@ -12,6 +13,7 @@ import 'package:medishield/features/shop/screens/product_details/product_details
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/enums.dart';
 import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/helpers/currency_converter.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
 import '../../icons/t_circular_icon.dart';
 import '../../text/price_text.dart';
@@ -28,6 +30,7 @@ class ProductCardVertical extends StatelessWidget {
     final controller = ProductController.instance;
     final wishC = WishlistController.instance;
     final cart = CartController.instance;
+
     // final salePercentage = controller.calculateSalePercentage(product!);
     final salePercentage = controller.calculateSalePercentage(product!);
     final dark = THelperFunctions.isDarkMode(context);
@@ -121,7 +124,7 @@ class ProductCardVertical extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 8.0),
                   child: PriceText(
                     price: (product!.childProducts.length > 1)
-                        ? 'Starts at ${product!.price.minimalPrice}'
+                        ? 'Starts at ${product!.price.minimalPrice.toString()}'
                         : product!.price.minimalPrice.toString(),
                     maxLines: 1,
                     isLarge: false,
@@ -150,7 +153,8 @@ class ProductCardVertical extends StatelessWidget {
                             cart.addToCart(
                                 price: product!.price.minimalPrice,
                                 product: product!.prodId,
-                                count: 1);
+                                count: 1,
+                                v: product!.sku);
                           }
                         },
                         icon: const Icon(Iconsax.add, color: TColors.white),

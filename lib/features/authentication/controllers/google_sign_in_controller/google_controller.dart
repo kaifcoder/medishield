@@ -64,4 +64,26 @@ class GoogleController extends GetxController {
       rethrow;
     }
   }
+
+  Future<void> phoneSignIn() async {
+    try {
+      FullScreenLoader.openLoadingDialog(
+          'Signing with Phone...', TImages.loader);
+
+      // check internet
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        FullScreenLoader.stopLoading();
+        return THelperFunctions.showSnackBar('No internet connection');
+      }
+      await AuthenticationRepository.instance.signInWithPhone(
+        '+91 1234567890',
+      );
+      FullScreenLoader.stopLoading();
+    } catch (e) {
+      FullScreenLoader.stopLoading();
+      CustomSnackbar.errorSnackBar(e.toString());
+      rethrow;
+    }
+  }
 }

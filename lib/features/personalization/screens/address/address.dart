@@ -35,7 +35,7 @@ class AddressScreen extends StatelessWidget {
             onPressed: () {
               if (controller.addresses.length == 1) {
                 return CustomSnackbar.errorSnackBar(
-                    'At least one address is required');
+                    'You can\'t delete the last address. Please add a new address first.');
               }
               Get.dialog(
                 AlertDialog(

@@ -1,3 +1,4 @@
+import 'package:csc_picker/csc_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medishield/features/personalization/controllers/address_controller.dart';
@@ -11,6 +12,7 @@ class AddressForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = AddressController.instance;
+
     return Form(
       key: controller.addressFormKey,
       child: Column(
@@ -47,52 +49,36 @@ class AddressForm extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwItems,
           ),
-          Row(
-            children: [
-              Expanded(
-                child: TextFormField(
-                  validator: TValidator.validateEmpty,
-                  controller: controller.city,
-                  decoration: const InputDecoration(
-                    labelText: 'City',
-                    prefixIcon: Icon(Iconsax.global),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                width: TSizes.spaceBtwItems,
-              ),
-              Expanded(
-                child: TextFormField(
-                  validator: TValidator.validateEmpty,
-                  controller: controller.pincode,
-                  decoration: const InputDecoration(
-                    labelText: 'Pin Code',
-                    prefixIcon: Icon(Iconsax.global),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: TSizes.spaceBtwItems,
-          ),
-          TextFormField(
-            validator: TValidator.validateEmpty,
-            controller: controller.state,
-            decoration: const InputDecoration(
-              labelText: 'State',
-              prefixIcon: Icon(Iconsax.global),
+          // csc picker
+          CSCPicker(
+            dropdownDecoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              color: Colors.white,
+              border: Border.fromBorderSide(BorderSide(color: Colors.grey)),
             ),
+            dropdownDialogRadius: 10,
+            flagState: CountryFlag.SHOW_IN_DROP_DOWN_ONLY,
+            defaultCountry: CscCountry.India,
+            onStateChanged: (value) {
+              controller.state?.value = value ?? '';
+            },
+            onCityChanged: (value) {
+              controller.city?.value = value ?? '';
+            },
+            onCountryChanged: (value) {
+              controller.country?.value = value;
+            },
           ),
+
           const SizedBox(
             height: TSizes.spaceBtwItems,
           ),
           TextFormField(
             validator: TValidator.validateEmpty,
-            controller: controller.country,
+            keyboardType: TextInputType.number,
+            controller: controller.pincode,
             decoration: const InputDecoration(
-              labelText: 'Country',
+              labelText: 'Zip Code',
               prefixIcon: Icon(Iconsax.global),
             ),
           ),

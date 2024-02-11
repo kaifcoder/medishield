@@ -8,6 +8,7 @@ import 'package:medishield/common/widgets/images/t_rounded_image.dart';
 import 'package:medishield/common/widgets/text/price_text.dart';
 import 'package:medishield/common/widgets/text/product_title_text.dart';
 import 'package:medishield/common/widgets/text/t_brand_title_text.dart';
+import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/controllers/wishlist_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
@@ -27,6 +28,7 @@ class ProductCardHorizontal extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = ProductController.instance;
     final wishC = WishlistController.instance;
+    final locationController = LocationController.instance;
     final salePercentage = controller.calculateSalePercentage(product!);
 
     return GestureDetector(
