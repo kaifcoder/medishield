@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
 class BillingPaymentDetails extends StatelessWidget {
@@ -8,6 +9,8 @@ class BillingPaymentDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final rate = LocationController.instance.rate;
+    final ccy = LocationController.instance.currencyCode;
     return Column(
       children: [
         const SizedBox(
@@ -21,7 +24,7 @@ class BillingPaymentDetails extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
-              '₹ $total',
+              '$ccy ${total.toDouble() * rate}',
               style: Theme.of(context).textTheme.bodyLarge,
             )
           ],
@@ -37,7 +40,7 @@ class BillingPaymentDetails extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
-              '₹ 150',
+              '$ccy ${150.toDouble() * rate}',
               style: Theme.of(context).textTheme.bodyLarge,
             )
           ],
@@ -53,7 +56,7 @@ class BillingPaymentDetails extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
-              '₹ ${total + 150}',
+              '$ccy ${(total.toDouble() + 150.toDouble()) * rate}',
               style: Theme.of(context).textTheme.bodyLarge,
             )
           ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
+import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/features/shop/screens/cart/widget/cart_item.dart';
 import 'package:medishield/features/shop/screens/checkout/checkout.dart';
 import 'package:medishield/utils/constants/sizes.dart';
@@ -12,6 +13,8 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = CartController.instance;
+    final rate = LocationController.instance.rate;
+    final ccy = LocationController.instance.currencyCode;
     return Scaffold(
       appBar: TAppBar(
         title: Text(
@@ -39,7 +42,8 @@ class CartScreen extends StatelessWidget {
         return Container(
           padding: const EdgeInsets.all(16),
           child: ElevatedButton(
-            child: Obx(() => Text('Checkout ₹ ${controller.total}')),
+            child: Obx(() =>
+                Text('Checkout $ccy ${controller.total.toDouble() * rate}')),
             onPressed: () => Get.off(() => const CheckoutScreen()),
           ),
         );

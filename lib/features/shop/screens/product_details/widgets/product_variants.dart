@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
@@ -14,11 +15,13 @@ class ChildProductDisplay extends StatelessWidget {
 
   final bool selected;
   final String title;
-  final int price;
+  final double price;
   final VoidCallback? ontap;
 
   @override
   Widget build(BuildContext context) {
+    final rate = LocationController.instance.rate;
+    final ccy = LocationController.instance.currencyCode;
     return Column(
       children: [
         TRoundedContainer(
@@ -53,7 +56,7 @@ class ChildProductDisplay extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      '₹ $price',
+                      '$ccy ${price * rate}',
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium!

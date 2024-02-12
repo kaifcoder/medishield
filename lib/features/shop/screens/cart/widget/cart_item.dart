@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
+import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/features/shop/models/cart_model.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
@@ -15,6 +16,8 @@ class CartItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = CartController.instance;
+    final rate = LocationController.instance.rate;
+    final ccy = LocationController.instance.currencyCode;
     if (product!.isEmpty) return const Center(child: Text('No items in cart'));
     return ListView.separated(
       shrinkWrap: true,
@@ -105,21 +108,27 @@ class CartItem extends StatelessWidget {
                         const Spacer(),
                         if (showQuantity)
                           Text(
-                            '₹ ${product![index].price * product![index].count}',
-                            style: Theme.of(context).textTheme.headlineSmall,
+                            '$ccy ${product![index].price.toDouble() * product![index].count * rate}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall!
+                                .apply(fontSizeFactor: 0.8),
                           ),
                         if (!showQuantity)
                           Text(
-                            '₹ ${product![index].price * product![index].count} x ${product![index].count}',
-                            style: Theme.of(context).textTheme.headlineSmall,
+                            '$ccy ${product![index].price.toDouble() * product![index].count * rate} x ${product![index].count}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall!
+                                .apply(
+                                  fontSizeFactor: 0.8,
+                                ),
                           ),
                       ],
                     ),
                   ],
                 ),
               ),
-
-              // price
             ],
           ),
           const SizedBox(height: TSizes.spaceBtwItems / 2),

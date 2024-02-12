@@ -53,9 +53,7 @@ class ProductDetailScreen extends StatelessWidget {
                     title: product.name,
                     shortDescription: product.shortDescription,
                     manufacturer: product.name.split(' ')[0],
-                    price: product.childProducts.length > 1
-                        ? product.price.minimalPrice.toDouble()
-                        : product.price.minimalPrice.toDouble(),
+                    price: product.price.minimalPrice.toDouble(),
                     originalPrice: product.price.regularPrice.toDouble(),
                     discount: product.price.minimalPrice.toDouble(),
                     child: product.childProducts.length > 1,
@@ -86,8 +84,9 @@ class ProductDetailScreen extends StatelessWidget {
                                 variantController.selectedVariantIndex.value ==
                                     index,
                             title: product.childProducts[index].name,
-                            price:
-                                product.childProducts[index].price.minimalPrice,
+                            price: product
+                                .childProducts[index].price.minimalPrice
+                                .toDouble(),
                           ),
                         );
                       },

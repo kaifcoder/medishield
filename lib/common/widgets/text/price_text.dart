@@ -17,7 +17,7 @@ class PriceText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      '₹ $price',
+      '$price',
       style: isLarge
           ? Theme.of(context).textTheme.headlineMedium!.apply(
               decoration: isLineThrough ? TextDecoration.lineThrough : null)

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
@@ -22,6 +23,8 @@ class ProductMetaData extends StatelessWidget {
   Widget build(BuildContext context) {
     final discount =
         THelperFunctions.calculateDiscountPercentage(originalPrice, price);
+    final rate = LocationController.instance.rate;
+    final ccy = LocationController.instance.currencyCode;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -56,7 +59,7 @@ class ProductMetaData extends StatelessWidget {
           children: [
             if (child)
               Text(
-                'Starting at  ₹ $price',
+                'Starting at  $ccy ${price * rate}',
                 style: Theme.of(context)
                     .textTheme
                     .headlineMedium!
@@ -64,7 +67,7 @@ class ProductMetaData extends StatelessWidget {
               ),
             if (!child)
               Text(
-                '₹ $price',
+                '$ccy ${price * rate}',
                 style: Theme.of(context)
                     .textTheme
                     .headlineMedium!
@@ -76,7 +79,7 @@ class ProductMetaData extends StatelessWidget {
             // original price
             if (!child)
               Text(
-                '₹ $originalPrice',
+                '$ccy ${originalPrice * rate}',
                 style: Theme.of(context).textTheme.bodySmall!.apply(
                       decoration: TextDecoration.lineThrough,
                     ),

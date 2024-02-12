@@ -30,7 +30,8 @@ class ProductCardVertical extends StatelessWidget {
     final controller = ProductController.instance;
     final wishC = WishlistController.instance;
     final cart = CartController.instance;
-
+    final rate = LocationController.instance.rate;
+    final ccy = LocationController.instance.currencyCode;
     // final salePercentage = controller.calculateSalePercentage(product!);
     final salePercentage = controller.calculateSalePercentage(product!);
     final dark = THelperFunctions.isDarkMode(context);
@@ -120,15 +121,17 @@ class ProductCardVertical extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: PriceText(
-                    price: (product!.childProducts.length > 1)
-                        ? 'Starts at ${product!.price.minimalPrice.toString()}'
-                        : product!.price.minimalPrice.toString(),
-                    maxLines: 1,
-                    isLarge: false,
-                    isLineThrough: false,
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: PriceText(
+                      price: (product!.childProducts.length > 1)
+                          ? 'Starts at $ccy ${product!.price.minimalPrice.toDouble() * rate}'
+                          : '$ccy ${product!.price.minimalPrice.toDouble() * rate}',
+                      maxLines: 2,
+                      isLarge: false,
+                      isLineThrough: false,
+                    ),
                   ),
                 ),
                 Container(
