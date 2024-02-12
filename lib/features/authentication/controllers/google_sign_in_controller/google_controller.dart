@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';

@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
+import 'package:medishield/data/repositories/authentication_repository.dart';
+import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/controllers/product_variants_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
-import 'package:medishield/features/shop/screens/cart/cart.dart';
 import 'package:medishield/features/shop/screens/checkout/checkout.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/bottom_add_to_cartbar.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/product_meta_data.dart';
@@ -104,6 +105,12 @@ class ProductDetailScreen extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () async {
+                        if (AuthenticationRepository.instance.deviceStorage
+                                .read('token') ==
+                            null) {
+                          Get.offAll(() => const LoginScreen());
+                          return;
+                        }
                         // add to cart
                         cartController.addToCart(
                           product: product.prodId,

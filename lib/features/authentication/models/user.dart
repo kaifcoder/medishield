@@ -18,7 +18,7 @@ class UserModel {
 
   String get fullName => '$firstName $lastName';
 
-  String get formattedMobile => '+91 $mobile';
+  String get formattedMobile => '$mobile';
 
   static UserModel empty() {
     return UserModel(

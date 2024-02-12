@@ -37,7 +37,7 @@ class CustomSnackbar {
 
   static errorSnackBar(String message) {
     return Get.snackbar(
-      'Error',
+      'Message',
       message,
       isDismissible: true,
       duration: const Duration(seconds: 1),

@@ -14,6 +14,30 @@
       },
       "oauth_client": [
         {
+          "client_id": "86990247944-a5j074llmqtubc5vaesubt1kavuhduuk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.darkinc.medishield",
+            "certificate_hash": "91e49349e1cde06fb4ef904cfcbeaf4609308720"
+          }
+        },
+        {
+          "client_id": "86990247944-ji357099u701qrn68o5a4drae6ep902g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.darkinc.medishield",
+            "certificate_hash": "b09d363acb5e32ac2167b90d79d7da54966ebceb"
+          }
+        },
+        {
+          "client_id": "86990247944-kjn36uov8ki3ce59bq1r8nleu9momuvl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.darkinc.medishield",
+            "certificate_hash": "83330480163cc7d2159e795970327a79d61795ba"
+          }
+        },
+        {
           "client_id": "86990247944-34ep25lje0s6o9tanfc96u4mjsorahvp.apps.googleusercontent.com",
           "client_type": 3
         }

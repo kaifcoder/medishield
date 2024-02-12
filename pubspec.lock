@@ -57,6 +57,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
+  awesome_otp_screen:
+    dependency: "direct main"
+    description:
+      name: awesome_otp_screen
+      sha256: f861dcfb2e819f4f91d9a6071529cc205ff3013ef62959062f3ddb33ed5a9bec
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   boolean_selector:
     dependency: transitive
     description:

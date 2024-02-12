@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/features/authentication/models/user.dart';
@@ -19,6 +20,7 @@ class UserRepository extends GetxController {
         );
       }
       final res = await THttpHelper.get('api/user/get/$email');
+      debugPrint('User data: $res');
       return UserModel.fromJson(res);
     } catch (e) {
       rethrow;

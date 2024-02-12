@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:medishield/common/widgets/loaders/custom_shimmer.dart';
 import 'package:medishield/common/widgets/products/product_cards/product_card_horizontal.dart';
 import 'package:medishield/features/shop/controllers/all_product_controller.dart';
-import 'package:medishield/features/shop/controllers/brand_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/utils/constants/sizes.dart';

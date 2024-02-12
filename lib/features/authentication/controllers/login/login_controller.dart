@@ -11,6 +11,7 @@ class LoginController extends GetxController {
   final hidePassword = true.obs;
   final email = TextEditingController();
   final password = TextEditingController();
+  final phone = TextEditingController();
   GlobalKey<FormState> loginFormKey =
       GlobalKey<FormState>(debugLabel: 'loginFormKey');
 

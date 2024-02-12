@@ -3,10 +3,8 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
 import 'package:medishield/features/authentication/models/user.dart';
-import 'package:medishield/features/personalization/controllers/address_controller.dart';
 import 'package:medishield/features/personalization/models/address_model.dart';
 import 'package:medishield/features/personalization/screens/address/address.dart';
-import 'package:medishield/features/personalization/screens/address/widgets/address_container.dart';
 import 'package:medishield/features/personalization/screens/address/widgets/address_form.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 

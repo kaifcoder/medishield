@@ -1,23 +1,28 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:medishield/common/widgets/custom_snackbar.dart';
+import 'package:medishield/common/widgets/text/t_section_heading.dart';
 import 'package:medishield/features/authentication/models/user.dart';
 import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/features/authentication/screens/signup/verify_email.dart';
 import 'package:medishield/navigation_menu.dart';
+import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:medishield/utils/exceptions/firebase_exceptions.dart';
 import 'package:medishield/utils/exceptions/platform_exceptions.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
 import 'package:medishield/utils/http/http_client.dart';
-import 'package:medishield/features/authentication/controllers/signup/verify_email_controller.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
 
   final deviceStorage = GetStorage();
+  final _auth = FirebaseAuth.instance;
+  var verificationId = ''.obs;
 
   @override
   void onReady() {
@@ -89,6 +94,7 @@ class AuthenticationRepository extends GetxController {
       await FirebaseAuth.instance.signOut();
       THelperFunctions.showSnackBar(
           'Oh Snap! $e'.replaceAll('Exception: ', ''));
+      rethrow;
     }
   }
 
@@ -186,15 +192,114 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
+  loginWithPhone() async {
+    try {
+      final res = await THttpHelper.get(
+          'api/user/loginWithGoogle/${FirebaseAuth.instance.currentUser!.uid}');
+      await deviceStorage.write('token', res['token']);
+      await deviceStorage.write('email', res['email']);
+      await deviceStorage.write('isVerfied', true);
+      await deviceStorage.remove('guest');
+      debugPrint('loginwithphone RES: $res');
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   // sign in with phone
   Future signInWithPhone(String phone) async {
     try {
-      final res = await THttpHelper.post('api/user/loginWithPhone', {
-        'mobile': phone,
-      });
-      return res;
+      await _auth.verifyPhoneNumber(
+        phoneNumber: phone,
+        verificationCompleted: (credential) async {
+          await _auth.signInWithCredential(credential);
+        },
+        codeSent: (verificationId, resendToken) {
+          this.verificationId.value = verificationId;
+        },
+        codeAutoRetrievalTimeout: (verificationId) {
+          this.verificationId.value = verificationId;
+        },
+        verificationFailed: (e) {
+          CustomSnackbar.errorSnackBar('Something went wrong');
+        },
+      );
     } on Exception {
       rethrow;
+    }
+  }
+
+  Future<bool> verifyOTP(String otp, String name, String email) async {
+    try {
+      final credentials = await _auth.signInWithCredential(
+        PhoneAuthProvider.credential(
+            verificationId: verificationId.value, smsCode: otp),
+      );
+
+      if (credentials.user != null) {
+        // add user to database
+        if (credentials.additionalUserInfo!.isNewUser) {
+          final name = TextEditingController();
+          final email = TextEditingController();
+          Get.bottomSheet(
+            SingleChildScrollView(
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              child: Column(children: [
+                const TSectionHeading(title: 'Enter your Name and Email'),
+                const SizedBox(
+                  height: TSizes.spaceBtwInputFields,
+                ),
+                TextFormField(
+                  controller: name,
+                  decoration: const InputDecoration(hintText: 'Name'),
+                ),
+                const SizedBox(
+                  height: TSizes.spaceBtwInputFields,
+                ),
+                TextFormField(
+                  controller: email,
+                  decoration: const InputDecoration(hintText: 'Email'),
+                ),
+                const SizedBox(
+                  height: TSizes.spaceBtwInputFields,
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    final data = UserModel(
+                      firstName: name.text.split(' ').first,
+                      lastName: name.text.split(' ').last,
+                      email: email.text.trim(),
+                      password: '',
+                      mobile: credentials.user!.phoneNumber!,
+                      googleAuthToken: credentials.user!.uid,
+                    );
+                    final res = await THttpHelper.post(
+                        'api/user/register', data.toJson());
+                    await deviceStorage.write('token', res['token']);
+                    await deviceStorage.write('email', res['email']);
+                    await deviceStorage.write('isVerfied', true);
+                    await deviceStorage.remove('guest');
+                    screenRedirect();
+                  },
+                  child: const SizedBox(
+                      width: double.infinity,
+                      child: Center(child: Text("Register"))),
+                ),
+              ]),
+            ),
+            backgroundColor: Colors.white,
+            isScrollControlled: true,
+            isDismissible: false,
+          );
+        } else {
+          await loginWithPhone();
+          screenRedirect();
+        }
+      }
+      return credentials.user != null ? true : false;
+    } catch (e) {
+      return CustomSnackbar.errorSnackBar(
+          'Please check and enter the correct verification code again.');
     }
   }
 

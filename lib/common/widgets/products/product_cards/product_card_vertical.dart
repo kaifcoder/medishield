@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/styles/shadow.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
+import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
 import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
@@ -13,7 +14,6 @@ import 'package:medishield/features/shop/screens/product_details/product_details
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/enums.dart';
 import 'package:medishield/utils/constants/sizes.dart';
-import 'package:medishield/utils/helpers/currency_converter.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
 import '../../icons/t_circular_icon.dart';
 import '../../text/price_text.dart';
@@ -76,22 +76,25 @@ class ProductCardVertical extends StatelessWidget {
                       ),
                     ), // TRoundedContainer
                   ),
-                Positioned(
-                  top: 0,
-                  right: 0,
-                  child: Obx(
-                    () => TCircularIcon(
-                      onPressed: () => wishC.toggleWishlist(
-                        product!.prodId,
+                if (AuthenticationRepository.instance.deviceStorage
+                        .read('token') !=
+                    null)
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: Obx(
+                      () => TCircularIcon(
+                        onPressed: () => wishC.toggleWishlist(
+                          product!.prodId,
+                        ),
+                        dark: dark,
+                        icon: Iconsax.heart5,
+                        color: wishC.isWishlisted(product!.prodId)
+                            ? Colors.red
+                            : TColors.darkGrey,
                       ),
-                      dark: dark,
-                      icon: Iconsax.heart5,
-                      color: wishC.isWishlisted(product!.prodId)
-                          ? Colors.red
-                          : TColors.darkGrey,
                     ),
-                  ),
-                )
+                  )
               ]),
             ),
             const SizedBox(height: TSizes.spaceBtwItems / 2),

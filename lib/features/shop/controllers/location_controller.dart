@@ -13,8 +13,8 @@ class LocationController extends GetxController {
   late bool servicePermission = false;
   late LocationPermission permission;
   Placemark currentPlace = Placemark();
-  String currencyCode = "";
-  double rate = 0;
+  String currencyCode = "INR";
+  double rate = 1;
   static const String _kPermissionDeniedMessage = 'Permission denied.';
   static const String _kPermissionDeniedForeverMessage =
       'Permission denied forever.';
@@ -100,8 +100,7 @@ class LocationController extends GetxController {
 
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      permission = await _geolocatorPlatform.requestPermission();
-      return false;
+      await _geolocatorPlatform.openLocationSettings();
     }
 
     permission = await _geolocatorPlatform.checkPermission();
