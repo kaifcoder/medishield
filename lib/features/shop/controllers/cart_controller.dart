@@ -4,6 +4,7 @@ import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/data/repositories/cart_repository.dart';
 import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/features/shop/models/cart_model.dart';
+import 'package:medishield/utils/helpers/helper_functions.dart';
 
 class CartController extends GetxController {
   static CartController get instance => Get.find();
