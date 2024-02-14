@@ -50,6 +50,7 @@ class CartController extends GetxController {
         return;
       }
       final res = await cartRepo.fetchCartItems();
+      print(res);
       if (res['data'] == null) {
         userCart.value = CartModel(
           id: '',
@@ -77,15 +78,17 @@ class CartController extends GetxController {
         Get.offAll(() => const LoginScreen());
         return;
       }
-      await cartRepo.addtocart(
+      final res = await cartRepo.addtocart(
         prodId: product,
         count: count,
         price: price,
         v: v,
       );
+      userCart.value = CartModel.fromJson(res);
       CustomSnackbar.successSnackBar('Added to cart');
       counter.value = 1;
-      await fetchCartItems();
+      update();
+      // await fetchCartItems();
     } catch (e) {
       rethrow;
     }
@@ -106,18 +109,22 @@ class CartController extends GetxController {
         await fetchCartItems();
         return;
       } else if (count == 1) {
-        await cartRepo.addtocart(
+        final res = await cartRepo.addtocart(
           prodId: product,
           count: -count,
           price: price,
           v: v,
         );
+        userCart.value = CartModel.fromJson(res);
         CustomSnackbar.successSnackBar('Removed from cart');
-        await fetchCartItems();
+        update();
+        // await fetchCartItems();
+
         return;
       }
 
       await fetchCartItems();
+      update();
     } catch (e) {
       rethrow;
     }

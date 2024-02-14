@@ -53,7 +53,8 @@ class OrderItems extends StatelessWidget {
                                               controller.orderData[oindex]
                                                   .products[index].variant
                                           ? e.name
-                                          : '')
+                                          : controller.orderData[oindex]
+                                              .products[index].product.name)
                                       .toString()
                                       .replaceAll('(', '')
                                       .replaceAll(')', '')

@@ -73,7 +73,7 @@ class CartItem extends StatelessWidget {
                                     controller.removeFromCart(
                                       product: product![index].product.prodId,
                                       count:
-                                          product![index].count == 1 ? -1 : 1,
+                                          product![index].count <= 1 ? -1 : 1,
                                       price: product![index].price,
                                       v: product![index].variant,
                                     );
