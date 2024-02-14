@@ -118,12 +118,9 @@ class CartController extends GetxController {
         userCart.value = CartModel.fromJson(res);
         CustomSnackbar.successSnackBar('Removed from cart');
         update();
-        // await fetchCartItems();
 
         return;
       }
-
-      await fetchCartItems();
       update();
     } catch (e) {
       rethrow;
