@@ -126,8 +126,8 @@ class ProductCardHorizontal extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 1.0),
                         child: PriceText(
                           price: (product!.childProducts.length > 1)
-                              ? 'Starts at $ccy ${product!.price.minimalPrice.toDouble() * rate}'
-                              : '$ccy ${product!.price.minimalPrice.toDouble() * rate}',
+                              ? 'Starts at ${product!.price.minimalPrice.toDouble() * rate} $ccy'
+                              : '${product!.price.minimalPrice.toDouble() * rate} $ccy',
                           maxLines: 1,
                           isLarge: false,
                           isLineThrough: false,

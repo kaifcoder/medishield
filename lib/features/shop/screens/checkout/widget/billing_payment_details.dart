@@ -24,7 +24,7 @@ class BillingPaymentDetails extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
-              '$ccy ${total.toDouble() * rate}',
+              ' ${total.toDouble() * rate} $ccy',
               style: Theme.of(context).textTheme.bodyLarge,
             )
           ],
@@ -40,7 +40,7 @@ class BillingPaymentDetails extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
-              '$ccy ${150.toDouble() * rate}',
+              '${150.toDouble() * rate} $ccy',
               style: Theme.of(context).textTheme.bodyLarge,
             )
           ],
@@ -56,7 +56,7 @@ class BillingPaymentDetails extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
-              '$ccy ${(total.toDouble() + 150.toDouble()) * rate}',
+              '${(total.toDouble() + 150.toDouble()) * rate} $ccy',
               style: Theme.of(context).textTheme.bodyLarge,
             )
           ],

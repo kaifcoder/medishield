@@ -108,7 +108,7 @@ class CartItem extends StatelessWidget {
                         const Spacer(),
                         if (showQuantity)
                           Text(
-                            '$ccy ${product![index].price.toDouble() * product![index].count * rate}',
+                            '${product![index].price.toDouble() * product![index].count * rate} $ccy',
                             style: Theme.of(context)
                                 .textTheme
                                 .headlineSmall!
@@ -116,7 +116,7 @@ class CartItem extends StatelessWidget {
                           ),
                         if (!showQuantity)
                           Text(
-                            '$ccy ${product![index].price.toDouble() * product![index].count * rate} x ${product![index].count}',
+                            '${product![index].price.toDouble() * rate} $ccy x ${product![index].count} =  ${product![index].price.toDouble() * product![index].count * rate} $ccy',
                             style: Theme.of(context)
                                 .textTheme
                                 .headlineSmall!

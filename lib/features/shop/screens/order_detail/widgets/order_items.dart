@@ -72,7 +72,7 @@ class OrderItems extends StatelessWidget {
                             children: [
                               const Spacer(),
                               Text(
-                                '$ccy ${controller.orderData[oindex].products[index].price * rate} x ${controller.orderData[oindex].products[index].count} ',
+                                '${controller.orderData[oindex].products[index].price * rate} $ccy x ${controller.orderData[oindex].products[index].count}',
                                 style:
                                     Theme.of(context).textTheme.headlineSmall,
                               ),

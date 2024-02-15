@@ -38,7 +38,7 @@ class OrderScreen extends StatelessWidget {
           name: controller.orderData[index].products.first.product.name,
           orderStatus: controller.orderData[index].orderStatus,
           orderAmount:
-              '$ccy ${controller.orderData[index].paymentIntent.amount * rate}',
+              '${controller.orderData[index].paymentIntent.amount * rate} $ccy',
           onTap: () => Get.to(
             () => OrderDetailScreen(
               index: index,

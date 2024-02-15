@@ -132,8 +132,8 @@ class ProductCardVertical extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 8.0),
                     child: PriceText(
                       price: (product!.childProducts.length > 1)
-                          ? 'Starts at $ccy ${product!.price.minimalPrice.toDouble() * rate}'
-                          : '$ccy ${product!.price.minimalPrice.toDouble() * rate}',
+                          ? 'Starts at ${product!.price.minimalPrice.toDouble() * rate} $ccy'
+                          : '${product!.price.minimalPrice.toDouble() * rate} $ccy',
                       maxLines: 2,
                       isLarge: false,
                       isLineThrough: false,
@@ -142,7 +142,7 @@ class ProductCardVertical extends StatelessWidget {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                    color: (cartCount > 0) ? TColors.primary : TColors.dark,
+                    color: TColors.dark,
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(TSizes.cardRadiusMd),
                       bottomRight: Radius.circular(TSizes.productImageRadius),

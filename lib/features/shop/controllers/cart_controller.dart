@@ -85,6 +85,8 @@ class CartController extends GetxController {
         v: v,
       );
       userCart.value = CartModel.fromJson(res);
+      total.value = userCart.value.cartTotal;
+      grandTotal.value = userCart.value.cartTotal + 150;
       CustomSnackbar.successSnackBar('Added to cart');
       counter.value = 1;
       update();
@@ -116,6 +118,8 @@ class CartController extends GetxController {
           v: v,
         );
         userCart.value = CartModel.fromJson(res);
+        total.value = userCart.value.cartTotal;
+        grandTotal.value = userCart.value.cartTotal + 150;
         CustomSnackbar.successSnackBar('Removed from cart');
         update();
 
