@@ -9,6 +9,8 @@ import 'package:medishield/common/widgets/text/price_text.dart';
 import 'package:medishield/common/widgets/text/product_title_text.dart';
 import 'package:medishield/common/widgets/text/t_brand_title_text.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
+import 'package:medishield/features/shop/controllers/cart_controller.dart';
+import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/controllers/wishlist_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
@@ -29,7 +31,9 @@ class ProductCardHorizontal extends StatelessWidget {
     final controller = ProductController.instance;
     final wishC = WishlistController.instance;
     final salePercentage = controller.calculateSalePercentage(product!);
-
+    final rate = LocationController.instance.rate;
+    final ccy = LocationController.instance.currencyCode;
+    final cartCount = CartController.instance.userCart.value.products;
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailScreen(
             product: product!,
@@ -120,33 +124,43 @@ class ProductCardHorizontal extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 1.0),
                         child: PriceText(
-                          price: product!.price.minimalPrice.toString(),
+                          price: (product!.childProducts.length > 1)
+                              ? 'Starts at $ccy ${product!.price.minimalPrice.toDouble() * rate}'
+                              : '$ccy ${product!.price.minimalPrice.toDouble() * rate}',
                           maxLines: 1,
                           isLarge: false,
                           isLineThrough: false,
                         ),
                       ),
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: TColors.dark,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(TSizes.cardRadiusMd),
-                            bottomRight:
-                                Radius.circular(TSizes.productImageRadius),
-                          ), // BorderRadius.only
-                        ), // BoxDecoration
-                        child: SizedBox(
-                          width: TSizes.iconLg * 1.2,
-                          height: TSizes.iconLg * 1.2,
-                          child: Center(
-                            child: IconButton(
-                              onPressed: () {},
-                              icon:
-                                  const Icon(Iconsax.add, color: TColors.white),
+                      if (product!.childProducts.length == 1)
+                        Container(
+                          decoration: const BoxDecoration(
+                            color: TColors.dark,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(TSizes.cardRadiusMd),
+                              bottomRight:
+                                  Radius.circular(TSizes.productImageRadius),
+                            ), // BorderRadius.only
+                          ),
+                          child: SizedBox(
+                            width: TSizes.iconLg * 1.2,
+                            height: TSizes.iconLg * 1.2,
+                            child: Center(
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                    (cartCount
+                                            .where((element) =>
+                                                element.product.prodId ==
+                                                product!.prodId)
+                                            .isNotEmpty)
+                                        ? Iconsax.check
+                                        : Iconsax.add,
+                                    color: TColors.white),
+                              ),
                             ),
                           ),
                         ),
-                      ),
                     ],
                   ),
                 ],

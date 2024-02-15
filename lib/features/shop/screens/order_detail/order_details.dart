@@ -18,6 +18,7 @@ class OrderDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = OrderController.instance;
+
     return Scaffold(
       appBar: TAppBar(
         title: Text('Order Detail',

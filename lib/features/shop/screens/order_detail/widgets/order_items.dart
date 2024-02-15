@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
+import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/features/shop/controllers/order_controller.dart';
 import 'package:medishield/utils/constants/colors.dart';
 
@@ -13,6 +14,8 @@ class OrderItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = OrderController.instance;
+    final rate = LocationController.instance.rate;
+    final ccy = LocationController.instance.currencyCode;
     return ListView.separated(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
@@ -69,7 +72,7 @@ class OrderItems extends StatelessWidget {
                             children: [
                               const Spacer(),
                               Text(
-                                '₹ ${controller.orderData[oindex].products[index].price} x ${controller.orderData[oindex].products[index].count} ',
+                                '$ccy ${controller.orderData[oindex].products[index].price * rate} x ${controller.orderData[oindex].products[index].count} ',
                                 style:
                                     Theme.of(context).textTheme.headlineSmall,
                               ),

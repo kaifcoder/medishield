@@ -4,6 +4,7 @@ import 'package:medishield/features/shop/controllers/order_controller.dart';
 import 'package:medishield/features/shop/screens/order_detail/order_details.dart';
 import 'package:medishield/features/shop/screens/orders/widgets/order_card.dart';
 import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/features/shop/controllers/location_controller.dart';
 
 class OrderScreen extends StatelessWidget {
   const OrderScreen({super.key});
@@ -11,6 +12,8 @@ class OrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = OrderController.instance;
+    final rate = LocationController.instance.rate;
+    final ccy = LocationController.instance.currencyCode;
     if (controller.orderData.isEmpty) {
       return Scaffold(
         appBar: AppBar(
@@ -34,7 +37,8 @@ class OrderScreen extends StatelessWidget {
           orderDate: controller.orderData[index].createdAt,
           name: controller.orderData[index].products.first.product.name,
           orderStatus: controller.orderData[index].orderStatus,
-          orderAmount: '₹ ${controller.orderData[index].paymentIntent.amount}',
+          orderAmount:
+              '$ccy ${controller.orderData[index].paymentIntent.amount * rate}',
           onTap: () => Get.to(
             () => OrderDetailScreen(
               index: index,

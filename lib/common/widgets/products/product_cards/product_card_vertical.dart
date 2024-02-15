@@ -34,13 +34,16 @@ class ProductCardVertical extends StatelessWidget {
     final ccy = LocationController.instance.currencyCode;
     // final salePercentage = controller.calculateSalePercentage(product!);
     final salePercentage = controller.calculateSalePercentage(product!);
+    final cartCount = CartController.instance.userCart.value.products
+        .where((element) => element.product.prodId == product!.prodId)
+        .length;
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailScreen(
             product: product!,
           )),
       child: Container(
-        width: 180,
+        width: double.infinity,
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
           boxShadow: [TShadowStyle.verticalProductShadow],
@@ -138,9 +141,9 @@ class ProductCardVertical extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  decoration: const BoxDecoration(
-                    color: TColors.dark,
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    color: (cartCount > 0) ? TColors.primary : TColors.dark,
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(TSizes.cardRadiusMd),
                       bottomRight: Radius.circular(TSizes.productImageRadius),
                     ),
@@ -163,7 +166,11 @@ class ProductCardVertical extends StatelessWidget {
                                 v: product!.sku);
                           }
                         },
-                        icon: const Icon(Iconsax.add, color: TColors.white),
+                        icon: Icon(
+                            (product!.childProducts.length > 1)
+                                ? Iconsax.arrow_right
+                                : Iconsax.add,
+                            color: TColors.white),
                       ),
                     ),
                   ),
