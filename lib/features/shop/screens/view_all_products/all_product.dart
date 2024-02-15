@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/loaders/custom_shimmer.dart';
+import 'package:medishield/common/widgets/products/cart/t_cart_counter_icon.dart';
 import 'package:medishield/common/widgets/products/product_cards/product_card_horizontal.dart';
+import 'package:medishield/data/repositories/authentication_repository.dart';
+import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/features/shop/controllers/all_product_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
+import 'package:medishield/features/shop/screens/Search/search.dart';
+import 'package:medishield/features/shop/screens/cart/cart.dart';
+import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
 class AllProductScreen extends StatelessWidget {
@@ -21,6 +28,30 @@ class AllProductScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(title),
+          actions: [
+            IconButton(
+              onPressed: () => Get.to(() => const SearchScreen()),
+              icon: const Icon(
+                Iconsax.search_normal,
+                color: TColors.black,
+              ),
+            ),
+            TCartCounterIcon(
+              iconColor: TColors.black,
+              onPressed: () {
+                if (AuthenticationRepository.instance.deviceStorage
+                        .read('guest') ==
+                    true) {
+                  Get.offAll(() => const LoginScreen());
+                } else {
+                  Get.to(() => const CartScreen());
+                }
+              },
+            ),
+            const SizedBox(
+              width: TSizes.md,
+            ),
+          ],
         ),
         body: product.isEmpty
             ? const Column(

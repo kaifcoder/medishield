@@ -34,6 +34,7 @@ class ProductCardHorizontal extends StatelessWidget {
     final rate = LocationController.instance.rate;
     final ccy = LocationController.instance.currencyCode;
     final cartCount = CartController.instance.userCart.value.products;
+    final cart = CartController.instance;
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailScreen(
             product: product!,
@@ -147,16 +148,20 @@ class ProductCardHorizontal extends StatelessWidget {
                             height: TSizes.iconLg * 1.2,
                             child: Center(
                               child: IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                    (cartCount
-                                            .where((element) =>
-                                                element.product.prodId ==
-                                                product!.prodId)
-                                            .isNotEmpty)
-                                        ? Iconsax.check
-                                        : Iconsax.add,
-                                    color: TColors.white),
+                                onPressed: () {
+                                  if (product!.childProducts.length > 1) {
+                                    Get.to(() => ProductDetailScreen(
+                                          product: product!,
+                                        ));
+                                  } else {
+                                    cart.addToCart(
+                                        price: product!.price.minimalPrice,
+                                        product: product!.prodId,
+                                        count: 1,
+                                        v: product!.sku);
+                                  }
+                                },
+                                icon: Icon(Iconsax.add, color: TColors.white),
                               ),
                             ),
                           ),
