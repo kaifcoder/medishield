@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/appbar/appbar.dart';
 import 'package:medishield/common/widgets/loaders/custom_shimmer.dart';
+import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/screens/product_details/product_details.dart';
 import 'package:medishield/utils/constants/sizes.dart';
@@ -15,6 +16,8 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(SearchControler());
     final products = ProductController.instance.SearchProducts;
+    final rate = LocationController.instance.rate;
+    final ccy = LocationController.instance.currencyCode;
     return Scaffold(
       appBar: const TAppBar(
         title: Text('Search'),
@@ -84,7 +87,7 @@ class SearchScreen extends StatelessWidget {
                             ),
                           ),
                           subtitle: Text(
-                            '₹${products[index].price.minimalPrice}',
+                            '${products[index].price.minimalPrice.toDouble() * rate} $ccy',
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
