@@ -33,7 +33,7 @@ jobs:
         uses: ncipollo/release-action@v1.14.0
         with:
           artifacts: build/app/outputs/apk/release/*
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TOKEN }}
           tag: v1.0.${{ github.run_number }}
       - name: Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
