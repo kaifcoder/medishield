@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/data/repositories/cart_repository.dart';
 import 'package:medishield/features/authentication/screens/login/login.dart';
@@ -107,7 +106,7 @@ class CartController extends GetxController {
           prodId: product,
           v: v,
         );
-        CustomSnackbar.successSnackBar('Removed from cart');
+        THelperFunctions.showSnackBar('Removed from cart');
         await fetchCartItems();
         return;
       } else if (count == 1) {
@@ -120,7 +119,7 @@ class CartController extends GetxController {
         userCart.value = CartModel.fromJson(res);
         total.value = userCart.value.cartTotal;
         grandTotal.value = userCart.value.cartTotal + 150;
-        THelperFunctions.showSnackBar('Added to cart');
+        THelperFunctions.showSnackBar('Removed from cart');
         update();
 
         return;

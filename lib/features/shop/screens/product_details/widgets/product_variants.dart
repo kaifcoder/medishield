@@ -56,7 +56,7 @@ class ChildProductDisplay extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      '$ccy ${price * rate}',
+                      '${price * rate} $ccy',
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium!

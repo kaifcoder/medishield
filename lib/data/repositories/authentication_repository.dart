@@ -170,6 +170,7 @@ class AuthenticationRepository extends GetxController {
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on PlatformException catch (e) {
+      debugPrint(TPlatformException(e.code).message);
       throw TPlatformException(e.code).message;
     } catch (e) {
       rethrow;

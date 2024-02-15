@@ -6,6 +6,7 @@ class OrderModel {
   final String id;
   final String orderStatus;
   final UserModel orderby;
+  final String? trackingNumber;
   final List<Products> products;
   final PaymentIntent paymentIntent;
   final AddressModel shippingAddress;
@@ -17,6 +18,7 @@ class OrderModel {
     required this.orderby,
     required this.products,
     required this.paymentIntent,
+    this.trackingNumber,
     required this.shippingAddress,
     required this.createdAt,
   });
@@ -29,6 +31,7 @@ class OrderModel {
         products: json['products'].map<Products>((product) {
           return Products.fromJson(product);
         }).toList(),
+        trackingNumber: json['trackingNumber'] ?? '',
         paymentIntent: PaymentIntent.fromJson(json['paymentIntent']),
         createdAt: json['createdAt'] ?? '',
         shippingAddress: AddressModel.fromJson(json['shippingAddress']));
