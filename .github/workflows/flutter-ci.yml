@@ -41,5 +41,5 @@ jobs:
           appId: ${{secrets.FIREBASE_APP_ID}}
           token: ${{secrets.FIREBASE_TOKEN}}
           groups: testers
-          file: app/build/outputs/apk/release/app-release.apk
+          file: build/app/outputs/apk/release/app-release.apk
 # on: push    # Default will running for every branch.
