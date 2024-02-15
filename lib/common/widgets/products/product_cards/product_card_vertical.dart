@@ -34,9 +34,7 @@ class ProductCardVertical extends StatelessWidget {
     final ccy = LocationController.instance.currencyCode;
     // final salePercentage = controller.calculateSalePercentage(product!);
     final salePercentage = controller.calculateSalePercentage(product!);
-    final cartCount = CartController.instance.userCart.value.products
-        .where((element) => element.product.prodId == product!.prodId)
-        .length;
+
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailScreen(

@@ -4,6 +4,7 @@ import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/data/repositories/cart_repository.dart';
 import 'package:medishield/features/authentication/screens/login/login.dart';
 import 'package:medishield/features/shop/models/cart_model.dart';
+import 'package:medishield/utils/helpers/helper_functions.dart';
 
 class CartController extends GetxController {
   static CartController get instance => Get.find();
@@ -50,7 +51,6 @@ class CartController extends GetxController {
         return;
       }
       final res = await cartRepo.fetchCartItems();
-      print(res);
       if (res['data'] == null) {
         userCart.value = CartModel(
           id: '',
@@ -87,7 +87,7 @@ class CartController extends GetxController {
       userCart.value = CartModel.fromJson(res);
       total.value = userCart.value.cartTotal;
       grandTotal.value = userCart.value.cartTotal + 150;
-      CustomSnackbar.successSnackBar('Added to cart');
+      THelperFunctions.showSnackBar('Added to cart');
       counter.value = 1;
       update();
       // await fetchCartItems();
@@ -120,7 +120,7 @@ class CartController extends GetxController {
         userCart.value = CartModel.fromJson(res);
         total.value = userCart.value.cartTotal;
         grandTotal.value = userCart.value.cartTotal + 150;
-        CustomSnackbar.successSnackBar('Removed from cart');
+        THelperFunctions.showSnackBar('Added to cart');
         update();
 
         return;

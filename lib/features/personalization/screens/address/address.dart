@@ -34,6 +34,7 @@ class AddressScreen extends StatelessWidget {
             heroTag: 'delete',
             onPressed: () {
               if (controller.addresses.length == 1) {
+                // ignore: void_checks
                 return CustomSnackbar.errorSnackBar(
                     'You can\'t delete the last address. Please add a new address first.');
               }

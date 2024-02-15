@@ -49,7 +49,7 @@ class TCircularImage extends StatelessWidget {
                 ),
               ),
               errorListener: (value) {
-                print('Error: $value');
+                debugPrint('Error: $value');
               },
               errorWidget: (context, url, error) => const Icon(Icons.error),
             )

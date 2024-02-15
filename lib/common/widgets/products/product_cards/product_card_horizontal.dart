@@ -33,7 +33,6 @@ class ProductCardHorizontal extends StatelessWidget {
     final salePercentage = controller.calculateSalePercentage(product!);
     final rate = LocationController.instance.rate;
     final ccy = LocationController.instance.currencyCode;
-    final cartCount = CartController.instance.userCart.value.products;
     final cart = CartController.instance;
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailScreen(
@@ -161,7 +160,8 @@ class ProductCardHorizontal extends StatelessWidget {
                                         v: product!.sku);
                                   }
                                 },
-                                icon: const Icon(Iconsax.add, color: TColors.white),
+                                icon: const Icon(Iconsax.add,
+                                    color: TColors.white),
                               ),
                             ),
                           ),

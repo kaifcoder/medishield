@@ -85,8 +85,6 @@ class LocationController extends GetxController {
 
   Future currency() async {
     final currencydata = CurrencyData.getCurrencyList();
-    // get currency code
-    print("COUNTRY NAME ${currentPlace.country!.toUpperCase()}");
     currencyCode =
         await currencydata["ISO_4217"]["CcyTbl"]["CcyNtry"].firstWhere(
       (element) => element["CtryNm"] == currentPlace.country!.toUpperCase(),
