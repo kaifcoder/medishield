@@ -21,7 +21,7 @@ class ThirdLevel {
     return ThirdLevel(
       id: json['id'],
       name: json['name'],
-      url_path: json['url_path'],
+      url_path: json['url_path'] ?? '',
       level: json['level'] ?? 3,
       position: json['position'] ?? 1,
       include_in_menu: json['include_in_menu'] ?? 1,
@@ -55,7 +55,7 @@ class SecondLevel {
     return SecondLevel(
       id: json['id'],
       name: json['name'],
-      url_path: json['url_path'],
+      url_path: json['url_path'] ?? '',
       level: json['level'] ?? 2,
       position: json['position'] ?? 1,
       include_in_menu: json['include_in_menu'] ?? 1,
@@ -96,7 +96,7 @@ class CategoryModel {
     return CategoryModel(
       id: json['id'],
       name: json['name'],
-      url_path: json['url_path'],
+      url_path: json['url_path'] ?? '',
       level: json['level'] ?? 2,
       position: json['position'],
       include_in_menu: json['include_in_menu'] ?? 1,
