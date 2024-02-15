@@ -14,63 +14,27 @@
       },
       "oauth_client": [
         {
-          "client_id": "86990247944-34ep25lje0s6o9tanfc96u4mjsorahvp.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAbF0Jln55nSFRE65JFsdDjBbff59tuRbE"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "86990247944-34ep25lje0s6o9tanfc96u4mjsorahvp.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "86990247944-il6iggt6jk0e3b09654ca349sp07n47n.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.medihealth.RunnerTests"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:86990247944:android:1ca9456a1e5d2eb90e59bd",
-        "android_client_info": {
-          "package_name": "tech.darkinc.medishield"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "86990247944-a5j074llmqtubc5vaesubt1kavuhduuk.apps.googleusercontent.com",
+          "client_id": "86990247944-0nk2tbdlq35nfhd00rpq7cg6r9tlqb6l.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "tech.darkinc.medishield",
-            "certificate_hash": "91e49349e1cde06fb4ef904cfcbeaf4609308720"
+            "package_name": "com.medishieldhealthcare.medishield",
+            "certificate_hash": "83330480163cc7d2159e795970327a79d61795ba"
           }
         },
         {
-          "client_id": "86990247944-ji357099u701qrn68o5a4drae6ep902g.apps.googleusercontent.com",
+          "client_id": "86990247944-hvil7ut3oob80duln2989ubk9j4un85u.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "tech.darkinc.medishield",
+            "package_name": "com.medishieldhealthcare.medishield",
             "certificate_hash": "b09d363acb5e32ac2167b90d79d7da54966ebceb"
           }
         },
         {
-          "client_id": "86990247944-kjn36uov8ki3ce59bq1r8nleu9momuvl.apps.googleusercontent.com",
+          "client_id": "86990247944-m3fbujg12g2u13kr5dtsaam5e7v04g9q.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "tech.darkinc.medishield",
-            "certificate_hash": "83330480163cc7d2159e795970327a79d61795ba"
+            "package_name": "com.medishieldhealthcare.medishield",
+            "certificate_hash": "91e49349e1cde06fb4ef904cfcbeaf4609308720"
           }
         },
         {

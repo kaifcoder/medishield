@@ -67,7 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '86990247944',
     projectId: 'medishield-ecom',
     storageBucket: 'medishield-ecom.appspot.com',
-    androidClientId: '86990247944-a5j074llmqtubc5vaesubt1kavuhduuk.apps.googleusercontent.com',
+    androidClientId: '86990247944-0nk2tbdlq35nfhd00rpq7cg6r9tlqb6l.apps.googleusercontent.com',
     iosClientId: '86990247944-pc3l3nsgr391efp0mqdp2cjrtrf9i420.apps.googleusercontent.com',
     iosBundleId: 'com.example.medihealth',
   );
@@ -78,7 +78,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '86990247944',
     projectId: 'medishield-ecom',
     storageBucket: 'medishield-ecom.appspot.com',
-    androidClientId: '86990247944-a5j074llmqtubc5vaesubt1kavuhduuk.apps.googleusercontent.com',
+    androidClientId: '86990247944-0nk2tbdlq35nfhd00rpq7cg6r9tlqb6l.apps.googleusercontent.com',
     iosClientId: '86990247944-il6iggt6jk0e3b09654ca349sp07n47n.apps.googleusercontent.com',
     iosBundleId: 'com.example.medihealth.RunnerTests',
   );
