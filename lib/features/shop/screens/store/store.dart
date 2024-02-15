@@ -10,14 +10,13 @@ import 'package:medishield/features/shop/controllers/all_product_controller.dart
 import 'package:medishield/features/shop/controllers/brand_controller.dart';
 import 'package:medishield/features/shop/controllers/category_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
-import 'package:medishield/features/shop/screens/Search/Search.dart';
+import 'package:medishield/features/shop/screens/Search/search.dart';
 import 'package:medishield/features/shop/screens/brands/all_brands.dart';
 import 'package:medishield/features/shop/screens/cart/cart.dart';
 import 'package:medishield/features/shop/screens/view_all_products/all_product.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
-
 import 'widgets/brand_card.dart';
 import 'widgets/t_category_tab.dart';
 

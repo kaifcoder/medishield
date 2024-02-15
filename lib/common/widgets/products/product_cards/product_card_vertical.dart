@@ -141,9 +141,9 @@ class ProductCardVertical extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: TColors.dark,
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(TSizes.cardRadiusMd),
                       bottomRight: Radius.circular(TSizes.productImageRadius),
                     ),

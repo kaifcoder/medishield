@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/animation_loader.dart';
-
-import 'pop_scope.dart';
+import 'package:medishield/utils/popups/pop_scope.dart';
 
 class FullScreenLoader {
   static void openLoadingDialog(String text, String animation) {

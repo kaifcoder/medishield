@@ -161,7 +161,7 @@ class ProductCardHorizontal extends StatelessWidget {
                                         v: product!.sku);
                                   }
                                 },
-                                icon: Icon(Iconsax.add, color: TColors.white),
+                                icon: const Icon(Iconsax.add, color: TColors.white),
                               ),
                             ),
                           ),
