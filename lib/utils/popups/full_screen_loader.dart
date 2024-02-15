@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/animation_loader.dart';
-import 'package:medishield/utils/popups/pop_scope.dart';
+import 'package:medishield/utils/popups/pop_scope.dart' as medishield;
 
 class FullScreenLoader {
   static void openLoadingDialog(String text, String animation) {
     showDialog(
       context: Get.overlayContext!,
       barrierDismissible: false,
-      builder: (_) => PopScope(
+      builder: (_) => medishield.PopScope(
         canPop: false,
         child: Container(
           color: Colors.white,
