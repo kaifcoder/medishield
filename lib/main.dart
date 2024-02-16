@@ -6,7 +6,6 @@ import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/firebase_options.dart';
 import 'app.dart';
 
-// Entry point of the app
 Future<void> main() async {
   await GetStorage.init();
   // initialize the firebase app
