@@ -26,7 +26,7 @@ jobs:
       - run: flutter build appbundle
       - name: Build IPA
         run: |
-          flutter build ipa --no-codesign
+          flutter build ios --no-codesign
           cd build/ios/iphoneos
           mkdir Payload
           cd Payload
@@ -56,4 +56,3 @@ jobs:
       #     token: ${{secrets.FIREBASE_TOKEN}}
       #     groups: testers
       #     file: build/app/outputs/apk/release/app-release.apk
-# on: push    # Default will running for every branch.
