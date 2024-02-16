@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>API_KEY</key>
-	<string>AIzaSyCS1GxFQG-hOPDX40yf7qVJ8918YMMKm-s</string>
-	<key>GCM_SENDER_ID</key>
-	<string>86990247944</string>
-	<key>PLIST_VERSION</key>
-	<string>1</string>
-	<key>BUNDLE_ID</key>
-	<string>com.example.medihealth</string>
-	<key>PROJECT_ID</key>
-	<string>medishield-ecom</string>
-	<key>STORAGE_BUCKET</key>
-	<string>medishield-ecom.appspot.com</string>
-	<key>IS_ADS_ENABLED</key>
-	<false></false>
-	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
-	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
-	<key>IS_GCM_ENABLED</key>
-	<true></true>
-	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
-	<key>GOOGLE_APP_ID</key>
-	<string>1:86990247944:ios:fecfaaabb0add1860e59bd</string>
-</dict>
+	<dict>
+		<key>CLIENT_ID</key>
+		<string>86990247944-pc3l3nsgr391efp0mqdp2cjrtrf9i420.apps.googleusercontent.com</string>
+		<key>REVERSED_CLIENT_ID</key>
+		<string>com.googleusercontent.apps.86990247944-pc3l3nsgr391efp0mqdp2cjrtrf9i420</string>
+		<key>ANDROID_CLIENT_ID</key>
+		<string>86990247944-0nk2tbdlq35nfhd00rpq7cg6r9tlqb6l.apps.googleusercontent.com</string>
+		<key>API_KEY</key>
+		<string>AIzaSyCS1GxFQG-hOPDX40yf7qVJ8918YMMKm-s</string>
+		<key>GCM_SENDER_ID</key>
+		<string>86990247944</string>
+		<key>PLIST_VERSION</key>
+		<string>1</string>
+		<key>BUNDLE_ID</key>
+		<string>com.example.medihealth</string>
+		<key>PROJECT_ID</key>
+		<string>medishield-ecom</string>
+		<key>STORAGE_BUCKET</key>
+		<string>medishield-ecom.appspot.com</string>
+		<key>IS_ADS_ENABLED</key>
+		<false></false>
+		<key>IS_ANALYTICS_ENABLED</key>
+		<false></false>
+		<key>IS_APPINVITE_ENABLED</key>
+		<true></true>
+		<key>IS_GCM_ENABLED</key>
+		<true></true>
+		<key>IS_SIGNIN_ENABLED</key>
+		<true></true>
+		<key>GOOGLE_APP_ID</key>
+		<string>1:86990247944:ios:fecfaaabb0add1860e59bd</string>
+	</dict>
 </plist>
