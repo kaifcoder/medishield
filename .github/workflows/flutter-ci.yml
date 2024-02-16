@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       # Setup Java environment in order to build the Android app.
       - uses: actions/checkout@v1
@@ -22,17 +22,26 @@ jobs:
           channel: "stable" # 'dev', 'alpha', default to: 'stable'
           # flutter-version: '1.12.x' # you can also specify exact version of flutter
       - run: flutter pub get
-      - run: flutter build apk
+      - run: flutter build apk --release
+      - name: Build IPA
+        run: flutter build ipa --no-codesign
+      - name: Compress Archives and IPAs
+        run: |
+          cd build
+          tar -czf ios_build.tar.gz ios
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
           name: app-release
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: |
+            build/app/outputs/flutter-apk/app-release.apk
+            build/app/outputs/bundle/release/app-release.aab
+            build/ios_build.tar.gz
 
       - name: Create Release
         uses: ncipollo/release-action@v1.14.0
         with:
-          artifacts: build/app/outputs/apk/release/*
+          artifacts: "build/app/outputs/flutter-apk/app-release.apk,build/app/outputs/bundle/release/app-release.aab,build/ios_build.tar.gz"
           token: ${{ secrets.TOKEN }}
           tag: v1.0.${{ github.run_number }}
       - name: Firebase App Distribution
