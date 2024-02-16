@@ -23,12 +23,23 @@ jobs:
           # flutter-version: '1.12.x' # you can also specify exact version of flutter
       - run: flutter pub get
       - run: flutter build apk --release
+      - run: flutter build appbundle
+      - run: |
+          cd ios
+          rm podfile.lock
+          pod disintegrate
+          pod repo update
+          pod install
       - name: Build IPA
-        run: flutter build ipa --no-codesign
-      - name: Compress Archives and IPAs
         run: |
-          cd build
-          tar -czf ios_build.tar.gz ios
+          flutter build ipa --no-codesign
+          cd build/ios/iphoneos
+          mkdir Payload
+          cd Payload
+          ln -s ../Runner.app
+          cd ..
+          zip -r app.ipa Payload
+
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
@@ -36,19 +47,19 @@ jobs:
           path: |
             build/app/outputs/flutter-apk/app-release.apk
             build/app/outputs/bundle/release/app-release.aab
-            build/ios_build.tar.gz
+            build/ios/iphoneos/app.ipa
 
       - name: Create Release
         uses: ncipollo/release-action@v1.14.0
         with:
-          artifacts: "build/app/outputs/flutter-apk/app-release.apk,build/app/outputs/bundle/release/app-release.aab,build/ios_build.tar.gz"
+          artifacts: "build/app/outputs/flutter-apk/app-release.apk,build/app/outputs/bundle/release/app-release.aab,build/ios/iphoneos/app.ipa"
           token: ${{ secrets.TOKEN }}
           tag: v1.0.${{ github.run_number }}
-      - name: Firebase App Distribution
-        uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
-        with:
-          appId: ${{secrets.FIREBASE_APP_ID}}
-          token: ${{secrets.FIREBASE_TOKEN}}
-          groups: testers
-          file: build/app/outputs/apk/release/app-release.apk
+      # - name: Firebase App Distribution
+      #   uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
+      #   with:
+      #     appId: ${{secrets.FIREBASE_APP_ID}}
+      #     token: ${{secrets.FIREBASE_TOKEN}}
+      #     groups: testers
+      #     file: build/app/outputs/apk/release/app-release.apk
 # on: push    # Default will running for every branch.
