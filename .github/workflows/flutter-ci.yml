@@ -24,12 +24,6 @@ jobs:
       - run: flutter pub get
       - run: flutter build apk --release
       - run: flutter build appbundle
-      - run: |
-          cd ios
-          rm podfile.lock
-          pod disintegrate
-          pod repo update
-          pod install
       - name: Build IPA
         run: |
           flutter build ipa --no-codesign
