@@ -113,7 +113,10 @@ class ProductCardHorizontal extends StatelessWidget {
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems / 2),
                   TBrandTitleText(
-                    title: product!.name.split(' ')[0],
+                    title: product!.childProducts.length > 1
+                        ? ProductModel.getManufacture(
+                            product!.childProducts[0].manufacturer)
+                        : ProductModel.getManufacture(product!.manufacturer),
                     maxLines: 1,
                     textColor: TColors.black,
                     textAlign: TextAlign.start,

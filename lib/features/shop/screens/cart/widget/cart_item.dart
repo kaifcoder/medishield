@@ -4,6 +4,7 @@ import 'package:medishield/common/widgets/images/t_rounded_image.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
 import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/features/shop/models/cart_model.dart';
+import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
@@ -48,7 +49,14 @@ class CartItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(product![index].product.name.split(' ')[0],
+                    Text(
+                        product![index].product.childProducts.length > 1
+                            ? ProductModel.getManufacture(product![index]
+                                .product
+                                .childProducts[0]
+                                .manufacturer)
+                            : ProductModel.getManufacture(
+                                product![index].product.manufacturer),
                         style: Theme.of(context).textTheme.labelMedium),
                     Text(
                         product![index].product.childProducts.length > 1

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
 import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/features/shop/controllers/order_controller.dart';
+import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/utils/constants/colors.dart';
 
 import 'package:medishield/utils/constants/sizes.dart';
@@ -47,8 +48,19 @@ class OrderItems extends StatelessWidget {
                         children: [
                           Text(
                               controller.orderData[oindex].products[index]
-                                  .product.name
-                                  .split(' ')[0],
+                                          .product.childProducts.length >
+                                      1
+                                  ? ProductModel.getManufacture(controller
+                                      .orderData[oindex]
+                                      .products[index]
+                                      .product
+                                      .childProducts[0]
+                                      .manufacturer)
+                                  : ProductModel.getManufacture(controller
+                                      .orderData[oindex]
+                                      .products[index]
+                                      .product
+                                      .manufacturer),
                               style: Theme.of(context).textTheme.labelMedium),
                           Text(
                               controller.orderData[oindex].products[index]

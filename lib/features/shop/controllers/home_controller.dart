@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:medishield/features/personalization/controllers/address_controller.dart';
+import 'package:medishield/features/shop/controllers/brand_controller.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
 import 'package:medishield/features/shop/controllers/order_controller.dart';
 import 'package:medishield/features/shop/controllers/wishlist_controller.dart';
@@ -10,10 +11,12 @@ class HomeController extends GetxController {
   final orderController = Get.put(OrderController());
   final addressController = AddressController.instance;
   final wishlistController = WishlistController.instance;
+  final brandController = Get.put(BrandController());
 
   @override
   void onInit() {
     super.onInit();
+    brandController.loadBrandData();
     cartController.fetchCartItems();
     addressController.fetchAddresses();
     orderController.fetchOrders();

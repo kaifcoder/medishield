@@ -53,7 +53,10 @@ class ProductDetailScreen extends StatelessWidget {
                     title: product.name,
                     isInStock: product.isInStock,
                     shortDescription: product.shortDescription,
-                    manufacturer: product.name.split(' ')[0],
+                    manufacturer: product.childProducts.length > 1
+                        ? ProductModel.getManufacture(
+                            product.childProducts[0].manufacturer)
+                        : ProductModel.getManufacture(product.manufacturer),
                     price: product.price.minimalPrice.toDouble(),
                     originalPrice: product.price.regularPrice.toDouble(),
                     discount: product.price.minimalPrice.toDouble(),

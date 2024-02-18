@@ -1,3 +1,8 @@
+import 'dart:ffi';
+
+import 'package:flutter/material.dart';
+import 'package:medishield/features/shop/controllers/brand_controller.dart';
+
 class ProductModel {
   final String prodId;
   final int id;
@@ -41,7 +46,7 @@ class ProductModel {
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
       prodId: json['_id'] ?? '',
-      id: json['id'] ?? '',
+      id: json['id'] ?? 0,
       name: json['name'] ?? '',
       sku: json['sku'] ?? '',
       thumbnailUrl: json['thumbnail_url'] ?? '',
@@ -63,6 +68,15 @@ class ProductModel {
       productSpecs: json['product_specs'] ?? {},
       banners: json['banners'] ?? [],
     );
+  }
+
+  static getManufacture(manufacturer) {
+    if (manufacturer.contains(RegExp(r'[a-zA-Z]'))) return manufacturer;
+    var manuId = int.parse(manufacturer);
+    final brandName = BrandController.instance.brandList
+        .firstWhere((element) => element.brandId == manuId)
+        .name;
+    return brandName;
   }
 }
 

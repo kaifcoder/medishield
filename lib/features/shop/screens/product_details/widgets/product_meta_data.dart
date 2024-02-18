@@ -79,7 +79,7 @@ class ProductMetaData extends StatelessWidget {
               width: TSizes.xs,
             ),
             // original price
-            if (!child)
+            if (!child && discount > 0)
               Text(
                 '$ccy ${originalPrice * rate}',
                 style: Theme.of(context).textTheme.bodySmall!.apply(
@@ -90,7 +90,7 @@ class ProductMetaData extends StatelessWidget {
               width: TSizes.sm,
             ),
             // discount
-            if (!child)
+            if (!child && discount > 0)
               Text(
                 '$discount% off',
                 style: Theme.of(context).textTheme.labelLarge!.apply(
