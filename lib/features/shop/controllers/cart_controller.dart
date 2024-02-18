@@ -86,10 +86,9 @@ class CartController extends GetxController {
       userCart.value = CartModel.fromJson(res);
       total.value = userCart.value.cartTotal;
       grandTotal.value = userCart.value.cartTotal + 150;
-      THelperFunctions.showSnackBar('Added to cart');
+      THelperFunctions.showSnackBar('Cart updated');
       counter.value = 1;
       update();
-      // await fetchCartItems();
     } catch (e) {
       rethrow;
     }
@@ -101,30 +100,14 @@ class CartController extends GetxController {
       required int price,
       String v = ''}) async {
     try {
-      if (count == -1) {
-        await cartRepo.removeFromCart(
-          prodId: product,
-          v: v,
-        );
-        THelperFunctions.showSnackBar('Removed from cart');
-        await fetchCartItems();
-        return;
-      } else if (count == 1) {
-        final res = await cartRepo.addtocart(
-          prodId: product,
-          count: -count,
-          price: price,
-          v: v,
-        );
-        userCart.value = CartModel.fromJson(res);
-        total.value = userCart.value.cartTotal;
-        grandTotal.value = userCart.value.cartTotal + 150;
-        THelperFunctions.showSnackBar('Removed from cart');
-        update();
-
-        return;
-      }
+      await cartRepo.removeFromCart(
+        prodId: product,
+        v: v,
+      );
+      THelperFunctions.showSnackBar('Removed from cart');
+      await fetchCartItems();
       update();
+      return;
     } catch (e) {
       rethrow;
     }

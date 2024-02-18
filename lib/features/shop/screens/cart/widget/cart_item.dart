@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
@@ -80,41 +81,55 @@ class CartItem extends StatelessWidget {
                         if (showQuantity)
                           Row(
                             children: [
+                              const Text('Qty: '),
+                              const SizedBox(width: TSizes.spaceBtwItems / 2),
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: TSizes.spaceBtwItems / 2),
+                                child: DropdownButton(
+                                    icon: const Icon(Iconsax.arrow_down),
+                                    iconSize: 16,
+                                    alignment: Alignment.bottomCenter,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineSmall!,
+                                    elevation: 2,
+                                    isDense: true,
+                                    hint:
+                                        Text(product![index].count.toString()),
+                                    value: product![index].count,
+                                    items: List.generate(
+                                      5,
+                                      (index) => DropdownMenuItem(
+                                        alignment: Alignment.center,
+                                        value: index + 1,
+                                        child: Text(
+                                          (index + 1).toString(),
+                                        ),
+                                      ),
+                                    ),
+                                    onChanged: (value) {
+                                      controller.addToCart(
+                                        product: product![index].product.prodId,
+                                        count: value! - product![index].count,
+                                        price: product![index].price,
+                                        v: product![index].variant,
+                                      );
+                                    }),
+                              ),
+                              const SizedBox(
+                                width: TSizes.spaceBtwItems,
+                              ),
                               IconButton(
                                   onPressed: () {
                                     controller.removeFromCart(
                                       product: product![index].product.prodId,
-                                      count:
-                                          product![index].count <= 1 ? -1 : 1,
+                                      count: -product![index].count,
                                       price: product![index].price,
                                       v: product![index].variant,
                                     );
                                   },
-                                  icon: const Icon(Iconsax.minus)),
-                              const SizedBox(
-                                width: TSizes.spaceBtwItems,
-                              ),
-                              Text(
-                                product![index].count.toString(),
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall!
-                                    .apply(color: TColors.black),
-                              ),
-                              const SizedBox(
-                                width: TSizes.spaceBtwItems,
-                              ),
-                              IconButton(
-                                onPressed: () {
-                                  controller.addToCart(
-                                    product: product![index].product.prodId,
-                                    count: 1,
-                                    price: product![index].price,
-                                    v: product![index].variant,
-                                  );
-                                },
-                                icon: const Icon(Iconsax.add),
-                              ),
+                                  icon: const Icon(Iconsax.trash)),
                             ],
                           ),
                         const Spacer(),

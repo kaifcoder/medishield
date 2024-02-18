@@ -9,9 +9,9 @@ class HomeController extends GetxController {
   static HomeController get instance => Get.find();
   final cartController = Get.put(CartController());
   final orderController = Get.put(OrderController());
+  final brandController = BrandController.instance;
   final addressController = AddressController.instance;
   final wishlistController = WishlistController.instance;
-  final brandController = Get.put(BrandController());
 
   @override
   void onInit() {
