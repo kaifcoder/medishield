@@ -14,7 +14,6 @@ import 'package:medishield/features/shop/screens/product_details/widgets/product
 import 'package:medishield/features/shop/screens/product_details/widgets/product_variants.dart';
 import 'package:medishield/features/shop/screens/product_details/widgets/qa_widget.dart';
 import 'package:medishield/utils/constants/sizes.dart';
-
 import 'widgets/product_image_slider.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -52,6 +51,7 @@ class ProductDetailScreen extends StatelessWidget {
                   ),
                   ProductMetaData(
                     title: product.name,
+                    isInStock: product.isInStock,
                     shortDescription: product.shortDescription,
                     manufacturer: product.name.split(' ')[0],
                     price: product.price.minimalPrice.toDouble(),
@@ -101,50 +101,51 @@ class ProductDetailScreen extends StatelessWidget {
                   ),
 
                   /// checkout button
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () async {
-                        if (AuthenticationRepository.instance.deviceStorage
-                                .read('token') ==
-                            null) {
-                          Get.offAll(() => const LoginScreen());
-                          return;
-                        }
-                        // add to cart
-                        cartController.addToCart(
-                          product: product.prodId,
-                          count: 1,
-                          price: product.childProducts.length > 1
-                              ? product
-                                          .childProducts[variantController
-                                              .selectedVariantIndex.value]
-                                          .price
-                                          .minimalPrice ==
-                                      0
-                                  ? product
-                                      .childProducts[variantController
-                                          .selectedVariantIndex.value]
-                                      .specialPrice!
-                                  : product
-                                      .childProducts[variantController
-                                          .selectedVariantIndex.value]
-                                      .price
-                                      .minimalPrice
-                              : product.price.minimalPrice,
-                          v: product.childProducts.length > 1
-                              ? product
-                                  .childProducts[variantController
-                                      .selectedVariantIndex.value]
-                                  .sku
-                              : product.sku,
-                        );
-                        // navigate to cart
-                        await Get.to(() => const CheckoutScreen());
-                      },
-                      child: const Text('Checkout'),
+                  if (product.isInStock)
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          if (AuthenticationRepository.instance.deviceStorage
+                                  .read('token') ==
+                              null) {
+                            Get.offAll(() => const LoginScreen());
+                            return;
+                          }
+                          // add to cart
+                          cartController.addToCart(
+                            product: product.prodId,
+                            count: 1,
+                            price: product.childProducts.length > 1
+                                ? product
+                                            .childProducts[variantController
+                                                .selectedVariantIndex.value]
+                                            .price
+                                            .minimalPrice ==
+                                        0
+                                    ? product
+                                        .childProducts[variantController
+                                            .selectedVariantIndex.value]
+                                        .specialPrice!
+                                    : product
+                                        .childProducts[variantController
+                                            .selectedVariantIndex.value]
+                                        .price
+                                        .minimalPrice
+                                : product.price.minimalPrice,
+                            v: product.childProducts.length > 1
+                                ? product
+                                    .childProducts[variantController
+                                        .selectedVariantIndex.value]
+                                    .sku
+                                : product.sku,
+                          );
+                          // navigate to cart
+                          await Get.to(() => const CheckoutScreen());
+                        },
+                        child: const Text('Checkout'),
+                      ),
                     ),
-                  ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),

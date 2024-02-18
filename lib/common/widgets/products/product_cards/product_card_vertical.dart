@@ -56,8 +56,9 @@ class ProductCardVertical extends StatelessWidget {
               backgroundColor: dark ? TColors.dark : TColors.light,
               child: Stack(children: [
                 TRoundedImage(
-                  imageUrl:
-                      'https://images.dentalkart.com/media/catalog/product/${product!.thumbnailUrl}',
+                  imageUrl: (product!.thumbnailUrl.contains('http'))
+                      ? product!.thumbnailUrl
+                      : 'https://images.dentalkart.com/media/catalog/product/${product!.thumbnailUrl}',
                   isNetworkImage: true,
                 ),
                 if (salePercentage > 0)
@@ -95,7 +96,25 @@ class ProductCardVertical extends StatelessWidget {
                             : TColors.darkGrey,
                       ),
                     ),
-                  )
+                  ),
+                if (product!.isInStock == false)
+                  Positioned(
+                    top: 0,
+                    left: 0,
+                    child: TRoundedContainer(
+                      borderRadius: TSizes.sm,
+                      backgroundColor: TColors.secondary.withOpacity(0.8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: TSizes.sm, vertical: TSizes.xs),
+                      child: Text(
+                        'Out of Stock',
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge!
+                            .apply(color: TColors.black),
+                      ),
+                    ), // TRoundedContainer
+                  ),
               ]),
             ),
             const SizedBox(height: TSizes.spaceBtwItems / 2),

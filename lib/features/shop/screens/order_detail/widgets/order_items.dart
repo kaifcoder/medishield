@@ -27,8 +27,12 @@ class OrderItems extends StatelessWidget {
                   children: [
                     TRoundedImage(
                       isNetworkImage: true,
-                      imageUrl:
-                          'https://images.dentalkart.com/media/catalog/product/${controller.orderData[oindex].products[index].product.thumbnailUrl}',
+                      imageUrl: (controller.orderData[oindex].products[index]
+                              .product.thumbnailUrl
+                              .contains('http'))
+                          ? controller.orderData[oindex].products[index].product
+                              .thumbnailUrl
+                          : 'https://images.dentalkart.com/media/catalog/product/${controller.orderData[oindex].products[index].product.thumbnailUrl}',
                       height: 80,
                       width: 80,
                       padding: const EdgeInsets.all(TSizes.xs),

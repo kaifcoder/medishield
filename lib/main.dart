@@ -8,7 +8,7 @@ import 'app.dart';
 
 Future<void> main() async {
   await GetStorage.init();
-  // initialize the firebase app
+
   Get.put(LocationController());
   await LocationController.instance.getCurrentPosition();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);

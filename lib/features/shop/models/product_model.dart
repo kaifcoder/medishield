@@ -48,7 +48,7 @@ class ProductModel {
       shortDescription: json['short_description'] ?? '',
       manufacturer: json['manufacturer'] ?? '',
       averageRating: json['average_rating'] ?? '',
-      isInStock: json['is_in_stock'] ?? false,
+      isInStock: json['max_sale_qty'] > 0 ? true : false,
       isCod: json['is_cod'] ?? '',
       price: Price.fromJson(json['price'] ?? {}),
       mediaGalleryEntries: List<MediaGalleryEntry>.from(

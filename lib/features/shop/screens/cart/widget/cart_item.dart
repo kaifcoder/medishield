@@ -30,8 +30,12 @@ class CartItem extends StatelessWidget {
             children: [
               TRoundedImage(
                 isNetworkImage: true,
-                imageUrl:
-                    'https://images.dentalkart.com/media/catalog/product/${product![index].product.thumbnailUrl}',
+                imageUrl: (product![index]
+                        .product
+                        .thumbnailUrl
+                        .contains('http'))
+                    ? product![index].product.thumbnailUrl
+                    : 'https://images.dentalkart.com/media/catalog/product/${product![index].product.thumbnailUrl}',
                 height: 80,
                 width: 80,
                 padding: const EdgeInsets.all(TSizes.xs),

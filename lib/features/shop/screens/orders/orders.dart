@@ -34,7 +34,7 @@ class OrderScreen extends StatelessWidget {
         padding: const EdgeInsets.all(TSizes.defaultSpace),
         itemBuilder: (_, index) => TOrderCard(
           orderNumber: 'Order #${controller.orderData[index].id}',
-          orderDate: controller.orderData[index].createdAt,
+          orderDate: controller.orderData[index].createdAt.toString(),
           name: controller.orderData[index].products.first.product.name,
           orderStatus: controller.orderData[index].orderStatus,
           orderAmount:

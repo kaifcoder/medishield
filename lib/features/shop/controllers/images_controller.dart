@@ -7,13 +7,16 @@ class ImagesController extends GetxController {
 
   List<String> getAllProductImages(ProductModel product) {
     Set<String> images = {};
-    images.add(
-        'https://images.dentalkart.com/media/catalog/product/${product.thumbnailUrl}');
-    selectedImage.value =
-        'https://images.dentalkart.com/media/catalog/product/${product.thumbnailUrl}';
+    images.add((product!.thumbnailUrl.contains('http'))
+        ? product!.thumbnailUrl
+        : 'https://images.dentalkart.com/media/catalog/product/${product.thumbnailUrl}');
+    selectedImage.value = (product!.thumbnailUrl.contains('http'))
+        ? product!.thumbnailUrl
+        : 'https://images.dentalkart.com/media/catalog/product/${product.thumbnailUrl}';
     for (var element in product.mediaGalleryEntries) {
-      images.add(
-          'https://images.dentalkart.com/media/catalog/product/${element.file}');
+      images.add((element.file.contains('http'))
+          ? element.file
+          : 'https://images.dentalkart.com/media/catalog/product/${element.file}');
     }
     if (product.childProducts.length > 1) {
       for (var element in product.childProducts) {

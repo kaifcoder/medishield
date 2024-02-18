@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/common/widgets/icons/t_circular_icon.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
 import 'package:medishield/features/shop/controllers/product_variants_controller.dart';
@@ -80,6 +81,10 @@ class BottomAddToCartBar extends StatelessWidget {
                   ),
                   side: const BorderSide(color: TColors.black)),
               onPressed: () {
+                if (product.isInStock == false) {
+                  CustomSnackbar.warningSnackBar('Product is out of stock.');
+                  return;
+                }
                 controller.addToCart(
                   product: product.prodId,
                   count: controller.counter.value,
@@ -104,7 +109,7 @@ class BottomAddToCartBar extends StatelessWidget {
                       : product.sku,
                 );
               },
-              child: const Text('Add to cart'))
+              child: Text(product.isInStock ? 'Add to cart' : 'Out of stock'))
         ],
       ),
     );

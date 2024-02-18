@@ -13,9 +13,11 @@ class ProductMetaData extends StatelessWidget {
       required this.price,
       this.originalPrice = 1,
       this.discount = 1,
-      required this.child});
+      required this.child,
+      required this.isInStock});
 
   final String title, shortDescription, manufacturer;
+  final bool isInStock;
   final double price, originalPrice, discount;
   final bool child;
 
@@ -102,9 +104,9 @@ class ProductMetaData extends StatelessWidget {
           height: TSizes.spaceBtwItems / 1.5,
         ),
         Text(
-          'In Stock',
+          isInStock ? 'In Stock' : 'Out of Stock',
           style: Theme.of(context).textTheme.bodySmall!.apply(
-                color: TColors.success,
+                color: isInStock ? TColors.success : TColors.error,
               ),
         ),
       ],

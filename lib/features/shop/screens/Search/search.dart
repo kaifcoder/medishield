@@ -75,8 +75,11 @@ class SearchScreen extends StatelessWidget {
                             height: 50,
                             width: 50,
                             child: CachedNetworkImage(
-                              imageUrl:
-                                  'https://images.dentalkart.com/media/catalog/product/${products[index].thumbnailUrl}',
+                              imageUrl: (products[index]
+                                      .thumbnailUrl
+                                      .contains('http'))
+                                  ? products[index].thumbnailUrl
+                                  : 'https://images.dentalkart.com/media/catalog/product/${products[index].thumbnailUrl}',
                               placeholder: (context, url) =>
                                   const CustomShimmer(
                                 height: 50,

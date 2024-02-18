@@ -58,7 +58,7 @@ class TOrderCard extends StatelessWidget {
             height: 8,
           ),
           Text(
-            'Order Date: $orderDate',
+            'Order Date: ${DateTime.parse(orderDate).toLocal().toString().split(' ')[0]}',
             style: Theme.of(context).textTheme.bodySmall,
           ),
           const SizedBox(

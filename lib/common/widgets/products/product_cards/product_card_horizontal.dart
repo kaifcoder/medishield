@@ -56,8 +56,9 @@ class ProductCardHorizontal extends StatelessWidget {
               child: Stack(children: [
                 TRoundedImage(
                   backgroundColor: TColors.light,
-                  imageUrl:
-                      'https://images.dentalkart.com/media/catalog/product/${product!.thumbnailUrl}',
+                  imageUrl: (product!.thumbnailUrl.contains('http'))
+                      ? product!.thumbnailUrl
+                      : 'https://images.dentalkart.com/media/catalog/product/${product!.thumbnailUrl}',
                   isNetworkImage: true,
                 ),
                 if (salePercentage > 0)
