@@ -42,7 +42,7 @@ class TTexts {
   static const String resendEmailIn = "Resend email in";
 
   // -- Authentication Headings
-  static const String loginTitle = "Welcome ,";
+  static const String loginTitle = "Welcome,";
   static const String loginSubTitle =
       "Discover Limitless Choices and Unmatched Convenience.";
   static const String signupTitle = "Let’s create your account";

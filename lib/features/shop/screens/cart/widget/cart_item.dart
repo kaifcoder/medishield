@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/images/t_rounded_image.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
@@ -97,7 +96,6 @@ class CartItem extends StatelessWidget {
                                     isDense: true,
                                     hint:
                                         Text(product![index].count.toString()),
-                                    value: product![index].count,
                                     items: List.generate(
                                       5,
                                       (index) => DropdownMenuItem(

@@ -227,12 +227,49 @@ class ProductDetailScreen extends StatelessWidget {
                             const SizedBox(
                               height: TSizes.spaceBtwItems,
                             ),
-                            TextButton(
-                                style: TextButton.styleFrom(
-                                  foregroundColor: Colors.black,
-                                ),
-                                onPressed: () {},
-                                child: const Text('Ask a question'))
+                            // TextButton(
+                            //     style: TextButton.styleFrom(
+                            //       foregroundColor: Colors.black,
+                            //     ),
+                            //     onPressed: () {
+                            //       Get.bottomSheet(
+                            //           backgroundColor: Colors.white,
+                            //           Padding(
+                            //             padding:
+                            //                 const EdgeInsets.all(TSizes.md),
+                            //             child: Column(
+                            //               mainAxisSize: MainAxisSize.min,
+                            //               children: [
+                            //                 const TSectionHeading(
+                            //                   title: 'Ask a question',
+                            //                 ),
+                            //                 const SizedBox(
+                            //                   height: TSizes.spaceBtwItems,
+                            //                 ),
+                            //                 const TextField(
+                            //                   decoration: const InputDecoration(
+                            //                     hintText:
+                            //                         'Type your question here',
+                            //                     border: OutlineInputBorder(),
+                            //                   ),
+                            //                 ),
+                            //                 const SizedBox(
+                            //                   height: TSizes.spaceBtwItems,
+                            //                 ),
+                            //                 SizedBox(
+                            //                   width: double.infinity,
+                            //                   child: ElevatedButton(
+                            //                     onPressed: () {
+                            //                       Get.back();
+                            //                     },
+                            //                     child: const Text('Submit'),
+                            //                   ),
+                            //                 )
+                            //               ],
+                            //             ),
+                            //           ));
+                            //     },
+                            //     child: const Text('Ask a question'))
                           ],
                         )
                       ]),

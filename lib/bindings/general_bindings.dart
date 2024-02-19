@@ -7,7 +7,7 @@ import 'package:medishield/utils/helpers/network_manager.dart';
 
 class GeneralBindings extends Bindings {
   @override
-  void dependencies() {
+  void dependencies() async {
     Get.put(NetworkManager());
     Get.put(AuthenticationRepository());
     Get.put(BrandController());

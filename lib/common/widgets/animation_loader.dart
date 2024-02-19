@@ -27,7 +27,7 @@ class AnimationLoader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(
-            height: 150,
+            height: 140,
           ),
           Lottie.asset(animation,
               width: TDeviceUtils.getScreenWidth(context) * 0.8),

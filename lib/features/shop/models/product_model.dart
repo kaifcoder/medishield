@@ -1,6 +1,3 @@
-import 'dart:ffi';
-
-import 'package:flutter/material.dart';
 import 'package:medishield/features/shop/controllers/brand_controller.dart';
 
 class ProductModel {
