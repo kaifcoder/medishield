@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medishield/features/personalization/controllers/user_controller.dart';
 
 class Reward {
   final String title;
@@ -10,14 +11,15 @@ class Reward {
 
 class RewardScreen extends StatelessWidget {
   // Dummy list of rewards for demonstration purposes
-  final List<Reward> rewards = [
-    Reward(title: 'Your Medishield Coins', description: '100 MSC'),
-  ];
+  final msc = UserController.instance.user.value.medishieldcoins.toString();
 
   RewardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var rewards = [
+      Reward(title: 'Your Medishield Coins', description: '$msc MSC'),
+    ];
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your Rewards'),

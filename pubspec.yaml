@@ -53,6 +53,11 @@ dependencies:
   toast: ^0.3.0
   toasty_snackbar: ^0.0.1
   awesome_otp_screen: ^0.0.2
+  flutter_chat_ui: ^1.6.12
+  chat_gpt_flutter: ^1.0.15
+  uuid: ^4.2.2
+  chat_bubbles: ^1.6.0
+  share_plus: ^7.2.2
 
 dev_dependencies:
   flutter_test:

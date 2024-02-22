@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/t_primary_header_container.dart';
 import 'package:medishield/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:medishield/common/widgets/shimmers/product_shimmer.dart';
 import 'package:medishield/features/shop/controllers/home_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/screens/categories/categories.dart';
+import 'package:medishield/features/shop/screens/chat/chat.dart';
+import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/device/device_utility.dart';
 import '../../../../common/widgets/layouts/grid_layout.dart';
@@ -149,9 +152,19 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: TColors.primary,
+        onPressed: () {
+          Get.to(() => const ChatScreen());
+        },
+        child: const Icon(
+          Iconsax.message,
+          color: Colors.white,
         ),
       ),
     );

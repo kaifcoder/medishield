@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 class UserModel {
   String? email;
   String? password;
@@ -6,6 +8,8 @@ class UserModel {
   String? mobile;
   bool? isEmailVerified;
   String? googleAuthToken;
+  String? referralCode;
+  final int? medishieldcoins;
 
   UserModel(
       {this.email,
@@ -14,7 +18,9 @@ class UserModel {
       this.lastName,
       this.mobile,
       this.isEmailVerified,
-      this.googleAuthToken});
+      this.googleAuthToken,
+      this.referralCode,
+      this.medishieldcoins});
 
   String get fullName => '$firstName $lastName';
 
@@ -22,14 +28,14 @@ class UserModel {
 
   static UserModel empty() {
     return UserModel(
-      email: '',
-      password: '',
-      firstName: '',
-      lastName: '',
-      mobile: '',
-      isEmailVerified: null,
-      googleAuthToken: '',
-    );
+        email: '',
+        password: '',
+        firstName: '',
+        lastName: '',
+        mobile: '',
+        isEmailVerified: null,
+        googleAuthToken: '',
+        referralCode: '');
   }
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -44,6 +50,8 @@ class UserModel {
       mobile: json['mobile'] ?? '',
       isEmailVerified: json['isEmailVerified'] ?? false,
       googleAuthToken: json['googleAuthToken'] ?? '',
+      referralCode: json['referralCode'] ?? '',
+      medishieldcoins: json['medishieldcoins'] ?? 0,
     );
   }
 
@@ -56,6 +64,7 @@ class UserModel {
     data['mobile'] = mobile;
     data['isEmailVerified'] = isEmailVerified ?? false;
     data['googleAuthToken'] = googleAuthToken;
+    data['referralCode'] = referralCode;
     return data;
   }
 }

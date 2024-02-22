@@ -4,7 +4,20 @@ import 'package:medishield/features/shop/screens/product_details/widgets/rating_
 class OverallProductRating extends StatelessWidget {
   const OverallProductRating({
     super.key,
+    required this.averageRating,
+    required this.fiveStarRating,
+    required this.fourStarRating,
+    required this.threeStarRating,
+    required this.twoStarRating,
+    required this.oneStarRating,
   });
+
+  final String averageRating;
+  final double fiveStarRating;
+  final double fourStarRating;
+  final double threeStarRating;
+  final double twoStarRating;
+  final double oneStarRating;
 
   @override
   Widget build(BuildContext context) {
@@ -13,33 +26,33 @@ class OverallProductRating extends StatelessWidget {
         Expanded(
           flex: 3,
           child: Text(
-            '4.8',
+            averageRating,
             style: Theme.of(context).textTheme.displayLarge,
           ),
         ),
-        const Expanded(
+        Expanded(
           flex: 7,
           child: Column(
             children: [
               RatingProgressIndicator(
                 text: '5',
-                value: 0.8,
+                value: fiveStarRating,
               ),
               RatingProgressIndicator(
                 text: '4',
-                value: 0.3,
+                value: fourStarRating,
               ),
               RatingProgressIndicator(
                 text: '3',
-                value: 0.7,
+                value: threeStarRating,
               ),
               RatingProgressIndicator(
                 text: '2',
-                value: 0.4,
+                value: twoStarRating,
               ),
               RatingProgressIndicator(
                 text: '1',
-                value: 0.2,
+                value: oneStarRating,
               ),
             ],
           ),

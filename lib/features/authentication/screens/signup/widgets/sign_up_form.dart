@@ -98,6 +98,16 @@ class SignUpForm extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwItems,
           ),
+          TextFormField(
+            controller: controller.phoneNumber,
+            decoration: const InputDecoration(
+              labelText: 'Referral Code (optional)',
+              prefixIcon: Icon(Iconsax.user_add),
+            ),
+          ),
+          const SizedBox(
+            height: TSizes.spaceBtwInputFields,
+          ),
           const SizedBox(
             height: TSizes.spaceBtwSections,
           ),

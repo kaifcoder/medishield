@@ -12,13 +12,14 @@ class ProductModel {
   final bool isInStock;
   final String isCod;
   final Price price;
-
+  final String RatingCount;
   final List<MediaGalleryEntry> mediaGalleryEntries;
   final List<Category> categories;
   final List<QaData> qaData;
   final List<ChildProduct> childProducts;
   final Map<String, dynamic> productSpecs;
   final List<dynamic> banners;
+  final List<dynamic>? ratings;
 
   ProductModel({
     required this.prodId,
@@ -29,6 +30,7 @@ class ProductModel {
     required this.shortDescription,
     required this.manufacturer,
     required this.averageRating,
+    required this.RatingCount,
     required this.isInStock,
     required this.isCod,
     required this.price,
@@ -38,6 +40,7 @@ class ProductModel {
     required this.childProducts,
     required this.productSpecs,
     required this.banners,
+    this.ratings,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
@@ -49,7 +52,8 @@ class ProductModel {
       thumbnailUrl: json['thumbnail_url'] ?? '',
       shortDescription: json['short_description'] ?? '',
       manufacturer: json['manufacturer'] ?? '',
-      averageRating: json['average_rating'] ?? '',
+      averageRating: json['average_rating'] ?? '0.0',
+      RatingCount: json['rating_count'] ?? '0',
       isInStock: json['max_sale_qty'] > 0 ? true : false,
       isCod: json['is_cod'] ?? '',
       price: Price.fromJson(json['price'] ?? {}),
@@ -64,6 +68,7 @@ class ProductModel {
           .map((child) => ChildProduct.fromJson(child))),
       productSpecs: json['product_specs'] ?? {},
       banners: json['banners'] ?? [],
+      ratings: json['reviews'] ?? [],
     );
   }
 
@@ -74,6 +79,29 @@ class ProductModel {
         .firstWhere((element) => element.brandId == manuId)
         .name;
     return brandName;
+  }
+
+  static getaverageRating(int totalRating, int fiveStar, int fourStar,
+      int threeStar, int twoStar, int oneStar) {
+    final ratingSum =
+        fiveStar * 5 + fourStar * 4 + threeStar * 3 + twoStar * 2 + oneStar * 1;
+    final averageRating = ratingSum / totalRating;
+    return averageRating;
+  }
+
+  static Map<int, int> countRatings(List<dynamic> reviews) {
+    Map<int, int> ratingsCount = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
+
+    for (var review in reviews) {
+      int rating = review['rating'];
+      if (ratingsCount.containsKey(rating)) {
+        if (ratingsCount.containsKey(rating)) {
+          ratingsCount[rating] = ratingsCount[rating]! + 1;
+        }
+      }
+    }
+
+    return ratingsCount;
   }
 }
 

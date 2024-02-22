@@ -7,7 +7,9 @@ import 'package:medishield/firebase_options.dart';
 import 'app.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
+
   Get.put(LocationController());
   await LocationController.instance.getCurrentPosition();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
