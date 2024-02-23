@@ -83,6 +83,7 @@ class OrderDetailScreen extends StatelessWidget {
                             .instance.orderData[index].paymentIntent.amount -
                         OrderController
                             .instance.orderData[index].paymentIntent.shipping,
+                    discount: 0,
                   ),
                   BillingAddress(
                     showButton: false,

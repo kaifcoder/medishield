@@ -20,6 +20,7 @@ class ProductModel {
   final Map<String, dynamic> productSpecs;
   final List<dynamic> banners;
   final List<dynamic>? ratings;
+  final int? msc;
 
   ProductModel({
     required this.prodId,
@@ -41,6 +42,7 @@ class ProductModel {
     required this.productSpecs,
     required this.banners,
     this.ratings,
+    this.msc,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
@@ -69,6 +71,7 @@ class ProductModel {
       productSpecs: json['product_specs'] ?? {},
       banners: json['banners'] ?? [],
       ratings: json['reviews'] ?? [],
+      msc: json['medishield_coins'] ?? 0,
     );
   }
 

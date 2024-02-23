@@ -18,6 +18,8 @@ class CartController extends GetxController {
   var total = 0.obs;
   var grandTotal = 0.obs;
   var counter = 1.obs;
+  var discount = 0.obs;
+  var useMediShieldCoins = false.obs;
 
   @override
   void onInit() async {
@@ -27,6 +29,16 @@ class CartController extends GetxController {
     }
     super.onInit();
     await fetchCartItems();
+  }
+
+  handleCheckbox(bool value) {
+    useMediShieldCoins.value = value;
+    if (value == true) {
+      discount.value = 100;
+    } else {
+      discount.value = 0;
+    }
+    grandTotal.value = userCart.value.cartTotal + 150 - discount.value;
   }
 
   increaseCount() {

@@ -99,7 +99,7 @@ class SignUpForm extends StatelessWidget {
             height: TSizes.spaceBtwItems,
           ),
           TextFormField(
-            controller: controller.phoneNumber,
+            controller: controller.referralCode,
             decoration: const InputDecoration(
               labelText: 'Referral Code (optional)',
               prefixIcon: Icon(Iconsax.user_add),

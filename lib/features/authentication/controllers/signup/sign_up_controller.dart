@@ -19,6 +19,7 @@ class SignUpController extends GetxController {
   final password = TextEditingController();
   final firstName = TextEditingController();
   final phoneNumber = TextEditingController();
+  final referralCode = TextEditingController();
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
   isUserExist(uid) async {

@@ -46,6 +46,21 @@ class CheckoutScreen extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
+            Row(
+              children: [
+                Obx(
+                  () => Checkbox(
+                      value: controller.useMediShieldCoins.value,
+                      onChanged: (val) {
+                        controller.handleCheckbox(val!);
+                      }),
+                ),
+                const Text('Use MediShield Coins')
+              ],
+            ),
+            const SizedBox(
+              height: TSizes.spaceBtwItems,
+            ),
             const TSectionHeading(title: 'Billing Details'),
             const SizedBox(
               height: TSizes.spaceBtwItems,
@@ -59,6 +74,7 @@ class CheckoutScreen extends StatelessWidget {
                   Obx(
                     () => BillingPaymentDetails(
                       total: controller.total.value,
+                      discount: controller.discount.value,
                     ),
                   ),
                   Obx(

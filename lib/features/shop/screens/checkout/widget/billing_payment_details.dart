@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:medishield/features/shop/controllers/cart_controller.dart';
 import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
 class BillingPaymentDetails extends StatelessWidget {
-  const BillingPaymentDetails({super.key, required this.total});
+  const BillingPaymentDetails(
+      {super.key, required this.total, required this.discount});
 
   final int total;
+  final int discount;
 
   @override
   Widget build(BuildContext context) {
     final rate = LocationController.instance.rate;
     final ccy = LocationController.instance.currencyCode;
+    final grandTotal = CartController.instance.grandTotal.value;
     return Column(
       children: [
         const SizedBox(
@@ -32,6 +36,24 @@ class BillingPaymentDetails extends StatelessWidget {
         const SizedBox(
           height: TSizes.spaceBtwItems / 2,
         ),
+        if (discount > 0)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'MediShield Coins discount',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+              Text(
+                '- ${discount.toDouble() * rate} $ccy',
+                style: Theme.of(context).textTheme.bodyLarge,
+              )
+            ],
+          ),
+        if (discount > 0)
+          const SizedBox(
+            height: TSizes.spaceBtwItems / 2,
+          ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -56,7 +78,7 @@ class BillingPaymentDetails extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
-              '${(total.toDouble() + 150.toDouble()) * rate} $ccy',
+              '${grandTotal.toDouble() * rate} $ccy',
               style: Theme.of(context).textTheme.bodyLarge,
             )
           ],
