@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/data/repositories/cart_repository.dart';
 import 'package:medishield/features/authentication/screens/login/login.dart';
+import 'package:medishield/features/personalization/controllers/user_controller.dart';
 import 'package:medishield/features/shop/models/cart_model.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
 
@@ -15,11 +16,12 @@ class CartController extends GetxController {
     cartTotal: 0,
     orderby: '',
   ).obs;
-  var total = 0.obs;
-  var grandTotal = 0.obs;
+  var total = 0.0.obs;
+  var grandTotal = 0.0.obs;
   var counter = 1.obs;
-  var discount = 0.obs;
+  var discount = 0.0.obs;
   var useMediShieldCoins = false.obs;
+  final shippingCharges = 150;
 
   @override
   void onInit() async {
@@ -34,11 +36,13 @@ class CartController extends GetxController {
   handleCheckbox(bool value) {
     useMediShieldCoins.value = value;
     if (value == true) {
-      discount.value = 100;
+      discount.value =
+          UserController.instance.user.value.medishieldcoins!.toDouble() * 0.1;
     } else {
       discount.value = 0;
     }
-    grandTotal.value = userCart.value.cartTotal + 150 - discount.value;
+    grandTotal.value =
+        userCart.value.cartTotal + shippingCharges - discount.value;
   }
 
   increaseCount() {
@@ -72,8 +76,10 @@ class CartController extends GetxController {
         return;
       }
       userCart.value = CartModel.fromJson(res['data']);
-      total.value = userCart.value.cartTotal;
-      grandTotal.value = userCart.value.cartTotal + 150;
+      total.value = userCart.value.cartTotal.toDouble();
+      grandTotal.value = userCart.value.cartTotal.toDouble() +
+          shippingCharges -
+          discount.value;
     } catch (e) {
       rethrow;
     }
@@ -96,8 +102,10 @@ class CartController extends GetxController {
         v: v,
       );
       userCart.value = CartModel.fromJson(res);
-      total.value = userCart.value.cartTotal;
-      grandTotal.value = userCart.value.cartTotal + 150;
+      total.value = userCart.value.cartTotal.toDouble();
+      grandTotal.value = userCart.value.cartTotal.toDouble() +
+          shippingCharges -
+          discount.value;
       THelperFunctions.showSnackBar('Cart updated');
       counter.value = 1;
       update();

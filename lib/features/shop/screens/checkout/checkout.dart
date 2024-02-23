@@ -73,8 +73,10 @@ class CheckoutScreen extends StatelessWidget {
                 children: [
                   Obx(
                     () => BillingPaymentDetails(
-                      total: controller.total.value,
-                      discount: controller.discount.value,
+                      total: controller.total.value.toInt(),
+                      discount: controller.discount.value.toInt(),
+                      grandTotal: controller.grandTotal.value.toInt(),
+                      shippingFee: controller.shippingCharges,
                     ),
                   ),
                   Obx(
@@ -101,7 +103,7 @@ class CheckoutScreen extends StatelessWidget {
             }
             await checkout.initiatePayment();
             checkout.openCheckout(
-                amount: controller.grandTotal.value,
+                amount: controller.grandTotal.value.toInt(),
                 name: 'MediShield',
                 email: usercontroller.user.value.email!,
                 contact: addressController.selectedAddress.value.mobile!);

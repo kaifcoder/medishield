@@ -55,12 +55,14 @@ class PaymentIntent {
   final int created;
   final String currency;
   final int shipping;
+  final int msc;
 
   PaymentIntent({
     required this.id,
     required this.amount,
     required this.created,
     required this.currency,
+    required this.msc,
     required this.shipping,
   });
 
@@ -71,6 +73,7 @@ class PaymentIntent {
       created: json['created'] ?? 0,
       currency: json['currency'] ?? '',
       shipping: json['shipping'] ?? 0,
+      msc: json['msc'] ?? 0,
     );
   }
 
@@ -80,6 +83,8 @@ class PaymentIntent {
       'amount': amount,
       'created': created,
       'currency': currency,
+      'shipping': shipping,
+      'msc': msc,
     };
   }
 }

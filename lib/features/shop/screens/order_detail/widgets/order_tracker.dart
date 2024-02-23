@@ -3,10 +3,15 @@ import 'package:medishield/utils/constants/colors.dart';
 import 'package:order_tracker_zen/order_tracker_zen.dart';
 
 class OrderTracker extends StatelessWidget {
-  const OrderTracker({super.key, required this.orderStatus, this.date = ''});
+  const OrderTracker(
+      {super.key,
+      required this.orderStatus,
+      this.date = '',
+      required this.trackingNumber});
 
   final int orderStatus;
   final String date;
+  final String trackingNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +22,7 @@ class OrderTracker extends StatelessWidget {
           date: date,
           tracker_details: [
             TrackerDetails(
-              title: "Your order was placed",
+              title: "Your Order is in Processing stay tuned for updates",
               datetime: date,
             ),
           ],
@@ -28,7 +33,8 @@ class OrderTracker extends StatelessWidget {
             date: date,
             tracker_details: [
               TrackerDetails(
-                title: "Your order was shipped",
+                title:
+                    "Your order was shipped and is on the way here is your tracking number $trackingNumber",
                 datetime: date,
               ),
             ],
@@ -45,7 +51,7 @@ class OrderTracker extends StatelessWidget {
             ],
           ),
       ],
-      isShrinked: true,
+      isShrinked: false,
       success_color: TColors.primary,
     );
   }

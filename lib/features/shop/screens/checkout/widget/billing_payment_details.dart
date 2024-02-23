@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:medishield/features/shop/controllers/cart_controller.dart';
 import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
 class BillingPaymentDetails extends StatelessWidget {
   const BillingPaymentDetails(
-      {super.key, required this.total, required this.discount});
+      {super.key,
+      required this.total,
+      required this.discount,
+      required this.grandTotal,
+      required this.shippingFee});
 
   final int total;
   final int discount;
+  final int grandTotal;
+  final int shippingFee;
 
   @override
   Widget build(BuildContext context) {
     final rate = LocationController.instance.rate;
     final ccy = LocationController.instance.currencyCode;
-    final grandTotal = CartController.instance.grandTotal.value;
+
     return Column(
       children: [
         const SizedBox(

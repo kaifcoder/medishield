@@ -43,6 +43,7 @@ class OrderDetailScreen extends StatelessWidget {
                       : controller.orderData[index].orderStatus == 'Delivered'
                           ? 2
                           : 3,
+              trackingNumber: controller.orderData[index].trackingNumber!,
             ),
 
             const SizedBox(
@@ -58,7 +59,7 @@ class OrderDetailScreen extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
-            const TSectionHeading(title: 'Items'),
+            const TSectionHeading(title: 'Order Items'),
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
@@ -68,6 +69,7 @@ class OrderDetailScreen extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
+
             const TSectionHeading(title: 'Billing Details'),
             const SizedBox(
               height: TSizes.spaceBtwItems,
@@ -79,17 +81,19 @@ class OrderDetailScreen extends StatelessWidget {
               child: Column(
                 children: [
                   BillingPaymentDetails(
-                    total: OrderController
-                            .instance.orderData[index].paymentIntent.amount -
-                        OrderController
-                            .instance.orderData[index].paymentIntent.shipping,
-                    discount: 0,
+                    total: controller.orderData[index].paymentIntent.amount -
+                        controller.orderData[index].paymentIntent.shipping +
+                        controller.orderData[index].paymentIntent.msc,
+                    discount: controller.orderData[index].paymentIntent.msc,
+                    grandTotal:
+                        controller.orderData[index].paymentIntent.amount,
+                    shippingFee:
+                        controller.orderData[index].paymentIntent.shipping,
                   ),
                   BillingAddress(
                     showButton: false,
-                    user: OrderController.instance.orderData[index].orderby,
-                    address: OrderController
-                        .instance.orderData[index].shippingAddress,
+                    user: controller.orderData[index].orderby,
+                    address: controller.orderData[index].shippingAddress,
                   ),
                 ],
               ),

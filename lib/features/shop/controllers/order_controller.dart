@@ -22,6 +22,15 @@ class OrderController extends GetxController {
     await fetchOrders();
   }
 
+  @override
+  void onReady() async {
+    super.onReady();
+    if (AuthenticationRepository.instance.deviceStorage.read('token') == null) {
+      return;
+    }
+    await fetchOrders();
+  }
+
   // dispose order data
   @override
   void onClose() {
@@ -32,7 +41,7 @@ class OrderController extends GetxController {
   // create order to server
 
   createOrder(String paymentId, int amount, int shipping,
-      AddressModel shippingAddress) async {
+      AddressModel shippingAddress, int msc) async {
     try {
       if (AuthenticationRepository.instance.deviceStorage.read('token') ==
           null) {
@@ -43,6 +52,7 @@ class OrderController extends GetxController {
         amount,
         shipping,
         shippingAddress,
+        msc,
       );
       return res;
     } catch (e) {

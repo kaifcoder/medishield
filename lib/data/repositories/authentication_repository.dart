@@ -242,6 +242,7 @@ class AuthenticationRepository extends GetxController {
         if (credentials.additionalUserInfo!.isNewUser) {
           final name = TextEditingController();
           final email = TextEditingController();
+          final referralCode = TextEditingController();
           Get.bottomSheet(
             SingleChildScrollView(
               padding: const EdgeInsets.all(TSizes.defaultSpace),
@@ -264,6 +265,13 @@ class AuthenticationRepository extends GetxController {
                 const SizedBox(
                   height: TSizes.spaceBtwInputFields,
                 ),
+                TextFormField(
+                  controller: referralCode,
+                  decoration: const InputDecoration(hintText: 'Referral Code'),
+                ),
+                const SizedBox(
+                  height: TSizes.spaceBtwInputFields,
+                ),
                 ElevatedButton(
                   onPressed: () async {
                     final data = UserModel(
@@ -273,9 +281,12 @@ class AuthenticationRepository extends GetxController {
                       password: '',
                       mobile: credentials.user!.phoneNumber!,
                       googleAuthToken: credentials.user!.uid,
+                      referralCode: referralCode.text.trim(),
                     );
                     final res = await THttpHelper.post(
-                        'api/user/register', data.toJson());
+                      'api/user/register',
+                      data.toJson(),
+                    );
                     await deviceStorage.write('token', res['token']);
                     await deviceStorage.write('email', res['email']);
                     await deviceStorage.write('isVerfied', true);
@@ -283,8 +294,11 @@ class AuthenticationRepository extends GetxController {
                     screenRedirect();
                   },
                   child: const SizedBox(
-                      width: double.infinity,
-                      child: Center(child: Text("Register"))),
+                    width: double.infinity,
+                    child: Center(
+                      child: Text("Register"),
+                    ),
+                  ),
                 ),
               ]),
             ),

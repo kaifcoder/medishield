@@ -7,13 +7,14 @@ class OrderRepository extends GetxController {
 
   // create order to server
   createOrder(String paymentId, int amount, int shipping,
-      AddressModel shippingAddress) async {
+      AddressModel shippingAddress, int msc) async {
     try {
       final res = THttpHelper.post('api/user/cart/create-order', {
         'paymentId': paymentId,
         'amount': amount,
         'shipping': shipping,
         'shippingAddress': shippingAddress,
+        'msc': msc,
       });
       return res;
     } catch (e) {

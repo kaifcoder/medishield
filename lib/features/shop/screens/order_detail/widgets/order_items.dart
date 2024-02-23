@@ -64,16 +64,15 @@ class OrderItems extends StatelessWidget {
                               style: Theme.of(context).textTheme.labelMedium),
                           Text(
                               controller.orderData[oindex].products[index]
-                                          .variant !=
-                                      ''
+                                          .product.childProducts.length >
+                                      1
                                   ? controller.orderData[oindex].products[index]
                                       .product.childProducts
                                       .map((e) => e.sku ==
                                               controller.orderData[oindex]
                                                   .products[index].variant
                                           ? e.name
-                                          : controller.orderData[oindex]
-                                              .products[index].product.name)
+                                          : '')
                                       .toString()
                                       .replaceAll('(', '')
                                       .replaceAll(')', '')
@@ -82,7 +81,7 @@ class OrderItems extends StatelessWidget {
                                   : controller.orderData[oindex].products[index]
                                       .product.name,
                               style: Theme.of(context).textTheme.titleMedium,
-                              maxLines: 2,
+                              maxLines: 10,
                               overflow: TextOverflow.ellipsis),
                           Row(
                             children: [

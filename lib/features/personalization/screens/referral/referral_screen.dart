@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get_storage/get_storage.dart';
+
 import 'package:medishield/features/personalization/controllers/user_controller.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
 import 'package:share_plus/share_plus.dart';
