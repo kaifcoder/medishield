@@ -34,7 +34,17 @@ class ProductRepository extends GetxController {
       rethrow;
     }
   }
-  // fetch products by filter from server
+  // fetch products by semantically similar from server
+
+  fetchProdctsforContext(String context) async {
+    try {
+      final res = await THttpHelper.get(
+          'api/product/context/contextualSearch?search=$context');
+      return res['data'].toString();
+    } catch (e) {
+      rethrow;
+    }
+  }
 
   // fetch products by sort from server
 }

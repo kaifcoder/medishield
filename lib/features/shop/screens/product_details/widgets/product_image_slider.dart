@@ -43,14 +43,33 @@ class ProductImageSlider extends StatelessWidget {
                   padding: const EdgeInsets.all(TSizes.productImageRadius * 2),
                   child: Center(
                     child: Obx(() {
-                      final image = controller.selectedImage.value;
-                      return CachedNetworkImage(
-                        imageUrl: image,
-                        placeholder: (context, url) =>
-                            const CircularProgressIndicator(),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
-                        fit: BoxFit.contain,
+                      return CarouselSlider(
+                        items: images.map((image) {
+                          return CachedNetworkImage(
+                            imageUrl: images[
+                                images.indexOf(controller.selectedImage.value)],
+                            placeholder: (context, url) => const Center(
+                                child: CircularProgressIndicator()),
+                            errorWidget: (context, url, error) =>
+                                const Icon(Icons.error),
+                            fit: BoxFit.contain,
+                          );
+                        }).toList(),
+                        options: CarouselOptions(
+                          onPageChanged: (index, reason) {
+                            controller.selectedImage.value = images[index];
+                          },
+                          height: 400,
+                          viewportFraction: 1,
+                          initialPage: 0,
+                          reverse: false,
+                          autoPlayInterval: const Duration(seconds: 3),
+                          autoPlayAnimationDuration:
+                              const Duration(milliseconds: 800),
+                          autoPlayCurve: Curves.fastOutSlowIn,
+                          enlargeCenterPage: false,
+                          scrollDirection: Axis.horizontal,
+                        ),
                       );
                     }),
                   )),

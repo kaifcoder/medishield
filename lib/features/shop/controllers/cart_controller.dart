@@ -20,8 +20,9 @@ class CartController extends GetxController {
   var grandTotal = 0.0.obs;
   var counter = 1.obs;
   var discount = 0.0.obs;
+
   var useMediShieldCoins = false.obs;
-  final shippingCharges = 150;
+  final shippingCharges = 50;
 
   @override
   void onInit() async {

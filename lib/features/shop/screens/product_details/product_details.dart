@@ -68,7 +68,10 @@ class ProductDetailScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // const ReviewText(),
+                  ReviewText(
+                    reviewCount: product.ratings!.length.toString(),
+                    averageRating: averageRating.toStringAsFixed(1),
+                  ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),

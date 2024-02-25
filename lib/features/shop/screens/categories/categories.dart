@@ -16,7 +16,7 @@ class CategoiesScreen extends StatelessWidget {
     final productController = ProductController.instance;
     return Scaffold(
       appBar: const TAppBar(
-        title: Text('Categoies'),
+        title: Text('Categories'),
         showBackArrow: true,
       ),
       body: Obx(

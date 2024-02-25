@@ -5,7 +5,12 @@ import 'package:medishield/utils/constants/sizes.dart';
 class ReviewText extends StatelessWidget {
   const ReviewText({
     super.key,
+    required this.reviewCount,
+    required this.averageRating,
   });
+
+  final String reviewCount;
+  final String averageRating;
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +26,14 @@ class ReviewText extends StatelessWidget {
           width: TSizes.xs,
         ),
         Text(
-          '4.5',
+          averageRating,
           style: Theme.of(context).textTheme.bodyLarge,
         ),
         const SizedBox(
           width: TSizes.xs,
         ),
         Text(
-          '(3)',
+          '($reviewCount Reviews)',
           style: Theme.of(context).textTheme.labelLarge,
         ),
       ],

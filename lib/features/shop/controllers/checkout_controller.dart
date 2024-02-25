@@ -35,13 +35,14 @@ class CheckoutController extends GetxController {
   void handlePaymentSuccess(PaymentSuccessResponse response) async {
     Get.snackbar('Payment Success', 'Payment Id: ${response.paymentId}');
     await orderController.createOrder(
-        response.paymentId!,
-        cartController.grandTotal.value.toInt(),
-        cartController.shippingCharges,
-        addressController.selectedAddress.value,
-        cartController.useMediShieldCoins.value
-            ? cartController.discount.value.toInt()
-            : 0);
+      response.paymentId!,
+      cartController.grandTotal.value.toInt(),
+      cartController.shippingCharges,
+      addressController.selectedAddress.value,
+      cartController.useMediShieldCoins.value
+          ? cartController.discount.value.toInt()
+          : 0,
+    );
     cartController.clearCart();
     await orderController.fetchOrders();
     Get.off(() => const OrderScreen());

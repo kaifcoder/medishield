@@ -9,20 +9,20 @@ class ImagesController extends GetxController {
     Set<String> images = {};
     images.add((product.thumbnailUrl.contains('http'))
         ? product.thumbnailUrl
-        : 'https://images.dentalkart.com/media/catalog/product/${product.thumbnailUrl}');
+        : 'https://images1.dentalkart.com/media/catalog/product${product.thumbnailUrl}');
     selectedImage.value = (product.thumbnailUrl.contains('http'))
         ? product.thumbnailUrl
-        : 'https://images.dentalkart.com/media/catalog/product/${product.thumbnailUrl}';
+        : 'https://images1.dentalkart.com/media/catalog/product${product.thumbnailUrl}';
     for (var element in product.mediaGalleryEntries) {
       images.add((element.file.contains('http'))
           ? element.file
-          : 'https://images.dentalkart.com/media/catalog/product/${element.file}');
+          : 'https://images1.dentalkart.com/media/catalog/product${element.file}');
     }
     if (product.childProducts.length > 1) {
       for (var element in product.childProducts) {
         for (var media in element.mediaGalleryEntries) {
           images.add(
-              'https://images.dentalkart.com/media/catalog/product/${media.file}');
+              'https://images1.dentalkart.com/media/catalog/product${media.file}');
         }
       }
     }
