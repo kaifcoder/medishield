@@ -67,7 +67,7 @@ class BillingPaymentDetails extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
-              '${150.toDouble() * rate} $ccy',
+              '${shippingFee.toDouble() * rate} $ccy',
               style: Theme.of(context).textTheme.bodyLarge,
             )
           ],

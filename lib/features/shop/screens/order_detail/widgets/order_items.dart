@@ -6,6 +6,7 @@ import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/utils/constants/colors.dart';
 
 import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/constants/text_strings.dart';
 
 class OrderItems extends StatelessWidget {
   const OrderItems({super.key, required this.oindex});
@@ -33,7 +34,9 @@ class OrderItems extends StatelessWidget {
                               .contains('http'))
                           ? controller.orderData[oindex].products[index].product
                               .thumbnailUrl
-                          : 'https://images.dentalkart.com/media/catalog/product/${controller.orderData[oindex].products[index].product.thumbnailUrl}',
+                          : TTexts.imagebaseURL +
+                              controller.orderData[oindex].products[index]
+                                  .product.thumbnailUrl,
                       height: 80,
                       width: 80,
                       padding: const EdgeInsets.all(TSizes.xs),

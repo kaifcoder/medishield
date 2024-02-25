@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:medishield/features/shop/controllers/brand_controller.dart';
 
 class ProductModel {
@@ -78,10 +79,14 @@ class ProductModel {
   static getManufacture(manufacturer) {
     if (manufacturer.contains(RegExp(r'[a-zA-Z]'))) return manufacturer;
     var manuId = int.parse(manufacturer);
-    final brandName = BrandController.instance.brandList
-        .firstWhere((element) => element.brandId == manuId)
-        .name;
-    return brandName;
+    final brand = BrandController.instance.brandList
+        .firstWhereOrNull((element) => element.brandId == manuId)
+        ?.name;
+    if (brand == null) {
+      // Handle the case where brand is not found
+      return ''; // Or any other appropriate action
+    }
+    return brand;
   }
 
   static getaverageRating(int totalRating, int fiveStar, int fourStar,

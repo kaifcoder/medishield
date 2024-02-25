@@ -6,11 +6,20 @@ class OrderRepository extends GetxController {
   static OrderRepository get instance => Get.find();
 
   // create order to server
-  createOrder(String paymentId, int amount, int shipping,
-      AddressModel shippingAddress, int msc) async {
+  createOrder(
+    String paymentId,
+    String orderId,
+    String paymentSignature,
+    int amount,
+    int shipping,
+    AddressModel shippingAddress,
+    int msc,
+  ) async {
     try {
       final res = THttpHelper.post('api/user/cart/create-order', {
         'paymentId': paymentId,
+        'orderId': orderId,
+        'paymentSignature': paymentSignature,
         'amount': amount,
         'shipping': shipping,
         'shippingAddress': shippingAddress,

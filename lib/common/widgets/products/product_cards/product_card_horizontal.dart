@@ -18,6 +18,7 @@ import 'package:medishield/features/shop/screens/product_details/product_details
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/enums.dart';
 import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/constants/text_strings.dart';
 
 class ProductCardHorizontal extends StatelessWidget {
   const ProductCardHorizontal(
@@ -58,7 +59,7 @@ class ProductCardHorizontal extends StatelessWidget {
                   backgroundColor: TColors.light,
                   imageUrl: (product!.thumbnailUrl.contains('http'))
                       ? product!.thumbnailUrl
-                      : 'https://images.dentalkart.com/media/catalog/product/${product!.thumbnailUrl}',
+                      : TTexts.imagebaseURL + product!.thumbnailUrl,
                   isNetworkImage: true,
                 ),
                 if (salePercentage > 0)
@@ -115,8 +116,10 @@ class ProductCardHorizontal extends StatelessWidget {
                   TBrandTitleText(
                     title: product!.childProducts.length > 1
                         ? ProductModel.getManufacture(
-                            product!.childProducts[0].manufacturer)
-                        : ProductModel.getManufacture(product!.manufacturer),
+                                product!.childProducts[0].manufacturer) ??
+                            ''
+                        : ProductModel.getManufacture(product!.manufacturer) ??
+                            '',
                     maxLines: 1,
                     textColor: TColors.black,
                     textAlign: TextAlign.start,

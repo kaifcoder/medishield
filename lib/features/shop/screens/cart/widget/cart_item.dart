@@ -7,6 +7,7 @@ import 'package:medishield/features/shop/models/cart_model.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/constants/text_strings.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({super.key, required this.showQuantity, this.product});
@@ -31,12 +32,11 @@ class CartItem extends StatelessWidget {
             children: [
               TRoundedImage(
                 isNetworkImage: true,
-                imageUrl: (product![index]
-                        .product
-                        .thumbnailUrl
-                        .contains('http'))
-                    ? product![index].product.thumbnailUrl
-                    : 'https://images.dentalkart.com/media/catalog/product/${product![index].product.thumbnailUrl}',
+                imageUrl:
+                    (product![index].product.thumbnailUrl.contains('http'))
+                        ? product![index].product.thumbnailUrl
+                        : TTexts.imagebaseURL +
+                            product![index].product.thumbnailUrl,
                 height: 80,
                 width: 80,
                 padding: const EdgeInsets.all(TSizes.xs),

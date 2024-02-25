@@ -71,5 +71,5 @@ class TTexts {
 
   // -- URLs
   static const String imagebaseURL =
-      "https://images.dentalkart.com/media/catalog/product";
+      "https://images1.dentalkart.com/media/catalog/product";
 }

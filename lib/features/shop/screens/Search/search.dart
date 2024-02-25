@@ -8,6 +8,7 @@ import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/screens/product_details/product_details.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/features/shop/controllers/search_controller.dart';
+import 'package:medishield/utils/constants/text_strings.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -79,7 +80,8 @@ class SearchScreen extends StatelessWidget {
                                       .thumbnailUrl
                                       .contains('http'))
                                   ? products[index].thumbnailUrl
-                                  : 'https://images.dentalkart.com/media/catalog/product/${products[index].thumbnailUrl}',
+                                  : TTexts.imagebaseURL +
+                                      products[index].thumbnailUrl,
                               placeholder: (context, url) =>
                                   const CustomShimmer(
                                 height: 50,

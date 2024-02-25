@@ -40,8 +40,15 @@ class OrderController extends GetxController {
 
   // create order to server
 
-  createOrder(String paymentId, int amount, int shipping,
-      AddressModel shippingAddress, int msc) async {
+  createOrder(
+    String paymentId,
+    String orderId,
+    String paymentSignature,
+    int amount,
+    int shipping,
+    AddressModel shippingAddress,
+    int msc,
+  ) async {
     try {
       if (AuthenticationRepository.instance.deviceStorage.read('token') ==
           null) {
@@ -49,6 +56,8 @@ class OrderController extends GetxController {
       }
       final res = await orderRepo.createOrder(
         paymentId,
+        orderId,
+        paymentSignature,
         amount,
         shipping,
         shippingAddress,

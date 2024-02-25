@@ -14,6 +14,7 @@ import 'package:medishield/features/shop/screens/product_details/product_details
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/enums.dart';
 import 'package:medishield/utils/constants/sizes.dart';
+import 'package:medishield/utils/constants/text_strings.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
 import '../../icons/t_circular_icon.dart';
 import '../../text/price_text.dart';
@@ -58,7 +59,7 @@ class ProductCardVertical extends StatelessWidget {
                 TRoundedImage(
                   imageUrl: (product!.thumbnailUrl.contains('http'))
                       ? product!.thumbnailUrl
-                      : 'https://images.dentalkart.com/media/catalog/product/${product!.thumbnailUrl}',
+                      : TTexts.imagebaseURL + product!.thumbnailUrl,
                   isNetworkImage: true,
                 ),
                 if (salePercentage > 0)

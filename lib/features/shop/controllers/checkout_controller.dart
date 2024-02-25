@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/features/personalization/controllers/address_controller.dart';
+import 'package:medishield/features/personalization/controllers/user_controller.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
+import 'package:medishield/features/shop/controllers/location_controller.dart';
 import 'package:medishield/features/shop/controllers/order_controller.dart';
 import 'package:medishield/features/shop/screens/orders/orders.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
+import 'package:medishield/utils/http/http_client.dart';
 
 class CheckoutController extends GetxController {
   static CheckoutController get instance => Get.find();
   final cartController = CartController.instance;
   final orderController = OrderController.instance;
+  final user = UserController.instance.user.value;
+  final ccy = LocationController.instance.currencyCode;
   final addressController = AddressController.instance;
   late Razorpay _razorpay;
 
@@ -18,12 +23,22 @@ class CheckoutController extends GetxController {
     required String name,
     required String email,
     required String contact,
-  }) {
+  }) async {
+    var orderid = ''; // create order_id on server side and pass it here
+    // create order_id on server side and pass it here
+    final res = await THttpHelper.post('api/user/create-razorpay-order', {
+      'amount': amount,
+      'currency': ccy,
+    });
+    orderid = res['id'];
+    debugPrint('Order Id: $orderid');
     var options = {
       'key': 'rzp_test_6Fdh3YV52lDe5j',
       'amount': amount * 100,
       'name': name,
-      'prefill': {'contact': contact, 'email': email},
+      'order_id': orderid,
+      'prefill': {'name': user.fullName, 'contact': contact, 'email': email},
+      'description': 'Payment for order',
     };
     try {
       _razorpay.open(options);
@@ -34,8 +49,13 @@ class CheckoutController extends GetxController {
 
   void handlePaymentSuccess(PaymentSuccessResponse response) async {
     Get.snackbar('Payment Success', 'Payment Id: ${response.paymentId}');
+    debugPrint('Payment Id: ${response.paymentId}');
+    debugPrint('Order Id: ${response.orderId}');
+    debugPrint('Signature: ${response.signature}');
     await orderController.createOrder(
       response.paymentId!,
+      response.orderId!,
+      response.signature!,
       cartController.grandTotal.value.toInt(),
       cartController.shippingCharges,
       addressController.selectedAddress.value,
