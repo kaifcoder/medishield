@@ -24,8 +24,7 @@ class CheckoutController extends GetxController {
     required String email,
     required String contact,
   }) async {
-    var orderid = ''; // create order_id on server side and pass it here
-    // create order_id on server side and pass it here
+    var orderid = '';
     final res = await THttpHelper.post('api/user/create-razorpay-order', {
       'amount': amount,
       'currency': 'INR',
