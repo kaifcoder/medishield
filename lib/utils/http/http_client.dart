@@ -3,8 +3,9 @@ import 'package:http/http.dart' as http;
 import 'package:medishield/data/repositories/authentication_repository.dart';
 
 class THttpHelper {
-  // static const String _baseUrl = 'https://medishield-backend.onrender.com';
-  static const String _baseUrl = 'http://192.168.29.134:5000';
+  // static const String _baseUrl = 'https://medishield-backend.onrender.com'; // Render pre-production
+  // static const String _baseUrl = 'http://192.168.29.134:5000';  // Localhost
+  static const String _baseUrl = 'https://medishield-backend-ywgp.onrender.com';  // Render production
 
   // Helper method to make a GET request
   static Future<Map<String, dynamic>> get(String endpoint) async {

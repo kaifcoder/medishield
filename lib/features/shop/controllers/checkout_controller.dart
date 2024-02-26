@@ -28,7 +28,7 @@ class CheckoutController extends GetxController {
     // create order_id on server side and pass it here
     final res = await THttpHelper.post('api/user/create-razorpay-order', {
       'amount': amount,
-      'currency': ccy,
+      'currency': 'INR',
     });
     orderid = res['id'];
     debugPrint('Order Id: $orderid');
