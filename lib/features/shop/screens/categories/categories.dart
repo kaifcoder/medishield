@@ -71,11 +71,13 @@ class CategoiesScreen extends StatelessWidget {
                                       .fetchProductsbycategory(child.name, 1);
                                   allProductController.setTitle(child.name);
                                   allProductController.reset();
-                                  Get.to(() => AllProductScreen(
-                                        title: child.name,
-                                        product:
-                                            productController.CategoryProducts,
-                                      ));
+                                  Get.to(
+                                      () => AllProductScreen(
+                                            title: child.name,
+                                            product: productController
+                                                .CategoryProducts,
+                                          ),
+                                      transition: Transition.cupertino);
                                 },
                                 title: Text(child.name),
                               );

@@ -48,7 +48,11 @@ class NavigationMenu extends StatelessWidget {
             ]),
       ),
       body: Obx(() {
-        return controller.screens[controller.selectedIndex.value];
+        return AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            switchInCurve: Curves.easeIn,
+            switchOutCurve: Curves.easeOut,
+            child: controller.screens[controller.selectedIndex.value]);
       }),
     );
   }

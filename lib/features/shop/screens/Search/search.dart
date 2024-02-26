@@ -75,20 +75,23 @@ class SearchScreen extends StatelessWidget {
                           leading: SizedBox(
                             height: 50,
                             width: 50,
-                            child: CachedNetworkImage(
-                              imageUrl: (products[index]
-                                      .thumbnailUrl
-                                      .contains('http'))
-                                  ? products[index].thumbnailUrl
-                                  : TTexts.imagebaseURL +
-                                      products[index].thumbnailUrl,
-                              placeholder: (context, url) =>
-                                  const CustomShimmer(
-                                height: 50,
-                                width: 50,
+                            child: Hero(
+                              tag: products[index].prodId,
+                              child: CachedNetworkImage(
+                                imageUrl: (products[index]
+                                        .thumbnailUrl
+                                        .contains('http'))
+                                    ? products[index].thumbnailUrl
+                                    : TTexts.imagebaseURL +
+                                        products[index].thumbnailUrl,
+                                placeholder: (context, url) =>
+                                    const CustomShimmer(
+                                  height: 50,
+                                  width: 50,
+                                ),
+                                errorWidget: (context, url, error) =>
+                                    const Icon(Icons.error),
                               ),
-                              errorWidget: (context, url, error) =>
-                                  const Icon(Icons.error),
                             ),
                           ),
                           subtitle: Text(

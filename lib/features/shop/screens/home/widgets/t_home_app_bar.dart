@@ -60,7 +60,8 @@ class THomeAppBar extends StatelessWidget {
         ),
         const SizedBox(width: 10),
         IconButton(
-          onPressed: () => Get.to(() => const SearchScreen()),
+          onPressed: () => Get.to(() => const SearchScreen(),
+              transition: Transition.cupertinoDialog),
           icon: const Icon(
             Iconsax.search_normal,
             color: TColors.white,
@@ -71,9 +72,11 @@ class THomeAppBar extends StatelessWidget {
           onPressed: () {
             if (AuthenticationRepository.instance.deviceStorage.read('guest') ==
                 true) {
-              Get.offAll(() => const LoginScreen());
+              Get.offAll(() => const LoginScreen(),
+                  transition: Transition.cupertinoDialog);
             } else {
-              Get.to(() => const CartScreen());
+              Get.to(() => const CartScreen(),
+                  transition: Transition.rightToLeftWithFade);
             }
           },
         ),

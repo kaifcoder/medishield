@@ -160,7 +160,9 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: TColors.primary,
         onPressed: () {
-          Get.to(() => const ChatScreen());
+          Get.to(() => const ChatScreen(),
+              transition: Transition.cupertinoDialog,
+              curve: Curves.easeInOutCubic);
         },
         child: const Icon(
           Iconsax.message,

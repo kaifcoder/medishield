@@ -55,12 +55,15 @@ class ProductCardHorizontal extends StatelessWidget {
               padding: const EdgeInsets.all(TSizes.sm),
               backgroundColor: TColors.light,
               child: Stack(children: [
-                TRoundedImage(
-                  backgroundColor: TColors.light,
-                  imageUrl: (product!.thumbnailUrl.contains('http'))
-                      ? product!.thumbnailUrl
-                      : TTexts.imagebaseURL + product!.thumbnailUrl,
-                  isNetworkImage: true,
+                Hero(
+                  tag: product!.prodId,
+                  child: TRoundedImage(
+                    backgroundColor: TColors.light,
+                    imageUrl: (product!.thumbnailUrl.contains('http'))
+                        ? product!.thumbnailUrl
+                        : TTexts.imagebaseURL + product!.thumbnailUrl,
+                    isNetworkImage: true,
+                  ),
                 ),
                 if (salePercentage > 0)
                   Positioned(

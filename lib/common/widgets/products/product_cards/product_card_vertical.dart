@@ -51,72 +51,75 @@ class ProductCardVertical extends StatelessWidget {
         ),
         child: Column(
           children: [
-            TRoundedContainer(
-              height: 180,
-              padding: const EdgeInsets.all(TSizes.sm),
-              backgroundColor: dark ? TColors.dark : TColors.light,
-              child: Stack(children: [
-                TRoundedImage(
-                  imageUrl: (product!.thumbnailUrl.contains('http'))
-                      ? product!.thumbnailUrl
-                      : TTexts.imagebaseURL + product!.thumbnailUrl,
-                  isNetworkImage: true,
-                ),
-                if (salePercentage > 0)
-                  Positioned(
-                    top: 12,
-                    child: TRoundedContainer(
-                      borderRadius: TSizes.sm,
-                      backgroundColor: TColors.secondary.withOpacity(0.8),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: TSizes.sm, vertical: TSizes.xs),
-                      child: Text(
-                        '${salePercentage.round()}% OFF',
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelLarge!
-                            .apply(color: TColors.black),
-                      ),
-                    ), // TRoundedContainer
+            Hero(
+              tag: product!.prodId,
+              child: TRoundedContainer(
+                height: 180,
+                padding: const EdgeInsets.all(TSizes.sm),
+                backgroundColor: dark ? TColors.dark : TColors.light,
+                child: Stack(children: [
+                  TRoundedImage(
+                    imageUrl: (product!.thumbnailUrl.contains('http'))
+                        ? product!.thumbnailUrl
+                        : TTexts.imagebaseURL + product!.thumbnailUrl,
+                    isNetworkImage: true,
                   ),
-                if (AuthenticationRepository.instance.deviceStorage
-                        .read('token') !=
-                    null)
-                  Positioned(
-                    top: 0,
-                    right: 0,
-                    child: Obx(
-                      () => TCircularIcon(
-                        onPressed: () => wishC.toggleWishlist(
-                          product!.prodId,
+                  if (salePercentage > 0)
+                    Positioned(
+                      top: 12,
+                      child: TRoundedContainer(
+                        borderRadius: TSizes.sm,
+                        backgroundColor: TColors.secondary.withOpacity(0.8),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: TSizes.sm, vertical: TSizes.xs),
+                        child: Text(
+                          '${salePercentage.round()}% OFF',
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge!
+                              .apply(color: TColors.black),
                         ),
-                        dark: dark,
-                        icon: Iconsax.heart5,
-                        color: wishC.isWishlisted(product!.prodId)
-                            ? Colors.red
-                            : TColors.darkGrey,
+                      ), // TRoundedContainer
+                    ),
+                  if (AuthenticationRepository.instance.deviceStorage
+                          .read('token') !=
+                      null)
+                    Positioned(
+                      top: 0,
+                      right: 0,
+                      child: Obx(
+                        () => TCircularIcon(
+                          onPressed: () => wishC.toggleWishlist(
+                            product!.prodId,
+                          ),
+                          dark: dark,
+                          icon: Iconsax.heart5,
+                          color: wishC.isWishlisted(product!.prodId)
+                              ? Colors.red
+                              : TColors.darkGrey,
+                        ),
                       ),
                     ),
-                  ),
-                if (product!.isInStock == false)
-                  Positioned(
-                    top: 0,
-                    left: 0,
-                    child: TRoundedContainer(
-                      borderRadius: TSizes.sm,
-                      backgroundColor: TColors.secondary.withOpacity(0.8),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: TSizes.sm, vertical: TSizes.xs),
-                      child: Text(
-                        'Out of Stock',
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelLarge!
-                            .apply(color: TColors.black),
-                      ),
-                    ), // TRoundedContainer
-                  ),
-              ]),
+                  if (product!.isInStock == false)
+                    Positioned(
+                      top: 0,
+                      left: 0,
+                      child: TRoundedContainer(
+                        borderRadius: TSizes.sm,
+                        backgroundColor: TColors.secondary.withOpacity(0.8),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: TSizes.sm, vertical: TSizes.xs),
+                        child: Text(
+                          'Out of Stock',
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge!
+                              .apply(color: TColors.black),
+                        ),
+                      ), // TRoundedContainer
+                    ),
+                ]),
+              ),
             ),
             const SizedBox(height: TSizes.spaceBtwItems / 2),
 

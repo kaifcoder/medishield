@@ -32,10 +32,12 @@ class TPromoSlider extends StatelessWidget {
                     onPressed: () async {
                       await ProductController.instance
                           .getProductById(banner.id);
-                      Get.to(() => ProductDetailScreen(
-                            product: ProductController
-                                .instance.CategoryProducts.last,
-                          ));
+                      Get.to(
+                          () => ProductDetailScreen(
+                                product: ProductController
+                                    .instance.CategoryProducts.last,
+                              ),
+                          transition: Transition.cupertinoDialog);
                     },
                     imageUrl: banner.mobileImage,
                     isNetworkImage: true,

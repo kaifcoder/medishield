@@ -58,8 +58,11 @@ class ProductDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             // product images carousel
-            ProductImageSlider(
-              product: product,
+            Hero(
+              tag: product.prodId,
+              child: ProductImageSlider(
+                product: product,
+              ),
             ),
 
             Padding(
