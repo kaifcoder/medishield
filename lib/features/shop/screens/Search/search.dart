@@ -40,7 +40,7 @@ class SearchScreen extends StatelessWidget {
                 ),
               ),
               onChanged: (value) async {
-                controller.setSearchQuery(value);
+                controller.handleSearch(value);
               },
               onSubmitted: (value) async {
                 controller.addToSearchHistory(value);
