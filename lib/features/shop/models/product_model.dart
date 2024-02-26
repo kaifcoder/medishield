@@ -77,14 +77,20 @@ class ProductModel {
   }
 
   static getManufacture(manufacturer) {
+    if (manufacturer == null) return '';
     if (manufacturer.contains(RegExp(r'[a-zA-Z]'))) return manufacturer;
-    var manuId = int.parse(manufacturer);
+    var manuId = 0;
+    try {
+      manuId = int.parse(manufacturer);
+    } catch (e) {
+      return '';
+    }
+
     final brand = BrandController.instance.brandList
         .firstWhereOrNull((element) => element.brandId == manuId)
         ?.name;
     if (brand == null) {
-      // Handle the case where brand is not found
-      return ''; // Or any other appropriate action
+      return '';
     }
     return brand;
   }
