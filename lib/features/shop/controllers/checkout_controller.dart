@@ -48,9 +48,6 @@ class CheckoutController extends GetxController {
 
   void handlePaymentSuccess(PaymentSuccessResponse response) async {
     Get.snackbar('Payment Success', 'Payment Id: ${response.paymentId}');
-    debugPrint('Payment Id: ${response.paymentId}');
-    debugPrint('Order Id: ${response.orderId}');
-    debugPrint('Signature: ${response.signature}');
     await orderController.createOrder(
       response.paymentId!,
       response.orderId!,
@@ -65,6 +62,7 @@ class CheckoutController extends GetxController {
     cartController.clearCart();
     await orderController.fetchOrders();
     Get.off(() => const OrderScreen());
+    UserController.instance.fetchUserRecord();
     disposeRazorpay();
   }
 

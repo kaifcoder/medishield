@@ -20,7 +20,7 @@ class CartController extends GetxController {
   var grandTotal = 0.0.obs;
   var counter = 1.obs;
   var discount = 0.0.obs;
-
+  var credit_msc = 0.0.obs;
   var useMediShieldCoins = false.obs;
   final shippingCharges = 50;
 
@@ -81,6 +81,8 @@ class CartController extends GetxController {
       grandTotal.value = userCart.value.cartTotal.toDouble() +
           shippingCharges -
           discount.value;
+
+      update();
     } catch (e) {
       rethrow;
     }
