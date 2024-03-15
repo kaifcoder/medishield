@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 /// Custom exception class to handle various Firebase authentication-related errors.
 // ignore_for_file: unreachable_switch_case
 
@@ -10,6 +12,7 @@ class TFirebaseAuthException implements Exception {
 
   /// Get the corresponding error message based on the error code.
   String get message {
+    debugPrint('Firebase Auth Error: $code');
     switch (code) {
       case 'email-already-in-use':
         return 'The email address is already registered. Please use a different email.';

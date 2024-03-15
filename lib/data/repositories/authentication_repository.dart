@@ -222,7 +222,8 @@ class AuthenticationRepository extends GetxController {
           this.verificationId.value = verificationId;
         },
         verificationFailed: (e) {
-          CustomSnackbar.errorSnackBar('Something went wrong');
+          debugPrint(e.message);
+          CustomSnackbar.errorSnackBar('Something went wrong please try again');
         },
       );
     } on Exception {
@@ -236,8 +237,12 @@ class AuthenticationRepository extends GetxController {
         PhoneAuthProvider.credential(
             verificationId: verificationId.value, smsCode: otp),
       );
+      debugPrint('credentials ${credentials}');
       final userExist = await THttpHelper.get(
           'api/user/isUserExist/${credentials.user!.uid}');
+      debugPrint('verification id ${verificationId.value}');
+      debugPrint('credentials ${credentials.user!.uid}');
+      debugPrint('otp $otp');
 
       if (credentials.user != null) {
         // add user to database
@@ -318,9 +323,7 @@ class AuthenticationRepository extends GetxController {
       }
       return credentials.user != null ? true : false;
     } catch (e) {
-      debugPrint(e.toString());
-      return CustomSnackbar.errorSnackBar(
-          'Please check and enter the correct verification code again.');
+      rethrow;
     }
   }
 
