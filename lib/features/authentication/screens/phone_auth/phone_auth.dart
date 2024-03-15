@@ -9,16 +9,11 @@ import 'package:medishield/utils/exceptions/firebase_exceptions.dart';
 import 'package:medishield/utils/exceptions/platform_exceptions.dart';
 
 class OTPScreen extends StatelessWidget {
-  const OTPScreen(
-      {super.key,
-      required this.phoneNumber,
-      required this.email,
-      required this.name});
+  const OTPScreen({super.key, required this.phoneNumber});
 
   Future<String> validateOtp(String otp) async {
     try {
-      var isVerified =
-          await AuthenticationRepository.instance.verifyOTP(otp, name, email);
+      var isVerified = await AuthenticationRepository.instance.verifyOTP(otp);
       if (isVerified) {
         return "OTP Verified";
       } else {
@@ -43,8 +38,6 @@ class OTPScreen extends StatelessWidget {
   }
 
   final String phoneNumber;
-  final String email;
-  final String name;
 
   @override
   Widget build(BuildContext context) {

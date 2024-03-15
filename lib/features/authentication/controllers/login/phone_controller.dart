@@ -7,8 +7,6 @@ class PhoneController extends GetxController {
   static PhoneController get instance => Get.find();
   var code = '91';
   final phone = TextEditingController();
-  final name = TextEditingController();
-  final email = TextEditingController();
   GlobalKey<FormState> phoneAuthKey =
       GlobalKey<FormState>(debugLabel: 'phoneAuth');
 
@@ -24,14 +22,7 @@ class PhoneController extends GetxController {
       }
 
       await AuthenticationRepository.instance
-          .signInWithPhone('+$code${phone.text}');
-      Get.to(
-        () => OTPScreen(
-          phoneNumber: phone.text.trim(),
-          email: email.text.trim(),
-          name: name.text.trim(),
-        ),
-      );
+          .signInWithPhone('+$code${phone.text.trim()}');
     } catch (e) {
       debugPrint('Error in signInWithPhone $e');
     }

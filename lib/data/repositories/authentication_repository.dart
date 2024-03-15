@@ -8,6 +8,7 @@ import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
 import 'package:medishield/features/authentication/models/user.dart';
 import 'package:medishield/features/authentication/screens/login/login.dart';
+import 'package:medishield/features/authentication/screens/phone_auth/phone_auth.dart';
 import 'package:medishield/features/authentication/screens/signup/verify_email.dart';
 import 'package:medishield/navigation_menu.dart';
 import 'package:medishield/utils/constants/sizes.dart';
@@ -217,6 +218,11 @@ class AuthenticationRepository extends GetxController {
         },
         codeSent: (verificationId, resendToken) {
           this.verificationId.value = verificationId;
+          Get.to(
+            () => OTPScreen(
+              phoneNumber: phone.trim(),
+            ),
+          );
         },
         codeAutoRetrievalTimeout: (verificationId) {
           this.verificationId.value = verificationId;
@@ -231,7 +237,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  Future<bool> verifyOTP(String otp, String name, String email) async {
+  Future<bool> verifyOTP(String otp) async {
     try {
       final credentials = await _auth.signInWithCredential(
         PhoneAuthProvider.credential(
