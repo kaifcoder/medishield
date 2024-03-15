@@ -236,10 +236,12 @@ class AuthenticationRepository extends GetxController {
         PhoneAuthProvider.credential(
             verificationId: verificationId.value, smsCode: otp),
       );
+      final userExist = await THttpHelper.get(
+          'api/user/isUserExist/${credentials.user!.uid}');
 
       if (credentials.user != null) {
         // add user to database
-        if (credentials.additionalUserInfo!.isNewUser) {
+        if (credentials.additionalUserInfo!.isNewUser || !userExist['status']) {
           final name = TextEditingController();
           final email = TextEditingController();
           final referralCode = TextEditingController();
@@ -276,7 +278,10 @@ class AuthenticationRepository extends GetxController {
                   onPressed: () async {
                     final data = UserModel(
                       firstName: name.text.split(' ').first,
-                      lastName: name.text.split(' ').last,
+                      lastName: name.text.split(' ').first ==
+                              name.text.split(' ').last
+                          ? ' '
+                          : name.text.split(' ').last,
                       email: email.text.trim(),
                       password: '',
                       mobile: credentials.user!.phoneNumber!,
@@ -313,6 +318,7 @@ class AuthenticationRepository extends GetxController {
       }
       return credentials.user != null ? true : false;
     } catch (e) {
+      debugPrint(e.toString());
       return CustomSnackbar.errorSnackBar(
           'Please check and enter the correct verification code again.');
     }

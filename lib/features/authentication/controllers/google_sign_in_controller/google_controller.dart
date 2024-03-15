@@ -68,9 +68,18 @@ class GoogleController extends GetxController {
                         .split(' ')
                         .first,
                     lastName: userCredential.user!.displayName!
-                        .toString()
-                        .split(' ')
-                        .last,
+                                .toString()
+                                .split(' ')
+                                .last ==
+                            userCredential.user!.displayName!
+                                .toString()
+                                .split(' ')
+                                .first
+                        ? ' '
+                        : userCredential.user!.displayName!
+                            .toString()
+                            .split(' ')
+                            .last,
                     mobile: '',
                     password: '',
                     isEmailVerified: userCredential.user!.emailVerified,

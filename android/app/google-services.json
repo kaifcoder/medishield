@@ -14,11 +14,35 @@
       },
       "oauth_client": [
         {
+          "client_id": "86990247944-3oi5sqd8a09fvnjpvhau1jbujrb4h7o3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.medishieldhealthcare.medishield",
+            "certificate_hash": "22d8850f90db16a902f7ec7d484a38bdf5c21bef"
+          }
+        },
+        {
           "client_id": "86990247944-hvil7ut3oob80duln2989ubk9j4un85u.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.medishieldhealthcare.medishield",
             "certificate_hash": "b09d363acb5e32ac2167b90d79d7da54966ebceb"
+          }
+        },
+        {
+          "client_id": "86990247944-ph8k40382f9n2v622c15n36d3r898f5u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.medishieldhealthcare.medishield",
+            "certificate_hash": "0ecdf4b1536da2f65a4e934db406f7f727f1d774"
+          }
+        },
+        {
+          "client_id": "86990247944-prvh8bftdkco5iuvsh0ks7ld74neo472.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.medishieldhealthcare.medishield",
+            "certificate_hash": "3b08b06ecacf29effd91ca20e439c1c433b3695a"
           }
         },
         {
