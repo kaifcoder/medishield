@@ -214,7 +214,7 @@ class AuthenticationRepository extends GetxController {
       await _auth.verifyPhoneNumber(
         phoneNumber: phone,
         verificationCompleted: (credential) async {
-          await _auth.signInWithCredential(credential);
+           // _auth.signInWithCredential(credential);
         },
         codeSent: (verificationId, resendToken) {
           this.verificationId.value = verificationId;
@@ -252,7 +252,7 @@ class AuthenticationRepository extends GetxController {
 
       if (credentials.user != null) {
         // add user to database
-        if (credentials.additionalUserInfo!.isNewUser || !userExist['status']) {
+        if (credentials.additionalUserInfo!.isNewUser && !userExist['status']) {
           final name = TextEditingController();
           final email = TextEditingController();
           final referralCode = TextEditingController();

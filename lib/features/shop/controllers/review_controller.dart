@@ -24,7 +24,7 @@ class RatingController extends GetxController {
       debugPrint('res: ${res['reviews']}');
       product.ratings!.assignAll(res['reviews'] as List);
       THelperFunctions.showSnackBar('Review posted successfully. Thank you!');
-    } on Exception catch (e) {
+    } on Exception {
       THelperFunctions.showSnackBar('Something went wrong, please try again.');
     }
   }

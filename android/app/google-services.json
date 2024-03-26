@@ -14,14 +14,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "86990247944-3oi5sqd8a09fvnjpvhau1jbujrb4h7o3.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.medishieldhealthcare.medishield",
-            "certificate_hash": "22d8850f90db16a902f7ec7d484a38bdf5c21bef"
-          }
-        },
-        {
           "client_id": "86990247944-hvil7ut3oob80duln2989ubk9j4un85u.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
-import 'package:medishield/features/authentication/screens/phone_auth/phone_auth.dart';
 
 class PhoneController extends GetxController {
   static PhoneController get instance => Get.find();

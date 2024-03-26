@@ -32,7 +32,7 @@ class CheckoutController extends GetxController {
     orderid = res['id'];
     debugPrint('Order Id: $orderid');
     var options = {
-      'key': 'rzp_test_6Fdh3YV52lDe5j',
+      'key': 'rzp_test_ucfh1dyXB8LY6w',
       'amount': amount * 100,
       'name': name,
       'order_id': orderid,
