@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:medishield/common/styles/spacing_styles.dart';
+import 'package:medishield/features/authentication/screens/aboutus/aboutus.dart';
+import 'package:medishield/features/authentication/screens/privacy/privacy.dart';
+import 'package:medishield/features/authentication/screens/refund/refund.dart';
+import 'package:medishield/features/authentication/screens/tnc/tnc.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/constants/text_strings.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
@@ -31,6 +36,70 @@ class LoginScreen extends StatelessWidget {
                 height: TSizes.spaceBtwItems,
               ),
               const LoginFooter(),
+              const SizedBox(
+                height: TSizes.spaceBtwItems,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // terms and conditions
+                      TextButton(
+                        onPressed: () => Get.to(
+                          () => const Tnc(),
+                        ),
+                        child: Text(
+                          'Terms &\nConditions',
+                          style: TextStyle(
+                            color: dark ? Colors.white : Colors.black,
+                          ),
+                        ),
+                      ),
+
+                      // privacy policy
+                      TextButton(
+                        onPressed: () => Get.to(
+                          () => const Refund(),
+                        ),
+                        child: Text(
+                          'Refund\nPolicy',
+                          style: TextStyle(
+                            color: dark ? Colors.white : Colors.black,
+                          ),
+                        ),
+                      ),
+
+                      // privacy policy
+                      TextButton(
+                        onPressed: () => Get.to(
+                          () => const Privacy(),
+                        ),
+                        child: Text(
+                          'Privacy Policy',
+                          style: TextStyle(
+                            color: dark ? Colors.white : Colors.black,
+                          ),
+                        ),
+                      ),
+
+                      // privacy policy
+                      TextButton(
+                        onPressed: () => Get.to(
+                          () => const AboutUs(),
+                        ),
+                        child: Text(
+                          'About us',
+                          style: TextStyle(
+                            color: dark ? Colors.white : Colors.black,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              )
             ],
           ),
         ),

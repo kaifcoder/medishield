@@ -113,6 +113,8 @@ class CartController extends GetxController {
       counter.value = 1;
       update();
     } catch (e) {
+      THelperFunctions.showSnackBar(
+          e.toString().replaceAll('Exception: Error: ', ''));
       rethrow;
     }
   }

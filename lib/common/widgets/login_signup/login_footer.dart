@@ -87,7 +87,7 @@ class LoginFooter extends StatelessWidget {
               const SizedBox(
                 width: TSizes.spaceBtwItems,
               ),
-              Text('OTP'.capitalize!),
+              Text('Mobile'.capitalize!),
             ],
           ),
         ),

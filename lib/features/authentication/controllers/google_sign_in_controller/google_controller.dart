@@ -41,6 +41,7 @@ class GoogleController extends GetxController {
       if (await isUserExist(userCredential.user!.uid)) {
         await FullScreenLoader.stopLoading();
         await AuthenticationRepository.instance.loginWithGoogle();
+        await AuthenticationRepository.instance.screenRedirect();
       } else {
         // save this user to database
         await FullScreenLoader.stopLoading();

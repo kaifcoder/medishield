@@ -6,6 +6,7 @@ class ProductModel {
   final int id;
   final String name;
   final String sku;
+  final String? barcode;
   final String thumbnailUrl;
   final String shortDescription;
   final String manufacturer;
@@ -23,28 +24,28 @@ class ProductModel {
   final List<dynamic>? ratings;
   final int? msc;
 
-  ProductModel({
-    required this.prodId,
-    required this.id,
-    required this.name,
-    required this.sku,
-    required this.thumbnailUrl,
-    required this.shortDescription,
-    required this.manufacturer,
-    required this.averageRating,
-    required this.RatingCount,
-    required this.isInStock,
-    required this.isCod,
-    required this.price,
-    required this.mediaGalleryEntries,
-    required this.categories,
-    required this.qaData,
-    required this.childProducts,
-    required this.productSpecs,
-    required this.banners,
-    this.ratings,
-    this.msc,
-  });
+  ProductModel(
+      {required this.prodId,
+      required this.id,
+      required this.name,
+      required this.sku,
+      required this.thumbnailUrl,
+      required this.shortDescription,
+      required this.manufacturer,
+      required this.averageRating,
+      required this.RatingCount,
+      required this.isInStock,
+      required this.isCod,
+      required this.price,
+      required this.mediaGalleryEntries,
+      required this.categories,
+      required this.qaData,
+      required this.childProducts,
+      required this.productSpecs,
+      required this.banners,
+      this.ratings,
+      this.msc,
+      this.barcode});
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
@@ -52,6 +53,7 @@ class ProductModel {
       id: json['id'] ?? 0,
       name: json['name'] ?? '',
       sku: json['sku'] ?? '',
+      barcode: json['barcode'] ?? '',
       thumbnailUrl: json['thumbnail_url'] ?? '',
       shortDescription: json['short_description'] ?? '',
       manufacturer: json['manufacturer'] ?? '',

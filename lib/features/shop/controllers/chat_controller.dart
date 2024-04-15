@@ -76,7 +76,7 @@ class ChatController extends GetxController {
                   "content":
                       'here is previous chat context: $contextPrompt now reply this $text. if text contains query other than product then reply on basis of your knowledge. if user is asking for product then here is product context  do not tell prices $productContext'
                 }
-              ]
+              ],
             }));
 
         if (response.statusCode == 200) {
