@@ -25,7 +25,7 @@ class Privacy extends StatelessWidget {
 </head>
 <body>
     <h1>Privacy Notice</h1>
-    <p>Welcome to Medishield, provided by MediShield Healthcare Pvt. Ltd. At Medishield, we understand the importance of your privacy and are committed to safeguarding your personal information. This Privacy Notice outlines how we collect, use, and protect your information through our mobile application.</p>
+    <p>Welcome to Medishield, provided by MEDI SHIELD HEALTH CARE. At Medishield, we understand the importance of your privacy and are committed to safeguarding your personal information. This Privacy Notice outlines how we collect, use, and protect your information through our mobile application.</p>
     
     <h2>Information Collection</h2>
     <p>We collect personal information to enhance your experience with Medishield and to improve our services. This information may include:</p>
@@ -60,7 +60,7 @@ class Privacy extends StatelessWidget {
     <h2>Contact Us</h2>
     <p>If you have any questions, concerns, or requests regarding our Privacy Notice or the handling of your personal information, please contact us at:</p>
     <address>
-        MediShield Healthcare Pvt. Ltd. <br>
+        MEDI SHIELD HEALTH CARE <br>
         Address: 9 B.N Road, Lalbagh, Lucknow, India <br>
         Phone: +91-522-4236262 <br>
         Email: eximlko@gmail.com

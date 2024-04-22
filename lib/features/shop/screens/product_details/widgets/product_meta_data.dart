@@ -103,12 +103,12 @@ class ProductMetaData extends StatelessWidget {
         const SizedBox(
           height: TSizes.spaceBtwItems / 1.5,
         ),
-        Text(
-          isInStock ? 'In Stock' : 'Out of Stock',
-          style: Theme.of(context).textTheme.bodySmall!.apply(
-                color: isInStock ? TColors.success : TColors.error,
-              ),
-        ),
+        // Text(
+        //   isInStock ? 'In Stock' : 'Out of Stock',
+        //   style: Theme.of(context).textTheme.bodySmall!.apply(
+        //         color: isInStock ? TColors.success : TColors.error,
+        //       ),
+        // ),
       ],
     );
   }

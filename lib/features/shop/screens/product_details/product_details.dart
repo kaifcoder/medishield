@@ -136,7 +136,7 @@ class ProductDetailScreen extends StatelessWidget {
                         return Obx(
                           () => ChildProductDisplay(
                             ontap: () => variantController.selectVariant(
-                                product.childProducts[index].id, index),
+                                product.childProducts[index].sku, index),
                             selected:
                                 variantController.selectedVariantIndex.value ==
                                     index,

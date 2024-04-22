@@ -51,7 +51,7 @@ class AboutUs extends StatelessWidget {
           <h2>Contact Us</h2>
           <p>If you have any inquiries or would like to learn more about MediShield HealthCare, please don't hesitate to contact us:</p>
           <address>
-          MediShield Healthcare Pvt. Ltd. <br>
+          MEDI SHIELD HEALTH CARE <br>
           Address: 9 B.N Road, Lalbagh, Lucknow, India <br>
           Phone: +91-522-4236262 <br>
           Email: eximlko@gmail.com
