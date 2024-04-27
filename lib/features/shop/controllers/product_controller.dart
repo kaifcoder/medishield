@@ -20,6 +20,7 @@ class ProductController extends GetxController {
   RxList<ProductModel> Orthodontics = <ProductModel>[].obs;
   RxList<ProductModel> Instruments = <ProductModel>[].obs;
   RxList<ProductModel> CategoryProducts = <ProductModel>[].obs;
+  ProductModel product = ProductModel.empty();
   RxList<ProductModel> SearchProducts = <ProductModel>[].obs;
 
   @override
@@ -30,15 +31,16 @@ class ProductController extends GetxController {
     super.onInit();
   }
 
+// Endocraft products fetch
   void fetchEndoProduct() async {
     try {
       isLoading.value = true;
 
       // fetch
       final response = await productRepo.fetchProducts(
-        10,
+        1,
         4,
-        'Endodontics',
+        'Endocraft',
       );
       // assign to list
       Endodontics.assignAll(response['data'].map<ProductModel>((product) {
@@ -53,15 +55,16 @@ class ProductController extends GetxController {
     }
   }
 
+// Medishield Healthcare products fetch
   void fetchorthoProduct() async {
     try {
       isLoading.value = true;
 
       // fetch
       final response = await productRepo.fetchProducts(
-        16,
+        1,
         4,
-        'Orthodontics',
+        'Medishield Healthcare',
       );
       // assign to list
       Orthodontics.assignAll(response['data'].map<ProductModel>((product) {
@@ -76,15 +79,16 @@ class ProductController extends GetxController {
     }
   }
 
+  // clinician's choice products
   void fetchInstruProduct() async {
     try {
       isLoading.value = true;
 
       // fetch
       final response = await productRepo.fetchProducts(
-        16,
+        1,
         4,
-        'Instruments',
+        "Clinician's Choice",
       );
       // assign to list
       Instruments.assignAll(response['data'].map<ProductModel>((product) {
@@ -176,10 +180,21 @@ class ProductController extends GetxController {
       isLoading.value = true;
       // fetch
       final response = await productRepo.fetchProductById(id);
-      // assign to list
+
       CategoryProducts.assignAll(response['data'].map<ProductModel>((product) {
         return ProductModel.fromJson(product);
       }).toList());
+
+      if (CategoryProducts.isEmpty) {
+        CustomSnackbar.warningSnackBar('Product Is Not Available Right Now');
+        return;
+      }
+
+      product = CategoryProducts.first;
+
+      CategoryProducts.clear();
+      update();
+      return product;
     } catch (e) {
       CustomSnackbar.errorSnackBar('Something went wrong');
       TLoggerHelper.error(e.toString());

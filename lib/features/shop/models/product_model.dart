@@ -78,6 +78,31 @@ class ProductModel {
     );
   }
 
+  static empty() {
+    return ProductModel(
+      prodId: '',
+      id: 0,
+      name: '',
+      sku: '',
+      thumbnailUrl: '',
+      shortDescription: '',
+      manufacturer: '',
+      averageRating: '0.0',
+      RatingCount: '0',
+      isInStock: false,
+      isCod: '',
+      price: Price(minimalPrice: 0, maximalPrice: 0, regularPrice: 0),
+      mediaGalleryEntries: [],
+      categories: [],
+      qaData: [],
+      childProducts: [],
+      productSpecs: {},
+      banners: [],
+      ratings: [],
+      msc: 0,
+    );
+  }
+
   static getManufacture(manufacturer) {
     if (manufacturer == null) return '';
     if (manufacturer.contains(RegExp(r'[a-zA-Z]'))) return manufacturer;
@@ -133,10 +158,12 @@ class Price {
   });
 
   factory Price.fromJson(Map<String, dynamic> json) {
+    // convert double to int round to nearest whole number
+
     return Price(
-      minimalPrice: json['minimalPrice'] ?? 0,
-      maximalPrice: json['maximalPrice'] ?? 0,
-      regularPrice: json['regularPrice'] ?? 0,
+      minimalPrice: (json['minimalPrice'] ?? 0).toDouble().round(),
+      maximalPrice: (json['minimalPrice'] ?? 0).toDouble().round(),
+      regularPrice: (json['minimalPrice'] ?? 0).toDouble().round(),
     );
   }
 }

@@ -60,7 +60,7 @@ class ReferAndEarnScreen extends StatelessWidget {
                     // Implement share functionality
                     try {
                       Share.share(
-                          'Hey! I am using MediShield and I think you should too. Use my referral code $referralCode to get started and earn MediShield Coins.');
+                          'Hey! I am using MediShield and I think you should too. Use my referral code *$referralCode* to get started and earn MediShield Coins.\nhttps://play.google.com/store/apps/details?id=com.medishieldhealthcare.medishield');
                     } catch (e) {
                       THelperFunctions.showSnackBar(
                           'Error sharing referral code');

@@ -71,7 +71,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     const TSectionHeading(
-                      title: 'Endodontics',
+                      title: 'Endocraft Products',
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     Obx(
@@ -100,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     const TSectionHeading(
-                      title: 'Orthodontics',
+                      title: 'Medishield Products',
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     Obx(
@@ -129,7 +129,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     const TSectionHeading(
-                      title: 'Instruments',
+                      title: 'Clinician\'s Choice Products',
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     Obx(
@@ -139,7 +139,7 @@ class HomeScreen extends StatelessWidget {
                         }
                         if (controller.Instruments.isEmpty) {
                           return const Center(
-                            child: Text('No data found'),
+                            child: Text('No Product found'),
                           );
                         }
                         return GridLayout(

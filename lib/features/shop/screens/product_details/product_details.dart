@@ -53,409 +53,376 @@ class ProductDetailScreen extends StatelessWidget {
     debugPrint('averageRating: $averageRating');
     debugPrint('totalRatings: $totalRatings');
     debugPrint('prodId: ${product.prodId}');
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            // product images carousel
-            Hero(
-              tag: product.prodId,
-              child: ProductImageSlider(
+    if (product.prodId.isEmpty) {
+      return const Scaffold(
+        body: Center(child: Text('Product not found')),
+      );
+    } else {
+      return Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              // product images carousel
+              ProductImageSlider(
                 product: product,
               ),
-            ),
 
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ReviewText(
-                    reviewCount: product.ratings!.length.toString(),
-                    averageRating: averageRating.toStringAsFixed(1),
-                  ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwItems,
-                  ),
-                  ProductMetaData(
-                    title: product.name,
-                    isInStock: product.isInStock,
-                    shortDescription: product.shortDescription,
-                    manufacturer: product.childProducts.length > 1
-                        ? ProductModel.getManufacture(
-                            product.childProducts[0].manufacturer)
-                        : ProductModel.getManufacture(product.manufacturer),
-                    price: product.price.minimalPrice.toDouble(),
-                    originalPrice: product.price.regularPrice.toDouble(),
-                    discount: product.price.minimalPrice.toDouble(),
-                    child: product.childProducts.length > 1,
-                  ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwItems / 2,
-                  ),
-                  if (product.msc != 0 && product.msc != null)
-                    Row(
-                      children: [
-                        Icon(
-                          Iconsax.coin,
-                          color: Colors.amber.shade800,
-                        ),
-                        const SizedBox(
-                          width: TSizes.spaceBtwItems / 3,
-                        ),
-                        Text(
-                          'earn ${product.msc} MSC',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyLarge!
-                              .copyWith(
-                                  color: Colors.amber.shade800,
-                                  fontWeight: FontWeight.w600),
-                        ),
-                      ],
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ReviewText(
+                      reviewCount: product.ratings!.length.toString(),
+                      averageRating: averageRating.toStringAsFixed(1),
                     ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwItems,
-                  ),
-
-                  /// product variants
-                  if (product.childProducts.length > 1)
-                    const TSectionHeading(title: 'Product Variants'),
-                  if (product.childProducts.length > 1)
                     const SizedBox(
                       height: TSizes.spaceBtwItems,
                     ),
-                  if (product.childProducts.length > 1)
-                    ListView.separated(
-                      padding: EdgeInsets.zero,
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: product.childProducts.length,
-                      itemBuilder: (context, index) {
-                        return Obx(
-                          () => ChildProductDisplay(
-                            ontap: () => variantController.selectVariant(
-                                product.childProducts[index].sku, index),
-                            selected:
-                                variantController.selectedVariantIndex.value ==
-                                    index,
-                            title: product.childProducts[index].name,
-                            price: product
-                                .childProducts[index].price.minimalPrice
-                                .toDouble(),
+                    ProductMetaData(
+                      title: product.name,
+                      isInStock: product.isInStock,
+                      shortDescription: product.shortDescription,
+                      manufacturer: product.childProducts.length > 1
+                          ? ProductModel.getManufacture(
+                              product.childProducts[0].manufacturer)
+                          : ProductModel.getManufacture(product.manufacturer),
+                      price: product.price.minimalPrice.toDouble(),
+                      originalPrice: product.price.regularPrice.toDouble(),
+                      discount: product.price.minimalPrice.toDouble(),
+                      child: product.childProducts.length > 1,
+                    ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems / 2,
+                    ),
+                    if (product.msc != 0 && product.msc != null)
+                      Row(
+                        children: [
+                          Icon(
+                            Iconsax.coin,
+                            color: Colors.amber.shade800,
                           ),
-                        );
-                      },
-                      separatorBuilder: (context, index) => const SizedBox(
+                          const SizedBox(
+                            width: TSizes.spaceBtwItems / 3,
+                          ),
+                          Text(
+                            'earn ${product.msc} MSC',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyLarge!
+                                .copyWith(
+                                    color: Colors.amber.shade800,
+                                    fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    ),
+
+                    /// product variants
+                    if (product.childProducts.length > 1)
+                      const TSectionHeading(title: 'Product Variants'),
+                    if (product.childProducts.length > 1)
+                      const SizedBox(
                         height: TSizes.spaceBtwItems,
                       ),
-                    ),
-
-                  const SizedBox(
-                    height: TSizes.spaceBtwItems,
-                  ),
-
-                  /// checkout button
-                  if (product.isInStock)
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          if (AuthenticationRepository.instance.deviceStorage
-                                  .read('token') ==
-                              null) {
-                            Get.offAll(() => const LoginScreen());
-                            return;
-                          }
-                          // add to cart
-                          cartController.addToCart(
-                            product: product.prodId,
-                            count: 1,
-                            price: product.childProducts.length > 1
-                                ? product
-                                            .childProducts[variantController
-                                                .selectedVariantIndex.value]
-                                            .price
-                                            .minimalPrice ==
-                                        0
-                                    ? product
-                                        .childProducts[variantController
-                                            .selectedVariantIndex.value]
-                                        .specialPrice!
-                                    : product
-                                        .childProducts[variantController
-                                            .selectedVariantIndex.value]
-                                        .price
-                                        .minimalPrice
-                                : product.price.minimalPrice,
-                            v: product.childProducts.length > 1
-                                ? product
-                                    .childProducts[variantController
-                                        .selectedVariantIndex.value]
-                                    .sku
-                                : product.sku,
-                          );
-                          // navigate to cart
-                          await Get.to(() => const CheckoutScreen());
-                        },
-                        child: const Text('Checkout'),
-                      ),
-                    ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwItems,
-                  ),
-
-                  /// product description
-                  ExpansionTile(
-                      tilePadding: EdgeInsets.zero,
-                      initiallyExpanded: false,
-                      title: const Text('Description'),
-                      children: [
-                        Html(
-                            data: '''${product.productSpecs['description']}'''),
-                      ]),
-                  ExpansionTile(
-                      tilePadding: EdgeInsets.zero,
-                      title: const Text('Key Specification'),
-                      children: [
-                        Html(
-                            data:
-                                '''${product.productSpecs['key_specifications']}'''),
-                      ]),
-                  ExpansionTile(
-                      tilePadding: EdgeInsets.zero,
-                      title: const Text('Packaging'),
-                      children: [
-                        Html(data: '''${product.productSpecs['packaging']}'''),
-                      ]),
-                  ExpansionTile(
-                      tilePadding: EdgeInsets.zero,
-                      title: const Text('Direction To Use'),
-                      children: [
-                        Html(
-                            data:
-                                '''${product.productSpecs['direction_to_use']}''')
-                      ]),
-                  ExpansionTile(
-                      tilePadding: EdgeInsets.zero,
-                      title: const Text('Features'),
-                      children: [
-                        Html(data: '''${product.productSpecs['features']}'''),
-                      ]),
-                  ExpansionTile(
-                      expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                      tilePadding: EdgeInsets.zero,
-                      initiallyExpanded: true,
-                      title: const Text('FAQs'),
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            if (product.qaData.isEmpty)
-                              const Center(
-                                child: Text('No questions found'),
-                              ),
-                            if (product.qaData.isNotEmpty)
-                              ListView.separated(
-                                  padding: EdgeInsets.zero,
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  shrinkWrap: true,
-                                  itemBuilder: (context, index) {
-                                    return QnA(
-                                      index: index + 1,
-                                      question: product.qaData[index].question,
-                                      answer: product.qaData[index].answer,
-                                    );
-                                  },
-                                  separatorBuilder: (context, index) =>
-                                      const SizedBox(
-                                        height: TSizes.sm,
-                                        child: Divider(
-                                          color: Colors.grey,
-                                          height: 1.5,
-                                        ),
-                                      ),
-                                  itemCount: product.qaData.length),
-                            const SizedBox(
-                              height: TSizes.spaceBtwItems,
+                    if (product.childProducts.length > 1)
+                      ListView.separated(
+                        padding: EdgeInsets.zero,
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: product.childProducts.length,
+                        itemBuilder: (context, index) {
+                          return Obx(
+                            () => ChildProductDisplay(
+                              ontap: () => variantController.selectVariant(
+                                  product.childProducts[index].sku, index),
+                              selected: variantController
+                                      .selectedVariantIndex.value ==
+                                  index,
+                              title: product.childProducts[index].name,
+                              price: product
+                                  .childProducts[index].price.minimalPrice
+                                  .toDouble(),
                             ),
-                            // TextButton(
-                            //     style: TextButton.styleFrom(
-                            //       foregroundColor: Colors.black,
-                            //     ),
-                            //     onPressed: () {
-                            //       Get.bottomSheet(
-                            //           backgroundColor: Colors.white,
-                            //           Padding(
-                            //             padding:
-                            //                 const EdgeInsets.all(TSizes.md),
-                            //             child: Column(
-                            //               mainAxisSize: MainAxisSize.min,
-                            //               children: [
-                            //                 const TSectionHeading(
-                            //                   title: 'Ask a question',
-                            //                 ),
-                            //                 const SizedBox(
-                            //                   height: TSizes.spaceBtwItems,
-                            //                 ),
-                            //                 const TextField(
-                            //                   decoration: const InputDecoration(
-                            //                     hintText:
-                            //                         'Type your question here',
-                            //                     border: OutlineInputBorder(),
-                            //                   ),
-                            //                 ),
-                            //                 const SizedBox(
-                            //                   height: TSizes.spaceBtwItems,
-                            //                 ),
-                            //                 SizedBox(
-                            //                   width: double.infinity,
-                            //                   child: ElevatedButton(
-                            //                     onPressed: () {
-                            //                       Get.back();
-                            //                     },
-                            //                     child: const Text('Submit'),
-                            //                   ),
-                            //                 )
-                            //               ],
-                            //             ),
-                            //           ));
-                            //     },
-                            //     child: const Text('Ask a question'))
-                          ],
-                        )
-                      ]),
-                  const SizedBox(
-                    height: TSizes.spaceBtwSections,
-                  ),
-
-                  const TSectionHeading(
-                    title: 'Reviews & Ratings',
-                  ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwItems,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      OverallProductRating(
-                        averageRating: averageRating.toStringAsFixed(1),
-                        fiveStarRating: countStars[5]! / totalRatings,
-                        fourStarRating: countStars[4]! / totalRatings,
-                        threeStarRating: countStars[3]! / totalRatings,
-                        twoStarRating: countStars[2]! / totalRatings,
-                        oneStarRating: countStars[1]! / totalRatings,
+                          );
+                        },
+                        separatorBuilder: (context, index) => const SizedBox(
+                          height: TSizes.spaceBtwItems,
+                        ),
                       ),
-                      TRatingBarIndicator(rating: averageRating),
-                      Text('${product.ratings!.length} ratings'),
-                      const SizedBox(
-                        height: TSizes.spaceBtwItems / 2,
-                      ),
-                      TextButton(
-                          onPressed: () {
-                            Get.bottomSheet(
-                                backgroundColor: Colors.white,
-                                SingleChildScrollView(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        const TSectionHeading(
-                                          title: 'Write a review',
-                                        ),
-                                        const SizedBox(
-                                          height: TSizes.spaceBtwItems,
-                                        ),
-                                        RatingBar(
-                                            ratingWidget: RatingWidget(
-                                              full: const Icon(Icons.star,
-                                                  color: TColors.primary),
-                                              half: const Icon(Icons.star_half,
-                                                  color: Colors.amber),
-                                              empty: const Icon(
-                                                  Icons.star_border,
-                                                  color: TColors.grey),
-                                            ),
-                                            initialRating: 0.0,
-                                            minRating: 1,
-                                            direction: Axis.horizontal,
-                                            allowHalfRating: false,
-                                            itemCount: 5,
-                                            itemSize: 40,
-                                            itemPadding:
-                                                const EdgeInsets.symmetric(
-                                                    horizontal: 4.0),
-                                            onRatingUpdate: (ratting) {
-                                              ratingController
-                                                  .setRating(ratting);
-                                            }),
-                                        const SizedBox(
-                                          height: TSizes.spaceBtwItems,
-                                        ),
-                                        TextField(
-                                          decoration: const InputDecoration(
-                                            hintText: 'Type your review here',
-                                            border: OutlineInputBorder(),
-                                          ),
-                                          controller:
-                                              ratingController.reviewController,
-                                        ),
-                                        const SizedBox(
-                                          height: TSizes.spaceBtwItems,
-                                        ),
-                                        SizedBox(
-                                          width: double.infinity,
-                                          child: ElevatedButton(
-                                            onPressed: () {
-                                              // submit review
-                                              ratingController.postReview(
-                                                  product.prodId, product);
 
-                                              Get.back();
-                                            },
-                                            child: const Text('Submit'),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ));
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    ),
+
+                    /// checkout button
+                    if (product.isInStock)
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            if (AuthenticationRepository.instance.deviceStorage
+                                    .read('token') ==
+                                null) {
+                              Get.offAll(() => const LoginScreen());
+                              return;
+                            }
+                            // add to cart
+                            cartController.addToCart(
+                              product: product.prodId,
+                              count: 1,
+                              price: product.childProducts.length > 1
+                                  ? product
+                                              .childProducts[variantController
+                                                  .selectedVariantIndex.value]
+                                              .price
+                                              .minimalPrice ==
+                                          0
+                                      ? product
+                                          .childProducts[variantController
+                                              .selectedVariantIndex.value]
+                                          .specialPrice!
+                                      : product
+                                          .childProducts[variantController
+                                              .selectedVariantIndex.value]
+                                          .price
+                                          .minimalPrice
+                                  : product.price.minimalPrice,
+                              v: product.childProducts.length > 1
+                                  ? product
+                                      .childProducts[variantController
+                                          .selectedVariantIndex.value]
+                                      .sku
+                                  : product.sku,
+                            );
+                            // navigate to cart
+                            await Get.to(() => const CheckoutScreen());
                           },
-                          child: const Text('Write a review')),
-                      const SizedBox(
-                        height: TSizes.spaceBtwItems / 2,
+                          child: const Text('Checkout'),
+                        ),
                       ),
-                      if (product.ratings!.isNotEmpty)
-                        ListView.separated(
-                          padding: EdgeInsets.zero,
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: product.ratings!.length,
-                          itemBuilder: (context, index) => UserReview(
-                            rating:
-                                product.ratings![index]['rating'].toString(),
-                            description:
-                                product.ratings![index]['detail'] ?? '',
-                            userName: product.ratings![index]['userName'] ?? '',
-                          ),
-                          separatorBuilder: (context, index) => const Divider(),
-                        )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwSections,
-                  ),
-                ],
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    ),
+
+                    /// product description
+                    ExpansionTile(
+                        tilePadding: EdgeInsets.zero,
+                        initiallyExpanded: false,
+                        title: const Text('Description'),
+                        children: [
+                          Html(
+                              data:
+                                  '''${product.productSpecs['description']}'''),
+                        ]),
+                    ExpansionTile(
+                        tilePadding: EdgeInsets.zero,
+                        title: const Text('Key Specification'),
+                        children: [
+                          Html(
+                              data:
+                                  '''${product.productSpecs['key_specifications']}'''),
+                        ]),
+                    ExpansionTile(
+                        tilePadding: EdgeInsets.zero,
+                        title: const Text('Packaging'),
+                        children: [
+                          Html(
+                              data: '''${product.productSpecs['packaging']}'''),
+                        ]),
+                    ExpansionTile(
+                        tilePadding: EdgeInsets.zero,
+                        title: const Text('Direction To Use'),
+                        children: [
+                          Html(
+                              data:
+                                  '''${product.productSpecs['direction_to_use']}''')
+                        ]),
+                    ExpansionTile(
+                        tilePadding: EdgeInsets.zero,
+                        title: const Text('Features'),
+                        children: [
+                          Html(data: '''${product.productSpecs['features']}'''),
+                        ]),
+                    ExpansionTile(
+                        expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                        tilePadding: EdgeInsets.zero,
+                        initiallyExpanded: true,
+                        title: const Text('FAQs'),
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              if (product.qaData.isEmpty)
+                                const Center(
+                                  child: Text('No questions found'),
+                                ),
+                              if (product.qaData.isNotEmpty)
+                                ListView.separated(
+                                    padding: EdgeInsets.zero,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    shrinkWrap: true,
+                                    itemBuilder: (context, index) {
+                                      return QnA(
+                                        index: index + 1,
+                                        question:
+                                            product.qaData[index].question,
+                                        answer: product.qaData[index].answer,
+                                      );
+                                    },
+                                    separatorBuilder: (context, index) =>
+                                        const SizedBox(
+                                          height: TSizes.sm,
+                                          child: Divider(
+                                            color: Colors.grey,
+                                            height: 1.5,
+                                          ),
+                                        ),
+                                    itemCount: product.qaData.length),
+                              const SizedBox(
+                                height: TSizes.spaceBtwItems,
+                              ),
+                            ],
+                          )
+                        ]),
+                    const SizedBox(
+                      height: TSizes.spaceBtwSections,
+                    ),
+
+                    const TSectionHeading(
+                      title: 'Reviews & Ratings',
+                    ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        OverallProductRating(
+                          averageRating: averageRating.toStringAsFixed(1),
+                          fiveStarRating: countStars[5]! / totalRatings,
+                          fourStarRating: countStars[4]! / totalRatings,
+                          threeStarRating: countStars[3]! / totalRatings,
+                          twoStarRating: countStars[2]! / totalRatings,
+                          oneStarRating: countStars[1]! / totalRatings,
+                        ),
+                        TRatingBarIndicator(rating: averageRating),
+                        Text('${product.ratings!.length} ratings'),
+                        const SizedBox(
+                          height: TSizes.spaceBtwItems / 2,
+                        ),
+                        TextButton(
+                            onPressed: () {
+                              Get.bottomSheet(
+                                  backgroundColor: Colors.white,
+                                  SingleChildScrollView(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          const TSectionHeading(
+                                            title: 'Write a review',
+                                          ),
+                                          const SizedBox(
+                                            height: TSizes.spaceBtwItems,
+                                          ),
+                                          RatingBar(
+                                              ratingWidget: RatingWidget(
+                                                full: const Icon(Icons.star,
+                                                    color: TColors.primary),
+                                                half: const Icon(
+                                                    Icons.star_half,
+                                                    color: Colors.amber),
+                                                empty: const Icon(
+                                                    Icons.star_border,
+                                                    color: TColors.grey),
+                                              ),
+                                              initialRating: 0.0,
+                                              minRating: 1,
+                                              direction: Axis.horizontal,
+                                              allowHalfRating: false,
+                                              itemCount: 5,
+                                              itemSize: 40,
+                                              itemPadding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 4.0),
+                                              onRatingUpdate: (ratting) {
+                                                ratingController
+                                                    .setRating(ratting);
+                                              }),
+                                          const SizedBox(
+                                            height: TSizes.spaceBtwItems,
+                                          ),
+                                          TextField(
+                                            decoration: const InputDecoration(
+                                              hintText: 'Type your review here',
+                                              border: OutlineInputBorder(),
+                                            ),
+                                            controller: ratingController
+                                                .reviewController,
+                                          ),
+                                          const SizedBox(
+                                            height: TSizes.spaceBtwItems,
+                                          ),
+                                          SizedBox(
+                                            width: double.infinity,
+                                            child: ElevatedButton(
+                                              onPressed: () {
+                                                // submit review
+                                                ratingController.postReview(
+                                                    product.prodId, product);
+
+                                                Get.back();
+                                              },
+                                              child: const Text('Submit'),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ));
+                            },
+                            child: const Text('Write a review')),
+                        const SizedBox(
+                          height: TSizes.spaceBtwItems / 2,
+                        ),
+                        if (product.ratings!.isNotEmpty)
+                          ListView.separated(
+                            padding: EdgeInsets.zero,
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: product.ratings!.length,
+                            itemBuilder: (context, index) => UserReview(
+                              rating:
+                                  product.ratings![index]['rating'].toString(),
+                              description:
+                                  product.ratings![index]['detail'] ?? '',
+                              userName:
+                                  product.ratings![index]['userName'] ?? '',
+                            ),
+                            separatorBuilder: (context, index) =>
+                                const Divider(),
+                          )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwSections,
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-      bottomNavigationBar: BottomAddToCartBar(
-        product: product,
-      ),
-    );
+        bottomNavigationBar: BottomAddToCartBar(
+          product: product,
+        ),
+      );
+    }
   }
 }

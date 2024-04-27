@@ -56,7 +56,7 @@ class ProductCardHorizontal extends StatelessWidget {
               backgroundColor: TColors.light,
               child: Stack(children: [
                 Hero(
-                  tag: product!.prodId,
+                  tag: 'tag',
                   child: TRoundedImage(
                     backgroundColor: TColors.light,
                     imageUrl: (product!.thumbnailUrl.contains('http'))

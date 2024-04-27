@@ -17,6 +17,8 @@ import 'package:medishield/features/shop/screens/cart/cart.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:widget_zoom/widget_zoom.dart';
 
 class ProductImageSlider extends StatelessWidget {
   const ProductImageSlider({
@@ -45,14 +47,17 @@ class ProductImageSlider extends StatelessWidget {
                     child: Obx(() {
                       return CarouselSlider(
                         items: images.map((image) {
-                          return CachedNetworkImage(
-                            imageUrl: images[
-                                images.indexOf(controller.selectedImage.value)],
-                            placeholder: (context, url) => const Center(
-                                child: CircularProgressIndicator()),
-                            errorWidget: (context, url, error) =>
-                                const Icon(Icons.error),
-                            fit: BoxFit.contain,
+                          return WidgetZoom(
+                            heroAnimationTag: 'tag',
+                            zoomWidget: CachedNetworkImage(
+                              imageUrl: images[images
+                                  .indexOf(controller.selectedImage.value)],
+                              placeholder: (context, url) => const Center(
+                                  child: CircularProgressIndicator()),
+                              errorWidget: (context, url, error) =>
+                                  const Icon(Icons.error),
+                              fit: BoxFit.contain,
+                            ),
                           );
                         }).toList(),
                         options: CarouselOptions(
@@ -123,6 +128,18 @@ class ProductImageSlider extends StatelessWidget {
                         ? Colors.red
                         : TColors.darkGrey,
                   ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                TCircularIcon(
+                  onPressed: () => {
+                    Share.share(
+                        """Check out this product on MediShield: ${product.name}\nPrice: ${product.price.minimalPrice}\nlink: https://medishield-admin-two.vercel.app/product/${product.prodId}""")
+                  },
+                  dark: dark,
+                  icon: Icons.share,
+                  color: TColors.darkGrey,
                 ),
                 TCartCounterIcon(
                   iconColor: TColors.black,
