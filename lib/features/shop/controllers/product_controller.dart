@@ -175,7 +175,7 @@ class ProductController extends GetxController {
     }
   }
 
-  getProductById(int id) async {
+  getProductById(String id) async {
     try {
       isLoading.value = true;
       // fetch

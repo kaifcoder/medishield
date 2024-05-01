@@ -15,7 +15,7 @@ class ProductRepository extends GetxController {
   }
 
   // fetch products by price from server
-  fetchProductById(int id) async {
+  fetchProductById(String id) async {
     try {
       final res = await THttpHelper.get('api/product/$id');
       print(res.toString());

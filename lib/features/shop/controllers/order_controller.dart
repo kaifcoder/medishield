@@ -78,6 +78,7 @@ class OrderController extends GetxController {
         return;
       }
       final res = await orderRepo.fetchOrders();
+
       orderData.value = List<OrderModel>.from(
         res['data'].map((x) => OrderModel.fromJson(x)),
       );

@@ -48,7 +48,7 @@ class ProductImageSlider extends StatelessWidget {
                       return CarouselSlider(
                         items: images.map((image) {
                           return WidgetZoom(
-                            heroAnimationTag: 'tag',
+                            heroAnimationTag: product.prodId,
                             zoomWidget: CachedNetworkImage(
                               imageUrl: images[images
                                   .indexOf(controller.selectedImage.value)],

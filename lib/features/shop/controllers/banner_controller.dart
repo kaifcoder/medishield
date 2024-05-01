@@ -36,16 +36,4 @@ class BannerController extends GetxController {
       isLoading.value = false;
     }
   }
-
-  // fetch banner product from server
-  getBannerProduct(int id) async {
-    try {
-      final bannerRepo = Get.put(BannerRepository());
-      final res = await bannerRepo.fetchBannerProduct(id);
-      return res;
-    } catch (e) {
-      TLoggerHelper.error(e.toString());
-      rethrow;
-    }
-  }
 }

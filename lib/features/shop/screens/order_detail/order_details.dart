@@ -9,6 +9,7 @@ import 'package:medishield/features/shop/screens/order_detail/widgets/order_item
 import 'package:medishield/features/shop/screens/order_detail/widgets/order_tracker.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class OrderDetailScreen extends StatelessWidget {
   const OrderDetailScreen({super.key, required this.index});
@@ -43,9 +44,26 @@ class OrderDetailScreen extends StatelessWidget {
                       : controller.orderData[index].orderStatus == 'Delivered'
                           ? 2
                           : 3,
-              trackingNumber: controller.orderData[index].trackingNumber!,
+              trackingNumber: controller
+                      .orderData[index].shippingInfo?['payload']['awb_code']
+                      .toString() ??
+                  '',
             ),
-
+            if (controller.orderData[index].orderStatus == 'Shipped')
+              TextButton(
+                onPressed: () async {
+                  // url launcher
+                  final Uri url = Uri.parse(
+                      'https://shiprocket.co/tracking/${controller.orderData[index].shippingInfo!['payload']['awb_code']}');
+                  if (!await launchUrl(url)) {
+                    throw Exception('Could not launch $url');
+                  }
+                },
+                child: const Text(
+                  'Track Order',
+                  style: TextStyle(color: TColors.primary),
+                ),
+              ),
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),

@@ -35,6 +35,7 @@ class OrderRepository extends GetxController {
   fetchOrders() async {
     try {
       final res = await THttpHelper.get('api/user/get-orders');
+
       return res;
     } catch (e) {
       rethrow;

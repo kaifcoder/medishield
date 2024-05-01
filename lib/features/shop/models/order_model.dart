@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:medishield/features/authentication/models/user.dart';
 import 'package:medishield/features/personalization/models/address_model.dart';
 import 'package:medishield/features/shop/models/cart_model.dart';
@@ -11,6 +12,7 @@ class OrderModel {
   final PaymentIntent paymentIntent;
   final AddressModel shippingAddress;
   final String createdAt;
+  final Map<String, dynamic>? shippingInfo;
 
   OrderModel({
     required this.id,
@@ -21,20 +23,23 @@ class OrderModel {
     this.trackingNumber,
     required this.shippingAddress,
     required this.createdAt,
+    this.shippingInfo,
   });
 
   factory OrderModel.fromJson(Map<String, dynamic> json) {
     return OrderModel(
-        id: json['_id'] ?? '',
-        orderStatus: json['orderStatus'] ?? '',
-        orderby: UserModel.fromJson(json['orderby']),
-        products: json['products'].map<Products>((product) {
-          return Products.fromJson(product);
-        }).toList(),
-        trackingNumber: json['trackingNumber'] ?? '',
-        paymentIntent: PaymentIntent.fromJson(json['paymentIntent']),
-        createdAt: json['createdAt'] ?? '',
-        shippingAddress: AddressModel.fromJson(json['shippingAddress']));
+      id: json['_id'] ?? '',
+      orderStatus: json['orderStatus'] ?? '',
+      orderby: UserModel.fromJson(json['orderby']),
+      products: json['products'].map<Products>((product) {
+        return Products.fromJson(product);
+      }).toList(),
+      trackingNumber: json['trackingNumber'] ?? '',
+      paymentIntent: PaymentIntent.fromJson(json['paymentIntent']),
+      createdAt: json['createdAt'] ?? '',
+      shippingAddress: AddressModel.fromJson(json['shippingAddress']),
+      shippingInfo: json['shipmentInfo'] ?? '',
+    );
   }
 
   Map<String, dynamic> toJson() {

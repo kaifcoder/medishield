@@ -1,5 +1,5 @@
 class BannerModel {
-  final int id;
+  final String id;
   final String mobileImage;
   final String title;
 

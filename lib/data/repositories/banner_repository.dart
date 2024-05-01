@@ -16,17 +16,4 @@ class BannerRepository extends GetxController {
       rethrow;
     }
   }
-
-  // fetch banner product from server
-  fetchBannerProduct(int id) async {
-    try {
-      final res = await THttpHelper.get(
-        'api/product/banner/getBannerProduct/$id',
-      );
-      return res;
-    } catch (e) {
-      TLoggerHelper.error(e.toString());
-      rethrow;
-    }
-  }
 }

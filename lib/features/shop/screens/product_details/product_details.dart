@@ -25,9 +25,9 @@ import 'widgets/overall_product_rating.dart';
 import 'widgets/t_rating_bar_indicator.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key, this.id = 0, required this.product});
+  const ProductDetailScreen({super.key, this.id = "", required this.product});
 
-  final int id;
+  final String id;
   final ProductModel product;
 
   @override
@@ -36,7 +36,7 @@ class ProductDetailScreen extends StatelessWidget {
     final variantController = Get.put(ProductVariantsController());
     final cartController = CartController.instance;
     final ratingController = Get.put(RatingController());
-    if (id != 0) {
+    if (id != '') {
       // fetch product by id
       controller.getProductById(id);
     }

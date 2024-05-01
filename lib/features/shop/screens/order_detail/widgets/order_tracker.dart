@@ -15,6 +15,7 @@ class OrderTracker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('Order Status: $trackingNumber');
     return OrderTrackerZen(
       tracker_data: [
         TrackerData(

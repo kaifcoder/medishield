@@ -52,7 +52,7 @@ class ProductCardVertical extends StatelessWidget {
         child: Column(
           children: [
             Hero(
-              tag: 'tag',
+              tag: product!.prodId,
               child: TRoundedContainer(
                 height: 180,
                 padding: const EdgeInsets.all(TSizes.sm),
