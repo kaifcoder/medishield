@@ -14,13 +14,16 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return GetMaterialApp(
-      title: 'MediSheild',
+      title: 'MediShield',
       themeMode: ThemeMode.light,
       theme: MediShieldTheme.lightTheme,
       darkTheme: MediShieldTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       initialBinding: GeneralBindings(),
       home: const LoginScreen(),
+      routes: {
+        '/product': (context) => const LoginScreen(),
+      },
     );
   }
 }

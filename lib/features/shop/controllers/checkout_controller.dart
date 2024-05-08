@@ -31,8 +31,10 @@ class CheckoutController extends GetxController {
     });
     orderid = res['id'];
     debugPrint('Order Id: $orderid');
+    // String key = 'rzp_live_YnUi2bA3hKgC6p';
+    // String key_test = 'rzp_test_ucfh1dyXB8LY6w';
     var options = {
-      'key': 'rzp_test_ucfh1dyXB8LY6w',
+      'key': 'rzp_live_YnUi2bA3hKgC6p',
       'amount': amount * 100,
       'name': name,
       'order_id': orderid,

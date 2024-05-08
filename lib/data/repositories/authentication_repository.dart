@@ -243,7 +243,7 @@ class AuthenticationRepository extends GetxController {
         PhoneAuthProvider.credential(
             verificationId: verificationId.value, smsCode: otp),
       );
-      debugPrint('credentials ${credentials}');
+      debugPrint('credentials $credentials');
       final userExist = await THttpHelper.get(
           'api/user/isUserExist/${credentials.user!.uid}');
       debugPrint('verification id ${verificationId.value}');

@@ -32,9 +32,9 @@ class UserReview extends StatelessWidget {
       children: [
         Row(
           children: [
-            Icon(Icons.star),
+            const Icon(Icons.star),
             Text(rating),
-            SizedBox(
+            const SizedBox(
               width: 8,
             ),
             Text(

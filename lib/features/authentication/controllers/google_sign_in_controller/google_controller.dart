@@ -105,8 +105,8 @@ class GoogleController extends GetxController {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.grey,
-                  side: BorderSide(color: Colors.grey, width: 1.0),
+                  backgroundColor: Colors.grey,
+                  side: const BorderSide(color: Colors.grey, width: 1.0),
                 ),
                 onPressed: () async {
                   final newUser = UserModel(

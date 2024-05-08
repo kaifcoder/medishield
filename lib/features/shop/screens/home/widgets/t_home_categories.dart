@@ -18,12 +18,12 @@ class THomeCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final images = [
-      TImages.orthodontics,
+      TImages.endodontics,
+      TImages.generalDentistry,
       TImages.instruments,
       TImages.pharmacy,
-      TImages.generalDentistry,
+      TImages.orthodontics,
       TImages.restorative,
-      TImages.endodontics,
     ];
 
     final controller = Get.put(CategoryController());

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:medishield/features/authentication/models/user.dart';
 import 'package:medishield/features/personalization/models/address_model.dart';
 import 'package:medishield/features/shop/models/cart_model.dart';
@@ -38,7 +37,7 @@ class OrderModel {
       paymentIntent: PaymentIntent.fromJson(json['paymentIntent']),
       createdAt: json['createdAt'] ?? '',
       shippingAddress: AddressModel.fromJson(json['shippingAddress']),
-      shippingInfo: json['shipmentInfo'] ?? '',
+      shippingInfo: json['shipmentInfo'] ?? {},
     );
   }
 

@@ -81,8 +81,22 @@ class BottomAddToCartBar extends StatelessWidget {
                   ),
                   side: const BorderSide(color: TColors.black)),
               onPressed: () {
-                if (product.isInStock == false) {
+                if (product.childProducts.length <= 1 &&
+                    product.isInStock == false) {
                   CustomSnackbar.warningSnackBar('Product is out of stock.');
+                  return;
+                }
+                if (product.childProducts.length > 1 &&
+                    varient.selectedVariantIndex.value == -1) {
+                  CustomSnackbar.warningSnackBar('Please select a variant');
+                  return;
+                }
+                if (product.childProducts.length > 1 &&
+                    product.childProducts[varient.selectedVariantIndex.value]
+                            .isInStock ==
+                        false) {
+                  CustomSnackbar.warningSnackBar(
+                      'Selected variant is out of stock');
                   return;
                 }
                 controller.addToCart(

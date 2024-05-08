@@ -6,7 +6,6 @@ import 'package:medishield/common/widgets/images/t_rounded_image.dart';
 import 'package:medishield/common/widgets/loaders/custom_shimmer.dart';
 import 'package:medishield/features/shop/controllers/banner_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
-import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/features/shop/screens/product_details/product_details.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';

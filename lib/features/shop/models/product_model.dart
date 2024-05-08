@@ -254,6 +254,7 @@ class ChildProduct {
   final String name;
   final String sku;
   final int? specialPrice;
+  final int? maxSaleQty;
   final String shortDescription;
   final String manufacturer;
   final String averageRating;
@@ -270,6 +271,7 @@ class ChildProduct {
     required this.name,
     required this.sku,
     this.specialPrice,
+    this.maxSaleQty,
     required this.shortDescription,
     required this.manufacturer,
     required this.averageRating,
@@ -292,7 +294,10 @@ class ChildProduct {
       manufacturer: json['manufacturer'] ?? '',
       averageRating: json['average_rating'] ?? '',
       ratingCount: json['rating_count'] ?? '',
-      isInStock: json['is_in_stock'] ?? false,
+      maxSaleQty: json['max_sale_qty'] ?? 0,
+      isInStock: json['max_sale_qty'] != null && json['max_sale_qty'] > 0
+          ? true
+          : false,
       pdExpiryDate: json['pd_expiry_date'] ?? '',
       price: ChildProductPrice.fromJson(json['price'] ?? {}),
       mediaGalleryEntries: List<MediaGalleryEntry>.from(
