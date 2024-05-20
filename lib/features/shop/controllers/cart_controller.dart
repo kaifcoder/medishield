@@ -47,7 +47,7 @@ class CartController extends GetxController {
   }
 
   increaseCount() {
-    if (counter.value == 5) {
+    if (counter.value == 100) {
       return;
     }
     counter.value++;

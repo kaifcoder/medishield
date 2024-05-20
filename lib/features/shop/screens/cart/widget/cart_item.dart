@@ -88,6 +88,7 @@ class CartItem extends StatelessWidget {
                                 child: DropdownButton(
                                     icon: const Icon(Iconsax.arrow_down),
                                     iconSize: 16,
+                                    menuMaxHeight: 300,
                                     alignment: Alignment.bottomCenter,
                                     style: Theme.of(context)
                                         .textTheme
@@ -97,7 +98,7 @@ class CartItem extends StatelessWidget {
                                     hint:
                                         Text(product![index].count.toString()),
                                     items: List.generate(
-                                      5,
+                                      100,
                                       (index) => DropdownMenuItem(
                                         alignment: Alignment.center,
                                         value: index + 1,

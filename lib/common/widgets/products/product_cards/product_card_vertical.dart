@@ -64,7 +64,7 @@ class ProductCardVertical extends StatelessWidget {
                         : TTexts.imagebaseURL + product!.thumbnailUrl,
                     isNetworkImage: true,
                   ),
-                  if (salePercentage > 0)
+                  if (salePercentage > 0 && product!.isInStock == true)
                     Positioned(
                       top: 12,
                       child: TRoundedContainer(

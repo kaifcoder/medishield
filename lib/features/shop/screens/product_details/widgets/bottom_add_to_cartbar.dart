@@ -123,7 +123,13 @@ class BottomAddToCartBar extends StatelessWidget {
                       : product.sku,
                 );
               },
-              child: Text(product.isInStock ? 'Add to cart' : 'Out of stock'))
+              child: Text(product.isInStock ||
+                      (product.childProducts.length > 1 &&
+                          product
+                              .childProducts[varient.selectedVariantIndex.value]
+                              .isInStock)
+                  ? 'Add to cart'
+                  : 'Out of stock'))
         ],
       ),
     );

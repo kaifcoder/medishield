@@ -162,8 +162,8 @@ class Price {
 
     return Price(
       minimalPrice: (json['minimalPrice'] ?? 0).toDouble().round(),
-      maximalPrice: (json['minimalPrice'] ?? 0).toDouble().round(),
-      regularPrice: (json['minimalPrice'] ?? 0).toDouble().round(),
+      maximalPrice: (json['maximalPrice'] ?? 0).toDouble().round(),
+      regularPrice: (json['regularPrice'] ?? 0).toDouble().round(),
     );
   }
 }

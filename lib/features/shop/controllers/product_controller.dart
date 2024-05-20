@@ -156,7 +156,7 @@ class ProductController extends GetxController {
       isLoading.value = true;
       final response = await productRepo.fetchProductsBySearch(
         page,
-        16,
+        50,
         search,
       );
 
@@ -164,6 +164,7 @@ class ProductController extends GetxController {
         SearchProducts.clear();
       }
       SearchProducts.addAll(response['data'].map<ProductModel>((product) {
+        print(product['name'].toString());
         return ProductModel.fromJson(product);
       }).toList());
     } catch (e) {
