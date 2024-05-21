@@ -102,6 +102,7 @@ class BottomAddToCartBar extends StatelessWidget {
                 controller.addToCart(
                   product: product.prodId,
                   count: controller.counter.value,
+                  totalcount: controller.counter.value,
                   price: product.childProducts.length > 1
                       ? product
                                   .childProducts[

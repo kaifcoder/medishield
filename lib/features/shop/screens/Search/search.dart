@@ -65,6 +65,7 @@ class SearchScreen extends StatelessWidget {
                       debugPrint('Barcode: $res');
                       if (res != null && res is String && res != '-1') {
                         controller.searchText.text = res;
+                        controller.handleSearch(res);
                       }
                     }),
               ],

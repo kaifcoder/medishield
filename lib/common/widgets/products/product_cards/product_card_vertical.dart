@@ -187,6 +187,7 @@ class ProductCardVertical extends StatelessWidget {
                                 price: product!.price.minimalPrice,
                                 product: product!.prodId,
                                 count: 1,
+                                totalcount: 1,
                                 v: product!.sku);
                           }
                         },

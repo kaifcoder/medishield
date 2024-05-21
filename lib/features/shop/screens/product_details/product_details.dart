@@ -174,6 +174,7 @@ class ProductDetailScreen extends StatelessWidget {
                             cartController.addToCart(
                               product: product.prodId,
                               count: 1,
+                              totalcount: 1,
                               price: product.childProducts.length > 1
                                   ? product
                                               .childProducts[variantController

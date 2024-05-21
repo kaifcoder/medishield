@@ -113,6 +113,7 @@ class CartItem extends StatelessWidget {
                                         count: value! - product![index].count,
                                         price: product![index].price,
                                         v: product![index].variant,
+                                        totalcount: value,
                                       );
                                     }),
                               ),

@@ -22,7 +22,7 @@ class CartController extends GetxController {
   var discount = 0.0.obs;
   var credit_msc = 0.0.obs;
   var useMediShieldCoins = false.obs;
-  final shippingCharges = 50;
+  var shippingCharges = 100;
 
   @override
   void onInit() async {
@@ -31,6 +31,7 @@ class CartController extends GetxController {
       return;
     }
     super.onInit();
+
     await fetchCartItems();
   }
 
@@ -78,10 +79,14 @@ class CartController extends GetxController {
       }
       userCart.value = CartModel.fromJson(res['data']);
       total.value = userCart.value.cartTotal.toDouble();
+      if (total.value >= 2000) {
+        shippingCharges = 0;
+      } else {
+        shippingCharges = 100;
+      }
       grandTotal.value = userCart.value.cartTotal.toDouble() +
           shippingCharges -
           discount.value;
-
       update();
     } catch (e) {
       rethrow;
@@ -92,6 +97,7 @@ class CartController extends GetxController {
       {required String product,
       required int count,
       required int price,
+      required int totalcount,
       String v = ''}) async {
     try {
       if (auth.deviceStorage.read('token') == null) {
@@ -103,6 +109,7 @@ class CartController extends GetxController {
         count: count,
         price: price,
         v: v,
+        totalcount: totalcount,
       );
       userCart.value = CartModel.fromJson(res);
       total.value = userCart.value.cartTotal.toDouble();

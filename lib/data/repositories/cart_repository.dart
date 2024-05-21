@@ -9,6 +9,7 @@ class CartRepository extends GetxController {
       {required String prodId,
       required int count,
       required int price,
+      required int totalcount,
       String v = ''}) async {
     try {
       final res = await THttpHelper.post('api/user/cart', {
@@ -16,7 +17,8 @@ class CartRepository extends GetxController {
           "productId": prodId,
           "count": count,
           "price": price,
-          "variant": v
+          "variant": v,
+          "totalcount": totalcount,
         }
       });
 
