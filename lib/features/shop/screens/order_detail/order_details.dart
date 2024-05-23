@@ -45,7 +45,7 @@ class OrderDetailScreen extends StatelessWidget {
                           ? 2
                           : 3,
               trackingNumber: controller
-                      .orderData[index].shippingInfo?['payload']['awb_code']
+                      .orderData[index].shippingInfo?['payload']?['awb_code']
                       .toString() ??
                   '',
             ),
@@ -54,7 +54,7 @@ class OrderDetailScreen extends StatelessWidget {
                 onPressed: () async {
                   // url launcher
                   final Uri url = Uri.parse(
-                      'https://shiprocket.co/tracking/${controller.orderData[index].shippingInfo!['payload']['awb_code']}');
+                      'https://shiprocket.co/tracking/${controller.orderData[index].shippingInfo!['payload']?['awb_code']}');
                   if (!await launchUrl(url)) {
                     throw Exception('Could not launch $url');
                   }

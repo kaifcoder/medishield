@@ -11,6 +11,7 @@ import 'package:medishield/features/personalization/controllers/user_controller.
 import 'package:medishield/features/shop/screens/cart/widget/cart_item.dart';
 import 'package:medishield/features/shop/screens/checkout/widget/billing_address.dart';
 import 'package:medishield/features/shop/screens/checkout/widget/billing_payment_details.dart';
+import 'package:medishield/features/shop/screens/checkout/widget/coupon_dialog.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
@@ -58,6 +59,29 @@ class CheckoutScreen extends StatelessWidget {
                 const Text('Use MediShield Coins')
               ],
             ),
+            // add button to invoke bottom sheet to apply coupons here
+            // Container(
+            //   width: double.infinity,
+            //   child: ElevatedButton(
+            //     style: ElevatedButton.styleFrom(
+            //       foregroundColor: TColors.primary,
+            //       backgroundColor: TColors.lightGrey,
+            //       shape: RoundedRectangleBorder(
+            //         borderRadius: BorderRadius.circular(8),
+            //       ),
+            //     ),
+            //     onPressed: () {
+            //       // show bottom sheet
+            //       Get.bottomSheet(
+            //         CouponDialog(),
+            //         backgroundColor: TColors.white,
+            //         enableDrag: true,
+            //       );
+            //     },
+            //     child: const Text('Apply Coupon'),
+            //   ),
+            // ),
+
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),

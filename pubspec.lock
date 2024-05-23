@@ -217,6 +217,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
+  coupon_uikit:
+    dependency: "direct main"
+    description:
+      name: coupon_uikit
+      sha256: "3d823e0577265d029bbd4307b9eabf0b096ce183c5e75ba86a45dc746757d692"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.1"
   cross_file:
     dependency: transitive
     description:

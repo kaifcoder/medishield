@@ -16,6 +16,7 @@ class OrderTracker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     debugPrint('Order Status: $trackingNumber');
+    debugPrint('Order Status: $orderStatus');
     return OrderTrackerZen(
       tracker_data: [
         TrackerData(
@@ -28,7 +29,7 @@ class OrderTracker extends StatelessWidget {
             ),
           ],
         ),
-        if (orderStatus >= 1)
+        if (orderStatus == 1)
           TrackerData(
             title: "Order Shipped",
             date: date,
@@ -47,6 +48,17 @@ class OrderTracker extends StatelessWidget {
             tracker_details: [
               TrackerDetails(
                 title: "Your order was delivered",
+                datetime: date,
+              ),
+            ],
+          ),
+        if (orderStatus == 3)
+          TrackerData(
+            title: "Order Cancelled",
+            date: date,
+            tracker_details: [
+              TrackerDetails(
+                title: "Your order was cancelled",
                 datetime: date,
               ),
             ],

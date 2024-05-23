@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/data/repositories/cart_repository.dart';
 import 'package:medishield/features/authentication/screens/login/login.dart';
@@ -79,11 +81,7 @@ class CartController extends GetxController {
       }
       userCart.value = CartModel.fromJson(res['data']);
       total.value = userCart.value.cartTotal.toDouble();
-      if (total.value >= 2000) {
-        shippingCharges = 0;
-      } else {
-        shippingCharges = 100;
-      }
+
       grandTotal.value = userCart.value.cartTotal.toDouble() +
           shippingCharges -
           discount.value;
@@ -113,6 +111,12 @@ class CartController extends GetxController {
       );
       userCart.value = CartModel.fromJson(res);
       total.value = userCart.value.cartTotal.toDouble();
+      debugPrint('Cart Total: ${total}');
+      if (total >= 2000) {
+        shippingCharges = 0;
+      } else {
+        shippingCharges = 100;
+      }
       grandTotal.value = userCart.value.cartTotal.toDouble() +
           shippingCharges -
           discount.value;
