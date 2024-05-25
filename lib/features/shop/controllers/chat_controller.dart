@@ -28,7 +28,7 @@ class ChatController extends GetxController {
 
   void sendMsg() async {
     String text = controller.text;
-    String apiKey = "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";
+    String apiKey = "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";
     controller.clear();
     try {
       if (text.isNotEmpty) {

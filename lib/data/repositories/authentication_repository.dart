@@ -214,7 +214,7 @@ class AuthenticationRepository extends GetxController {
       await _auth.verifyPhoneNumber(
         phoneNumber: phone,
         verificationCompleted: (credential) async {
-           // _auth.signInWithCredential(credential);
+          // _auth.signInWithCredential(credential);
         },
         codeSent: (verificationId, resendToken) {
           this.verificationId.value = verificationId;

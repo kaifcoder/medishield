@@ -7,7 +7,7 @@ class BannerController extends GetxController {
   static BannerController get instance => Get.find<BannerController>();
   final carouselIndex = 0.obs;
   final isLoading = false.obs;
-  final totalBanners = 0.obs;
+  final totalBanners = 9.obs;
   RxList<BannerModel> bannerList = <BannerModel>[].obs;
 
   @override
@@ -37,6 +37,7 @@ class BannerController extends GetxController {
     } finally {
       totalBanners.value = bannerList.length;
       isLoading.value = false;
+      update();
     }
   }
 }
