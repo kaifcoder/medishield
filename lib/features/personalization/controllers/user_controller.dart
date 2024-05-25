@@ -15,6 +15,7 @@ class UserController extends GetxController {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final firstName = TextEditingController();
   final lastName = TextEditingController();
+  RxString homeScreenmessage = ''.obs;
   final phoneNumber = TextEditingController();
   final guest = AuthenticationRepository.instance.deviceStorage.read('guest');
 
@@ -22,6 +23,7 @@ class UserController extends GetxController {
   void onInit() {
     super.onInit();
     fetchUserRecord();
+    updateHomeScreenMessage();
   }
 
   // fetch user data from repository
@@ -35,6 +37,18 @@ class UserController extends GetxController {
       TLoggerHelper.error(e.toString());
     } finally {
       userLoading(false);
+    }
+  }
+
+  //get current time and update home screen message
+  void updateHomeScreenMessage() {
+    final currentTime = DateTime.now().hour;
+    if (currentTime < 12) {
+      homeScreenmessage('Good Morning');
+    } else if (currentTime < 17) {
+      homeScreenmessage('Good Afternoon');
+    } else {
+      homeScreenmessage('Good Evening');
     }
   }
 

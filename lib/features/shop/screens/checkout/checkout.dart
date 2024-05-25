@@ -81,7 +81,27 @@ class CheckoutScreen extends StatelessWidget {
             //     child: const Text('Apply Coupon'),
             //   ),
             // ),
+            const SizedBox(
+              height: TSizes.spaceBtwItems,
+            ),
 
+            // promotional container for free delivery on purchase of 2000 or more
+            const TRoundedContainer(
+              showBorder: true,
+              backgroundColor: TColors.lightGrey,
+              padding: EdgeInsets.all(TSizes.md),
+              child: Column(
+                children: [
+                  Text(
+                    'Get free delivery on purchase of 2000 or more',
+                    style: TextStyle(
+                      color: TColors.primary,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),

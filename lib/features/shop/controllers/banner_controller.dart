@@ -4,8 +4,10 @@ import 'package:medishield/features/shop/models/banner_model.dart';
 import 'package:medishield/utils/logging/logger.dart';
 
 class BannerController extends GetxController {
+  static BannerController get instance => Get.find<BannerController>();
   final carouselIndex = 0.obs;
   final isLoading = false.obs;
+  final totalBanners = 0.obs;
   RxList<BannerModel> bannerList = <BannerModel>[].obs;
 
   @override
@@ -33,6 +35,7 @@ class BannerController extends GetxController {
       TLoggerHelper.error(e.toString());
       rethrow;
     } finally {
+      totalBanners.value = bannerList.length;
       isLoading.value = false;
     }
   }

@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:medishield/common/widgets/custom_shapes/containers/t_primary_header_container.dart';
 import 'package:medishield/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:medishield/common/widgets/shimmers/product_shimmer.dart';
+import 'package:medishield/features/shop/controllers/banner_controller.dart';
 import 'package:medishield/features/shop/controllers/home_controller.dart';
 import 'package:medishield/features/shop/controllers/product_controller.dart';
 import 'package:medishield/features/shop/screens/categories/categories.dart';
@@ -24,6 +25,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeController());
     final controller = Get.put(ProductController());
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -96,7 +98,7 @@ class HomeScreen extends StatelessWidget {
 
                     ///
                     const TPromoSlider(
-                      skipCount: 3,
+                      skipCount: 6,
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     const TSectionHeading(
@@ -125,7 +127,7 @@ class HomeScreen extends StatelessWidget {
 
                     ///
                     const TPromoSlider(
-                      skipCount: 6,
+                      skipCount: 6 * 2,
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     const TSectionHeading(

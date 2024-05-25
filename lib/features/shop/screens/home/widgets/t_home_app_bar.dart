@@ -11,7 +11,6 @@ import 'package:medishield/features/shop/screens/Search/search.dart';
 import 'package:medishield/features/shop/screens/cart/cart.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/image_strings.dart';
-import 'package:medishield/utils/constants/text_strings.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class THomeAppBar extends StatelessWidget {
@@ -24,11 +23,13 @@ class THomeAppBar extends StatelessWidget {
     final controller = Get.put(UserController());
     return TAppBar(
       title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(
-          TTexts.homeAppbarTitle,
-          style: Theme.of(context).textTheme.labelMedium!.apply(
-                color: TColors.grey,
-              ),
+        Obx(
+          () => Text(
+            controller.homeScreenmessage.value,
+            style: Theme.of(context).textTheme.labelMedium!.apply(
+                  color: TColors.grey,
+                ),
+          ),
         ),
         Obx(() {
           if (controller.userLoading.value) {

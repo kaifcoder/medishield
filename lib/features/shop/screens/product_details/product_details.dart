@@ -3,6 +3,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medishield/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:medishield/common/widgets/text/t_section_heading.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/features/authentication/screens/login/login.dart';
@@ -154,6 +155,25 @@ class ProductDetailScreen extends StatelessWidget {
                         ),
                       ),
 
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    ),
+                    const TRoundedContainer(
+                      showBorder: true,
+                      backgroundColor: TColors.lightGrey,
+                      padding: EdgeInsets.all(TSizes.md),
+                      child: Column(
+                        children: [
+                          Text(
+                            'Get free delivery on purchase of 2000 or more',
+                            style: TextStyle(
+                              color: TColors.primary,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     const SizedBox(
                       height: TSizes.spaceBtwItems,
                     ),

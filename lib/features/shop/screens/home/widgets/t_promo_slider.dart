@@ -17,6 +17,9 @@ class TPromoSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(BannerController());
     return Obx(() {
+      if (controller.totalBanners.value - skipCount < 1) {
+        return const SizedBox();
+      }
       if (controller.isLoading.value) {
         return const CustomShimmer(height: 190, width: double.infinity);
       }
@@ -26,14 +29,12 @@ class TPromoSlider extends StatelessWidget {
             items: controller.bannerList
                 .toList()
                 .skip(skipCount)
-                .take(3)
+                .take(6)
                 .map(
                   (banner) => TRoundedImage(
                     onPressed: () async {
                       var res = await ProductController.instance
                           .getProductById(banner.id);
-
-                      print(res.toString());
                       if (res == null) {
                         return;
                       } else {
@@ -67,10 +68,10 @@ class TPromoSlider extends StatelessWidget {
               () => Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  for (int i = 0; i < 3; i++)
+                  for (int i = 0; i < 6; i++)
                     TCircularContainer(
                       height: 4,
-                      width: 20,
+                      width: 16,
                       backgroundColor: controller.carouselIndex.value == i
                           ? TColors.primary
                           : TColors.grey,
