@@ -26,10 +26,11 @@ import 'widgets/overall_product_rating.dart';
 import 'widgets/t_rating_bar_indicator.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key, this.id = "", required this.product});
+  const ProductDetailScreen({super.key, this.id = "", this.product = ""});
 
   final String id;
-  final ProductModel product;
+  // ignore: prefer_typing_uninitialized_variables
+  final product;
 
   @override
   Widget build(BuildContext context) {

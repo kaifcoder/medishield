@@ -11,8 +11,11 @@ import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 
 class TPromoSlider extends StatelessWidget {
-  const TPromoSlider({super.key, required this.skipCount});
+  const TPromoSlider(
+      {super.key, required this.skipCount, required this.takeCount});
   final int skipCount;
+
+  final int takeCount;
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(BannerController());
@@ -29,7 +32,7 @@ class TPromoSlider extends StatelessWidget {
             items: controller.bannerList
                 .toList()
                 .skip(skipCount)
-                .take(6)
+                .take(takeCount)
                 .map(
                   (banner) => TRoundedImage(
                     onPressed: () async {
@@ -68,7 +71,7 @@ class TPromoSlider extends StatelessWidget {
               () => Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  for (int i = 0; i < 6; i++)
+                  for (int i = 0; i < takeCount; i++)
                     TCircularContainer(
                       height: 4,
                       width: 16,

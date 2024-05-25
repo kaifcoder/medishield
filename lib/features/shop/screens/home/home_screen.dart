@@ -25,6 +25,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeController());
     final controller = Get.put(ProductController());
+    final bannerController = Get.put(BannerController());
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -70,6 +71,7 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     const TPromoSlider(
                       skipCount: 0,
+                      takeCount: 6,
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     const TSectionHeading(
@@ -97,8 +99,11 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(height: TSizes.spaceBtwItems),
 
                     ///
-                    const TPromoSlider(
+                    TPromoSlider(
                       skipCount: 6,
+                      takeCount: (bannerController.totalBanners.value - 6) > 6
+                          ? 6
+                          : bannerController.totalBanners.value - 6,
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     const TSectionHeading(
@@ -126,8 +131,10 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(height: TSizes.spaceBtwItems),
 
                     ///
-                    const TPromoSlider(
+                    TPromoSlider(
                       skipCount: 6 * 2,
+                      // take all remaining items
+                      takeCount: bannerController.totalBanners.value - (6 * 2),
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     const TSectionHeading(

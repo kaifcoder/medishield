@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:medishield/bindings/general_bindings.dart';
 import 'package:medishield/features/authentication/screens/login/login.dart';
+import 'package:medishield/features/shop/screens/product_details/product_details.dart';
 import 'package:medishield/utils/theme/theme.dart';
 
 class MyApp extends StatelessWidget {
