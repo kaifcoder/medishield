@@ -12,8 +12,8 @@ class BannerController extends GetxController {
 
   @override
   void onInit() {
-    getBannerdata();
     super.onInit();
+    getBannerdata();
   }
 
   void updatePageIndicator(int index) {
@@ -31,6 +31,8 @@ class BannerController extends GetxController {
             .map((e) => BannerModel.fromJson(e as Map<String, dynamic>))
             .toList(),
       );
+      totalBanners.value = bannerList.length;
+      update();
     } catch (e) {
       TLoggerHelper.error(e.toString());
       rethrow;

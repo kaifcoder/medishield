@@ -14,6 +14,7 @@ class OrderRepository extends GetxController {
     int shipping,
     AddressModel shippingAddress,
     int msc,
+    String? couponId,
   ) async {
     try {
       final res = THttpHelper.post('api/user/cart/create-order', {
@@ -24,6 +25,7 @@ class OrderRepository extends GetxController {
         'shipping': shipping,
         'shippingAddress': shippingAddress,
         'msc': msc,
+        'couponId': couponId ?? '',
       });
       return res;
     } catch (e) {
@@ -35,7 +37,6 @@ class OrderRepository extends GetxController {
   fetchOrders() async {
     try {
       final res = await THttpHelper.get('api/user/get-orders');
-
       return res;
     } catch (e) {
       rethrow;

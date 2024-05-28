@@ -19,6 +19,8 @@ class OrderDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = OrderController.instance;
+    final discount =
+        controller.orderData[index].couponApplied?['discount'] ?? 0;
 
     return Scaffold(
       appBar: TAppBar(
@@ -67,6 +69,33 @@ class OrderDetailScreen extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
+            // show applied coupon
+            if (controller.orderData[index].couponApplied != null)
+              TRoundedContainer(
+                showBorder: true,
+                padding: const EdgeInsets.all(TSizes.md),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.local_offer,
+                      color: TColors.primary,
+                    ),
+                    const SizedBox(
+                      width: TSizes.spaceBtwItems,
+                    ),
+                    Text(
+                      'Coupon Applied: ${controller.orderData[index].couponApplied!['couponCode'] ?? ''}',
+                      style:
+                          Theme.of(context).textTheme.headlineSmall!.copyWith(
+                                color: TColors.primary,
+                              ),
+                    ),
+                  ],
+                ),
+              ),
+            const SizedBox(
+              height: TSizes.spaceBtwItems,
+            ),
             const TSectionHeading(title: 'Transaction Details'),
             const SizedBox(
               height: TSizes.spaceBtwItems,
@@ -99,10 +128,11 @@ class OrderDetailScreen extends StatelessWidget {
               child: Column(
                 children: [
                   BillingPaymentDetails(
-                    total: controller.orderData[index].paymentIntent.amount -
-                        controller.orderData[index].paymentIntent.shipping +
-                        controller.orderData[index].paymentIntent.msc,
-                    discount: controller.orderData[index].paymentIntent.msc,
+                    total: (controller.orderData[index].paymentIntent.amount -
+                            controller.orderData[index].paymentIntent.shipping +
+                            discount)
+                        .toInt(),
+                    discount: discount,
                     grandTotal:
                         controller.orderData[index].paymentIntent.amount,
                     shippingFee:

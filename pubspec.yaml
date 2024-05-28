@@ -2,7 +2,7 @@ name: medishield
 description: your destination for all your dental equipment needs
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 1.3.4+25
+version: 1.3.6+27
 
 environment:
   sdk: ">=3.1.0 <4.0.0"
@@ -58,9 +58,9 @@ dependencies:
   share_plus: ^7.2.2
   dotenv: ^4.2.0
   widget_zoom: ^0.0.4
-  go_router: ^13.2.0
   simple_barcode_scanner: ^0.0.8
   coupon_uikit: ^0.2.1
+  uni_links2: ^0.6.0+2
 
 dev_dependencies:
   flutter_test:

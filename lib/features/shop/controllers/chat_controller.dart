@@ -94,12 +94,15 @@ class ChatController extends GetxController {
           update();
         } else {
           isTyping.value = false;
+          debugPrint(response.body);
+
           THelperFunctions.showSnackBar('Something went wrong');
           update();
         }
       }
     } on Exception {
       isTyping.value = false;
+
       THelperFunctions.showSnackBar('Something went wrong');
     } finally {
       isTyping.value = false;

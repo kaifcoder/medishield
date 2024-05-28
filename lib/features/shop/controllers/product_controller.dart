@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/product_repository.dart';
@@ -168,7 +169,7 @@ class ProductController extends GetxController {
         return ProductModel.fromJson(product);
       }).toList());
     } catch (e) {
-      CustomSnackbar.errorSnackBar('Something went wrong');
+      CustomSnackbar.warningSnackBar('Something went wrong');
       TLoggerHelper.error(e.toString());
       rethrow;
     } finally {
@@ -187,12 +188,13 @@ class ProductController extends GetxController {
       }).toList());
 
       if (CategoryProducts.isEmpty) {
-        CustomSnackbar.warningSnackBar('Product Is Not Available Right Now');
+        CustomSnackbar.warningSnackBar(
+            'Product Sold Out will be available soon');
         return;
       }
 
       product = CategoryProducts.first;
-
+      debugPrint('Product Name: ${product.name}');
       CategoryProducts.clear();
       update();
       return product;

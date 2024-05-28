@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/data/repositories/cart_repository.dart';
 import 'package:medishield/features/authentication/screens/login/login.dart';
@@ -26,6 +25,12 @@ class CartController extends GetxController {
   var useMediShieldCoins = false.obs;
   var shippingCharges = 100;
 
+  final coupon = ''.obs;
+  final couponId = ''.obs;
+  final couponApplied = false.obs;
+  final coupondiscount = 0.obs;
+  final couponMsc = 0.obs;
+
   @override
   void onInit() async {
     if (auth.deviceStorage.read('guest') == true ||
@@ -47,6 +52,16 @@ class CartController extends GetxController {
     }
     grandTotal.value =
         userCart.value.cartTotal + shippingCharges - discount.value;
+  }
+
+  handleCoupon() {
+    if (couponApplied.value == true) {
+      grandTotal.value = userCart.value.cartTotal +
+          shippingCharges -
+          coupondiscount.value.toDouble();
+    } else {
+      grandTotal.value = userCart.value.cartTotal + shippingCharges.toDouble();
+    }
   }
 
   increaseCount() {
@@ -111,7 +126,7 @@ class CartController extends GetxController {
       );
       userCart.value = CartModel.fromJson(res);
       total.value = userCart.value.cartTotal.toDouble();
-      debugPrint('Cart Total: ${total}');
+      debugPrint('Cart Total: $total');
       if (total >= 2000) {
         shippingCharges = 0;
       } else {

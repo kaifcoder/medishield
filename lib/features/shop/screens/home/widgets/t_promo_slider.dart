@@ -14,11 +14,10 @@ class TPromoSlider extends StatelessWidget {
   const TPromoSlider(
       {super.key, required this.skipCount, required this.takeCount});
   final int skipCount;
-
   final int takeCount;
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(BannerController());
+    final controller = Get.find<BannerController>();
     return Obx(() {
       if (controller.totalBanners.value - skipCount < 1) {
         return const SizedBox();

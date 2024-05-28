@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, prefer_typing_uninitialized_variables
+
 import 'package:get/get.dart';
 import 'package:medishield/features/shop/controllers/brand_controller.dart';
 

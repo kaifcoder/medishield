@@ -46,7 +46,7 @@ class BillingPaymentDetails extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'MediShield Coins discount',
+                'discount',
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               Text(

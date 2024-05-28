@@ -57,9 +57,8 @@ class CheckoutController extends GetxController {
       cartController.grandTotal.value.toInt(),
       cartController.shippingCharges,
       addressController.selectedAddress.value,
-      cartController.useMediShieldCoins.value
-          ? cartController.discount.value.toInt()
-          : 0,
+      cartController.couponMsc.value.toInt(),
+      cartController.couponId.value,
     );
     cartController.clearCart();
     await orderController.fetchOrders();

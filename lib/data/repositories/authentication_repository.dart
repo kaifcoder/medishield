@@ -249,10 +249,11 @@ class AuthenticationRepository extends GetxController {
       debugPrint('verification id ${verificationId.value}');
       debugPrint('credentials ${credentials.user!.uid}');
       debugPrint('otp $otp');
+      debugPrint('userExist $userExist');
 
       if (credentials.user != null) {
         // add user to database
-        if (credentials.additionalUserInfo!.isNewUser && !userExist['status']) {
+        if (credentials.additionalUserInfo!.isNewUser || !userExist['status']) {
           final name = TextEditingController();
           final email = TextEditingController();
           final referralCode = TextEditingController();
@@ -266,34 +267,44 @@ class AuthenticationRepository extends GetxController {
                 ),
                 TextFormField(
                   controller: name,
-                  decoration: const InputDecoration(hintText: 'Name'),
+                  decoration:
+                      const InputDecoration(hintText: 'Name (required)'),
                 ),
                 const SizedBox(
                   height: TSizes.spaceBtwInputFields,
                 ),
                 TextFormField(
                   controller: email,
-                  decoration: const InputDecoration(hintText: 'Email'),
+                  decoration:
+                      const InputDecoration(hintText: 'Email (optional)'),
                 ),
                 const SizedBox(
                   height: TSizes.spaceBtwInputFields,
                 ),
                 TextFormField(
                   controller: referralCode,
-                  decoration: const InputDecoration(hintText: 'Referral Code'),
+                  decoration: const InputDecoration(
+                      hintText: 'Referral Code (optional)'),
                 ),
                 const SizedBox(
                   height: TSizes.spaceBtwInputFields,
                 ),
                 ElevatedButton(
                   onPressed: () async {
+                    var emailfinal = "";
+                    if (email.text.isEmpty) {
+                      emailfinal =
+                          '${credentials.user!.phoneNumber!.substring(3)}@${name.text.split(' ').first}.com';
+                    } else {
+                      emailfinal = email.text.trim();
+                    }
                     final data = UserModel(
                       firstName: name.text.split(' ').first,
                       lastName: name.text.split(' ').first ==
                               name.text.split(' ').last
                           ? ' '
                           : name.text.split(' ').last,
-                      email: email.text.trim(),
+                      email: emailfinal,
                       password: '',
                       mobile: credentials.user!.phoneNumber!,
                       googleAuthToken: credentials.user!.uid,
@@ -303,6 +314,7 @@ class AuthenticationRepository extends GetxController {
                       'api/user/register',
                       data.toJson(),
                     );
+                    debugPrint('res $res');
                     await deviceStorage.write('token', res['token']);
                     await deviceStorage.write('email', res['email']);
                     await deviceStorage.write('isVerfied', true);

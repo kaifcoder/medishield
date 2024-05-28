@@ -21,6 +21,7 @@ class CheckoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = CartController.instance;
+
     final usercontroller = UserController.instance;
     final addressController = AddressController.instance;
     final checkout = Get.put(CheckoutController());
@@ -47,40 +48,78 @@ class CheckoutScreen extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
-            Row(
-              children: [
-                Obx(
-                  () => Checkbox(
-                      value: controller.useMediShieldCoins.value,
-                      onChanged: (val) {
-                        controller.handleCheckbox(val!);
-                      }),
-                ),
-                const Text('Use MediShield Coins')
-              ],
-            ),
+
             // add button to invoke bottom sheet to apply coupons here
-            // Container(
-            //   width: double.infinity,
-            //   child: ElevatedButton(
-            //     style: ElevatedButton.styleFrom(
-            //       foregroundColor: TColors.primary,
-            //       backgroundColor: TColors.lightGrey,
-            //       shape: RoundedRectangleBorder(
-            //         borderRadius: BorderRadius.circular(8),
-            //       ),
-            //     ),
-            //     onPressed: () {
-            //       // show bottom sheet
-            //       Get.bottomSheet(
-            //         CouponDialog(),
-            //         backgroundColor: TColors.white,
-            //         enableDrag: true,
-            //       );
-            //     },
-            //     child: const Text('Apply Coupon'),
-            //   ),
-            // ),
+
+            Obx(() {
+              if (controller.couponApplied.value) {
+                return TRoundedContainer(
+                  showBorder: true,
+                  backgroundColor: TColors.lightGrey,
+                  padding: const EdgeInsets.all(TSizes.md),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.local_offer,
+                            color: TColors.primary,
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            'Coupon Applied: ${controller.coupon.value}',
+                            style: const TextStyle(
+                              color: TColors.primary,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const Spacer(),
+                          TextButton(
+                              onPressed: () {
+                                controller.couponApplied.value = false;
+                                controller.coupon.value = '';
+                                controller.couponId.value = '';
+                                controller.coupondiscount.value = 0;
+                                controller.couponMsc.value = 0;
+                                controller.handleCoupon();
+                              },
+                              child: const Text(
+                                'Remove',
+                                style: TextStyle(color: TColors.primary),
+                              ))
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              }
+              return SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: TColors.primary,
+                    backgroundColor: TColors.lightGrey,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  onPressed: () {
+                    // show bottom sheet
+                    Get.bottomSheet(
+                      isScrollControlled: true,
+                      const CouponDialog(),
+                      backgroundColor: TColors.white,
+                      enableDrag: true,
+                    );
+                  },
+                  child: const Text('Apply Coupon'),
+                ),
+              );
+            }),
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
@@ -109,6 +148,7 @@ class CheckoutScreen extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
+
             TRoundedContainer(
               showBorder: true,
               backgroundColor: TColors.lightGrey,
@@ -118,7 +158,7 @@ class CheckoutScreen extends StatelessWidget {
                   Obx(
                     () => BillingPaymentDetails(
                       total: controller.total.value.toInt(),
-                      discount: controller.discount.value.toInt(),
+                      discount: controller.coupondiscount.value.toInt(),
                       grandTotal: controller.grandTotal.value.toInt(),
                       shippingFee: controller.shippingCharges,
                     ),
@@ -151,6 +191,7 @@ class CheckoutScreen extends StatelessWidget {
                 name: 'MediShield',
                 email: usercontroller.user.value.email!,
                 contact: addressController.selectedAddress.value.mobile!);
+            // checkout.test();
           },
         ),
       ),

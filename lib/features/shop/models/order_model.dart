@@ -12,6 +12,7 @@ class OrderModel {
   final AddressModel shippingAddress;
   final String createdAt;
   final Map<String, dynamic>? shippingInfo;
+  final Map<String, dynamic>? couponApplied;
 
   OrderModel({
     required this.id,
@@ -23,6 +24,7 @@ class OrderModel {
     required this.shippingAddress,
     required this.createdAt,
     this.shippingInfo,
+    this.couponApplied,
   });
 
   factory OrderModel.fromJson(Map<String, dynamic> json) {
@@ -38,6 +40,7 @@ class OrderModel {
       createdAt: json['createdAt'] ?? '',
       shippingAddress: AddressModel.fromJson(json['shippingAddress']),
       shippingInfo: json['shipmentInfo'] ?? {},
+      couponApplied: json['couponCodeApplied'],
     );
   }
 

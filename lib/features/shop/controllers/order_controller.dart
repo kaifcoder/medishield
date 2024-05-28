@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/authentication_repository.dart';
@@ -48,6 +49,7 @@ class OrderController extends GetxController {
     int shipping,
     AddressModel shippingAddress,
     int msc,
+    String? couponId,
   ) async {
     try {
       if (AuthenticationRepository.instance.deviceStorage.read('token') ==
@@ -62,6 +64,7 @@ class OrderController extends GetxController {
         shipping,
         shippingAddress,
         msc,
+        couponId,
       );
       return res;
     } catch (e) {
@@ -78,7 +81,7 @@ class OrderController extends GetxController {
         return;
       }
       final res = await orderRepo.fetchOrders();
-
+      debugPrint('Order Data: ${res['data'][0]['couponApplied']}');
       orderData.value = List<OrderModel>.from(
         res['data'].map((x) => OrderModel.fromJson(x)),
       );

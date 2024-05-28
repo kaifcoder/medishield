@@ -22,7 +22,7 @@ class CustomSnackbar {
 
   static warningSnackBar(String message) {
     return Get.snackbar(
-      'Warning',
+      'Note',
       message,
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Colors.orange,

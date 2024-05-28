@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:medishield/data/repositories/authentication_repository.dart';
 
@@ -71,6 +72,7 @@ class THttpHelper {
     if (response.statusCode == 200) {
       return json.decode(response.body);
     } else {
+      debugPrint(response.body);
       throw Exception('${json.decode(response.body)['message']}');
     }
   }

@@ -46,6 +46,4 @@ class ProductRepository extends GetxController {
       rethrow;
     }
   }
-
-  // fetch products by sort from server
 }
