@@ -29,7 +29,9 @@ class CartController extends GetxController {
   final couponId = ''.obs;
   final couponApplied = false.obs;
   final coupondiscount = 0.obs;
+  final couponType = ''.obs;
   final couponMsc = 0.obs;
+  final cdis = 0.obs;
 
   @override
   void onInit() async {
@@ -56,9 +58,9 @@ class CartController extends GetxController {
 
   handleCoupon() {
     if (couponApplied.value == true) {
-      grandTotal.value = userCart.value.cartTotal +
-          shippingCharges -
-          coupondiscount.value.toDouble();
+      grandTotal.value =
+          (userCart.value.cartTotal - coupondiscount.value.toDouble()) +
+              shippingCharges;
     } else {
       grandTotal.value = userCart.value.cartTotal + shippingCharges.toDouble();
     }
@@ -96,7 +98,7 @@ class CartController extends GetxController {
       }
       userCart.value = CartModel.fromJson(res['data']);
       total.value = userCart.value.cartTotal.toDouble();
-
+      couponApplied.value = false;
       grandTotal.value = userCart.value.cartTotal.toDouble() +
           shippingCharges -
           discount.value;
@@ -132,6 +134,7 @@ class CartController extends GetxController {
       } else {
         shippingCharges = 100;
       }
+      couponApplied.value = false;
       grandTotal.value = userCart.value.cartTotal.toDouble() +
           shippingCharges -
           discount.value;

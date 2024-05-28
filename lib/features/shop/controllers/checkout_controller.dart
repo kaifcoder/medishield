@@ -17,6 +17,16 @@ class CheckoutController extends GetxController {
   final ccy = LocationController.instance.currencyCode;
   final addressController = AddressController.instance;
   late Razorpay _razorpay;
+  void test() {
+    final payload = {
+      'amount': cartController.grandTotal.value.toInt(),
+      'shipping': cartController.shippingCharges,
+      'msc': cartController.couponMsc.value.toInt(),
+      'couponId': cartController.couponId.value,
+      'coDiscount': cartController.coupondiscount.value.toInt(),
+    };
+    debugPrint('Payload: $payload');
+  }
 
   void openCheckout({
     required int amount,
@@ -59,6 +69,7 @@ class CheckoutController extends GetxController {
       addressController.selectedAddress.value,
       cartController.couponMsc.value.toInt(),
       cartController.couponId.value,
+      cartController.coupondiscount.value.toInt(),
     );
     cartController.clearCart();
     await orderController.fetchOrders();

@@ -50,6 +50,7 @@ class OrderController extends GetxController {
     AddressModel shippingAddress,
     int msc,
     String? couponId,
+    int? coDiscount,
   ) async {
     try {
       if (AuthenticationRepository.instance.deviceStorage.read('token') ==
@@ -65,7 +66,9 @@ class OrderController extends GetxController {
         shippingAddress,
         msc,
         couponId,
+        coDiscount,
       );
+
       return res;
     } catch (e) {
       rethrow;

@@ -13,6 +13,9 @@ class OrderModel {
   final String createdAt;
   final Map<String, dynamic>? shippingInfo;
   final Map<String, dynamic>? couponApplied;
+  final String? couponCode;
+  final int? couponDiscount;
+  final String? couponType;
 
   OrderModel({
     required this.id,
@@ -25,6 +28,9 @@ class OrderModel {
     required this.createdAt,
     this.shippingInfo,
     this.couponApplied,
+    this.couponCode,
+    this.couponDiscount,
+    this.couponType,
   });
 
   factory OrderModel.fromJson(Map<String, dynamic> json) {
@@ -41,6 +47,9 @@ class OrderModel {
       shippingAddress: AddressModel.fromJson(json['shippingAddress']),
       shippingInfo: json['shipmentInfo'] ?? {},
       couponApplied: json['couponCodeApplied'],
+      couponCode: json['couponCode'],
+      couponDiscount: json['couponDiscount'] ?? 0,
+      couponType: json['couponType'] ?? '',
     );
   }
 
@@ -63,6 +72,7 @@ class PaymentIntent {
   final String currency;
   final int shipping;
   final int msc;
+  final int? discount;
 
   PaymentIntent({
     required this.id,
@@ -71,6 +81,7 @@ class PaymentIntent {
     required this.currency,
     required this.msc,
     required this.shipping,
+    this.discount,
   });
 
   factory PaymentIntent.fromJson(Map<String, dynamic> json) {
@@ -81,6 +92,7 @@ class PaymentIntent {
       currency: json['currency'] ?? '',
       shipping: json['shipping'] ?? 0,
       msc: json['msc'] ?? 0,
+      discount: json['discount'],
     );
   }
 

@@ -45,6 +45,24 @@ class CouponDialog extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             }
+            if (couponController.couponList.isEmpty) {
+              return const Column(
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    height: 200,
+                    child: Center(
+                      child: Text(
+                        'Oops! No coupons available for you shop more or refer this app to more users to earn more medishield coins and redeem them for coupons! get your referral code from profile section!',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            }
             return SizedBox(
               height: 400,
               child: ListView.builder(
@@ -60,10 +78,17 @@ class CouponDialog extends StatelessWidget {
                   }
                   return GestureDetector(
                     onTap: () {
+                      var couponType = coupon.type!;
+                      cartController.couponType.value = couponType;
+                      var discount = coupon.discount!;
+                      if (couponType == 'percentage') {
+                        cartController.cdis.value = discount;
+                        discount = cartController.total.value * discount ~/ 100;
+                      }
                       cartController.coupon.value = coupon.couponCode!;
                       cartController.couponId.value = coupon.sId!;
                       cartController.couponApplied.value = true;
-                      cartController.coupondiscount.value = coupon.discount!;
+                      cartController.coupondiscount.value = discount;
                       cartController.couponMsc.value =
                           coupon.minimumMedishieldCoins!;
                       cartController.handleCoupon();

@@ -19,8 +19,7 @@ class OrderDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = OrderController.instance;
-    final discount =
-        controller.orderData[index].couponApplied?['discount'] ?? 0;
+    var discount = controller.orderData[index].paymentIntent.discount ?? 0;
 
     return Scaffold(
       appBar: TAppBar(
@@ -84,7 +83,7 @@ class OrderDetailScreen extends StatelessWidget {
                       width: TSizes.spaceBtwItems,
                     ),
                     Text(
-                      'Coupon Applied: ${controller.orderData[index].couponApplied!['couponCode'] ?? ''}',
+                      'Coupon Applied: ${controller.orderData[index].couponCode ?? ''}',
                       style:
                           Theme.of(context).textTheme.headlineSmall!.copyWith(
                                 color: TColors.primary,

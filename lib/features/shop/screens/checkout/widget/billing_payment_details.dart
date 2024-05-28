@@ -75,11 +75,12 @@ class BillingPaymentDetails extends StatelessWidget {
         const SizedBox(
           height: TSizes.spaceBtwItems / 2,
         ),
+        const Divider(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Total',
+              'Total Amount Paid',
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
