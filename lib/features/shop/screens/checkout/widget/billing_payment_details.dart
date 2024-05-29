@@ -80,7 +80,7 @@ class BillingPaymentDetails extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Total Amount Paid',
+              'Total Amount',
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(

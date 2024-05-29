@@ -22,6 +22,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     _initDeepLinkListener();
+    _handleInitialUri();
   }
 
   @override
@@ -33,16 +34,36 @@ class _MyAppState extends State<MyApp> {
   void _initDeepLinkListener() {
     _sub = uriLinkStream.listen((Uri? uri) {
       if (uri != null) {
-        String path = uri.path;
-        if (path.startsWith('/product/')) {
-          Get.toNamed(path);
-        }
+        _handleUri(uri);
       }
     }, onError: (err) {
       // Handle error
       debugPrint('Error: $err');
     });
   }
+
+  Future<void> _handleInitialUri() async {
+    try {
+      final initialUri = await getInitialUri();
+      if (initialUri != null) {
+        _handleUri(initialUri);
+      }
+    } catch (err) {
+      // Handle error
+    }
+  }
+
+
+  void _handleUri(Uri uri) {
+    String path = uri.path;
+    if (path.startsWith('/product/')) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Get.toNamed(path);
+      });
+    }
+  }
+
+
 
   @override
   Widget build(BuildContext context) {

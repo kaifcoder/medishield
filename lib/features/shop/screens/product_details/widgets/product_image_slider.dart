@@ -146,7 +146,7 @@ class ProductImageSlider extends StatelessWidget {
                   onPressed: () {
                     if (AuthenticationRepository.instance.deviceStorage
                             .read('guest') ==
-                        true) {
+                        true ||  AuthenticationRepository.instance.deviceStorage.read('token') == null) {
                       Get.offAll(() => const LoginScreen());
                     } else {
                       Get.to(() => const CartScreen());
