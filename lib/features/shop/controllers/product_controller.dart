@@ -110,7 +110,7 @@ class ProductController extends GetxController {
 
       final response = await productRepo.fetchProducts(
         page,
-        20,
+        40,
         category,
       );
       if (page == 1) {
