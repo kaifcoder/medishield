@@ -9,7 +9,7 @@ class ProductShared extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeController());
-    final controller = Get.put(ProductShareController());
+    Get.put(ProductShareController());
 
     return const Scaffold(
       body: Center(
