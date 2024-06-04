@@ -2,6 +2,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:get/get_rx/get_rx.dart';
 import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/product_repository.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
@@ -21,6 +22,7 @@ class ProductController extends GetxController {
   RxList<ProductModel> Orthodontics = <ProductModel>[].obs;
   RxList<ProductModel> Instruments = <ProductModel>[].obs;
   RxList<ProductModel> CategoryProducts = <ProductModel>[].obs;
+  RxList<ProductModel> FeaturedProducts = <ProductModel>[].obs;
   ProductModel product = ProductModel.empty();
   RxList<ProductModel> SearchProducts = <ProductModel>[].obs;
 
@@ -29,6 +31,7 @@ class ProductController extends GetxController {
     fetchEndoProduct();
     fetchorthoProduct();
     fetchInstruProduct();
+    fetchOtherProducts();
     super.onInit();
   }
 
@@ -104,10 +107,27 @@ class ProductController extends GetxController {
     }
   }
 
+  void fetchOtherProducts() async {
+    try {
+      isLoading.value = true;
+      // fetch
+      final response = await productRepo.fetchFeaturedProducts();
+      // assign to list
+      FeaturedProducts.assignAll(response['data'].map<ProductModel>((product) {
+        return ProductModel.fromJson(product);
+      }).toList());
+    } catch (e) {
+      CustomSnackbar.errorSnackBar('Something went wrong');
+      TLoggerHelper.error(e.toString());
+      rethrow;
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
   fetchProductsbycategory(String category, int page) async {
     try {
       isLoadingAnother.value = true;
-
       final response = await productRepo.fetchProducts(
         page,
         40,

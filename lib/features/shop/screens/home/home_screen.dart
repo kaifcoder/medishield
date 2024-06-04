@@ -159,6 +159,29 @@ class HomeScreen extends StatelessWidget {
                         );
                       },
                     ),
+                    const SizedBox(height: TSizes.spaceBtwItems),
+                    const TSectionHeading(
+                      title: 'Other Featured Products',
+                    ),
+                    const SizedBox(height: TSizes.spaceBtwItems),
+                    Obx(
+                      () {
+                        if (controller.isLoading.value) {
+                          return const ProductShimmer();
+                        }
+                        if (controller.FeaturedProducts.isEmpty) {
+                          return const Center(
+                            child: Text('0 Products Available Right Now'),
+                          );
+                        }
+                        return GridLayout(
+                          itemBuilder: (_, index) => ProductCardVertical(
+                            product: controller.FeaturedProducts[index],
+                          ),
+                          itemCount: controller.FeaturedProducts.length,
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
