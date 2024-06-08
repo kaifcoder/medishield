@@ -55,10 +55,10 @@
               "client_type": 3
             },
             {
-              "client_id": "86990247944-il6iggt6jk0e3b09654ca349sp07n47n.apps.googleusercontent.com",
+              "client_id": "86990247944-aq3a4fjubvik98eeq14d7iqevgomth0l.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.medihealth.RunnerTests"
+                "bundle_id": "com.medishieldhealthcare.medishield"
               }
             }
           ]
