@@ -41,7 +41,7 @@ class LoginFooter extends StatelessWidget {
                 const SizedBox(
                   width: TSizes.spaceBtwItems,
                 ),
-                Text('Continue with Google'.capitalize!),
+                Text('Sign Up with Google'.capitalize!),
               ],
             ),
           ),
@@ -100,7 +100,7 @@ class LoginFooter extends StatelessWidget {
                 const SizedBox(
                   width: TSizes.spaceBtwItems,
                 ),
-                Text('Continue with Mobile Number'.capitalize!),
+                Text('Sign Up with Mobile Number'.capitalize!),
               ],
             ),
           ),
@@ -108,6 +108,36 @@ class LoginFooter extends StatelessWidget {
         const SizedBox(
           height: TSizes.sm,
         ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: TSizes.sm),
+          child: OutlinedButton(
+            onPressed: () async {
+              try {
+                await auth.signInWithApple();
+              } catch (e) {
+                THelperFunctions.showSnackBar(
+                    "Could not sign in with Apple. If on android Please try again on apple device.");
+              }
+            },
+            child: Row(
+              children: [
+                const Image(
+                  image: AssetImage(TImages.apple),
+                  height: TSizes.iconMd,
+                  width: TSizes.iconMd,
+                ),
+                const SizedBox(
+                  width: TSizes.spaceBtwItems,
+                ),
+                Text('Sign Up with Apple'.capitalize!),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: TSizes.sm,
+        ),
+
         TDivider(dark: dark, dividerText: "OR"),
         const SizedBox(
           height: TSizes.sm,

@@ -63,6 +63,7 @@ dependencies:
   uni_links2: ^0.6.0+2
   google_generative_ai: ^0.4.3
   flutter_markdown: ^0.7.1
+  sign_in_with_apple: ^6.1.0
 
 dev_dependencies:
   flutter_test:
