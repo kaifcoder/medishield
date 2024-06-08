@@ -12,7 +12,7 @@ class LocationController extends GetxController {
   Position? userposition;
   late bool servicePermission = false;
   late LocationPermission permission;
-  Placemark currentPlace = Placemark();
+  Placemark currentPlace = const Placemark();
   String currencyCode = "INR";
   double rate = 1;
   static const String _kPermissionDeniedMessage = 'Permission denied.';

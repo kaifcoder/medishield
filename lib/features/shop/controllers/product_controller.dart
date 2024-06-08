@@ -2,7 +2,6 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:get/get_rx/get_rx.dart';
 import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/data/repositories/product_repository.dart';
 import 'package:medishield/features/shop/models/product_model.dart';
