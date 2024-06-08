@@ -9,7 +9,6 @@ import 'package:medishield/features/authentication/controllers/google_sign_in_co
 import 'package:medishield/features/authentication/controllers/login/phone_controller.dart';
 import 'package:medishield/utils/constants/image_strings.dart';
 import 'package:medishield/utils/constants/sizes.dart';
-import 'package:medishield/utils/constants/text_strings.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
 
 class LoginFooter extends StatelessWidget {

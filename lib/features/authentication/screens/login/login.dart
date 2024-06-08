@@ -6,12 +6,11 @@ import 'package:medishield/features/authentication/screens/privacy/privacy.dart'
 import 'package:medishield/features/authentication/screens/refund/refund.dart';
 import 'package:medishield/features/authentication/screens/tnc/tnc.dart';
 import 'package:medishield/utils/constants/sizes.dart';
-import 'package:medishield/utils/constants/text_strings.dart';
+
 import 'package:medishield/utils/helpers/helper_functions.dart';
 
 import '../../../../common/widgets/login_signup/login_footer.dart';
-import '../../../../common/widgets/login_signup/t_divider.dart';
-import 'widgets/login_form.dart';
+
 import 'widgets/login_header.dart';
 
 class LoginScreen extends StatelessWidget {

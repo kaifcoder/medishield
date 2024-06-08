@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medishield/data/repositories/authentication_repository.dart';
 import 'package:medishield/utils/constants/image_strings.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/constants/text_strings.dart';
@@ -14,7 +13,6 @@ class LoginHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final auth = AuthenticationRepository.instance;
     return Stack(children: [
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
