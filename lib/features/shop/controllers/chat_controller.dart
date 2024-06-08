@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:medishield/api_keys.dart';
 import 'package:medishield/data/repositories/product_repository.dart';
 import 'package:medishield/features/shop/models/cart_model.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
@@ -28,7 +29,7 @@ class ChatController extends GetxController {
 
   void sendMsg() async {
     String text = controller.text;
-    String apiKey = "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";
+    String apiKey = ApiKeys.open_ai_key;
     controller.clear();
     try {
       if (text.isNotEmpty) {
