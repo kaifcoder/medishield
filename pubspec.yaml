@@ -52,7 +52,7 @@ dependencies:
   intl_phone_field: ^3.2.0
   toast: ^0.3.0
   awesome_otp_screen: ^0.0.2
-  chat_gpt_flutter: ^1.0.15
+
   uuid: ^4.2.2
   chat_bubbles: ^1.6.0
   share_plus: ^7.2.2
@@ -61,6 +61,8 @@ dependencies:
   simple_barcode_scanner: ^0.0.8
   coupon_uikit: ^0.2.1
   uni_links2: ^0.6.0+2
+  google_generative_ai: ^0.4.3
+  flutter_markdown: ^0.7.1
 
 dev_dependencies:
   flutter_test:

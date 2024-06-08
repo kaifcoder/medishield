@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:http/http.dart' as http;
 import 'package:medishield/api_keys.dart';
 import 'package:medishield/data/repositories/product_repository.dart';
@@ -29,7 +30,12 @@ class ChatController extends GetxController {
 
   void sendMsg() async {
     String text = controller.text;
-    String apiKey = ApiKeys.open_ai_key;
+    String apiKey = ApiKeys.geminiKey;
+    final model = GenerativeModel(
+      model: 'gemini-1.5-flash-latest',
+      apiKey: apiKey,
+    );
+
     controller.clear();
     try {
       if (text.isNotEmpty) {
