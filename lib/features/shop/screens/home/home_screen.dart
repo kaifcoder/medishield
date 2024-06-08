@@ -75,6 +75,36 @@ class HomeScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     const TSectionHeading(
+                      title: 'Featured Products',
+                    ),
+                    const SizedBox(height: TSizes.spaceBtwItems),
+                    Obx(
+                      () {
+                        if (controller.isLoading.value) {
+                          return const ProductShimmer();
+                        }
+                        if (controller.FeaturedProducts.isEmpty) {
+                          return const Center(
+                            child: Text('0 Products Available Right Now'),
+                          );
+                        }
+                        return GridLayout(
+                          itemBuilder: (_, index) => ProductCardVertical(
+                            product: controller.FeaturedProducts[index],
+                          ),
+                          itemCount: controller.FeaturedProducts.length,
+                        );
+                      },
+                    ),
+                    const SizedBox(height: TSizes.spaceBtwItems),
+                    TPromoSlider(
+                      skipCount: 6,
+                      takeCount: (bannerController.totalBanners.value - 6) > 6
+                          ? 6
+                          : bannerController.totalBanners.value - 6,
+                    ),
+                    const SizedBox(height: TSizes.spaceBtwItems),
+                    const TSectionHeading(
                       title: 'Endocraft Products',
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
@@ -99,13 +129,7 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(height: TSizes.spaceBtwItems),
 
                     ///
-                    TPromoSlider(
-                      skipCount: 6,
-                      takeCount: (bannerController.totalBanners.value - 6) > 6
-                          ? 6
-                          : bannerController.totalBanners.value - 6,
-                    ),
-                    const SizedBox(height: TSizes.spaceBtwItems),
+
                     const TSectionHeading(
                       title: 'Medishield Products',
                     ),
@@ -156,29 +180,6 @@ class HomeScreen extends StatelessWidget {
                             product: controller.Instruments[index],
                           ),
                           itemCount: controller.Instruments.length,
-                        );
-                      },
-                    ),
-                    const SizedBox(height: TSizes.spaceBtwItems),
-                    const TSectionHeading(
-                      title: 'Other Featured Products',
-                    ),
-                    const SizedBox(height: TSizes.spaceBtwItems),
-                    Obx(
-                      () {
-                        if (controller.isLoading.value) {
-                          return const ProductShimmer();
-                        }
-                        if (controller.FeaturedProducts.isEmpty) {
-                          return const Center(
-                            child: Text('0 Products Available Right Now'),
-                          );
-                        }
-                        return GridLayout(
-                          itemBuilder: (_, index) => ProductCardVertical(
-                            product: controller.FeaturedProducts[index],
-                          ),
-                          itemCount: controller.FeaturedProducts.length,
                         );
                       },
                     ),

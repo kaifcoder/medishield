@@ -214,7 +214,98 @@ class AuthenticationRepository extends GetxController {
       await _auth.verifyPhoneNumber(
         phoneNumber: phone,
         verificationCompleted: (credential) async {
-          // _auth.signInWithCredential(credential);
+          final credentials = await _auth.signInWithCredential(credential);
+          final userExist = await THttpHelper.get(
+              'api/user/isUserExist/${credentials.user!.uid}');
+          if (credentials.user != null) {
+            // add user to database
+            if (credentials.additionalUserInfo!.isNewUser ||
+                !userExist['status']) {
+              final name = TextEditingController();
+              final email = TextEditingController();
+              final referralCode = TextEditingController();
+              Get.bottomSheet(
+                SingleChildScrollView(
+                  padding: const EdgeInsets.all(TSizes.defaultSpace),
+                  child: Column(children: [
+                    const TSectionHeading(title: 'Enter your Name and Email'),
+                    const SizedBox(
+                      height: TSizes.spaceBtwInputFields,
+                    ),
+                    TextFormField(
+                      controller: name,
+                      decoration:
+                          const InputDecoration(hintText: 'Name (required)'),
+                    ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwInputFields,
+                    ),
+                    TextFormField(
+                      controller: email,
+                      decoration:
+                          const InputDecoration(hintText: 'Email (optional)'),
+                    ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwInputFields,
+                    ),
+                    TextFormField(
+                      controller: referralCode,
+                      decoration: const InputDecoration(
+                          hintText: 'Referral Code (optional)'),
+                    ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwInputFields,
+                    ),
+                    ElevatedButton(
+                      onPressed: () async {
+                        var emailfinal = "";
+                        if (email.text.isEmpty) {
+                          emailfinal =
+                              '${credentials.user!.phoneNumber!.substring(3)}@${name.text.split(' ').first}.com';
+                        } else {
+                          emailfinal = email.text.trim();
+                        }
+                        final data = UserModel(
+                          firstName: name.text.split(' ').first,
+                          lastName: name.text.split(' ').first ==
+                                  name.text.split(' ').last
+                              ? ' '
+                              : name.text.split(' ').last,
+                          email: emailfinal,
+                          password: '',
+                          mobile: credentials.user!.phoneNumber!,
+                          googleAuthToken: credentials.user!.uid,
+                          referralCode: referralCode.text.trim(),
+                        );
+                        final res = await THttpHelper.post(
+                          'api/user/register',
+                          data.toJson(),
+                        );
+                        debugPrint('res $res');
+                        await deviceStorage.write('token', res['token']);
+                        await deviceStorage.write('email', res['email']);
+                        await deviceStorage.write('isVerfied', true);
+                        await deviceStorage.remove('guest');
+                        screenRedirect();
+                      },
+                      child: const SizedBox(
+                        width: double.infinity,
+                        child: Center(
+                          child: Text("Register"),
+                        ),
+                      ),
+                    ),
+                  ]),
+                ),
+                backgroundColor: Colors.white,
+                isScrollControlled: true,
+                isDismissible: false,
+              );
+            } else {
+              await loginWithPhone();
+              screenRedirect();
+            }
+          }
         },
         codeSent: (verificationId, resendToken) {
           this.verificationId.value = verificationId;

@@ -34,15 +34,6 @@ class LoginHeader extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyMedium),
         ],
       ),
-      Positioned(
-        right: 0,
-        child: TextButton(
-          onPressed: () {
-            auth.skipLogin();
-          },
-          child: const Text('Skip Login'),
-        ),
-      )
     ]);
   }
 }

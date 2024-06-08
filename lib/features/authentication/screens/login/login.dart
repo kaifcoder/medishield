@@ -30,12 +30,12 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(
                 height: TSizes.spaceBtwSections / 2,
               ),
-              const LoginForm(),
-              TDivider(dark: dark, dividerText: TTexts.orSignInWith),
+              // const LoginForm(),
+              // TDivider(dark: dark, dividerText: TTexts.orSignInWith),
               const SizedBox(
                 height: TSizes.spaceBtwItems,
               ),
-              const LoginFooter(),
+              SizedBox(height: Get.height * 0.5, child: const LoginFooter()),
               const SizedBox(
                 height: TSizes.spaceBtwItems,
               ),
