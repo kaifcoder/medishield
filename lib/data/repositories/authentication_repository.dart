@@ -258,6 +258,15 @@ class AuthenticationRepository extends GetxController {
         },
       );
 
+      // create user in database
+      UserModel(
+        firstName: appleCredential.givenName ?? '',
+        lastName: appleCredential.familyName ?? '',
+        email: appleCredential.email,
+        password: '',
+        googleAuthToken: appleCredential.authorizationCode,
+      );
+
       final session = await http.Client().post(
         signInWithAppleEndpoint,
       );
