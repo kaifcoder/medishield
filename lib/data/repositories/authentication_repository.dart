@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -20,8 +17,6 @@ import 'package:medishield/utils/exceptions/firebase_exceptions.dart';
 import 'package:medishield/utils/exceptions/platform_exceptions.dart';
 import 'package:medishield/utils/helpers/helper_functions.dart';
 import 'package:medishield/utils/http/http_client.dart';
-import 'package:sign_in_with_apple/sign_in_with_apple.dart';
-import 'package:http/http.dart' as http;
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
