@@ -118,7 +118,7 @@ class CartItem extends StatelessWidget {
                                     }),
                               ),
                               const SizedBox(
-                                width: TSizes.spaceBtwItems,
+                                width: TSizes.spaceBtwItems / 2,
                               ),
                               IconButton(
                                   onPressed: () {
@@ -134,22 +134,30 @@ class CartItem extends StatelessWidget {
                           ),
                         const Spacer(),
                         if (showQuantity)
-                          Text(
-                            '${product![index].price.toDouble() * product![index].count * rate} $ccy',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineSmall!
-                                .apply(fontSizeFactor: 0.8),
+                          Flexible(
+                            child: Text(
+                              '${product![index].price.toDouble() * product![index].count * rate} $ccy',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineSmall!
+                                  .apply(fontSizeFactor: 0.8),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                            ),
                           ),
                         if (!showQuantity)
-                          Text(
-                            '${product![index].price.toDouble() * rate} $ccy x ${product![index].count} =  ${product![index].price.toDouble() * product![index].count * rate} $ccy',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineSmall!
-                                .apply(
-                                  fontSizeFactor: 0.8,
-                                ),
+                          Flexible(
+                            child: Text(
+                              '${product![index].price.toDouble() * rate} $ccy x ${product![index].count} =  ${product![index].price.toDouble() * product![index].count * rate} $ccy',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineSmall!
+                                  .apply(
+                                    fontSizeFactor: 0.8,
+                                  ),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                            ),
                           ),
                       ],
                     ),
