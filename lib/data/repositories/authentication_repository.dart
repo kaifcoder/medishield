@@ -217,6 +217,79 @@ class AuthenticationRepository extends GetxController {
       final credential =
           await FirebaseAuth.instance.signInWithProvider(appleProvider);
       debugPrint(credential.toString());
+
+      // check if user exist or not in database if exist then login else register
+      final res = await THttpHelper.get(
+          'api/user/loginWithGoogle/${credential.user!.uid}');
+      if (res['status']) {
+        await deviceStorage.write('token', res['token']);
+        await deviceStorage.write('email', credential.user!.email);
+        await deviceStorage.write('isVerfied', true);
+        await deviceStorage.remove('guest');
+        screenRedirect();
+      } else {
+        final code = TextEditingController();
+        Get.bottomSheet(
+          SingleChildScrollView(
+            padding: const EdgeInsets.all(TSizes.defaultSpace),
+            child: Column(children: [
+              const TSectionHeading(title: 'Provide Referral Code (Optional)'),
+              const SizedBox(
+                height: TSizes.spaceBtwInputFields,
+              ),
+              TextFormField(
+                controller: code,
+                decoration: const InputDecoration(hintText: 'Referral Code'),
+              ),
+              const SizedBox(
+                height: TSizes.spaceBtwInputFields,
+              ),
+              ElevatedButton(
+                onPressed: () async {
+                  final newUser = UserModel(
+                    email: credential.user!.email!,
+                    firstName: credential.user!.displayName!
+                        .toString()
+                        .split(' ')
+                        .first,
+                    lastName: credential.user!.displayName!
+                                .toString()
+                                .split(' ')
+                                .last ==
+                            credential.user!.displayName!
+                                .toString()
+                                .split(' ')
+                                .first
+                        ? ' '
+                        : credential.user!.displayName!
+                            .toString()
+                            .split(' ')
+                            .last,
+                    password: '',
+                    googleAuthToken: credential.user!.uid,
+                    referralCode: code.text.trim(),
+                  );
+                  final res = await signup(newUser);
+                  await deviceStorage.write('token', res['token']);
+                  await deviceStorage.write('email', res['email']);
+                  await deviceStorage.write('isVerfied', true);
+                  await deviceStorage.remove('guest');
+                  screenRedirect();
+                },
+                child: const SizedBox(
+                  width: double.infinity,
+                  child: Center(
+                    child: Text("Register"),
+                  ),
+                ),
+              ),
+            ]),
+          ),
+          backgroundColor: Colors.white,
+          isScrollControlled: true,
+          isDismissible: false,
+        );
+      }
     } catch (e) {
       debugPrint('error $e');
       rethrow;
