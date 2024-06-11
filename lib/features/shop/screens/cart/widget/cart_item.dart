@@ -117,9 +117,6 @@ class CartItem extends StatelessWidget {
                                       );
                                     }),
                               ),
-                              const SizedBox(
-                                width: TSizes.spaceBtwItems / 2,
-                              ),
                               IconButton(
                                   onPressed: () {
                                     controller.removeFromCart(
@@ -132,7 +129,7 @@ class CartItem extends StatelessWidget {
                                   icon: const Icon(Iconsax.trash)),
                             ],
                           ),
-                        const Spacer(),
+                        // const Spacer(),
                         if (showQuantity)
                           Flexible(
                             child: Text(
