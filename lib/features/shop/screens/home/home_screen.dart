@@ -12,6 +12,7 @@ import 'package:medishield/features/shop/screens/chat/chat.dart';
 import 'package:medishield/utils/constants/colors.dart';
 import 'package:medishield/utils/constants/sizes.dart';
 import 'package:medishield/utils/device/device_utility.dart';
+import 'package:medishield/utils/helpers/helper_functions.dart';
 import '../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../common/widgets/text/t_section_heading.dart';
 import 'widgets/t_home_app_bar.dart';
@@ -52,7 +53,11 @@ class HomeScreen extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
                 child: Column(
                   children: [
-                    const SizedBox(height: TSizes.spaceBtwSections),
+                    // if ios increase the space between sections
+                    if (!TDeviceUtils.isIOS())
+                      const SizedBox(height: TSizes.spaceBtwSections),
+                    if (TDeviceUtils.isIOS())
+                      const SizedBox(height: TSizes.spaceBtwSections * 1.5),
                     TSectionHeading(
                       title: 'Popular Categories',
                       buttonTitle: 'View All',

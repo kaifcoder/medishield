@@ -216,12 +216,19 @@ class AuthenticationRepository extends GetxController {
       appleProvider = appleProvider.addScope('name');
       final credential =
           await FirebaseAuth.instance.signInWithProvider(appleProvider);
+      var userName = "Anonymous user";
+      if (credential.user!.displayName != null) {
+        userName = credential.user!.displayName!;
+      }
       debugPrint(credential.toString());
 
       // check if user exist or not in database if exist then login else register
-      final res = await THttpHelper.get(
-          'api/user/loginWithGoogle/${credential.user!.uid}');
-      if (res['status']) {
+      final userExist =
+          await THttpHelper.get('api/user/isUserExist/${credential.user!.uid}');
+
+      if (userExist['status']) {
+        final res = await THttpHelper.get(
+            'api/user/loginWithGoogle/${credential.user!.uid}');
         await deviceStorage.write('token', res['token']);
         await deviceStorage.write('email', credential.user!.email);
         await deviceStorage.write('isVerfied', true);
@@ -248,23 +255,11 @@ class AuthenticationRepository extends GetxController {
                 onPressed: () async {
                   final newUser = UserModel(
                     email: credential.user!.email!,
-                    firstName: credential.user!.displayName!
-                        .toString()
-                        .split(' ')
-                        .first,
-                    lastName: credential.user!.displayName!
-                                .toString()
-                                .split(' ')
-                                .last ==
-                            credential.user!.displayName!
-                                .toString()
-                                .split(' ')
-                                .first
+                    firstName: userName.toString().split(' ').first,
+                    lastName: userName.toString().split(' ').last ==
+                            userName.toString().split(' ').first
                         ? ' '
-                        : credential.user!.displayName!
-                            .toString()
-                            .split(' ')
-                            .last,
+                        : userName.toString().split(' ').last,
                     password: '',
                     googleAuthToken: credential.user!.uid,
                     referralCode: code.text.trim(),
@@ -280,6 +275,39 @@ class AuthenticationRepository extends GetxController {
                   width: double.infinity,
                   child: Center(
                     child: Text("Register"),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: TSizes.spaceBtwInputFields / 2,
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.grey,
+                  side: const BorderSide(color: Colors.grey, width: 1.0),
+                ),
+                onPressed: () async {
+                  final newUser = UserModel(
+                    email: credential.user!.email!,
+                    firstName: userName.toString().split(' ').first,
+                    lastName: userName.toString().split(' ').last ==
+                            userName.toString().split(' ').first
+                        ? ' '
+                        : userName.toString().split(' ').last,
+                    password: '',
+                    googleAuthToken: credential.user!.uid,
+                  );
+                  await AuthenticationRepository.instance.signup(newUser);
+                  await AuthenticationRepository.instance.deviceStorage
+                      .write('isVerfied', true);
+                  await AuthenticationRepository.instance.screenRedirect();
+                },
+                child: const SizedBox(
+                  width: double.infinity,
+                  child: Text(
+                    'Skip',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 16),
                   ),
                 ),
               ),
