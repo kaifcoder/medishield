@@ -146,6 +146,7 @@ class SettingScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections),
 
+                  // SizedBox
                   if (isguest != true)
                     SizedBox(
                       width: double.infinity,
@@ -157,7 +158,52 @@ class SettingScreen extends StatelessWidget {
                             style: TextStyle(color: Colors.red),
                           )),
                     ), // SizedBox
-                  const SizedBox(height: TSizes.spaceBtwSections * 2.5),
+                  const SizedBox(height: TSizes.spaceBtwSections / 2),
+                  if (isguest != true)
+                    SizedBox(
+                      width: double.infinity,
+                      child: OutlinedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red,
+                            shadowColor: Colors.red,
+                            overlayColor: Colors.red,
+                            foregroundColor: Colors.red,
+                          ),
+                          onPressed: () {
+                            // show confirmation dialog
+                            showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                title: const Text('Delete Account'),
+                                content: const Text(
+                                    'Are you sure you want to delete your account? This action will delete all your data and cannot be undone all your order history, address and other data will be lost.'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text('Cancel'),
+                                  ),
+                                  TextButton(
+                                    style: TextButton.styleFrom(
+                                      foregroundColor: Colors.red,
+                                    ),
+                                    onPressed: () async {
+                                      await AuthenticationRepository.instance
+                                          .deleteAccount();
+                                    },
+                                    child: const Text('Delete'),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            'Delete Account',
+                            style: TextStyle(color: Colors.white),
+                          )),
+                    ),
+                  const SizedBox(height: TSizes.spaceBtwSections / 2),
                 ],
               ),
             ),

@@ -552,6 +552,24 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
+  //delete user account
+  Future<void> deleteAccount() async {
+    final res = await THttpHelper.delete('api/user/delete-user');
+    debugPrint('delete account res $res');
+    // show loading while deleting account
+    if (res['status'] == 'success') {
+      Get.snackbar('Account Deleted', 'Your account has been deleted',
+          snackPosition: SnackPosition.TOP,
+          margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 10));
+      await logout();
+    } else {
+      Get.snackbar(
+          'Error', 'Something went wrong please try again or contact support',
+          snackPosition: SnackPosition.TOP,
+          margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 10));
+    }
+  }
+
   // logout user
   logout() async {
     await deviceStorage.remove('token');
