@@ -26,6 +26,7 @@ class TImages {
       "assets/icons/categories/general dentistry.png";
   static const String pharmacy = "assets/icons/categories/pharmacy.png";
   static const String restorative = "assets/icons/categories/restoration.png";
+  static const String offer = "assets/icons/categories/offers.jpg";
 
   // -- Animations
   static const String productsIllustration =

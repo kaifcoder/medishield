@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:medishield/common/widgets/custom_snackbar.dart';
 import 'package:medishield/features/shop/controllers/cart_controller.dart';
 import 'package:medishield/features/shop/controllers/coupon_controller.dart';
+import 'package:medishield/features/shop/models/product_model.dart';
 import 'package:medishield/features/shop/screens/checkout/widget/horizontal_coupon_card.dart';
 
 class CouponDialog extends StatelessWidget {
@@ -79,6 +81,17 @@ class CouponDialog extends StatelessWidget {
                   return GestureDetector(
                     onTap: () {
                       var couponType = coupon.type!;
+
+                      // check if coupon contains offer keyword and product is in Offers category if not then show snack bar that coupon can't be applied to this product
+                      if (coupon.couponCode!.contains(
+                              RegExp(r'offer', caseSensitive: false)) &&
+                          !cartController.userCart.value.products.every((p) => p
+                              .product.categories
+                              .any((element) => element.name == 'Offers'))) {
+                        // ignore: void_checks
+                        return CustomSnackbar.warningSnackBar(
+                            "You Cannot use this coupon with current Product(s) in the Cart");
+                      }
                       cartController.couponType.value = couponType;
                       var discount = coupon.discount!;
                       if (couponType == 'percentage') {

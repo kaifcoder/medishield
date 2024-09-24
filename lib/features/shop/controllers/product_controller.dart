@@ -24,6 +24,7 @@ class ProductController extends GetxController {
   RxList<ProductModel> FeaturedProducts = <ProductModel>[].obs;
   ProductModel product = ProductModel.empty();
   RxList<ProductModel> SearchProducts = <ProductModel>[].obs;
+  RxList<ProductModel> offerProducts = <ProductModel>[].obs;
 
   @override
   void onInit() {
@@ -31,6 +32,7 @@ class ProductController extends GetxController {
     fetchorthoProduct();
     fetchInstruProduct();
     fetchOtherProducts();
+    fetchOfferProducts();
     super.onInit();
   }
 
@@ -113,6 +115,25 @@ class ProductController extends GetxController {
       final response = await productRepo.fetchFeaturedProducts();
       // assign to list
       FeaturedProducts.assignAll(response['data'].map<ProductModel>((product) {
+        return ProductModel.fromJson(product);
+      }).toList());
+    } catch (e) {
+      CustomSnackbar.errorSnackBar('Something went wrong');
+      TLoggerHelper.error(e.toString());
+      rethrow;
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  // fetch offer products
+  fetchOfferProducts() async {
+    try {
+      isLoading.value = true;
+      // fetch
+      final response = await productRepo.fetchOfferProducts();
+      // assign to list
+      offerProducts.assignAll(response['data'].map<ProductModel>((product) {
         return ProductModel.fromJson(product);
       }).toList());
     } catch (e) {

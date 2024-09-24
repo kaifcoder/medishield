@@ -15,6 +15,7 @@ class CouponController extends GetxController {
   final discount = 0.obs;
   final couponApplied = false.obs;
   var couponList = <Coupon>[].obs;
+  var specialList = <Coupon>[].obs;
   final loading = false.obs;
 
   @override

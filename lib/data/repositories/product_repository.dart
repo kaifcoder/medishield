@@ -54,4 +54,13 @@ class ProductRepository extends GetxController {
       rethrow;
     }
   }
+
+  fetchOfferProducts() async {
+    try {
+      final res = await THttpHelper.get('api/product?category=Offers');
+      return res;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

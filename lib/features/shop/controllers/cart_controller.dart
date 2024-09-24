@@ -11,7 +11,7 @@ class CartController extends GetxController {
   static CartController get instance => Get.find();
   final cartRepo = Get.put(CartRepository());
   final auth = AuthenticationRepository.instance;
-  final userCart = CartModel(
+  var userCart = CartModel(
     id: '',
     products: [],
     cartTotal: 0,

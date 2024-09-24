@@ -12,7 +12,7 @@ class CategoiesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = CategoryController.instance;
-    final allProductController = Get.put(AllProductController());
+    final allProductController = AllProductController.instance;
     final productController = ProductController.instance;
     return Scaffold(
       appBar: const TAppBar(

@@ -33,6 +33,8 @@ class CategoryController extends GetxController {
       // filter featured category
       final featuredCategory =
           categoryList.where((category) => category.featured == true).toList();
+      // update featured category list bring the Offer category to the front
+
       this.featuredCategory(featuredCategory);
     } catch (e) {
       TLoggerHelper.error(e.toString());
